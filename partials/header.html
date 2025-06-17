@@ -1,0 +1,45 @@
+<!-- Header with enhanced accessibility and mobile compatibility -->
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="logo" aria-label="iBridge Home">
+                <img src="images/iBridge_Logo-removebg-preview.png" alt="iBridge Logo" width="100" height="33">
+            </a>
+            <!-- Mobile nav toggle button -->
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu" type="button" tabindex="0">
+                <span class="hamburger"></span>
+                <span class="visually-hidden">Menu</span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" aria-expanded="false" aria-controls="services-dropdown" tabindex="0">
+                        More <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-menu" id="services-dropdown">
+                        <li><a href="contact-center.html" class="dropdown-item">Contact Center Solutions</a></li>
+                        <li><a href="it-support.html" class="dropdown-item">IT Support & Cloud Services</a></li>
+                        <li><a href="ai-automation.html" class="dropdown-item">AI & Automation</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="tel:+27111234567" class="nav-link nav-cta">
+                        <i class="fas fa-phone" aria-hidden="true"></i> 
+                        <span>+27 11 123 4567</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

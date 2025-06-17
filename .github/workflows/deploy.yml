@@ -1,0 +1,45 @@
+name: Deploy iBridge Website
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    # Manual trigger from GitHub UI
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    
+    - name: Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm install
+        fi
+    
+    - name: Check HTML validity
+      run: |
+        # Only run if html-validate is installed
+        if [ -f node_modules/.bin/html-validate ]; then
+          echo "Validating HTML files..."
+          find . -name "*.html" -exec node_modules/.bin/html-validate {} \;
+        else
+          echo "Skipping HTML validation (html-validate not installed)"
+        fi
+        
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        branch: gh-pages
+        folder: .
+        single-commit: true
