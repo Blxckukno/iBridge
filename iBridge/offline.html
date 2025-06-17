@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | iBridge Contact Solutions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .offline-content {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 100px auto;
+        }
+        .offline-icon {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <main class="offline-content">
+        <i class="fas fa-wifi offline-icon" aria-hidden="true"></i>
+        <h1>You're Offline</h1>
+        <p>Sorry, you appear to be offline. Please check your internet connection and try again.</p>
+        <p>Some features of iBridge Contact Solutions are available offline if you've visited them before.</p>
+        <button onclick="window.location.reload()" class="cta-button">
+            Try Again
+        </button>
+    </main>
+    <script>
+        // Check if we're back online
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>

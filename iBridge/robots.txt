@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /js/
+Disallow: /css/
+Sitemap: https://ibridgecontacts.com/sitemap.xml
+
+# Block GPT crawler from training on our content
+User-agent: GPTBot
+Disallow: /
+
+# Block Google-Extended from training on our content
+User-agent: Google-Extended
+Disallow: /

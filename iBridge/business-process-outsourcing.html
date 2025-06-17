@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Process Outsourcing | iBridge Contact Solutions</title>
+    <meta name="description" content="Streamline your operations with expert back-office processing and data entry services from iBridge Contact Solutions.">
+    <style>
+        :root {
+            --silver: #BABABB;
+            --night: #151710;
+            --orange-web: #F6A21D;
+            --golden-brown: #A27936;
+            --silver-2: #ADADAD;
+            --yellow-green: #A1C44F;
+            --dim-gray: #6A6A6B;
+            --gray: #757576;
+            --battleship-gray: #8E8E8E;
+            --jet: #363634;
+            --primary-color: var(--yellow-green);
+            --background: white;
+            --text-primary: var(--night);
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            padding: 25px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo h1 {
+            margin-left: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background-color: var(--night);
+            color: white;
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--silver-2);
+        }
+
+        /* Service Detail Section */
+        .service-detail {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .section-title p {
+            color: var(--dim-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .service-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--night);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            text-align: center;
+        }
+        
+        .back-to-menu {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-bottom: 16px;
+        }
+        
+        .back-to-menu:hover {
+            background-color: #8fb03a;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="iBridge Contact Solutions">
+                <h1>iBridge Contact Solutions</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" title="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h1>Business Process Outsourcing</h1>
+            <p>Streamline your operations with expert back-office processing and data entry services.</p>
+        </div>
+    </section>
+    <main>
+        <section class="service-detail">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Business Process Outsourcing</h2>
+                    <p>Streamline your operations with expert back-office processing and data entry services.</p>
+                </div>
+                <div class="service-content">
+                    <p>Our BPO solutions are designed to help your business reduce costs, improve efficiency, and focus on core activities. We offer tailored services in data entry, document management, finance & accounting, HR support, and more. Let iBridge handle your non-core processes so you can focus on growth.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container footer-container">
+            <a href="#mainMenu" class="back-to-menu cta-button" onclick="document.getElementById('mobileMenuBtn').click(); return false;" style="display:inline-block;margin-bottom:16px;">Back to Main Menu</a>
+            <p>&copy; 2025 iBridge Contact Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+        if (mobileMenuBtn && mainMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mainMenu.classList.toggle('show');
+            });
+        }
+    </script>
+</body>
+</html>

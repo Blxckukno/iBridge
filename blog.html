@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | iBridge Contact Solutions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="iBridge Contact Solutions">
+                <h1>iBridge Contact Solutions</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="mainMenu" role="menu">
+                    <li><a href="index.html" role="menuitem">Home</a></li>
+                    <li><a href="blog.html" role="menuitem">Blog</a></li>
+                    <li><a href="careers.html" role="menuitem">Careers</a></li>
+                    <li><a href="about.html" role="menuitem">About</a></li>
+                    <li><a href="team.html" role="menuitem">Our Team</a></li>
+                    <li><a href="services.html" role="menuitem">Services</a></li>
+                    <li><a href="contact.html" role="menuitem">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <header class="hero">
+        <div class="container">
+            <h1>Our Blog</h1>
+            <p>Stay updated with the latest news and insights from iBridge Contact Solutions.</p>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <div class="section-title">
+                <h1>Our Blog</h1>
+                <p>Stay updated with the latest news and insights from iBridge Contact Solutions.</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-post">
+                    <img src="images/placeholder1.jpg" alt="Blog Post 1" loading="lazy">
+                    <h3>How BPO is Transforming Customer Service</h3>
+                    <p>Discover how business process outsourcing is revolutionizing the way companies interact with their customers and streamline operations.</p>
+                    <a href="#" class="cta-button">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <img src="images/placeholder2.jpg" alt="Blog Post 2" loading="lazy">
+                    <h3>AI in Contact Centers: The Future is Now</h3>
+                    <p>Explore the impact of artificial intelligence on contact center efficiency, customer satisfaction, and business growth.</p>
+                    <a href="#" class="cta-button">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <img src="images/placeholder3.jpg" alt="Blog Post 3" loading="lazy">
+                    <h3>Remote Work: Best Practices for Success</h3>
+                    <p>Learn how to build a productive remote team and leverage technology for seamless collaboration and service delivery.</p>
+                    <a href="#" class="cta-button">Read More</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from businesses that have partnered with iBridge to transform their operations.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-item">
+                    <p>"iBridge has been instrumental in streamlining our customer service operations. Their innovative solutions and dedicated team have exceeded our expectations."</p>
+                    <h4>John Smith</h4>
+                    <p>CEO, Tech Innovators</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>"The team at iBridge truly understands our business needs. Their expertise in digital transformation has helped us achieve remarkable growth."</p>
+                    <h4>Jane Doe</h4>
+                    <p>COO, Global Enterprises</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Partnering with iBridge has been a game-changer for our company. Their tailored solutions and exceptional support have made all the difference."</p>
+                    <h4>Michael Lee</h4>
+                    <p>Director, Business Solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('show');
+        });
+
+        // Scroll-to-Top Button
+        const scrollToTopBtn = document.createElement('button');
+        scrollToTopBtn.innerText = 'Top';
+        scrollToTopBtn.classList.add('scroll-to-top');
+        document.body.appendChild(scrollToTopBtn);
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+    </script>
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2025 iBridge Contact Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

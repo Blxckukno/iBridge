@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our range of business process outsourcing, IT support, and contact center services at iBridge Contact Solutions.">
+    <title>Our Services | iBridge Contact Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+    <!-- PWA Support -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#A27936">
+    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="container header-container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="iBridge Contact Solutions">
+                    <h1>iBridge Contact Solutions</h1>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" title="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul id="mainMenu">
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <header class="hero" aria-label="Hero section">
+            <div class="container hero-content">
+                <h1>Our Services</h1>
+                <p>Discover how iBridge Contact Solutions can help your business grow and succeed.</p>
+            </div>
+        </header>
+        <main style="padding-top: 80px;">
+            <section class="services-section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>What We Offer</h2>
+                        <p>Our comprehensive suite of services is designed to meet your business needs.</p>
+                    </div>
+                    <div class="services-list">
+                        <div class="service-item">
+                            <h3>Business Process Outsourcing</h3>
+                            <p>Streamline your operations and reduce costs with our expert BPO solutions.</p>
+                        </div>
+                        <div class="service-item">
+                            <h3>IT Support Services</h3>
+                            <p>Keep your business running smoothly with our reliable IT support and solutions.</p>
+                        </div>
+                        <div class="service-item">
+                            <h3>Contact Center Solutions</h3>
+                            <p>Enhance your customer experience with our state-of-the-art contact center services.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="testimonials" class="testimonials">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>What Our Clients Say</h2>
+                        <p>Hear from businesses that have partnered with iBridge to transform their operations.</p>
+                    </div>
+                    <div class="testimonial-slider">
+                        <div class="testimonial-item">
+                            <p>"iBridge has been instrumental in streamlining our customer service operations. Their innovative solutions and dedicated team have exceeded our expectations."</p>
+                            <h4>John Smith</h4>
+                            <p>CEO, Tech Innovators</p>
+                        </div>
+                        <div class="testimonial-item">
+                            <p>"The team at iBridge truly understands our business needs. Their expertise in digital transformation has helped us achieve remarkable growth."</p>
+                            <h4>Jane Doe</h4>
+                            <p>COO, Global Enterprises</p>
+                        </div>
+                        <div class="testimonial-item">
+                            <p>"Partnering with iBridge has been a game-changer for our company. Their tailored solutions and exceptional support have made all the difference."</p>
+                            <h4>Michael Lee</h4>
+                            <p>Director, Business Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container footer-container">
+                <a href="#mainMenu" class="back-to-menu cta-button" onclick="document.getElementById('mobileMenuBtn').click(); return false;" style="display:inline-block;margin-bottom:16px;">Back to Main Menu</a>
+                <p>&copy; 2025 iBridge Contact Solutions. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <!-- Floating WhatsApp/Chat Button -->
+    <a href="https://wa.me/27111234567" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <!-- Scroll-to-Top Button (added via JS) -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('show');
+        });
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (document.querySelector(this.getAttribute('href'))) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        // Scroll-to-Top Button
+        const scrollBtn = document.createElement('button');
+        scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        scrollBtn.className = 'cta-button';
+        scrollBtn.style.position = 'fixed';
+        scrollBtn.style.bottom = '100px';
+        scrollBtn.style.right = '40px';
+        scrollBtn.style.display = 'none';
+        scrollBtn.style.zIndex = '1001';
+        scrollBtn.setAttribute('aria-label', 'Scroll to top');
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

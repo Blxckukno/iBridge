@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the iBridge Contact Solutions team. Our experienced professionals are dedicated to your business success.">
+    <title>Our Team | iBridge Contact Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+    <!-- PWA Support -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#A27936">
+    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="container header-container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="iBridge Contact Solutions">
+                    <h1>iBridge Contact Solutions</h1>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" title="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul id="mainMenu">
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html" class="active" aria-current="page">Our Team</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <header class="hero" aria-label="Hero section">
+            <div class="container hero-content">
+                <h1>Our Team</h1>
+                <p>Meet the professionals who drive iBridge Contact Solutions forward.</p>
+            </div>
+        </header>
+        <main style="padding-top: 80px;">
+            <section class="team-section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Meet Our Team</h2>
+                        <p>Our experienced team is dedicated to delivering exceptional results for your business.</p>
+                    </div>
+                    <div class="team-list">
+                        <div class="team-member">
+                            <img src="images/placeholder1.jpg" alt="Team Member 1" class="lazy-image" loading="lazy">
+                            <h3>Jane Doe</h3>
+                            <p>Chief Executive Officer</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="images/placeholder2.jpg" alt="Team Member 2" class="lazy-image" loading="lazy">
+                            <h3>John Smith</h3>
+                            <p>Head of IT Support</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="images/placeholder3.jpg" alt="Team Member 3" class="lazy-image" loading="lazy">
+                            <h3>Mary Johnson</h3>
+                            <p>Operations Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container footer-container">
+                <a href="#mainMenu" class="back-to-menu cta-button" onclick="document.getElementById('mobileMenuBtn').click(); return false;" style="display:inline-block;margin-bottom:16px;">Back to Main Menu</a>
+                <p>&copy; 2025 iBridge Contact Solutions. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <!-- Floating WhatsApp/Chat Button -->
+    <a href="https://wa.me/27111234567" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <!-- Scroll-to-Top Button (added via JS) -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('show');
+        });
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (document.querySelector(this.getAttribute('href'))) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        // Scroll-to-Top Button
+        const scrollBtn = document.createElement('button');
+        scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        scrollBtn.className = 'cta-button';
+        scrollBtn.style.position = 'fixed';
+        scrollBtn.style.bottom = '100px';
+        scrollBtn.style.right = '40px';
+        scrollBtn.style.display = 'none';
+        scrollBtn.style.zIndex = '1001';
+        scrollBtn.setAttribute('aria-label', 'Scroll to top');
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    <noscript>
+        <div class="noscript-warning">
+            Please enable JavaScript for the best experience on this site.
+        </div>
+    </noscript>
+</body>
+</html>

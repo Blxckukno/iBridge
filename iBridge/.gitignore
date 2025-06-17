@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+
+# Logs
+*.log
+
+# OS generated files
+ehthumbs.db
+Icon?
+
+# Build output
+/dist/
+
+# Mac system files
+.AppleDouble
+.LSOverride
+
+# Windows system files
+Desktop.ini
+$RECYCLE.BIN/
+
+# Others
+*.swp
+*.swo
+
+# Ignore GitHub Pages Website folder if not needed
+GitHub Pages Website/

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stay updated with the latest news and insights from iBridge Contact Solutions.">
+    <title>Blog | iBridge Contact Solutions</title>
+    <style>
+        :root {
+            --silver: #BABABB;
+            --night: #151710;
+            --orange-web: #F6A21D;
+            --golden-brown: #A27936;
+            --silver-2: #ADADAD;
+            --yellow-green: #A1C44F;
+            --dim-gray: #6A6A6B;
+            --gray: #757576;
+            --battleship-gray: #8E8E8E;
+            --jet: #363634;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--night);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            padding: 25px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--yellow-green);
+            margin: 0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--night);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--yellow-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background-color: var(--night);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--silver-2);
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+        
+        .blog-post {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-10px);
+        }
+        
+        .blog-post img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-post h3 {
+            padding: 20px 20px 10px;
+            margin: 0;
+            color: var(--night);
+            font-size: 22px;
+        }
+        
+        .blog-post p {
+            padding: 0 20px;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--yellow-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0 20px 20px;
+        }
+        
+        .cta-button:hover {
+            background-color: #8fb03a;
+            transform: translateY(-2px);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f9f9f9;
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--night);
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-item p {
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-item h4 {
+            color: var(--night);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--night);
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .footer-container {
+            text-align: center;
+        }
+        
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--night);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="container header-inner">
+                <div class="logo">
+                    <img src="images/logo.png" alt="iBridge Contact Solutions">
+                    <h1>iBridge Contact Solutions</h1>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" title="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul id="mainMenu">
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <header class="hero" aria-label="Hero section">
+            <div class="hero-svg-wave" aria-hidden="true">
+                <svg viewBox="0 0 1440 320" width="100%" height="80" preserveAspectRatio="none" style="display:block;"><path fill="#32CD32" fill-opacity="1" d="M0,224L48,197.3C96,171,192,117,288,117.3C384,117,480,171,576,197.3C672,224,768,224,864,197.3C960,171,1056,117,1152,122.7C1248,128,1344,192,1392,224L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+            </div>
+            <div class="container hero-content">
+                <h1>Blog</h1>
+                <p>Stay updated with the latest news and insights from iBridge Contact Solutions.</p>
+            </div>
+        </header>
+        <main style="padding-top: 80px;">
+            <div class="container">
+                <div class="blog-grid">
+                    <div class="blog-post">
+                        <img src="images/placeholder1.jpg" alt="How BPO is Transforming Customer Service" loading="lazy">
+                        <h3>How BPO is Transforming Customer Service</h3>
+                        <p>Discover how business process outsourcing is revolutionizing the way companies interact with their customers and streamline operations.</p>
+                        <a href="#" class="cta-button">Read More</a>
+                    </div>
+                    <div class="blog-post">
+                        <img src="images/placeholder2.jpg" alt="AI in Contact Centers: The Future is Now" loading="lazy">
+                        <h3>AI in Contact Centers: The Future is Now</h3>
+                        <p>Explore the impact of artificial intelligence on contact center efficiency, customer satisfaction, and business growth.</p>
+                        <a href="#" class="cta-button">Read More</a>
+                    </div>
+                    <div class="blog-post">
+                        <img src="images/placeholder3.jpg" alt="Remote Work: Best Practices for Success" loading="lazy">
+                        <h3>Remote Work: Best Practices for Success</h3>
+                        <p>Learn how to build a productive remote team and leverage technology for seamless collaboration and service delivery.</p>
+                        <a href="#" class="cta-button">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Clients Say</h2>
+                    <p>Hear from businesses that have partnered with iBridge to transform their operations.</p>
+                </div>
+                <div class="testimonial-slider">
+                    <div class="testimonial-item">
+                        <p>"iBridge has been instrumental in streamlining our customer service operations. Their innovative solutions and dedicated team have exceeded our expectations."</p>
+                        <h4>John Smith</h4>
+                        <p>CEO, Tech Innovators</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"The team at iBridge truly understands our business needs. Their expertise in digital transformation has helped us achieve remarkable growth."</p>
+                        <h4>Jane Doe</h4>
+                        <p>COO, Global Enterprises</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Partnering with iBridge has been a game-changer for our company. Their tailored solutions and exceptional support have made all the difference."</p>
+                        <h4>Michael Lee</h4>
+                        <p>Director, Business Solutions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container footer-container">
+                <a href="#mainMenu" class="back-to-menu cta-button" onclick="document.getElementById('mobileMenuBtn').click(); return false;" style="display:inline-block;margin-bottom:16px;">Back to Main Menu</a>
+                <p>&copy; 2025 iBridge Contact Solutions. All rights reserved.</p>
+            </div>
+        </footer>
+        <!-- Floating WhatsApp/Chat Button -->
+        <a href="https://wa.me/27111234567" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <!-- Scroll-to-Top Button (added via JS) -->
+        <script>
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainMenu = document.getElementById('mainMenu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mainMenu.classList.toggle('show');
+            });
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (document.querySelector(this.getAttribute('href'))) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            // Scroll-to-Top Button
+            const scrollBtn = document.createElement('button');
+            scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            scrollBtn.className = 'cta-button';
+            scrollBtn.style.position = 'fixed';
+            scrollBtn.style.bottom = '100px';
+            scrollBtn.style.right = '40px';
+            scrollBtn.style.display = 'none';
+            scrollBtn.style.zIndex = '1001';
+            scrollBtn.setAttribute('aria-label', 'Scroll to top');
+            document.body.appendChild(scrollBtn);
+            window.addEventListener('scroll', () => {
+                scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+            scrollBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        </script>
+    </div>
+</body>
+</html>

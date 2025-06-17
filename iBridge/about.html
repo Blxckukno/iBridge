@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn more about iBridge Contact Solutions, our mission, and what makes us a leader in BPO and Contact Centre Management.">
+    <title>About Us | iBridge Contact Solutions</title>
+    <style>
+        :root {
+            --silver: #BABABB;
+            --night: #151710;
+            --orange-web: #F6A21D;
+            --golden-brown: #A27936;
+            --silver-2: #ADADAD;
+            --yellow-green: #A1C44F;
+            --dim-gray: #6A6A6B;
+            --gray: #757576;
+            --battleship-gray: #8E8E8E;
+            --jet: #363634;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--night);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            padding: 25px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--yellow-green);
+            margin: 0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--night);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--yellow-green);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background-color: var(--night);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--silver-2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--night);
+        }
+        
+        .section-title p {
+            color: var(--dim-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+        
+        .about-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--night);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            text-align: center;
+        }
+        
+        .back-to-menu {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--yellow-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+        }
+        
+        .back-to-menu:hover {
+            background-color: #8fb03a;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+    <!-- PWA Support -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#A27936">
+    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="container header-container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="iBridge Contact Solutions">
+                    <h1>iBridge Contact Solutions</h1>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" title="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul id="mainMenu">
+                        <li><a href="Home.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="about.html" class="active">About</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <header class="hero" aria-label="Hero section">
+            <div class="hero-svg-wave" aria-hidden="true">
+                <svg viewBox="0 0 1440 320" width="100%" height="80" preserveAspectRatio="none" style="display:block;">
+                    <path fill="#A27936" fill-opacity="1" d="M0,224L48,197.3C96,171,192,117,288,117.3C384,117,480,171,576,197.3C672,224,768,224,864,197.3C960,171,1056,117,1152,122.7C1248,128,1344,192,1392,224L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+            <div class="container hero-content">
+                <h1>About Us</h1>
+                <p>Discover our mission, vision, and the values that drive iBridge Contact Solutions to deliver world-class BPO and contact centre services.</p>
+            </div>
+        </header>
+        <main style="padding-top: 80px;">
+            <section id="about-section" class="about">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>About iBridge</h2>
+                        <p>Founded in 2015, iBridge Contact Solutions (Pty) Ltd is a leader in Business Process Outsourcing (BPO) and Contact Centre Management. Headquartered in Roodepoort, Gauteng, South Africa, we specialize in delivering innovative solutions that bridge the gap between legacy systems and modern work environments.</p>
+                    </div>
+                    <div class="about-content">
+                        <p>Our mission is to provide tailored solutions that drive efficiency, reduce costs, and deliver measurable ROI for our clients. With a "Work from Anywhere" model powered by our ONE DIGITAL WORKPLACE platform, we ensure seamless operations and exceptional customer experiences.</p>
+                        <p>Our expertise spans a wide range of services, including Digital Transformation Consulting, Cloud Services, AI & Machine Learning, and Omni-Channel Communication. At iBridge, we LISTEN, we UNDERSTAND, and we DELIVER.</p>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                             data-src="images/placeholder1.jpg" 
+                             alt="About iBridge" 
+                             class="lazy-image" 
+                             loading="lazy">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container footer-container">
+                <a href="#mainMenu" class="back-to-menu cta-button" onclick="document.getElementById('mobileMenuBtn').click(); return false;" style="display:inline-block;margin-bottom:16px;">Back to Main Menu</a>
+                <p>&copy; 2025 iBridge Contact Solutions. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <!-- Floating WhatsApp/Chat Button -->
+    <a href="https://wa.me/27111234567" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <!-- Scroll-to-Top Button (added via JS) -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('show');
+        });
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (document.querySelector(this.getAttribute('href'))) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        // Scroll-to-Top Button
+        const scrollBtn = document.createElement('button');
+        scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        scrollBtn.className = 'cta-button';
+        scrollBtn.style.position = 'fixed';
+        scrollBtn.style.bottom = '100px';
+        scrollBtn.style.right = '40px';
+        scrollBtn.style.display = 'none';
+        scrollBtn.style.zIndex = '1001';
+        scrollBtn.setAttribute('aria-label', 'Scroll to top');
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

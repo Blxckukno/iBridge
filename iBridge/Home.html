@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iBridge Contact Solutions | Business Process Outsourcing & Contact Center Solutions</title>
+    <style>
+        :root {
+            --silver: #BABABB;
+            --night: #151710;
+            --orange-web: #F6A21D;
+            --golden-brown: #A27936;
+            --silver-2: #ADADAD;
+            --yellow-green: #A1C44F;
+            --dim-gray: #6A6A6B;
+            --gray: #757576;
+            --battleship-gray: #8E8E8E;
+            --jet: #363634;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--night);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            padding: 25px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--yellow-green);
+            margin: 0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--night);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--yellow-green);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--yellow-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #8fb03a;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background-color: var(--night);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 span {
+            color: var(--yellow-green);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--silver-2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--yellow-green) 0%, var(--night) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--night);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: var(--silver-2);
+        }
+        
+        .footer-col p, .footer-col a {
+            color: var(--battleship-gray);
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-col a:hover {
+            color: var(--yellow-green);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--yellow-green);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--battleship-gray);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <img src="images/logo.png" alt="iBridge Contact Solutions">
+                    <h1>iBridge Contact Solutions</h1>
+                </div>
+                <nav>
+                    <ul id="mainMenu">
+                        <li><a href="Home.html" class="active">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Your <span>Business</span> Operations</h1>
+            <p>Expert business process outsourcing and contact center solutions tailored to your needs.</p>
+            <a href="contact.html" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions to streamline your operations and enhance customer experience.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Contact Center Solutions</h3>
+                    <p>24/7 customer support with multilingual agents and omnichannel solutions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Business Process Outsourcing</h3>
+                    <p>Streamline operations with our expert back-office processing and data entry services.</p>
+                </div>
+                <div class="service-card">
+                    <h3>IT Support Services</h3>
+                    <p>Comprehensive technical support and infrastructure management solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Optimize Your Business?</h2>
+            <p>Let's discuss how our solutions can help your business grow and succeed.</p>
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="contact.html" class="btn">Contact Us</a>
+                <a href="services.html" class="btn btn-outline">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>iBridge Contact Solutions</h3>
+                    <p>Transforming business operations through innovative solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <a href="contact-center-solutions.html">Contact Center Solutions</a>
+                    <a href="business-process-outsourcing.html">Business Process Outsourcing</a>
+                    <a href="it-support-services.html">IT Support Services</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <a href="about.html">About Us</a>
+                    <a href="team.html">Our Team</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p>141 Ontdekkers Road</p>
+                    <p>Horizon Park, Roodepoort</p>
+                    <p>Gauteng 1724, ZA</p>
+                    <a href="tel:+27111234567">+27 11 123 4567</a>
+                    <a href="mailto:info@ibridgecontacts.com">info@ibridgecontacts.com</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 iBridge Contact Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/27111234567" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+        if (mobileMenuBtn && mainMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mainMenu.classList.toggle('show');
+            });
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
