@@ -1,0 +1,105 @@
+﻿{
+    "AdminUser":  "lwandile.gasela@ibridge.co.za",
+    "TotalGroups":  15,
+    "Timestamp":  "2025-07-04 18:59:37",
+    "Statistics":  {
+                       "DistributionGroups":  15,
+                       "SecurityGroups":  0,
+                       "UnifiedGroups":  0,
+                       "ProcessedSuccessfully":  0,
+                       "Failed":  15
+                   },
+    "ProcessedGroups":  [
+                            {
+                                "Identity":  "accounts20200904102935",
+                                "DisplayName":  "Accounts",
+                                "PrimarySmtpAddress":  "accounts@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "All Employees20220516114339",
+                                "DisplayName":  "All Employees",
+                                "PrimarySmtpAddress":  "allemployees@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Call Centre Agents All20220516115127",
+                                "DisplayName":  "Call Centre Agents All",
+                                "PrimarySmtpAddress":  "callcentreall@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Credit Vetting Agents20220509140044",
+                                "DisplayName":  "Credit Vetting Agents",
+                                "PrimarySmtpAddress":  "creditvettingagents@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Executives20220516111815",
+                                "DisplayName":  "Executives",
+                                "PrimarySmtpAddress":  "Executives@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Gauteng Call Centre Agents20220509140146",
+                                "DisplayName":  "Gauteng Call Centre Agents",
+                                "PrimarySmtpAddress":  "gautengcca@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "HR Group20220516112632",
+                                "DisplayName":  "HR Group",
+                                "PrimarySmtpAddress":  "hrgroup@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "iBridge General Enquiries20250613123720",
+                                "DisplayName":  "iBridge General Enquiries",
+                                "PrimarySmtpAddress":  "info@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "JustInTime20240425113843",
+                                "DisplayName":  "JustInTime",
+                                "PrimarySmtpAddress":  "JiT@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "KZN Call Centre Agents20220509140249",
+                                "DisplayName":  "KZN Call Centre Agents",
+                                "PrimarySmtpAddress":  "kzncca@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Learning and Development20220516113456",
+                                "DisplayName":  "Learning and Development",
+                                "PrimarySmtpAddress":  "learninganddev@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "MTN Escalations20240412065235",
+                                "DisplayName":  "MTN Escalations",
+                                "PrimarySmtpAddress":  "cc@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Ops Management20220516103012",
+                                "DisplayName":  "Ops Management",
+                                "PrimarySmtpAddress":  "opsmanagement@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Senior Managers20220516104448",
+                                "DisplayName":  "Senior Managers",
+                                "PrimarySmtpAddress":  "seniorm@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Team Leaders20220509135940",
+                                "DisplayName":  "Team Leaders",
+                                "PrimarySmtpAddress":  "teamleaders@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            }
+                        ],
+    "WhatIfMode":  false
+}

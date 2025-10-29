@@ -1,0 +1,33 @@
+{
+  "run_unit_tests": true,
+  "run_integration_tests": true,
+  "run_security_tests": true,
+  "run_performance_tests": true,
+  "verbose_output": true,
+  "create_test_report": true,
+  "report_format": "xml",
+  "open_report_browser": false,
+  "test_timeout": 300,
+  "parallel_tests": true,
+  "cleanup_after_tests": true,
+  "retry_failed_tests": 2,
+  "fail_fast": false,
+  "coverage_enabled": true,
+  "coverage_threshold": 80,
+  "log_level": "INFO",
+  "environment": {
+    "use_mock_services": true,
+    "external_resources": false,
+    "temp_directory": "",
+    "database_path": "",
+    "network_access": false
+  },
+  "ci_specific": {
+    "build_number": "auto",
+    "artifact_path": "test-artifacts",
+    "publish_results": true,
+    "notify_on_failure": true,
+    "max_test_duration": 3600,
+    "required_tests": ["unit.test_antivirus_core", "security.test_security_validation"]
+  }
+}

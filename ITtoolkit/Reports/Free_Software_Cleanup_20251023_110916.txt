@@ -1,0 +1,70 @@
+IT Toolkit Free Software Cleanup Report
+Generated: 10/23/2025 11:09:16
+Mode: DRY RUN - No files will be modified
+============================================================
+
+TRIAL/LIMITED SOFTWARE FOUND:
+
+File: EmsisoftEmergencyKit.exe
+Path: C:\Users\Lwandile Gasela\iBridge\ITtoolkit\Freeware\01_Cybersecurity\EmsisoftEmergencyKit.exe
+Size: 309.93 MB
+Reason: Limited free version, full features require paid license
+Alternative: ESET Online Scanner (web-based)
+Recommended Action: Review
+----------------------------------------
+File: HitmanPro_x64.exe
+Path: C:\Users\Lwandile Gasela\iBridge\ITtoolkit\Freeware\01_Cybersecurity\HitmanPro_x64.exe
+Size: 13.63 MB
+Reason: 30-day trial only, requires commercial license
+Alternative: ClamAV, Malwarebytes Free
+Recommended Action: Remove
+----------------------------------------
+File: MBSetup.exe
+Path: C:\Users\Lwandile Gasela\iBridge\ITtoolkit\Freeware\01_Cybersecurity\MBSetup.exe
+Size: 2.47 MB
+Reason: 14-day premium trial, reverts to limited free version
+Alternative: Keep if using free version only
+Recommended Action: Review
+----------------------------------------
+
+VERIFIED FREE SOFTWARE (20 items):
+
+01_Cybersecurity:
+  • Autoruns.zip (2.8 MB)
+  • clamwin-0.103.9-setup.exe (0.13 MB)
+  • HBCD_PE_x64.iso (717.5 MB)
+  • ProcessExplorer.zip (3.3 MB)
+  • RootkitRevealer.zip (0.22 MB)
+  • rufus-4.4.exe (1.37 MB)
+  • TCPView.zip (1.53 MB)
+
+02_Backup_Recovery:
+  • rcsetup153.exe (12.4 MB)
+
+03_System_Utilities:
+  • 7z2407-x64.exe (1.55 MB)
+  • BleachBit-4.6.0-portable.zip (12.06 MB)
+  • Everything-1.4.1.1024.x64.zip (1.72 MB)
+
+04_Networking:
+  • Advanced_IP_Scanner_2.5.4594.1.exe (20.08 MB)
+  • nmap-7.95-setup.exe (32.4 MB)
+  • putty-64bit-0.81-installer.msi (3.54 MB)
+  • Wireshark-4.4.9-x64.exe (83.37 MB)
+
+05_Productivity:
+  • googlechromestandaloneenterprise64.msi (131.76 MB)
+  • SumatraPDF-3.5.2-64-install.exe (7.86 MB)
+
+06_Runtimes:
+  • VisualCppRedist_AIO_x86_x64.exe (27.7 MB)
+
+07_Drivers:
+  • Intel-Driver-and-Support-Assistant-Installer.exe (8.7 MB)
+  • SDI_R2413.exe (0.01 MB)
+
+
+SUMMARY:
+- Total files scanned: 23
+- Verified free software: 20
+- Trial/limited software found: 3

@@ -1,0 +1,19 @@
+Comprehensive Trial Software Detection & Removal Report
+Generated: 10/23/2025 11:44:00
+Mode: DRY RUN - No files will be modified
+============================================================
+
+❌ TRIAL SOFTWARE DETECTED (1 files):
+
+File: rcsetup153.exe
+Path: C:\Users\Lwandile Gasela\iBridge\ITtoolkit\Freeware\02_Backup_Recovery\rcsetup153.exe
+Size: 12.4 MB
+Reason: Suspicious filename contains trial keyword: rc
+Category: Unknown
+Last Modified: 09/11/2025 12:07:07
+----------------------------------------
+
+SCAN SUMMARY:
+- Total files scanned: 31
+- Trial software detected: 1
+- Toolkit cleanliness: Needs cleaning

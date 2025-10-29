@@ -1,0 +1,120 @@
+﻿{
+    "Timestamp":  {
+                      "value":  "\/Date(1751657475453)\/",
+                      "DisplayHint":  2,
+                      "DateTime":  "Friday, 04 July 2025 21:31:15"
+                  },
+    "Office365Groups":  [
+
+                        ],
+    "AdminUser":  "lwandile.gasela@ibridge.co.za",
+    "SecurityGroups":  [
+
+                       ],
+    "SharedMailboxes":  [
+
+                        ],
+    "Summary":  {
+                    "SuccessRate":  93.33,
+                    "TotalObjects":  15,
+                    "TotalSuccessful":  14,
+                    "TotalFailed":  5,
+                    "Office365Groups":  0,
+                    "SharedMailboxes":  0,
+                    "SecurityGroups":  0,
+                    "DistributionGroups":  15
+                },
+    "DistributionGroups":  [
+                               {
+                                   "Group":  "Accounts",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "All Employees",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "Call Centre Agents All",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "Credit Vetting Agents",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "Executives",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "Gauteng Call Centre Agents",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "HR Group",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "iBridge General Enquiries",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "JustInTime",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "KZN Call Centre Agents",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "Learning and Development",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "MTN Escalations",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "Ops Management",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               },
+                               {
+                                   "Group":  "Senior Managers",
+                                   "Error":  "||The operation on Identity \"Senior Managers20220516104448\" failed because it\u0027s out of the current user\u0027s write scope. \u0027Senior Managers20220516104448\u0027 isn\u0027t within your current write scopes. Can\u0027t perform save operation.",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  false,
+                                   "Action":  "Failed"
+                               },
+                               {
+                                   "Group":  "Team Leaders",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  true,
+                                   "Action":  "Already Correct"
+                               }
+                           ]
+}

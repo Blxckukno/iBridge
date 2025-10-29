@@ -1,0 +1,96 @@
+﻿NETWORK-WIDE SECURITY AUDIT REPORT
+Generated: 09/12/2025 08:16:18
+Network Range: 192.168.1.0/24
+Risk Level: MEDIUM
+
+NETWORK DEVICES DISCOVERED:
+  Active adapter: Ethernet - VirtualBox Host-Only Ethernet Adapter
+  Active adapter: WiFi - Realtek RTL8821CE 802.11ac PCIe Adapter
+  Device found: 10.0.0.2 (a0-9f-7a-50-64-a7) - dynamic
+  Device found: 10.0.0.255 (ff-ff-ff-ff-ff-ff) - static
+  Device found: 224.0.0.22 (01-00-5e-00-00-16) - static
+  Device found: 224.0.0.251 (01-00-5e-00-00-fb) - static
+  Device found: 224.0.0.252 (01-00-5e-00-00-fc) - static
+  Device found: 224.0.1.178 (01-00-5e-00-01-b2) - static
+  Device found: 239.255.255.250 (01-00-5e-7f-ff-fa) - static
+  Device found: 255.255.255.255 (ff-ff-ff-ff-ff-ff) - static
+  Device found: 192.168.56.255 (ff-ff-ff-ff-ff-ff) - static
+  Device found: 224.0.0.22 (01-00-5e-00-00-16) - static
+  Device found: 224.0.0.251 (01-00-5e-00-00-fb) - static
+  Device found: 224.0.0.252 (01-00-5e-00-00-fc) - static
+  Device found: 224.0.1.178 (01-00-5e-00-01-b2) - static
+  Device found: 239.255.255.250 (01-00-5e-7f-ff-fa) - static
+  Firewall enabled for profile: Domain
+  Firewall enabled for profile: Private
+  Firewall enabled for profile: Public
+  DNS resolution successful: google.com
+  DNS resolution successful: microsoft.com
+  DNS resolution successful: github.com
+  Default gateway: 10.0.0.2
+
+OPEN PORTS DETECTED:
+  Open port: 49708 - Process: services (PID: 1096)
+  Open port: 49672 - Process: jhi_service (PID: 5940)
+  Open port: 49671 - Process: spoolsv (PID: 5152)
+  Open port: 49667 - Process: svchost (PID: 3600)
+  Open port: 49666 - Process: svchost (PID: 1812)
+  Open port: 49665 - Process: wininit (PID: 652)
+  Open port: 49664 - Process: lsass (PID: 1128)
+  Open port: 47001 - Process: System (PID: 4)
+  Open port: 42050 - Process: OneDrive.Sync.Service (PID: 20172)
+  Open port: 6985 - Process: WavesLocalServer (PID: 20188)
+  Open port: 5985 - Process: System (PID: 4)
+  Open port: 445 - Process: System (PID: 4)
+  Open port: 135 - Process: svchost (PID: 1496)
+  Open port: 57130 - Process: stAgentSvc (PID: 6588)
+  Open port: 49708 - Process: services (PID: 1096)
+  Open port: 49671 - Process: spoolsv (PID: 5152)
+  Open port: 49667 - Process: svchost (PID: 3600)
+  Open port: 49666 - Process: svchost (PID: 1812)
+  Open port: 49665 - Process: wininit (PID: 652)
+  Open port: 49664 - Process: lsass (PID: 1128)
+  Open port: 49351 - Process: esrv (PID: 7952)
+  Open port: 49350 - Process: esrv_svc (PID: 2020)
+  Open port: 43227 - Process: MBAMService (PID: 6168)
+  Open port: 28390 - Process: System (PID: 4)
+  Open port: 28385 - Process: System (PID: 4)
+  Open port: 6985 - Process: WavesLocalServer (PID: 20188)
+  Open port: 5939 - Process: TeamViewer_Service (PID: 7152)
+  Open port: 5354 - Process: mDNSResponder (PID: 5480)
+  Open port: 5040 - Process: svchost (PID: 3292)
+  Open port: 139 - Process: System (PID: 4)
+  Open port: 139 - Process: System (PID: 4)
+  Open port: 135 - Process: svchost (PID: 1496)
+
+SECURITY ISSUES IDENTIFIED:
+  Risky port open: 445 - System
+  Risky port open: 135 - svchost
+  Risky port open: 139 - System
+  Risky port open: 139 - System
+  Risky port open: 135 - svchost
+  Network share exposed: backend at C:\Windows\System32\backend
+  Network share exposed: GaselaJnr at C:\Windows\System32\backend
+
+SECURITY RECOMMENDATIONS:
+  Enable Windows Firewall on all profiles
+  Regularly update router firmware
+  Use WPA3 encryption for WiFi networks
+  Disable unnecessary network services
+  Monitor network traffic for anomalies
+  Implement network segmentation
+  Use VPN for remote access
+  Regular security audits and penetration testing
+
+RISK ASSESSMENT: MEDIUM
+MODERATE - Address identified issues
+
+AUDIT SUMMARY:
+Network devices scanned and catalogued
+Local port configuration analyzed
+Security settings reviewed
+Connectivity and DNS tested
+Recommendations provided
+
+NOTE: This audit provides a basic security assessment.
+For comprehensive network security, consider professional
+penetration testing and security consulting services.

@@ -1,0 +1,25 @@
+SENIOR MANAGERS GROUP ISSUE SUMMARY
+Generated: 07/04/2025 21:45:38
+
+PROBLEM:
+The 'Senior Managers' group cannot be modified by lwandile.gasela@ibridge.co.za due to Exchange write scope restrictions.
+
+CURRENT STATUS:
+- Group Name: Senior Managers
+- Group Identity: Senior Managers20220516104448
+- Current Managers: Itumeleng Kutumela, Mgqibelo Gasela
+- Desired Manager: lwandile.gasela@ibridge.co.za (sole manager)
+
+SOLUTION:
+Have a Global Administrator run this command:
+Set-DistributionGroup -Identity 'Senior Managers20220516104448' -ManagedBy 'lwandile.gasela@ibridge.co.za'
+
+VERIFICATION:
+After the change, run:
+Get-DistributionGroup -Identity 'Senior Managers20220516104448' | Select DisplayName,ManagedBy
+
+NEXT STEPS:
+1. Contact Global Administrator
+2. Have them run the command above
+3. Verify the change
+4. Re-run the comprehensive rights script to achieve 100% compliance

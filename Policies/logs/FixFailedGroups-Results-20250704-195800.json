@@ -1,0 +1,17 @@
+﻿{
+    "Statistics":  {
+                       "Success":  4,
+                       "Failed":  1,
+                       "Total":  5
+                   },
+    "FailedGroups":  [
+                         "Accounts",
+                         "Executives",
+                         "iBridge General Enquiries",
+                         "MTN Escalations",
+                         "Senior Managers"
+                     ],
+    "Timestamp":  "2025-07-04 19:58:27",
+    "AdminUser":  "lwandile.gasela@ibridge.co.za",
+    "WhatIfMode":  false
+}

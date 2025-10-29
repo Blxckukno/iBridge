@@ -1,0 +1,711 @@
+﻿{
+    "AdminUser":  "lwandile.gasela@ibridge.co.za",
+    "TotalGroups":  116,
+    "Timestamp":  "2025-07-04 19:44:35",
+    "Statistics":  {
+                       "DistributionGroups":  15,
+                       "SecurityGroups":  0,
+                       "UnifiedGroups":  101,
+                       "ProcessedSuccessfully":  111,
+                       "Failed":  5
+                   },
+    "ProcessedGroups":  [
+                            {
+                                "Identity":  "accounts20200904102935",
+                                "DisplayName":  "Accounts",
+                                "PrimarySmtpAddress":  "accounts@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "All Employees20220516114339",
+                                "DisplayName":  "All Employees",
+                                "PrimarySmtpAddress":  "allemployees@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Call Centre Agents All20220516115127",
+                                "DisplayName":  "Call Centre Agents All",
+                                "PrimarySmtpAddress":  "callcentreall@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Credit Vetting Agents20220509140044",
+                                "DisplayName":  "Credit Vetting Agents",
+                                "PrimarySmtpAddress":  "creditvettingagents@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Executives20220516111815",
+                                "DisplayName":  "Executives",
+                                "PrimarySmtpAddress":  "Executives@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Gauteng Call Centre Agents20220509140146",
+                                "DisplayName":  "Gauteng Call Centre Agents",
+                                "PrimarySmtpAddress":  "gautengcca@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "HR Group20220516112632",
+                                "DisplayName":  "HR Group",
+                                "PrimarySmtpAddress":  "hrgroup@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "iBridge General Enquiries20250613123720",
+                                "DisplayName":  "iBridge General Enquiries",
+                                "PrimarySmtpAddress":  "info@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "JustInTime20240425113843",
+                                "DisplayName":  "JustInTime",
+                                "PrimarySmtpAddress":  "JiT@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "KZN Call Centre Agents20220509140249",
+                                "DisplayName":  "KZN Call Centre Agents",
+                                "PrimarySmtpAddress":  "kzncca@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Learning and Development20220516113456",
+                                "DisplayName":  "Learning and Development",
+                                "PrimarySmtpAddress":  "learninganddev@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "MTN Escalations20240412065235",
+                                "DisplayName":  "MTN Escalations",
+                                "PrimarySmtpAddress":  "cc@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Ops Management20220516103012",
+                                "DisplayName":  "Ops Management",
+                                "PrimarySmtpAddress":  "opsmanagement@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Senior Managers20220516104448",
+                                "DisplayName":  "Senior Managers",
+                                "PrimarySmtpAddress":  "seniorm@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "Team Leaders20220509135940",
+                                "DisplayName":  "Team Leaders",
+                                "PrimarySmtpAddress":  "teamleaders@ibridge.co.za",
+                                "GroupType":  "DistributionGroup"
+                            },
+                            {
+                                "Identity":  "credit_vetting_ea6c0978-9fa1-4985-9b4c-907cad312437",
+                                "DisplayName":  "# Credit Vetting - All",
+                                "PrimarySmtpAddress":  "credit_vetting@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "AfternoonTeam_84d97a65-0ea0-42bb-867d-f4f33dc40fc5",
+                                "DisplayName":  "Afternoon Team",
+                                "PrimarySmtpAddress":  "AfternoonTeam@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "SMEApplications_48ef369b-a458-4cb5-95c3-36a0040fdfc1",
+                                "DisplayName":  "Applications",
+                                "PrimarySmtpAddress":  "SMEApplications@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "April2024_436b7615-cc67-4e91-9175-3cafeb2ab84a",
+                                "DisplayName":  "April 2024",
+                                "PrimarySmtpAddress":  "April2024@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "complaints_43e0da00-406b-47f1-b1ac-6eb7df30117e",
+                                "DisplayName":  "Complaints",
+                                "PrimarySmtpAddress":  "complaints@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "CreditVettingDaily_dc0e64db-21c5-4f58-8416-6eb5aaa67b8b",
+                                "DisplayName":  "Credit Vetting Daily",
+                                "PrimarySmtpAddress":  "CreditVettingDaily@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "CreditvettingQA_b9dae9fc-5215-42ae-9dfe-3ab3c472f5dc",
+                                "DisplayName":  "Credit vetting QA",
+                                "PrimarySmtpAddress":  "CreditvettingQA@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "creditvetting_sups_bc7eccb1-0a84-4d68-8895-36f5564788bd",
+                                "DisplayName":  "Credit Vetting Supervisors",
+                                "PrimarySmtpAddress":  "creditvetting_sups@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "CreditVettingTeam_9a11f023-756b-4982-8709-5219bcac419e",
+                                "DisplayName":  "Credit Vetting Team",
+                                "PrimarySmtpAddress":  "CreditVettingTeam@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "CVTeamLeads_d8b53a96-a976-4785-b3db-2ea59bebc745",
+                                "DisplayName":  "CV Team Leads",
+                                "PrimarySmtpAddress":  "CVTeamLeads@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "team-leaders_484d6435-03f5-4f2f-82ff-30de209c84a0",
+                                "DisplayName":  "CXO Supervisors - All",
+                                "PrimarySmtpAddress":  "team-leaders@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "DRBTeamleaders_dd3f71fd-8cf5-485e-88bf-8feafa56b038",
+                                "DisplayName":  "DRB Team leaders",
+                                "PrimarySmtpAddress":  "DRBTeamleaders@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "ecxo_6ed74dd4-3930-4b0b-a761-e43159f9a027",
+                                "DisplayName":  "ECXO Members",
+                                "PrimarySmtpAddress":  "ecxo@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "EndpointEnrollment_7d59ab66-634e-4e6b-9ecd-73bbd0caec39",
+                                "DisplayName":  "Endpoint Enrollment",
+                                "PrimarySmtpAddress":  "EndpointEnrollment@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "fraud_b7d45c29-e23f-4390-a674-f0851b092b9b",
+                                "DisplayName":  "Fraud 1st Line Support",
+                                "PrimarySmtpAddress":  "fraud@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "GenesysReports_ca5118d8-793e-4795-b382-075f4fd7f3d1",
+                                "DisplayName":  "Genesys Reports",
+                                "PrimarySmtpAddress":  "GenesysReports@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "HRDEPARTMENT_579c1a13-4ec1-4b66-af8a-c684106aa477",
+                                "DisplayName":  "HR DEPARTMENT",
+                                "PrimarySmtpAddress":  "HRDEPARTMENT@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "HRDocuments_caf1581c-6e85-4f11-a601-ce850f649b52",
+                                "DisplayName":  "HR Documents",
+                                "PrimarySmtpAddress":  "HRDocuments@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "HuddleSession_e8545b15-6430-43a1-b02c-88c9d7d3ec1d",
+                                "DisplayName":  "Huddle Session",
+                                "PrimarySmtpAddress":  "HuddleSession@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "HR_98275b91-1a4d-47e6-8f8d-7848f13baa4b",
+                                "DisplayName":  "Human Resources",
+                                "PrimarySmtpAddress":  "HR@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "recruitment_abe92cc5-b2c5-413d-b9de-e5d20a00c176",
+                                "DisplayName":  "IBHC - iBridge Human Capital",
+                                "PrimarySmtpAddress":  "staffing@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "MTNiBridge_d33b81a9-610f-49ff-917f-17185cf5283a",
+                                "DisplayName":  "IBMTN - MTN / iBridge Collaboration",
+                                "PrimarySmtpAddress":  "MTNiBridge@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "IBridgeGraveTeam_b88def7b-56b8-4327-b934-f9fc81f7fe82",
+                                "DisplayName":  "IBridge  Grave Team",
+                                "PrimarySmtpAddress":  "IBridgeGraveTeam@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "iBridgeAll_09b4a093-694d-4d82-9a5a-51d7c64d9cc1",
+                                "DisplayName":  "iBridge All",
+                                "PrimarySmtpAddress":  "iBridgeAll@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "iBridgeAllnewteam_184ebcd4-b5fd-480b-8d49-4edb2be68858",
+                                "DisplayName":  "iBridge All [new team]",
+                                "PrimarySmtpAddress":  "iBridgeAllnewteam@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "iBridgeBoardofDirectors_0408e632-7752-4e76-9553-cce293593057",
+                                "DisplayName":  "iBridge Board of Directors",
+                                "PrimarySmtpAddress":  "iBridgeBoardofDirectors@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "iBridgeChampions_83398976-9103-494f-a45c-5aa9db0efd73",
+                                "DisplayName":  "iBridge Champions",
+                                "PrimarySmtpAddress":  "iBridgeChampions@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Payroll_31b0615b-e67e-4b2b-993c-3a1808985b29",
+                                "DisplayName":  "iBridge Payroll",
+                                "PrimarySmtpAddress":  "Payroll@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "iBridgePlanner_87019635-12aa-4975-8f49-62f2986c60a3",
+                                "DisplayName":  "iBridge Planner",
+                                "PrimarySmtpAddress":  "iBridgePlanner@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "iBridgePostpaidTeam_be56c0ee-4556-41cf-a964-5568ed8fbf7f",
+                                "DisplayName":  "iBridge Postpaid Team",
+                                "PrimarySmtpAddress":  "iBridgePostpaidTeam@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "ibridgeTeamLayla_5bd4dea0-75c4-4b46-bd5c-9e57486c4c94",
+                                "DisplayName":  "ibridge Team Layla",
+                                "PrimarySmtpAddress":  "ibridgeTeamLayla@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "ibridgeChamps_9ef6bec7-dcfd-4afd-92e3-8aced958ad1c",
+                                "DisplayName":  "ibridgeChamps",
+                                "PrimarySmtpAddress":  "ibridgeChamps@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Blended_Inbound_721a6533-8fdd-48c7-a4d3-b6c5a2d060f7",
+                                "DisplayName":  "Inbound - MultiSkilled",
+                                "PrimarySmtpAddress":  "Blended_Inbound@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "inbound_post-paid_e78e9be9-fcaa-4949-a665-2c47db9afb72",
+                                "DisplayName":  "Inbound Post-Paid",
+                                "PrimarySmtpAddress":  "inbound_post-paid@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Pre-Paid_Inbound_075ecdc1-b4f3-4bca-927d-e79938828f09",
+                                "DisplayName":  "Inbound Pre-Paid",
+                                "PrimarySmtpAddress":  "Pre-Paid_Inbound@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "internal_comms_795f7b89-62ae-4301-bc02-3c2de0668e2b",
+                                "DisplayName":  "Internal Communications",
+                                "PrimarySmtpAddress":  "internal_comms@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "KZNPOSTPAID_df18deeb-0594-4884-ad49-d27ea425caeb",
+                                "DisplayName":  "KZN Postpaid",
+                                "PrimarySmtpAddress":  "KZNPOSTPAID@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "KZN_PrePaid_750c4300-7e4f-4ab9-a7ba-13197e2daad4",
+                                "DisplayName":  "KZN Pre-Paid",
+                                "PrimarySmtpAddress":  "KZN_PrePaid@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "KZNTeam_a57ffb4c-a256-4088-8dbf-a892a232b8e3",
+                                "DisplayName":  "KZN Team",
+                                "PrimarySmtpAddress":  "KZNTeam@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "iBridgeLearners_920ea08f-8658-4827-839e-f08d0b16a2b1",
+                                "DisplayName":  "Learners",
+                                "PrimarySmtpAddress":  "iBridgeLearners@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "LearningDevelopment_d7df2752-3e02-4a39-a12f-957e0b298aed",
+                                "DisplayName":  "Learning \u0026 Development",
+                                "PrimarySmtpAddress":  "LearningDevelopment@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Leave_7e4cd6b6-ce05-4642-b1cd-dcfd34110ee8",
+                                "DisplayName":  "Leave Requests",
+                                "PrimarySmtpAddress":  "Leave@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "LongCalls_6c7e7bb3-838d-405c-8532-15ea2b8dadb4",
+                                "DisplayName":  "Long Calls Analysis",
+                                "PrimarySmtpAddress":  "LongCalls@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "LongIdlePOE_699527b1-86e8-4c01-a671-dfe9575185b5",
+                                "DisplayName":  "Long Idle POE",
+                                "PrimarySmtpAddress":  "LongIdlePOE@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "managers_e301a295-599b-4dc7-b053-a2e4ad6eb6cd",
+                                "DisplayName":  "Managers",
+                                "PrimarySmtpAddress":  "managers@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "March2024NewGroup_d7f001af-bdae-4c21-b7a8-0e402c570a95",
+                                "DisplayName":  "March 2024 New Group",
+                                "PrimarySmtpAddress":  "March2024NewGroup@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "MORNING_SHIFT_POSTPAID_14555db1-4355-4d73-b868-dbfbbd9dc46d",
+                                "DisplayName":  "MORNING_SHIFT_POSTPAID",
+                                "PrimarySmtpAddress":  "MORNING_SHIFT_POSTPAID@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "MTNDocumentation_19ca79b2-5e0d-4e8b-bc32-5ebaa57d0961",
+                                "DisplayName":  "MTN Documentation",
+                                "PrimarySmtpAddress":  "MTNDocumentation@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "nosiphokamo_5cce003a-4bc3-4250-90bd-d3a50b3fbe2e",
+                                "DisplayName":  "nosipho \u0026 kamo",
+                                "PrimarySmtpAddress":  "nosiphokamo@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Ops_Management_c87ef2bc-b5f1-4564-8254-c2a0efa1c11b",
+                                "DisplayName":  "Operations Management",
+                                "PrimarySmtpAddress":  "Ops_Management@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "training_f7f2ae9b-65c7-4bb5-9a72-718d18dbc084",
+                                "DisplayName":  "Operations Training and Development",
+                                "PrimarySmtpAddress":  "training@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Pearl.Dlaminimtn.com_2c8adb4b-cf16-4720-b20f-2a084d87a905",
+                                "DisplayName":  "Pearl.Dlamini@mtn.com",
+                                "PrimarySmtpAddress":  "Pearl.Dlaminimtn.com@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "POAgentHours_56044e00-82f5-407e-9699-603e99bce395",
+                                "DisplayName":  "PO Agent Hours",
+                                "PrimarySmtpAddress":  "POAgentHours@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "#PostPaid_b3c2a31d-4edd-44da-aefa-e7e627054868",
+                                "DisplayName":  "PostPaid",
+                                "PrimarySmtpAddress":  "#PostPaid@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "PostpaidAssistanceGroup_a7c3abf5-d641-47c7-9d74-4e4b38e4b30d",
+                                "DisplayName":  "Postpaid Assistance Group",
+                                "PrimarySmtpAddress":  "PostpaidAssistanceGroup@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "PostpaidGroup_a3f1e299-d8a7-4222-9c0b-4fba9ce8cff0",
+                                "DisplayName":  "Postpaid Group",
+                                "PrimarySmtpAddress":  "PostpaidGroup@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "PostpaidSupervisorFolder_08e2e56a-d1b2-451b-8654-d24d8717d2f8",
+                                "DisplayName":  "Postpaid Supervisor Folder",
+                                "PrimarySmtpAddress":  "PostpaidSupervisors@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "PP_Training_Remodelling_8fa9cfa2-32c6-4e88-b59c-4e67f8e1b179",
+                                "DisplayName":  "Post-Paid Training Remodelling",
+                                "PrimarySmtpAddress":  "PP_Training_Remodelling@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "PPAgentHours_91f060db-bb4a-458f-94c4-dceff2dcf8cc",
+                                "DisplayName":  "PP Agent Hours",
+                                "PrimarySmtpAddress":  "PPAgentHours@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "PrepaidJHBTeamLeaders_6d477ad3-c706-4595-81b8-94e955d3a1e4",
+                                "DisplayName":  "Prepaid JHB Team Leaders",
+                                "PrimarySmtpAddress":  "PrepaidJHBTeamLeaders@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "PrepaidLeadership_0595a1c9-b324-4ce1-b471-133647d474ad",
+                                "DisplayName":  "Prepaid Leadership",
+                                "PrimarySmtpAddress":  "PrepaidLeadership@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "PrepaidPOCSupportgroup_1aba2645-8a02-4e3c-90a8-1c7ef9f89a6b",
+                                "DisplayName":  "Prepaid POC Support group",
+                                "PrimarySmtpAddress":  "PrepaidPOCSupportgroup@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Pre_Paid-Sups_10a98ecb-472a-4c2b-93ad-31e02df953a6",
+                                "DisplayName":  "Pre-Paid Supervisors",
+                                "PrimarySmtpAddress":  "Pre_Paid-Sups@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "QAGoodCalls_d4a5d3bd-3714-4748-9e68-f28cc72af5e2",
+                                "DisplayName":  "QA Good Calls",
+                                "PrimarySmtpAddress":  "QAGoodCalls@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "QA_cb7b89df-53f7-4030-8b0b-7c2534a3d781",
+                                "DisplayName":  "QA Team",
+                                "PrimarySmtpAddress":  "QA@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "QAteam4vetting_02cab255-5423-4041-ad3d-1b4d89c7e7f5",
+                                "DisplayName":  "QAteam4vetting",
+                                "PrimarySmtpAddress":  "QAteam4vetting@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "QualityAssurance_664601d2-72e6-4c70-abac-01720194d2fe",
+                                "DisplayName":  "Quality Assurance",
+                                "PrimarySmtpAddress":  "QualityAssurance@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "RTMs_061d37b2-3f2f-49c7-941b-20dbec1a04d5",
+                                "DisplayName":  "Real Time Monitors",
+                                "PrimarySmtpAddress":  "RTMs@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Recruitment_a4603b0a-2543-4acd-9c57-750598a5eccc",
+                                "DisplayName":  "Recruitment",
+                                "PrimarySmtpAddress":  "Recruitment1@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "i-Recruitment_a11cfa7f-7e45-4970-9d72-a8851a5db7f5",
+                                "DisplayName":  "Recruitment Team",
+                                "PrimarySmtpAddress":  "i-Recruitment@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "RepeatCallerPOCTeam_a611a2b7-8340-4b67-b6bf-8ba158b95fbe",
+                                "DisplayName":  "Repeat Caller POC Team",
+                                "PrimarySmtpAddress":  "RepeatCallerPOCTeam@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Schedules_c2c3310f-f9f7-4a79-96e5-d5bd52dee2c9",
+                                "DisplayName":  "Schedules",
+                                "PrimarySmtpAddress":  "Schedules@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "iBridgeExecutive_d8151267-e4fc-4104-b6d3-27c16c88e5cf",
+                                "DisplayName":  "Senior Managers",
+                                "PrimarySmtpAddress":  "iBridgeExecutive@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "sme_27e7b6c1-7ead-4b8a-8a1b-69dcbef8f6ae",
+                                "DisplayName":  "SME",
+                                "PrimarySmtpAddress":  "sme@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "SummerCampaignOutbound_fefcae70-46a5-4820-b544-e58528816815",
+                                "DisplayName":  "Summer Campaign Outbound",
+                                "PrimarySmtpAddress":  "SummerCampaignOutbound@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "SupervisorTrainingContentan_9307cdb7-e86a-42b2-bb21-e9b4f9efbf37",
+                                "DisplayName":  "Supervisor Training Content and plan",
+                                "PrimarySmtpAddress":  "SupervisorTrainingContentandplan@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "supervisors_dd344144-a76a-4b8a-9fc0-1485634e919f",
+                                "DisplayName":  "Supervisors - All",
+                                "PrimarySmtpAddress":  "supervisors@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "SystemIssue_56a466f1-6f59-40df-9c7c-9daedf5a1d26",
+                                "DisplayName":  "System Issues",
+                                "PrimarySmtpAddress":  "SI@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Team-Menzi_ae08323e-cd16-45e0-9ea5-95be8fdfc3f1",
+                                "DisplayName":  "Team - Menzi",
+                                "PrimarySmtpAddress":  "Team-Menzi@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Team_Akhere_a6127ec0-6e04-42af-a900-c2779d3ec6cc",
+                                "DisplayName":  "Team Akhere",
+                                "PrimarySmtpAddress":  "Team_Akhere@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TeamBheki_cf0fff49-0ccc-4ee0-af4f-63c4a80e1bac",
+                                "DisplayName":  "Team Bheki",
+                                "PrimarySmtpAddress":  "TeamBheki@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TeamHappiness_bc71cd15-d96d-4649-9236-462dc2c45b24",
+                                "DisplayName":  "Team Happiness",
+                                "PrimarySmtpAddress":  "TeamHappiness@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TeamMpumi_9fea754a-7093-4acb-b684-92c4ebfd54c8",
+                                "DisplayName":  "Team Mpumi",
+                                "PrimarySmtpAddress":  "TeamMpumi@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TeamMuke_4bccc497-4707-462b-8ab3-7f2a782799bc",
+                                "DisplayName":  "Team Muke",
+                                "PrimarySmtpAddress":  "TeamMuke@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TeamNgwenya_08a54b91-b8aa-4a5f-b7b8-512196b63fa8",
+                                "DisplayName":  "Team Ngwenya",
+                                "PrimarySmtpAddress":  "TeamNgwenya@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TeamNokwanda_c0fc3452-b095-4af4-81f8-33011f2a59c8",
+                                "DisplayName":  "Team Nokwanda",
+                                "PrimarySmtpAddress":  "TeamNokwanda@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TeamNonjabulo_09ddb559-ed55-4e28-96d7-b5772b772a82",
+                                "DisplayName":  "Team Nonjabulo",
+                                "PrimarySmtpAddress":  "TeamNonjabulo@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TeamPostpaid-GP_b369e690-df1b-4e42-a1e2-57c93c1676c3",
+                                "DisplayName":  "Team Postpaid - GP",
+                                "PrimarySmtpAddress":  "TeamPostpaid-GP@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TeamThabang_8f6ad8b4-203e-4fad-bbcf-ff359516528d",
+                                "DisplayName":  "Team Thabang",
+                                "PrimarySmtpAddress":  "TeamThabang@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "Test_d8b96658-0a27-46b9-954f-4e5265f95143",
+                                "DisplayName":  "Test",
+                                "PrimarySmtpAddress":  "Test@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "thandiwesteam_bb83c978-f9f0-47a7-af01-5a8be90a2b2e",
+                                "DisplayName":  "Thandiwe\u0027s team",
+                                "PrimarySmtpAddress":  "thandiwesteam@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "tNPS_e6dfc46a-cf52-4338-a8dc-4a5ab891b427",
+                                "DisplayName":  "tNPS Group",
+                                "PrimarySmtpAddress":  "tNPS@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "training281_d9c4a77e-ad5f-425e-a532-e64899aa4412",
+                                "DisplayName":  "training",
+                                "PrimarySmtpAddress":  "training281@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "iBridgeLD_d196d17b-fcb2-48b8-8c8a-2ed4e7190ef0",
+                                "DisplayName":  "Training and Development",
+                                "PrimarySmtpAddress":  "iBridgeLD@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TrainingMaterial_b5513026-c23f-4e61-a31d-4f3aa8d5729b",
+                                "DisplayName":  "Training Material",
+                                "PrimarySmtpAddress":  "TrainingMaterial@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "TripleT_219a0091-845a-4d26-adbb-fec13be08701",
+                                "DisplayName":  "Triple T",
+                                "PrimarySmtpAddress":  "TripleT@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "VettingTeam_1d201802-6327-40d9-91fb-688653aaa8a0",
+                                "DisplayName":  "Vetting Team",
+                                "PrimarySmtpAddress":  "VettingTeam@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "WFM_19347eb0-d852-4012-b096-dd9359ad5182",
+                                "DisplayName":  "WFM",
+                                "PrimarySmtpAddress":  "WFM1@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "WFMLeavePlanner_cf3ec24f-54fc-4fbd-830d-5f2b23434129",
+                                "DisplayName":  "WFM Leave Planner",
+                                "PrimarySmtpAddress":  "WFMLeavePlanner@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "WFMHR_c1d83c5c-8919-490a-9331-755cc9b53372",
+                                "DisplayName":  "WFM/HR",
+                                "PrimarySmtpAddress":  "WFMHR@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            },
+                            {
+                                "Identity":  "yearendparty_0073d2f5-6898-419f-82a3-6657fa5ac521",
+                                "DisplayName":  "year end party",
+                                "PrimarySmtpAddress":  "yearendparty@ibridge.co.za",
+                                "GroupType":  "UnifiedGroup"
+                            }
+                        ],
+    "WhatIfMode":  false
+}

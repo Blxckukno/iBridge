@@ -1,0 +1,1041 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Security Meta Tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Automation Solutions | iBridge Contact Solutions</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-green: #A1C44F;
+            --primary-green-light: #B8D663;
+            --primary-green-dark: #8FB347;
+            --dark-bg: #2C3E50;
+            --dark-bg-light: #34495e;
+            --text-white: #FFFFFF;
+            --text-gray: #6C757D;
+            --light-gray: #F8F9FA;
+            --border-light: #E9ECEF;
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-light) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            background: var(--text-white);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(25px);
+            padding: 20px 0;
+            box-shadow: var(--shadow-light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 3px solid var(--primary-green);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-medium);
+            padding: 12px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 55px;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-green);
+            background: rgba(161, 196, 79, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav-menu a:hover::after {
+            width: 80%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 25px;
+            background-color: var(--primary-green);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(161, 196, 79, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(161, 196, 79, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(44, 62, 80, 0.1) 0%, transparent 50%);
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, var(--primary-green-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            opacity: 0.95;
+            line-height: 1.8;
+            animation: slideInRight 1s ease-out 0.3s both;
+        }
+
+        .cta-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 18px 48px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        .cta-btn:hover {
+            background: var(--primary-green-dark);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        /* AI Solutions Section */
+        .ai-solutions {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--primary-green-light);
+        }
+
+        .solution-card i {
+            font-size: 3.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .solution-card:hover i {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .solution-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--dark-bg);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .solution-card:hover h3 {
+            color: var(--primary-green-dark);
+        }
+
+        .solution-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Automation Features */
+        .automation-features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .features-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--dark-bg);
+        }
+
+        .features-text p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .features-list li i {
+            color: var(--primary-green);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .features-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* AI Technologies */
+        .ai-technologies {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .tech-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-green);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-card i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .tech-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-bg);
+        }
+
+        .tech-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-item {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .benefit-item i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .benefit-item:hover i {
+            color: white;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item p {
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #8fb347 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-btn-white {
+            background: white;
+            color: var(--primary-green);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+            text-align: center;
+            color: #bdc3c7;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(44, 62, 80, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-menu.active {
+                display: flex;
+                transform: translateY(0);
+            }
+
+            .nav-menu li {
+                margin: 20px 0;
+            }
+
+            .nav-link {
+                color: white !important;
+                font-size: 1.5rem;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .nav-link:hover {
+                color: var(--primary-green) !important;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/iBridge_Logo-removebg-preview.png" alt="iBridge Logo">
+            </div>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="team.html" class="nav-link">Our Team</a></li>
+                    <li><a href="careers.html" class="nav-link">Careers</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>AI & Automation Solutions</h1>
+            <p>Leverage the power of AI and automation to streamline your business processes and improve efficiency
+                while reducing operational costs</p>
+            <a href="contact.html" class="cta-btn">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- AI Solutions Section -->
+    <section class="ai-solutions">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: var(--dark-bg);">AI-Powered
+                Business Solutions</h2>
+
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Intelligent Chatbots</h3>
+                    <p>AI-powered chatbots that provide 24/7 customer support, handle routine inquiries, and escalate
+                        complex issues to human agents.</p>
+                </div>
+
+                <div class="solution-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Predictive Analytics</h3>
+                    <p>Advanced analytics to predict customer behavior, optimize operations, and make data-driven
+                        business decisions.</p>
+                </div>
+
+                <div class="solution-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Process Automation</h3>
+                    <p>Robotic Process Automation (RPA) to automate repetitive tasks, reduce errors, and increase
+                        operational efficiency.</p>
+                </div>
+
+                <div class="solution-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Machine Learning</h3>
+                    <p>Custom machine learning models to analyze patterns, automate decision-making, and continuously
+                        improve performance.</p>
+                </div>
+
+                <div class="solution-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Natural Language Processing</h3>
+                    <p>Advanced NLP solutions for sentiment analysis, content generation, and intelligent document
+                        processing.</p>
+                </div>
+
+                <div class="solution-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Computer Vision</h3>
+                    <p>Image and video analysis solutions for quality control, security monitoring, and automated
+                        inspections.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automation Features -->
+    <section class="automation-features">
+        <div class="container">
+            <div class="features-container">
+                <div class="features-text">
+                    <h2>Transform Your Business with AI</h2>
+                    <p>Our AI and automation solutions are designed to revolutionize how you operate, making your
+                        business more efficient, accurate, and competitive in today's digital landscape.</p>
+                    <p>From intelligent automation that handles routine tasks to sophisticated AI models that provide
+                        insights and predictions, we help you harness the power of artificial intelligence to drive
+                        growth and innovation.</p>
+
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Intelligent Process Automation</li>
+                        <li><i class="fas fa-check"></i> AI-Powered Customer Service</li>
+                        <li><i class="fas fa-check"></i> Predictive Business Analytics</li>
+                        <li><i class="fas fa-check"></i> Smart Document Processing</li>
+                        <li><i class="fas fa-check"></i> Automated Quality Control</li>
+                        <li><i class="fas fa-check"></i> Real-time Decision Making</li>
+                        <li><i class="fas fa-check"></i> Advanced Data Mining</li>
+                        <li><i class="fas fa-check"></i> Continuous Learning Systems</li>
+                    </ul>
+                </div>
+
+                <div class="features-image">
+                    <img src="images/iBridge_IMG_11.png" alt="AI & Automation Solutions">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Technologies */
+    <section class="ai-technologies">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: var(--dark-bg);">Technologies We Use</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python & TensorFlow</h3>
+                    <p>Advanced machine learning frameworks for building intelligent solutions</p>
+                </div>
+
+                <div class="tech-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Azure AI Services</h3>
+                    <p>Microsoft Azure cognitive services and AI platform integration</p>
+                </div>
+
+                <div class="tech-card">
+                    <i class="fab fa-aws"></i>
+                    <h3>AWS AI/ML</h3>
+                    <p>Amazon Web Services machine learning and AI services</p>
+                </div>
+
+                <div class="tech-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Big Data Analytics</h3>
+                    <p>Advanced data processing and analytics platforms</p>
+                </div>
+
+                <div class="tech-card">
+                    <i class="fas fa-language"></i>
+                    <h3>NLP Frameworks</h3>
+                    <p>Natural language processing and understanding technologies</p>
+                </div>
+
+                <div class="tech-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>API Integration</h3>
+                    <p>Seamless integration with existing business systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: var(--dark-bg);">Benefits of
+                AI & Automation</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Increased Efficiency</h3>
+                    <p>Automate repetitive tasks and processes to increase operational efficiency by up to 80%.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Cost Reduction</h3>
+                    <p>Significant cost savings through process optimization and reduced manual intervention.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Improved Accuracy</h3>
+                    <p>Eliminate human errors and ensure consistent, accurate results across all operations.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Operations</h3>
+                    <p>AI systems work around the clock, providing continuous service without downtime.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Gain valuable insights from data analysis to make informed business decisions.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Enhanced Customer Experience</h3>
+                    <p>Provide personalized, responsive customer service that exceeds expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Embrace the Future with AI?</h2>
+            <p>Let's discuss how AI and automation can transform your business operations and drive growth.</p>
+            <a href="contact.html" class="cta-btn-white">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="contact-center.html">Contact Center Solutions</a></li>
+                        <li><a href="it-support.html">IT Support & Cloud Services</a></li>
+                        <li><a href="ai-automation.html">AI & Automation</a></li>
+                        <li><a href="client-interaction.html">Client Interaction</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>328 Kent Avenue, Ferndale, Randburg, 2194</li>
+                        <li><a href="tel:+27112387090">011 238 7090</a></li>
+                        <li><a href="mailto:info@ibridge.co.za">info@ibridge.co.za</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 iBridge Contact Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/27112387090" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuToggle.addEventListener('click', function () {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!mobileMenuToggle.contains(event.target) && !navMenu.contains(event.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function () {
+            document.body.style.opacity = '1';
+        });
+
+        // Enhanced header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll animations for elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.solution-card, .tech-card, .benefit-item, .features-text, .features-image');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Enhanced card hover effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.solution-card, .tech-card, .benefit-item');
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-12px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+
+    <!-- iBridge Security System -->
+    <script src="js/ibridge-security.js"></script>
+    <script src="js/security-dashboard.js"></script>
+
+</body>
+
+</html>

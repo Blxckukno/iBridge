@@ -1,0 +1,1546 @@
+{
+  "Timestamp": "2025-07-04T21:53:53.4508982+02:00",
+  "AdminUser": "lwandile.gasela@ibridge.co.za",
+  "Summary": {
+    "TotalObjects": 131,
+    "SuccessRate": 82.39,
+    "TotalSuccessful": 131,
+    "DistributionGroups": 15,
+    "SecurityGroups": 0,
+    "SharedMailboxes": 15,
+    "TotalFailed": 0,
+    "Office365Groups": 101
+  },
+  "DistributionGroups": [
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "Accounts"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "All Employees"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "Call Centre Agents All"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "Credit Vetting Agents"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "Executives"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "Gauteng Call Centre Agents"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "HR Group"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "iBridge General Enquiries"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "JustInTime"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "KZN Call Centre Agents"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "Learning and Development"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "MTN Escalations"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "Ops Management"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "Senior Managers"
+    },
+    {
+      "GroupType": "DistributionGroup",
+      "Success": true,
+      "Action": "Already Correct",
+      "Group": "Team Leaders"
+    }
+  ],
+  "SecurityGroups": [],
+  "SharedMailboxes": [
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "Microsoft20211104073342",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "Microsoft20211104073342",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Microsoft",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "Khanyisile",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "Khanyisile",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Khanyisile Ngubeni (Shared)",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "leratot",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "leratot",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Lerato Tshimong (Shared)",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "Koketso",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "Koketso",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Koketso Kubedi",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "Kgomotso",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "Kgomotso",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Kgomotso Lesito",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "Tonic",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "Tonic",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Tonic Shondlani (Shared)",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "93aa75c8-8e85-4358-8625-344b71980874",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "93aa75c8-8e85-4358-8625-344b71980874",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Mendy Khwela (Shared)",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "6efca6c1-7ba4-4a6e-927c-2982f735a755",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "6efca6c1-7ba4-4a6e-927c-2982f735a755",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Goodness Dladla",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "9d6593b0-00c6-4e83-b4b1-7620c21aadf1",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "9d6593b0-00c6-4e83-b4b1-7620c21aadf1",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Nsindiso Nzama",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "f1589ae6-4ddf-4c4d-a2c3-f780e7a41320",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "f1589ae6-4ddf-4c4d-a2c3-f780e7a41320",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "S'fiso Mngomezulu (Shared)",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "2b3a5b9a-29d0-4754-8215-521d20c44dc5",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "2b3a5b9a-29d0-4754-8215-521d20c44dc5",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Hlengiwe Nduli (Shared)",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "355aed71-9693-4626-904b-dc2db5185d1e",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "355aed71-9693-4626-904b-dc2db5185d1e",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Khayalethu Ngcobo (Shared)",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Block@IT",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "d040d168-661f-41cb-8bb1-c77e1c08d4db",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "d040d168-661f-41cb-8bb1-c77e1c08d4db",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Tsholofelo Magano",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    },
+    {
+      "AccessRights": [
+        "FullAccess"
+      ],
+      "Deny": {
+        "IsPresent": false
+      },
+      "InheritanceType": "All",
+      "User": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "UserWithDisplayName": [],
+      "UserSid": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "Identity": "1cf67401-b10e-45df-8734-d2128c225b43",
+      "IsInherited": false,
+      "IsValid": true,
+      "ObjectState": "Unchanged"
+    },
+    {
+      "Identity": "1cf67401-b10e-45df-8734-d2128c225b43",
+      "Trustee": "6ac3115c-e13d-47a0-aef2-4b714caebed8",
+      "AccessControlType": "Allow",
+      "AccessRights": [
+        "SendAs"
+      ],
+      "IsInherited": false,
+      "InheritanceType": "None",
+      "TrusteeSidString": "S-1-5-21-1012128346-167744344-1176852861-29771459",
+      "IsValid": true,
+      "ObjectState": "New"
+    },
+    {
+      "Success": true,
+      "AdminHasSendAs": true,
+      "Mailbox": "Koketso Kgaphola (Shared)",
+      "MailboxType": "SharedMailbox",
+      "Action": "Set Permissions",
+      "AdminHasFullAccess": true
+    }
+  ],
+  "Office365Groups": [
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "# Credit Vetting - All",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Afternoon Team",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Applications",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "April 2024",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Complaints",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 6,
+      "Group": "Credit Vetting Daily",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Credit vetting QA",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Credit Vetting Supervisors",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 5,
+      "Group": "Credit Vetting Team",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "CV Team Leads",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "CXO Supervisors - All",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "DRB Team leaders",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 5,
+      "Group": "ECXO Members",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Endpoint Enrollment",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Fraud 1st Line Support",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Genesys Reports",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "HR DEPARTMENT",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "HR Documents",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Huddle Session",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Human Resources",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "IBHC - iBridge Human Capital",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "IBMTN - MTN / iBridge Collaboration",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "IBridge  Grave Team",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "iBridge All",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "iBridge All [new team]",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "iBridge Board of Directors",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "iBridge Champions",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "iBridge Payroll",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "iBridge Planner",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "iBridge Postpaid Team",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "ibridge Team Layla",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "ibridgeChamps",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Inbound - MultiSkilled",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Inbound Post-Paid",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Inbound Pre-Paid",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Internal Communications",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "KZN Postpaid",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "KZN Pre-Paid",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "KZN Team",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Learners",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Learning & Development",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Leave Requests",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Long Calls Analysis",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Long Idle POE",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Managers",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "March 2024 New Group",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 8,
+      "Group": "MORNING_SHIFT_POSTPAID",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "MTN Documentation",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "nosipho & kamo",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Operations Management",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Operations Training and Development",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Pearl.Dlamini@mtn.com",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "PO Agent Hours",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "PostPaid",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Postpaid Assistance Group",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Postpaid Group",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Postpaid Supervisor Folder",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 5,
+      "Group": "Post-Paid Training Remodelling",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "PP Agent Hours",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Prepaid JHB Team Leaders",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Prepaid Leadership",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Prepaid POC Support group",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Pre-Paid Supervisors",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "QA Good Calls",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "QA Team",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "QAteam4vetting",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Quality Assurance",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Real Time Monitors",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Recruitment",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Recruitment Team",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Repeat Caller POC Team",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Schedules",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Senior Managers",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "SME",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Summer Campaign Outbound",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Supervisor Training Content and plan",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Supervisors - All",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "System Issues",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Team - Menzi",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Team Akhere",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Team Bheki",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Team Happiness",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Team Mpumi",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Team Muke",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Team Ngwenya",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Team Nokwanda",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Team Nonjabulo",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Team Postpaid - GP",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Team Thabang",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Test",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Thandiwe's team",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "tNPS Group",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "training",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 3,
+      "Group": "Training and Development",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "Training Material",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "Triple T",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "Vetting Team",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 4,
+      "Group": "WFM",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 1,
+      "Group": "WFM Leave Planner",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "WFM/HR",
+      "Action": "Set Admin Rights"
+    },
+    {
+      "Success": true,
+      "GroupType": "Office365Group",
+      "AdminIsMember": true,
+      "AdminIsOwner": true,
+      "OwnerCount": 2,
+      "Group": "year end party",
+      "Action": "Set Admin Rights"
+    }
+  ]
+}

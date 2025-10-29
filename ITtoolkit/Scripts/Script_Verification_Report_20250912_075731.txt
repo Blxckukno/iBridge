@@ -1,0 +1,67 @@
+﻿IT Toolkit Script Verification Report
+Generated: 09/12/2025 07:57:31
+Path: .
+
+SUMMARY:
+Total Scripts: 55
+Valid Scripts: 52 (94.5 percent)
+Scripts with Errors: 3
+
+VALID SCRIPTS:
+OK Clean-Script-Runner.ps1
+OK Final-AntiPhishing-Report.ps1
+OK Generate-Final-Report.ps1
+OK Master-Script-Orchestrator.ps1
+OK Security-Verification-Simple.ps1
+OK Simple-Script-Runner.ps1
+OK Verify-All-Scripts-Clean.ps1
+OK Verify-All-Scripts-Fixed.ps1
+OK Verify-All-Scripts.ps1
+OK Verify-Scripts-Simple.ps1
+OK Emergency_Response\Audit-All-Users-Security.ps1
+OK Emergency_Response\Check-EmailSecurity-iBridge.ps1
+OK Emergency_Response\Download-Free-Security-Alternatives.ps1
+OK Emergency_Response\Download-SecurityTools-Fixed.ps1
+OK Emergency_Response\Download-SecurityTools.ps1
+OK Emergency_Response\Emergency-Email-Breach-Scan.ps1
+OK Emergency_Response\Exchange-Security-Audit-Fixed.ps1
+OK Emergency_Response\Future-Attack-Preparation-Toolkit.ps1
+OK Emergency_Response\Monitor-EmailTraffic.ps1
+OK Emergency_Response\Quick-Email-Security-Check.ps1
+OK Emergency_Response\Simple-FOSS-Download.ps1
+OK Maintenance_Cleanup\Analyze-Cleanup-Clean.ps1
+OK Maintenance_Cleanup\Analyze-Cleanup-Fixed.ps1
+OK Maintenance_Cleanup\Analyze-Cleanup.ps1
+OK Maintenance_Cleanup\Backup-and-Cleanup.ps1
+OK Maintenance_Cleanup\Quick-Cleanup.ps1
+OK Security\Anti-Phishing-Email-Protection-Fixed.ps1
+OK Security\Anti-Phishing-Email-Protection.ps1
+OK Security\Defender-Optimizer-Fixed.ps1
+OK Security\Defender-Optimizer.ps1
+OK Security\Email-Account-Audit-Fixed.ps1
+OK Security\Email-Account-Audit.ps1
+OK Security\Email-Security-Analysis-Fixed.ps1
+OK Security\Email-Security-Analysis.ps1
+OK Security\Emergency-Isolation-Fixed.ps1
+OK Security\Emergency-Isolation.ps1
+OK Security\Master-Security-Verification-Fixed.ps1
+OK Security\Master-Security-Verification.ps1
+OK Security\Quick-Security-Check.ps1
+OK Security\Real-Time-Monitor-Fixed.ps1
+OK Security\Real-Time-Monitor.ps1
+OK Windows_Deployment\Download-FOSS.ps1
+OK Windows_Deployment\Download-Freeware.ps1
+OK Windows_Deployment\Download-Paid.ps1
+OK Windows_Deployment\Install-Basic-FOSS.ps1
+OK Windows_Deployment\Install-Downloaded.ps1
+OK Windows_Deployment\Install-Essential-FOSS.ps1
+OK Windows_Deployment\Install-FOSS-Fixed.ps1
+OK Windows_Deployment\Install-FOSS.ps1
+OK Windows_Deployment\Install-Successfully-Downloaded.ps1
+OK Windows_Deployment\Post-Install.ps1
+OK Windows_Deployment\Verify-FOSS-Install.ps1
+
+SCRIPTS WITH ERRORS:
+ERR Security_Response\Email-Security-Investigation.ps1
+ERR Security_Response\Emergency-Malware-Scan.ps1
+ERR Security_Response\Network-Wide-Security-Audit.ps1

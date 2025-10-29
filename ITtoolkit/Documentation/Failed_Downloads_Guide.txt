@@ -1,0 +1,33 @@
+# Failed Downloads Manual Guide
+
+## Applications that require manual download:
+
+### Freeware:
+1. **Microsoft Defender Antivirus**: Built-in with Windows - no download needed
+2. **Hiren's BootCD PE**: Visit https://www.hirensbootcd.org/download/ - requires manual download
+3. **Rufus**: Visit https://rufus.ie/ - download latest version
+4. **Veeam Agent FREE**: Visit https://www.veeam.com/windows-endpoint-server-backup-free.html - requires registration
+5. **AOMEI Backupper Standard**: Visit https://www.aomeitech.com/backup-software/ - download free version
+6. **HWiNFO**: Visit https://www.hwinfo.com/download/ - download portable version
+7. **Wireshark**: Visit https://www.wireshark.org/download.html - download Windows x64 installer
+8. **LibreOffice**: Visit https://www.libreoffice.org/download/download/ - download offline installer
+9. **.NET Desktop Runtime**: Visit https://dotnet.microsoft.com/download/dotnet/8.0 - download Windows x64 Desktop Runtime
+10. **Java JRE**: Visit https://www.java.com/download/ - download offline installer
+
+### FOSS Enterprise Stack:
+1. **CrowdSec**: Visit https://github.com/crowdsecurity/crowdsec/releases - download Windows binary
+2. **TacticalRMM**: Visit https://docs.tacticalrmm.com/install_server/ - server installation required first
+3. **MeshCentral**: Visit https://meshcentral.com/info/ - server installation required first
+4. **OPNsense**: Visit https://opnsense.org/download/ - download ISO image
+5. **Security Onion**: Visit https://securityonionsolutions.com/software/ - download ISO image
+6. **UrBackup Client**: Visit https://www.urbackup.org/download.html#client_windows - download client
+7. **Vorta**: Visit https://vorta.borgbase.com/ - download Windows installer
+8. **Thunderbird**: Visit https://www.thunderbird.net/download/ - download offline installer
+9. **Proxmox VE**: Visit https://www.proxmox.com/en/downloads - download ISO image
+10. **TrueNAS SCALE**: Visit https://www.truenas.com/download-truenas-scale/ - download ISO image
+
+## Installation Notes:
+- Always verify downloads with official checksums when available
+- Some enterprise software (Veeam, TacticalRMM, etc.) requires registration or server setup
+- ISO files are for creating bootable installation media
+- Portable applications can be extracted and run without installation

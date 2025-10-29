@@ -1,0 +1,387 @@
+﻿{
+    "Summary":  {
+                    "FormerAdminStillHasAccess":  0,
+                    "MultipleManagers":  16,
+                    "TotalCompliant":  0,
+                    "TotalObjects":  15,
+                    "PrimaryAdminMissingAccess":  15,
+                    "CompliancePercentage":  0,
+                    "SecurityGroups":  0,
+                    "Office365Groups":  0,
+                    "SharedMailboxes":  0,
+                    "TotalNonCompliant":  15,
+                    "FormerAdminStillManager":  0,
+                    "DistributionGroups":  15,
+                    "FormerAdminStillOwner":  0,
+                    "VerificationErrors":  0
+                },
+    "SharedMailboxes":  [
+
+                        ],
+    "DistributionGroups":  [
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  3,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "Accounts",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  true,
+                                   "GroupId":  "accounts20200904102935",
+                                   "GroupEmail":  "accounts@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  270,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "All Employees",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  true,
+                                   "GroupId":  "All Employees20220516114339",
+                                   "GroupEmail":  "allemployees@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  189,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "Call Centre Agents All",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Call Centre Agents All20220516115127",
+                                   "GroupEmail":  "callcentreall@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  17,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "Credit Vetting Agents",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Credit Vetting Agents20220509140044",
+                                   "GroupEmail":  "creditvettingagents@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  2,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "Executives",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Executives20220516111815",
+                                   "GroupEmail":  "Executives@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  141,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "Gauteng Call Centre Agents",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Gauteng Call Centre Agents20220509140146",
+                                   "GroupEmail":  "gautengcca@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  3,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "HR Group",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "HR Group20220516112632",
+                                   "GroupEmail":  "hrgroup@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  7,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "iBridge General Enquiries",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "iBridge General Enquiries20250613123720",
+                                   "GroupEmail":  "info@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  12,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "JustInTime",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "JustInTime20240425113843",
+                                   "GroupEmail":  "JiT@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  27,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "KZN Call Centre Agents",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "KZN Call Centre Agents20220509140249",
+                                   "GroupEmail":  "kzncca@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  2,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "Learning and Development",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Learning and Development20220516113456",
+                                   "GroupEmail":  "learninganddev@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  7,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "MTN Escalations",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "MTN Escalations20240412065235",
+                                   "GroupEmail":  "cc@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  null,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "Ops Management",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Ops Management20220516103012",
+                                   "GroupEmail":  "opsmanagement@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               },
+                               {
+                                   "ModerationEnabled":  false,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  2,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  2,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  0,
+                                   "CurrentManagers":  [
+                                                           "Itumeleng",
+                                                           "Mgqibelo"
+                                                       ],
+                                   "GroupName":  "Senior Managers",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Multiple managers (2)",
+                                                            "Other managers: Itumeleng, Mgqibelo"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Senior Managers20220516104448",
+                                   "GroupEmail":  "seniorm@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  [
+                                                         "Itumeleng",
+                                                         "Mgqibelo"
+                                                     ]
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  4,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                       ],
+                                   "GroupName":  "Team Leaders",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Other managers: 6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Team Leaders20220509135940",
+                                   "GroupEmail":  "teamleaders@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "6ac3115c-e13d-47a0-aef2-4b714caebed8"
+                               }
+                           ],
+    "SecurityGroups":  [
+
+                       ],
+    "Office365Groups":  [
+
+                        ],
+    "Timestamp":  {
+                      "value":  "\/Date(1751656412808)\/",
+                      "DisplayHint":  2,
+                      "DateTime":  "Friday, 04 July 2025 21:13:32"
+                  },
+    "ScriptName":  "Verify-Single-Admin-Rights",
+    "PrimaryAdmin":  "lwandile.gasela@ibridge.co.za",
+    "FormerAdmin":  "Mgqibelo.Gasela@ibridge.co.za"
+}

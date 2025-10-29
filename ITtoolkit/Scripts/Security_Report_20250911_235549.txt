@@ -1,0 +1,103 @@
+﻿IT Toolkit Security Verification Report
+Generated: 09/11/2025 23:55:49
+
+SUMMARY:
+Total Scripts: 64
+Safe Scripts: 52
+Suspicious Scripts: 12
+Syntax Valid: 44
+Syntax Errors: 20
+
+Safety Score: 81.2%
+Functionality Score: 68.8%
+Overall Status: REVIEW NEEDED - Some scripts flagged
+
+SAFE SCRIPTS:
+Audit-All-Users-Security.ps1
+Check-EmailSecurity-iBridge.ps1
+Download-FOSS.bat
+Download-SecurityTools-Fixed.ps1
+Download-SecurityTools.ps1
+Emergency-Email-Breach-Scan.ps1
+Emergency_Email_Breach_Response.bat
+Exchange-Security-Audit-Fixed.ps1
+Monitor-EmailTraffic.ps1
+Quick-Email-Security-Check.ps1
+Simple-FOSS-Download.ps1
+Analyze-Cleanup-Clean.ps1
+Analyze-Cleanup.bat
+Analyze-Cleanup.ps1
+Backup-and-Cleanup.bat
+Backup-and-Cleanup.ps1
+Quick-Cleanup.bat
+Quick-Cleanup.ps1
+Defender-Optimizer.bat
+Defender-Optimizer.ps1
+Deploy-Emergency-Security.bat
+Email-Account-Audit.bat
+Email-Account-Audit.ps1
+Email-Security-Analysis.bat
+Emergency-Isolation.bat
+Emergency-Isolation.ps1
+Emergency-Security-Scan.bat
+Enable-Defender-Admin.bat
+Master-Security-Verification.bat
+Master-Security-Verification.ps1
+Quick-Security-Check.bat
+Quick-Security-Check.ps1
+Real-Time-Monitor.bat
+Real-Time-Monitor.ps1
+Email-Security-Investigation.bat
+Email-Security-Investigation.ps1
+Emergency-Malware-Scan.bat
+Emergency-Malware-Scan.ps1
+Network-Wide-Security-Audit.bat
+Network-Wide-Security-Audit.ps1
+Download-FOSS.ps1
+Download-Freeware.ps1
+Download-Paid.ps1
+Install-FOSS.bat
+Post-Install.ps1
+Verify-FOSS-Install.ps1
+ITToolkit-Menu.bat
+Run-All-Security-Tasks.bat
+Security-Verification-Menu.bat
+Verify-All-Scripts.bat
+Verify-All-Scripts.ps1
+Verify-Scripts-Simple.ps1
+
+SUSPICIOUS SCRIPTS:
+Download-Free-Security-Alternatives.ps1
+Future-Attack-Preparation-Toolkit.ps1
+Email-Security-Analysis.ps1
+Install-Basic-FOSS.ps1
+Install-Downloaded.ps1
+Install-Essential-FOSS.ps1
+Install-FOSS-Fixed.ps1
+Install-FOSS.ps1
+Install-Successfully-Downloaded.ps1
+Security-Verification-Simple.ps1
+Security-Verification-System-Fixed.ps1
+Security-Verification-System.ps1
+
+SYNTAX ERROR SCRIPTS:
+Download-SecurityTools.ps1
+Exchange-Security-Audit-Fixed.ps1
+Future-Attack-Preparation-Toolkit.ps1
+Simple-FOSS-Download.ps1
+Analyze-Cleanup.ps1
+Defender-Optimizer.ps1
+Email-Account-Audit.ps1
+Email-Security-Analysis.ps1
+Emergency-Isolation.ps1
+Master-Security-Verification.ps1
+Real-Time-Monitor.ps1
+Email-Security-Investigation.ps1
+Emergency-Malware-Scan.ps1
+Network-Wide-Security-Audit.ps1
+Install-Basic-FOSS.ps1
+Install-Essential-FOSS.ps1
+Install-FOSS-Fixed.ps1
+Security-Verification-System-Fixed.ps1
+Security-Verification-System.ps1
+Verify-All-Scripts.ps1

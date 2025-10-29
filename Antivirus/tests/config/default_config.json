@@ -1,0 +1,49 @@
+{
+  "run_unit_tests": true,
+  "run_integration_tests": true,
+  "run_security_tests": true,
+  "run_performance_tests": true,
+  "verbose_output": false,
+  "create_test_report": true,
+  "open_report_browser": false,
+  "test_timeout": 300,
+  "parallel_tests": false,
+  "cleanup_after_tests": true,
+  "retry_failed_tests": 1,
+  "fail_fast": false,
+  "include_patterns": [],
+  "exclude_patterns": [],
+  "report_format": "html",
+  "coverage_enabled": false,
+  "coverage_threshold": 80,
+  "log_level": "INFO",
+  "test_data": {
+    "sample_files": {
+      "small_file_size": 1024,
+      "large_file_size": 1048576,
+      "binary_file_size": 10240
+    },
+    "malware_signatures": [
+      "EICAR-STANDARD-ANTIVIRUS-TEST-FILE",
+      "X5O!P%@AP[4\\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*"
+    ],
+    "network_samples": {
+      "ip_ranges": ["192.168.1.0/24", "10.0.0.0/8"],
+      "domains": ["example.com", "test-domain.org", "malware-test.com"]
+    }
+  },
+  "environment": {
+    "use_mock_services": true,
+    "external_resources": false,
+    "temp_directory": "",
+    "database_path": "",
+    "network_access": false
+  },
+  "performance_targets": {
+    "small_file_scan_time": 0.1,
+    "large_file_scan_time": 5.0,
+    "files_per_second": 100,
+    "memory_usage_mb": 100,
+    "cpu_usage_percent": 80
+  }
+}

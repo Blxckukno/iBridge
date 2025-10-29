@@ -1,0 +1,12 @@
+# Deployment Cheat Sheet
+
+- Always use offline installers (no web installers)
+- Run all scripts from an elevated PowerShell prompt
+- Use `Scripts/Modules/Get-Latest.psm1` to select the latest installer in each folder
+- Update `Software_Versions.csv` after adding or updating any installer
+- Encrypt the drive with BitLocker before field use
+- Test all scripts and installers in a VM before production
+- For FOSS stack, deploy Wazuh, TacticalRMM, Proxmox, and TrueNAS on dedicated hardware or VMs
+- Store license keys in `License_Keys.txt.gpg` (encrypted)
+- Download Windows/Linux ISOs directly from official sources
+- Update toolkit quarterly (set a calendar reminder)

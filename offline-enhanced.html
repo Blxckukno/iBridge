@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Security Meta Tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | iBridge Contact Solutions</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-green: #A1C44F;
+            --primary-green-light: #B8D663;
+            --primary-green-dark: #8FB347;
+            --dark-bg: #2C3E50;
+            --dark-bg-light: #34495e;
+            --text-white: #FFFFFF;
+            --text-gray: #6C757D;
+            --light-gray: #F8F9FA;
+            --border-light: #E9ECEF;
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-light) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: var(--light-gray);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .offline-container {
+            text-align: center;
+            padding: 60px 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+            max-width: 500px;
+            margin: 20px;
+        }
+
+        .offline-icon {
+            font-size: 4rem;
+            color: var(--primary-green);
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+        }
+
+        .offline-title {
+            font-size: 2.5rem;
+            color: var(--dark-bg);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .offline-message {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .offline-features {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .offline-features h3 {
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .offline-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .offline-features li {
+            padding: 8px 0;
+            color: var(--text-gray);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .offline-features li::before {
+            content: '✓';
+            color: var(--primary-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .retry-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .retry-btn:hover {
+            background: var(--primary-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(161, 196, 79, 0.4);
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .home-link:hover {
+            color: var(--primary-green-dark);
+            transform: translateX(5px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .offline-container {
+                margin: 10px;
+                padding: 40px 30px;
+            }
+
+            .offline-title {
+                font-size: 2rem;
+            }
+
+            .offline-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="offline-container">
+        <i class="fas fa-wifi-slash offline-icon" aria-hidden="true"></i>
+        <h1 class="offline-title">You're Offline</h1>
+        <p class="offline-message">
+            Sorry, you appear to be offline. Please check your internet connection and try again.
+        </p>
+
+        <div class="offline-features">
+            <h3>Available Offline Features:</h3>
+            <ul>
+                <li>View previously loaded pages</li>
+                <li>Access cached service information</li>
+                <li>Review company contact details</li>
+                <li>Browse offline-ready content</li>
+            </ul>
+        </div>
+
+        <button onclick="window.location.reload()" class="retry-btn">
+            <i class="fas fa-sync-alt"></i>
+            Try Again
+        </button>
+
+        <br>
+        <a href="index.html" class="home-link">
+            <i class="fas fa-home"></i> Return to Homepage
+        </a>
+    </div>
+
+    <script>
+        // Check for connection and automatically retry
+        window.addEventListener('online', function () {
+            setTimeout(function () {
+                window.location.reload();
+            }, 1000);
+        });
+
+        // Add some visual feedback when trying to reconnect
+        function retryConnection() {
+            const btn = document.querySelector('.retry-btn');
+            const icon = btn.querySelector('i');
+
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            icon.style.animation = 'spin 1s linear infinite';
+
+            setTimeout(function () {
+                window.location.reload();
+            }, 1000);
+        }
+
+        // Update button to use the new function
+        document.querySelector('.retry-btn').onclick = retryConnection;
+
+        // Add spin animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+
+    <!-- iBridge Security System -->
+    <script src="js/ibridge-security.js"></script>
+    <script src="js/security-dashboard.js"></script>
+
+</body>
+
+</html>

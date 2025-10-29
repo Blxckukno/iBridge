@@ -1,0 +1,40 @@
+# iBridge Security-Enhanced robots.txt
+# Last Updated: October 21, 2025
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /config/
+Disallow: /logs/
+Disallow: /backup/
+Disallow: /temp/
+Disallow: /tmp/
+Disallow: /*.sql$
+Disallow: /*.bak$
+Disallow: /*.log$
+Disallow: /*.ps1$
+Disallow: /*.bat$
+Disallow: /*.sh$
+
+# Security considerations
+Disallow: /Scripts/
+Disallow: /Security/
+Disallow: /SecurityMeasures/
+
+# Crawl-delay for bot management
+Crawl-delay: 1
+
+Sitemap: https://ibridgecontacts.com/sitemap.xml
+
+# Block GPT crawler from training on our content
+User-agent: GPTBot
+Disallow: /
+
+# Block Google-Extended from training on our content
+User-agent: Google-Extended
+Disallow: /
+
+# Security contact
+# Contact: security@ibridge.co.za

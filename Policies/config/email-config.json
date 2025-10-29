@@ -1,0 +1,50 @@
+{
+  "SharedMailboxes": [
+    {
+      "DisplayName": "iBridge General Enquiries",
+      "EmailAddress": "info@ibridge.co.za",
+      "Description": "Main company-wide communication mailbox"
+    }
+  ],
+  "AuthorizedUsers": [
+    "Mandla.Shandu@ibridge.co.za",
+    "collins.khumalo@ibridge.co.za",
+    "brunah.thulo@ibridge.co.za",
+    "InternalComms@ibridge.co.za",
+    "HRM@ibridge.co.za",
+    "Lwandile.Gasela@ibridge.co.za"
+  ],
+  "AuthorizedGroups": [
+    "EXCO Members",
+    "IT Department",
+    "HR Department"
+  ],
+  "ViewOnlyUsers": [
+    "AllCompanyUsers@ibridge.co.za"
+  ],
+  "DistributionGroups": [
+    {
+      "DisplayName": "All Employees",
+      "EmailAddress": "allemployees@ibridge.co.za",
+      "Description": "Company-wide distribution group"
+    },
+    {
+      "DisplayName": "iBridge General Enquiries", 
+      "EmailAddress": "info@ibridge.co.za",
+      "Description": "General enquiries group"
+    }
+  ],
+  "PolicySettings": {
+    "EnableModeration": true,
+    "SendModerationNotifications": "Never",
+    "RejectUnauthorizedSenders": true,
+    "LogAllActions": true,
+    "SendNotificationToAdmin": true,
+    "AdminNotificationEmail": "it@ibridge.co.za"
+  },
+  "ExceptionRules": {
+    "AllowExternalSenders": false,
+    "AllowDelegatedSending": true,
+    "BypassModerationForInternalSenders": false
+  }
+}

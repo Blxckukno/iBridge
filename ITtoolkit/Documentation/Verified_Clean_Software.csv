@@ -1,0 +1,23 @@
+Category,Software,Version,License,SecurityStatus,LastVerified,SizeMB
+01_Cybersecurity,Autoruns,Latest,Microsoft-Freeware,Safe,2025-10-23,2.8
+01_Cybersecurity,ClamWin,0.103.9,GPL-Free,Safe,2025-10-23,0.13
+01_Cybersecurity,HBCD_PE,Latest,Freeware,Safe,2025-10-23,717.5
+01_Cybersecurity,ProcessExplorer,Latest,Microsoft-Freeware,Safe,2025-10-23,3.3
+01_Cybersecurity,RootkitRevealer,Latest,Microsoft-Freeware,Safe,2025-10-23,0.22
+01_Cybersecurity,Rufus,4.4,GPL-Free,Safe,2025-10-23,1.37
+01_Cybersecurity,TCPView,Latest,Microsoft-Freeware,Safe,2025-10-23,1.53
+01_Cybersecurity,Emsisoft Emergency Kit,Latest,Freemium,Safe,2025-10-23,309.93
+01_Cybersecurity,Malwarebytes,Latest,Freemium,Safe,2025-10-23,2.47
+02_System_Utilities,Recuva,1.53,CCleaner-Freeware,Safe,2025-10-23,12.4
+02_System_Utilities,7-Zip,24.07,LGPL-Free,Safe,2025-10-23,1.55
+02_System_Utilities,BleachBit,4.6.0,GPL-Free,Safe,2025-10-23,12.06
+02_System_Utilities,Everything,1.4.1.1024,MIT-Free,Safe,2025-10-23,1.72
+03_Networking,Advanced IP Scanner,2.5.4594.1,Freeware,Safe,2025-10-23,20.08
+03_Networking,Nmap,7.95,Nmap-License-Free,Safe,2025-10-23,32.4
+03_Networking,PuTTY,0.81,MIT-Free,Safe,2025-10-23,3.54
+03_Networking,Wireshark,4.4.9,GPL-Free,Safe,2025-10-23,83.37
+04_Productivity,Google Chrome,Enterprise,Google-Freeware,Safe,2025-10-23,131.76
+04_Productivity,Sumatra PDF,3.5.2,GPL-Free,Safe,2025-10-23,7.86
+05_Runtimes,Visual C++ Redistributables,AIO,Microsoft-Free,Safe,2025-10-23,27.7
+05_Runtimes,Intel DSA,Latest,Intel-Freeware,Safe,2025-10-23,8.7
+05_Runtimes,Snappy Driver Installer,R2413,GPL-Free,Safe,2025-10-23,0.01

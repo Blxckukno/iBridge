@@ -1,0 +1,43 @@
+# Manual Download Guide for Failed Items
+
+The following applications failed automated download and require manual intervention:
+
+## Freeware - Manual Downloads Required:
+1. **Rufus** - Visit: https://rufus.ie/ (download latest version)
+2. **Veeam Agent FREE** - Visit: https://www.veeam.com/windows-endpoint-server-backup-free.html (requires registration)
+3. **AOMEI Backupper Standard** - Visit: https://www.aomeitech.com/backup-software.html (download free version)
+4. **HWiNFO** - Visit: https://www.hwinfo.com/download/ (download portable or installer version)
+5. **Wireshark** - Visit: https://www.wireshark.org/download.html (download Windows x64 installer)
+6. **LibreOffice** - Visit: https://www.libreoffice.org/download/download/ (download offline installer)
+7. **.NET Desktop Runtime** - Visit: https://dotnet.microsoft.com/en-us/download/dotnet/8.0 (download Windows x64 Desktop Runtime)
+8. **Java JRE** - Visit: https://www.oracle.com/java/technologies/downloads/ (requires Oracle account)
+
+## FOSS Enterprise - Manual Downloads Required:
+1. **CrowdSec** - Visit: https://github.com/crowdsecurity/crowdsec/releases (download Windows MSI)
+2. **UrBackup Client** - Visit: https://www.urbackup.org/download.html (download Windows client)
+3. **Vorta** - Visit: https://github.com/borgbase/vorta/releases (download Windows executable)
+4. **RustDesk** - Visit: https://github.com/rustdesk/rustdesk/releases (download Windows x64 exe)
+5. **Thunderbird** - Visit: https://www.thunderbird.net/en-US/download/ (download Windows installer)
+
+## Infrastructure (Server ISOs - Large Downloads):
+1. **Proxmox VE** - Visit: https://www.proxmox.com/en/downloads (download latest ISO)
+2. **TrueNAS SCALE** - Visit: https://www.truenas.com/download-truenas-scale/ (download latest ISO)
+3. **OPNsense** - Visit: https://opnsense.org/download/ (download latest ISO)
+4. **Security Onion** - Visit: https://securityonionsolutions.com/software (download latest ISO)
+
+## Instructions:
+1. Download each file manually from the official website
+2. Place downloaded files in the correct folder structure:
+   - Freeware files go in `Freeware/[Category]/`
+   - FOSS files go in `FOSS_Enterprise_Stack/[Category]/`
+3. Update the Software_Versions.csv with actual downloaded versions
+4. Re-run the install script to include newly downloaded applications
+
+## Note:
+Some downloads require:
+- Account registration (Veeam, Oracle Java)
+- License agreement acceptance
+- Email verification
+- Manual captcha completion
+
+This is normal for enterprise-grade software and ensures compliance with vendor terms.

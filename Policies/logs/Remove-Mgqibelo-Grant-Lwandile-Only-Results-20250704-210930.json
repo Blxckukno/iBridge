@@ -1,0 +1,196 @@
+﻿{
+    "Summary":  {
+                    "MembershipsPreserved":  0,
+                    "TotalSuccessful":  14,
+                    "SecurityGroupsProcessed":  0,
+                    "ChangesNeeded":  14,
+                    "TotalGroups":  15,
+                    "DistributionGroups":  15,
+                    "SecurityGroups":  0,
+                    "Office365Groups":  0,
+                    "Office365GroupsProcessed":  0,
+                    "DistributionGroupsProcessed":  14,
+                    "UsersRemoved":  0,
+                    "TotalFailed":  5
+                },
+    "WhatIf":  {
+                   "IsPresent":  false
+               },
+    "DistributionGroups":  [
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "Accounts",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "All Employees",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "Call Centre Agents All",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "Credit Vetting Agents",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "Executives",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "Gauteng Call Centre Agents",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "HR Group",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "iBridge General Enquiries",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "JustInTime",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "KZN Call Centre Agents",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "Learning and Development",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "MTN Escalations",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "Ops Management",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               },
+                               {
+                                   "Group":  "Senior Managers",
+                                   "Error":  "||The operation on Identity \"Senior Managers20220516104448\" failed because it\u0027s out of the current user\u0027s write scope. \u0027Senior Managers20220516104448\u0027 isn\u0027t within your current write scopes. Can\u0027t perform save operation.",
+                                   "GroupType":  "DistributionGroup",
+                                   "Success":  false,
+                                   "Action":  "Failed to Set Single Admin"
+                               },
+                               {
+                                   "Action":  "Set Single Admin",
+                                   "GroupType":  "DistributionGroup",
+                                   "PrimaryIsManager":  true,
+                                   "UserToRemoveIsManager":  false,
+                                   "UserRemoved":  false,
+                                   "Success":  true,
+                                   "Group":  "Team Leaders",
+                                   "ModeratorCount":  6,
+                                   "ModerationEnabled":  true
+                               }
+                           ],
+    "UserToRemove":  "Mgqibelo.Gasela@ibridge.co.za",
+    "SecurityGroups":  [
+
+                       ],
+    "Office365Groups":  [
+
+                        ],
+    "Timestamp":  {
+                      "value":  "\/Date(1751656170572)\/",
+                      "DisplayHint":  2,
+                      "DateTime":  "Friday, 04 July 2025 21:09:30"
+                  },
+    "ScriptName":  "Remove-Mgqibelo-Grant-Lwandile-Only",
+    "PrimaryAdmin":  "lwandile.gasela@ibridge.co.za"
+}

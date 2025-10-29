@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iBridge System Showcase - LMS & Intranet Platform</title>
+
+    <!-- Enhanced Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #A1C44F;
+            --success-color: #00ff88;
+            --warning-color: #ffc107;
+            --danger-color: #ff4757;
+            --info-color: #3742fa;
+
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-dark: #1a1a1a;
+            --text-primary: #2c3e50;
+            --text-secondary: #6c757d;
+            --text-muted: #adb5bd;
+
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+            --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .showcase-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+
+        .showcase-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .showcase-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .demo-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            color: white;
+            text-decoration: none;
+        }
+
+        .stats-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stats-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--text-primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(161, 196, 79, 0.1));
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .demo-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .demo-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .demo-header {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+
+        .demo-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .demo-subtitle {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .demo-content {
+            padding: 30px;
+        }
+
+        .demo-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .demo-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .demo-features li:last-child {
+            border-bottom: none;
+        }
+
+        .demo-features .icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .footer-section {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 60px 40px 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .footer-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .footer-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 15px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-info {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animation Effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .showcase-container {
+                padding: 10px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .demo-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .footer-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Interactive hover effects */
+        .feature-card {
+            cursor: pointer;
+        }
+
+        .feature-card:active {
+            transform: translateY(-5px) scale(0.98);
+        }
+
+        /* Loading states */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Professional Modal System */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            padding: 0;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .modal-body p {
+            margin: 0 0 15px 0;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .modal-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .modal-btn.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .modal-btn.primary:hover {
+            background: var(--secondary-color);
+        }
+
+        .modal-btn.secondary {
+            background: #f8f9fa;
+            color: var(--text-primary);
+        }
+
+        .modal-btn.secondary:hover {
+            background: #e9ecef;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="showcase-container">
+        <!-- Header Section -->
+        <header class="showcase-header animate-fade-in-up">
+            <h1 class="showcase-title">
+                <i class="fas fa-graduation-cap"></i>
+                iBridge LMS & Intranet
+            </h1>
+            <p class="showcase-subtitle">
+                Comprehensive Learning Management System and Enterprise Intranet Platform with Advanced Security,
+                Analytics, and Modern UI
+            </p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <span
+                    style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--success-color), #00cc66); color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                    <i class="fas fa-shield-alt animate-pulse"></i>
+                    Enterprise Security
+                </span>
+                <span
+                    style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--info-color), #4834d4); color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                    <i class="fas fa-mobile-alt animate-pulse"></i>
+                    Mobile First
+                </span>
+                <span
+                    style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--warning-color), #ff9f43); color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                    <i class="fas fa-chart-line animate-pulse"></i>
+                    Real-time Analytics
+                </span>
+            </div>
+        </header>
+
+        <!-- Statistics Section -->
+        <section class="stats-section animate-fade-in-up">
+            <h2 class="stats-title">Platform Capabilities</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <div class="stat-label">Core Systems</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.9%</span>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2.0</span>
+                    <div class="stat-label">Version</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <div class="stat-label">Monitoring</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Responsive</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">WCAG</span>
+                    <div class="stat-label">Accessible</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <div class="feature-grid">
+            <!-- Enhanced Intranet System -->
+            <div class="feature-card animate-fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 class="feature-title">Enterprise Intranet</h3>
+                <p class="feature-description">
+                    Advanced intranet platform with modern UI, dark mode, mobile optimization, and comprehensive
+                    security features.
+                </p>
+                <ul class="feature-list">
+                    <li>Advanced Security Dashboard (Ctrl+Shift+S)</li>
+                    <li>Performance Optimization with Core Web Vitals</li>
+                    <li>Multi-theme Support (Light/Dark/High Contrast)</li>
+                    <li>Mobile-first Responsive Design</li>
+                    <li>Real-time Analytics (Alt+A)</li>
+                    <li>Accessibility Compliant (WCAG 2.1)</li>
+                </ul>
+                <button class="demo-button" onclick="showIntranetDemo()">
+                    <i class="fas fa-eye"></i>
+                    View Intranet
+                </button>
+            </div>
+
+            <!-- Learning Management System -->
+            <div class="feature-card animate-fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="feature-title">Learning Management System</h3>
+                <p class="feature-description">
+                    Comprehensive LMS with course management, progress tracking, interactive assessments, and
+                    certification system.
+                </p>
+                <ul class="feature-list">
+                    <li>Interactive Course Creation</li>
+                    <li>Progress Tracking & Analytics</li>
+                    <li>Quiz & Assessment Engine</li>
+                    <li>Certification Management</li>
+                    <li>Video Learning Platform</li>
+                    <li>Multi-language Support</li>
+                </ul>
+                <button class="demo-button" onclick="showLMSDemo()">
+                    <i class="fas fa-play"></i>
+                    Launch LMS
+                </button>
+            </div>
+
+            <!-- Professional Ticketing System -->
+            <div class="feature-card animate-fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-ticket-alt"></i>
+                </div>
+                <h3 class="feature-title">Professional Ticketing</h3>
+                <p class="feature-description">
+                    Enhanced ticketing system with SLA management, advanced filtering, bulk operations, and real-time
+                    collaboration.
+                </p>
+                <ul class="feature-list">
+                    <li>Advanced UI with Modern Design</li>
+                    <li>SLA Management & Tracking</li>
+                    <li>Bulk Operations & Filtering</li>
+                    <li>Drag & Drop Interface</li>
+                    <li>Mobile Optimized Dashboard</li>
+                    <li>Real-time Updates</li>
+                </ul>
+                <button class="demo-button" onclick="showTicketingDemo()">
+                    <i class="fas fa-cogs"></i>
+                    Open Ticketing
+                </button>
+            </div>
+
+            <!-- Advanced API System -->
+            <div class="feature-card animate-fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="feature-title">Advanced API System</h3>
+                <p class="feature-description">
+                    Enterprise-grade API with rate limiting, caching, error handling, documentation, and real-time
+                    capabilities.
+                </p>
+                <ul class="feature-list">
+                    <li>Intelligent Rate Limiting</li>
+                    <li>Request Caching & Optimization</li>
+                    <li>WebSocket Integration</li>
+                    <li>Comprehensive Error Handling</li>
+                    <li>Built-in Documentation</li>
+                    <li>API Testing Tools</li>
+                </ul>
+                <button class="demo-button" onclick="showAPIDemo()">
+                    <i class="fas fa-plug"></i>
+                    Test APIs
+                </button>
+            </div>
+
+            <!-- IT Toolkit -->
+            <div class="feature-card animate-fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-toolbox"></i>
+                </div>
+                <h3 class="feature-title">IT Toolkit</h3>
+                <p class="feature-description">
+                    Comprehensive collection of 100% free enterprise software tools for system administration and
+                    development.
+                </p>
+                <ul class="feature-list">
+                    <li>22 Verified Free Applications</li>
+                    <li>Security Scanned & Approved</li>
+                    <li>Complete Documentation</li>
+                    <li>Regular Updates</li>
+                    <li>Enterprise-Ready Tools</li>
+                    <li>No Trial Software</li>
+                </ul>
+                <button class="demo-button" onclick="showToolkitDemo()">
+                    <i class="fas fa-tools"></i>
+                    Browse Tools
+                </button>
+            </div>
+
+            <!-- Security & Monitoring -->
+            <div class="feature-card animate-fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Security & Monitoring</h3>
+                <p class="feature-description">
+                    Advanced security monitoring, threat detection, compliance reporting, and real-time system health
+                    tracking.
+                </p>
+                <ul class="feature-list">
+                    <li>Real-time Threat Detection</li>
+                    <li>Compliance Monitoring</li>
+                    <li>Automated Security Reports</li>
+                    <li>System Health Dashboard</li>
+                    <li>Incident Response Tools</li>
+                    <li>Audit Trail Management</li>
+                </ul>
+                <button class="demo-button" onclick="showSecurityDemo()">
+                    <i class="fas fa-lock"></i>
+                    Security Center
+                </button>
+            </div>
+        </div>
+
+        <!-- Demo Section -->
+        <section class="demo-section">
+            <div class="demo-card animate-fade-in-up">
+                <div class="demo-header">
+                    <h3 class="demo-title">🚀 Live System Demo</h3>
+                    <p class="demo-subtitle">Experience all features in action</p>
+                </div>
+                <div class="demo-content">
+                    <ul class="demo-features">
+                        <li>
+                            <div class="icon"><i class="fas fa-home"></i></div>
+                            <div>
+                                <strong>Main Intranet</strong><br>
+                                <small>Enhanced with security, analytics, and mobile optimization</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div>
+                                <strong>LMS Platform</strong><br>
+                                <small>Complete learning management with progress tracking</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fas fa-ticket-alt"></i></div>
+                            <div>
+                                <strong>Ticketing System</strong><br>
+                                <small>Professional IT support with advanced features</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fas fa-chart-bar"></i></div>
+                            <div>
+                                <strong>Analytics Dashboard</strong><br>
+                                <small>Real-time monitoring and reporting</small>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="demo-button" onclick="startFullDemo()" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-play-circle"></i>
+                        Start Full Demo Tour
+                    </button>
+                </div>
+            </div>
+
+            <div class="demo-card animate-fade-in-up">
+                <div class="demo-header">
+                    <h3 class="demo-title">⚡ Quick Access</h3>
+                    <p class="demo-subtitle">Direct links to system components</p>
+                </div>
+                <div class="demo-content">
+                    <ul class="demo-features">
+                        <li>
+                            <div class="icon"><i class="fas fa-keyboard"></i></div>
+                            <div>
+                                <strong>Keyboard Shortcuts</strong><br>
+                                <small>Ctrl+Shift+S (Security), Alt+A (Analytics)</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                            <div>
+                                <strong>Mobile Optimized</strong><br>
+                                <small>Touch gestures, swipe navigation, responsive design</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fas fa-universal-access"></i></div>
+                            <div>
+                                <strong>Accessibility</strong><br>
+                                <small>WCAG 2.1 compliant, screen reader support</small>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fas fa-palette"></i></div>
+                            <div>
+                                <strong>Theme Support</strong><br>
+                                <small>Light, Dark, High Contrast modes</small>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="demo-button" onclick="showFeatures()" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-list"></i>
+                        View All Features
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-section animate-fade-in-up">
+            <h2 class="footer-title">Ready to Explore?</h2>
+            <p class="footer-description">
+                Experience the complete iBridge platform with enterprise-grade features, modern design, and
+                comprehensive functionality.
+            </p>
+            <div class="footer-buttons">
+                <a href="index.html" class="footer-button">
+                    <i class="fas fa-home"></i>
+                    Main Intranet
+                </a>
+                <a href="#" class="footer-button" onclick="createLMSDemo()">
+                    <i class="fas fa-graduation-cap"></i>
+                    LMS Demo
+                </a>
+                <a href="TicketingSystem/frontend/enhanced-dashboard.html" class="footer-button">
+                    <i class="fas fa-ticket-alt"></i>
+                    Ticketing System
+                </a>
+                <a href="#" class="footer-button" onclick="showSystemStatus()">
+                    <i class="fas fa-chart-line"></i>
+                    System Status
+                </a>
+            </div>
+            <div class="footer-info">
+                <p>iBridge Platform v2.0 | Enhanced with Advanced Security, Analytics, and Modern UI</p>
+                <p>All systems operational • Real-time monitoring active • Security protocols enabled</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Interactive functions
+        function showIntranetDemo() {
+            showNotification('🏢 Opening Enhanced Intranet Platform...', 'info');
+            setTimeout(() => {
+                window.open('index.html', '_blank');
+            }, 1000);
+        }
+
+        function showLMSDemo() {
+            showNotification('🎓 Launching Learning Management System...', 'info');
+            setTimeout(() => {
+                createLMSDemo();
+            }, 1000);
+        }
+
+        function showTicketingDemo() {
+            showNotification('🎫 Loading Professional Ticketing System...', 'info');
+            setTimeout(() => {
+                window.open('TicketingSystem/frontend/enhanced-dashboard.html', '_blank');
+            }, 1000);
+        }
+
+        function showAPIDemo() {
+            showNotification('🔌 Initializing API Testing Environment...', 'info');
+            setTimeout(() => {
+                // Enable dev mode for API tester
+                localStorage.setItem('iBridge-dev-mode', 'true');
+                window.open('index.html', '_blank');
+            }, 1000);
+        }
+
+        function showToolkitDemo() {
+            showNotification('🛠️ Opening IT Toolkit Collection...', 'info');
+            setTimeout(() => {
+                showProfessionalModal('🛠️ IT Toolkit Collection', 'IT Toolkit with 22+ verified free applications available in the main intranet system! This comprehensive collection includes security tools, productivity software, system utilities, and development resources - all professionally vetted and ready for enterprise deployment.', 'feature');
+            }, 1000);
+        }
+
+        function showSecurityDemo() {
+            showNotification('🛡️ Accessing Security Dashboard...', 'info');
+            setTimeout(() => {
+                showProfessionalModal('🛡️ Security Dashboard', 'Advanced Security Dashboard available in main system with Ctrl+Shift+S shortcut! Features real-time threat monitoring, network analysis, firewall management, and comprehensive security reporting for enterprise-grade protection.', 'feature');
+            }, 1000);
+        }
+
+        function startFullDemo() {
+            showNotification('🚀 Starting comprehensive system tour...', 'success');
+            const steps = [
+                'Loading main intranet platform...',
+                'Initializing security monitoring...',
+                'Preparing analytics dashboard...',
+                'Setting up ticketing system...',
+                'Configuring LMS components...'
+            ];
+
+            let currentStep = 0;
+            const interval = setInterval(() => {
+                if (currentStep < steps.length) {
+                    showNotification(steps[currentStep], 'info', 2000);
+                    currentStep++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        window.open('index.html', '_blank');
+                    }, 1000);
+                }
+            }, 1500);
+        }
+
+        function createLMSDemo() {
+            // Create a modal with LMS demo content
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.9);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            `;
+
+            modal.innerHTML = `
+                <div style="background: white; max-width: 900px; width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 40px; text-align: center;">
+                        <h2 style="margin: 0 0 15px 0; font-size: 2.5rem;">🎓 iBridge LMS Platform</h2>
+                        <p style="margin: 0; font-size: 1.2rem; opacity: 0.9;">Interactive Learning Management System</p>
+                    </div>
+                    
+                    <div style="padding: 40px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px;">
+                            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                                <div style="font-size: 2.5rem; margin-bottom: 15px;">📚</div>
+                                <h3 style="margin: 0 0 10px 0; color: #333;">Course Library</h3>
+                                <p style="margin: 0; color: #666; font-size: 0.9rem;">Interactive courses with video, quizzes, and assignments</p>
+                            </div>
+                            
+                            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                                <div style="font-size: 2.5rem; margin-bottom: 15px;">📊</div>
+                                <h3 style="margin: 0 0 10px 0; color: #333;">Progress Tracking</h3>
+                                <p style="margin: 0; color: #666; font-size: 0.9rem;">Real-time analytics and completion tracking</p>
+                            </div>
+                            
+                            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                                <div style="font-size: 2.5rem; margin-bottom: 15px;">🏆</div>
+                                <h3 style="margin: 0 0 10px 0; color: #333;">Certifications</h3>
+                                <p style="margin: 0; color: #666; font-size: 0.9rem;">Automated certificate generation and validation</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(161, 196, 79, 0.1)); padding: 30px; border-radius: 15px; margin-bottom: 30px;">
+                            <h3 style="margin: 0 0 20px 0; color: #333; text-align: center;">✨ Key Features</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                                <div style="display: flex; align-items: center; gap: 10px;"><span style="color: #00ff88;">✓</span> Interactive Video Learning</div>
+                                <div style="display: flex; align-items: center; gap: 10px;"><span style="color: #00ff88;">✓</span> Quiz & Assessment Engine</div>
+                                <div style="display: flex; align-items: center; gap: 10px;"><span style="color: #00ff88;">✓</span> Progress Analytics</div>
+                                <div style="display: flex; align-items: center; gap: 10px;"><span style="color: #00ff88;">✓</span> Mobile Learning App</div>
+                                <div style="display: flex; align-items: center; gap: 10px;"><span style="color: #00ff88;">✓</span> Discussion Forums</div>
+                                <div style="display: flex; align-items: center; gap: 10px;"><span style="color: #00ff88;">✓</span> Certificate Management</div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <button onclick="this.closest('div').parentElement.remove()" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-right: 15px;">
+                                🚀 Launch LMS Demo
+                            </button>
+                            <button onclick="this.closest('div').parentElement.remove()" style="background: #f8f9fa; color: #333; border: 1px solid #dee2e6; padding: 15px 30px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer;">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.remove();
+            });
+        }
+
+        function showSystemStatus() {
+            const status = {
+                'Intranet Platform': '🟢 Online',
+                'Security System': '🟢 Active',
+                'Analytics Engine': '🟢 Running',
+                'Ticketing System': '🟢 Operational',
+                'API Services': '🟢 Available',
+                'Database': '🟢 Connected',
+                'Monitoring': '🟢 Active'
+            };
+
+            let statusText = '📊 System Status Report:\n\n';
+            Object.entries(status).forEach(([system, state]) => {
+                statusText += `${system}: ${state}\n`;
+            });
+            statusText += '\nAll systems operational! ✅';
+
+            showProfessionalModal('🔧 System Status', statusText, 'info');
+        }
+
+        function showFeatures() {
+            const features = [
+                '🛡️ Advanced Security Dashboard',
+                '📱 Mobile-First Design',
+                '🎨 Multi-Theme Support',
+                '📊 Real-time Analytics',
+                '🔧 Professional Ticketing',
+                '🎓 Learning Management',
+                '🔌 Enterprise APIs',
+                '♿ Full Accessibility',
+                '⚡ Performance Optimized',
+                '🔒 Enterprise Security'
+            ];
+
+            showProfessionalModal('🌟 iBridge Platform Features', features.join('<br>• '), 'feature');
+        }
+
+        function showNotification(message, type = 'info', duration = 4000) {
+            const notification = document.createElement('div');
+            const colors = {
+                success: '#00ff88',
+                info: '#667eea',
+                warning: '#ffc107',
+                error: '#ff4757'
+            };
+
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${colors[type] || colors.info};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                font-weight: 600;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+                z-index: 10001;
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+            `;
+
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Remove after duration
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => notification.remove(), 300);
+            }, duration);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                showNotification('🎉 iBridge Platform Showcase Loaded Successfully!', 'success');
+            }, 1000);
+        });
+
+        // Professional Modal System Functions
+        function showProfessionalModal(title, content, type = 'info') {
+            const iconMap = {
+                'info': 'fas fa-info-circle',
+                'success': 'fas fa-check-circle',
+                'warning': 'fas fa-exclamation-triangle',
+                'error': 'fas fa-times-circle',
+                'feature': 'fas fa-star'
+            };
+
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">
+                            <i class="${iconMap[type] || iconMap.info}"></i>
+                            ${title}
+                        </h3>
+                        <button class="modal-close" onclick="closeModal(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>${content}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="modal-btn primary" onclick="closeModal(this)">
+                            <i class="fas fa-check"></i> Got it!
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('active'), 10);
+        }
+
+        function closeModal(element) {
+            const modal = element.closest('.modal-overlay');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                if (modal.parentNode) {
+                    modal.parentNode.removeChild(modal);
+                }
+            }, 300);
+        }
+
+        // Close modal on backdrop click
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                closeModal(e.target.querySelector('.modal-close'));
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                const activeModal = document.querySelector('.modal-overlay.active');
+                if (activeModal) {
+                    closeModal(activeModal.querySelector('.modal-close'));
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+IT Toolkit Security Scan & Application Separation Report
+Generated: 10/23/2025 11:12:34
+Mode: DRY RUN - No files will be modified
+Deep Scan: Disabled
+======================================================================
+
+SECURITY SCAN RESULTS:
+
+Safe Files: 23
+Suspicious Files: 0
+Potentially Malicious Files: 0
+
+
+LICENSE SEPARATION RESULTS:
+
+Free Applications: 2
+   • Everything-1.4.1.1024.x64.zip - MIT
+   • putty-64bit-0.81-installer.msi - MIT
+
+Paid Applications: 0
+
+Unknown Applications: 21
+   • Autoruns.zip - Microsoft
+   • clamwin-0.103.9-setup.exe - Unknown
+   • EmsisoftEmergencyKit.exe - Unknown
+   • HBCD_PE_x64.iso - Unknown
+   • HitmanPro_x64.exe - Unknown
+   • MBSetup.exe - Unknown
+   • ProcessExplorer.zip - Unknown
+   • RootkitRevealer.zip - Unknown
+   • rufus-4.4.exe - Unknown
+   • TCPView.zip - Unknown
+   • rcsetup153.exe - Unknown
+   • 7z2407-x64.exe - Unknown
+   • BleachBit-4.6.0-portable.zip - GPL-3.0
+   • Advanced_IP_Scanner_2.5.4594.1.exe - Unknown
+   • nmap-7.95-setup.exe - Nmap License
+   • Wireshark-4.4.9-x64.exe - GPL-2.0
+   • googlechromestandaloneenterprise64.msi - Unknown
+   • SumatraPDF-3.5.2-64-install.exe - Unknown
+   • VisualCppRedist_AIO_x86_x64.exe - Unknown
+   • Intel-Driver-and-Support-Assistant-Installer.exe - Unknown
+   • SDI_R2413.exe - Unknown
+
+Trial Applications: 0
+
+
+SUMMARY:
+- Total files scanned: 23
+- Safe files: 23
+- Suspicious files: 0
+- Potentially malicious files: 0
+- Free applications: 2
+- Paid applications: 0
+- Trial applications: 0
+- Unknown license: 21

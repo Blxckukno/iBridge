@@ -1,0 +1,185 @@
+﻿{
+    "Summary":  {
+                    "MembershipsPreserved":  0,
+                    "TotalSuccessful":  15,
+                    "SecurityGroupsProcessed":  0,
+                    "ChangesNeeded":  15,
+                    "TotalGroups":  15,
+                    "DistributionGroups":  15,
+                    "SecurityGroups":  0,
+                    "Office365Groups":  0,
+                    "Office365GroupsProcessed":  0,
+                    "DistributionGroupsProcessed":  15,
+                    "UsersRemoved":  0,
+                    "TotalFailed":  0
+                },
+    "WhatIf":  {
+                   "IsPresent":  true
+               },
+    "DistributionGroups":  [
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Accounts"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "All Employees"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Call Centre Agents All"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Credit Vetting Agents"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Executives"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Gauteng Call Centre Agents"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "HR Group"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "iBridge General Enquiries"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "JustInTime"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "KZN Call Centre Agents"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Learning and Development"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "MTN Escalations"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Ops Management"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Senior Managers"
+                               },
+                               {
+                                   "Action":  "Would Set Single Admin",
+                                   "ActionsNeeded":  [
+                                                         "Add lwandile.gasela@ibridge.co.za as manager"
+                                                     ],
+                                   "WhatIf":  true,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Team Leaders"
+                               }
+                           ],
+    "UserToRemove":  "Mgqibelo.Gasela@ibridge.co.za",
+    "SecurityGroups":  [
+
+                       ],
+    "Office365Groups":  [
+
+                        ],
+    "Timestamp":  {
+                      "value":  "\/Date(1751656117430)\/",
+                      "DisplayHint":  2,
+                      "DateTime":  "Friday, 04 July 2025 21:08:37"
+                  },
+    "ScriptName":  "Remove-Mgqibelo-Grant-Lwandile-Only",
+    "PrimaryAdmin":  "lwandile.gasela@ibridge.co.za"
+}

@@ -1,0 +1,1161 @@
+﻿{
+    "SourceAdmin":  "mgqibelo.gasela@ibridge.co.za",
+    "WhatIf":  {
+                   "IsPresent":  true
+               },
+    "Summary":  {
+                    "SecurityGroupsProcessed":  0,
+                    "TotalSynchronized":  0,
+                    "TotalGroups":  116,
+                    "DistributionGroups":  15,
+                    "SecurityGroups":  0,
+                    "Office365Groups":  101,
+                    "Office365GroupsProcessed":  27,
+                    "DistributionGroupsProcessed":  0,
+                    "TotalFailed":  0
+                },
+    "DistributionGroups":  [
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Accounts"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "All Employees"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Call Centre Agents All"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Credit Vetting Agents"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Executives"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Gauteng Call Centre Agents"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "HR Group"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "iBridge General Enquiries"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "JustInTime"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "KZN Call Centre Agents"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Learning and Development"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "MTN Escalations"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Ops Management"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Senior Managers"
+                               },
+                               {
+                                   "Action":  "Skipped - Source Not Manager",
+                                   "TargetIsManager":  false,
+                                   "SourceIsManager":  false,
+                                   "Success":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "Group":  "Team Leaders"
+                               }
+                           ],
+    "SecurityGroups":  [
+
+                       ],
+    "Office365Groups":  [
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "# Credit Vetting - All",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Afternoon Team",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Applications",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "April 2024",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Complaints",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Credit Vetting Daily",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Credit vetting QA",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Credit Vetting Supervisors",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Credit Vetting Team",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "CV Team Leads",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "CXO Supervisors - All",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "DRB Team leaders",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "ECXO Members",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Endpoint Enrollment",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Fraud 1st Line Support",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Genesys Reports",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "HR DEPARTMENT",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "HR Documents",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Huddle Session",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Human Resources",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "IBHC - iBridge Human Capital",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "IBMTN - MTN / iBridge Collaboration",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "IBridge  Grave Team",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "iBridge All",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "iBridge All [new team]",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "iBridge Board of Directors",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "iBridge Champions",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "iBridge Payroll",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "iBridge Planner",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "iBridge Postpaid Team",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "ibridge Team Layla",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "ibridgeChamps",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Inbound - MultiSkilled",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Inbound Post-Paid",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Inbound Pre-Paid",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Internal Communications",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "KZN Postpaid",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "KZN Pre-Paid",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "KZN Team",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Learners",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Learning \u0026 Development",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Leave Requests",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Long Calls Analysis",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Long Idle POE",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Managers",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "March 2024 New Group",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "MORNING_SHIFT_POSTPAID",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "MTN Documentation",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "nosipho \u0026 kamo",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Operations Management",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Operations Training and Development",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Pearl.Dlamini@mtn.com",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "PO Agent Hours",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "PostPaid",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Postpaid Assistance Group",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Postpaid Group",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Postpaid Supervisor Folder",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Post-Paid Training Remodelling",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "PP Agent Hours",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Prepaid JHB Team Leaders",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Prepaid Leadership",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Prepaid POC Support group",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Pre-Paid Supervisors",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "QA Good Calls",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "QA Team",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "QAteam4vetting",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Quality Assurance",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Real Time Monitors",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Recruitment",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Recruitment Team",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Repeat Caller POC Team",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Schedules",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Senior Managers",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "SME",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Summer Campaign Outbound",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Supervisor Training Content and plan",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Supervisors - All",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "System Issues",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team - Menzi",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team Akhere",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team Bheki",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team Happiness",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team Mpumi",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team Muke",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team Ngwenya",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team Nokwanda",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team Nonjabulo",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team Postpaid - GP",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Team Thabang",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Test",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Thandiwe\u0027s team",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "tNPS Group",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "training",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Training and Development",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Training Material",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "Triple T",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "Vetting Team",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "WFM",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "WFM Leave Planner",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Already Owner/Member",
+                                "Group":  "WFM/HR",
+                                "SourceIsMember":  true,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  true
+                            },
+                            {
+                                "TargetIsOwner":  true,
+                                "GroupType":  "Office365Group",
+                                "Action":  "Skipped - Source Not Owner/Member",
+                                "Group":  "year end party",
+                                "SourceIsMember":  false,
+                                "TargetIsMember":  true,
+                                "Success":  true,
+                                "SourceIsOwner":  false
+                            }
+                        ],
+    "Timestamp":  {
+                      "value":  "\/Date(1751655021475)\/",
+                      "DisplayHint":  2,
+                      "DateTime":  "Friday, 04 July 2025 20:50:21"
+                  },
+    "ScriptName":  "Sync-Admin-Rights",
+    "TargetAdmin":  "lwandile.gasela@ibridge.co.za"
+}

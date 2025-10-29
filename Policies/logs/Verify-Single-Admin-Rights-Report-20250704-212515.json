@@ -1,0 +1,399 @@
+﻿{
+    "Summary":  {
+                    "FormerAdminStillHasAccess":  0,
+                    "MultipleManagers":  16,
+                    "TotalCompliant":  14,
+                    "TotalObjects":  15,
+                    "PrimaryAdminMissingAccess":  16,
+                    "CompliancePercentage":  93.33,
+                    "SecurityGroups":  0,
+                    "Office365Groups":  0,
+                    "SharedMailboxes":  0,
+                    "TotalNonCompliant":  16,
+                    "FormerAdminStillManager":  16,
+                    "DistributionGroups":  15,
+                    "FormerAdminStillOwner":  0,
+                    "VerificationErrors":  0
+                },
+    "SharedMailboxes":  [
+
+                        ],
+    "DistributionGroups":  [
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  3,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "Accounts",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  true,
+                                   "GroupId":  "accounts20200904102935",
+                                   "GroupEmail":  "accounts@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  270,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "All Employees",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  true,
+                                   "GroupId":  "All Employees20220516114339",
+                                   "GroupEmail":  "allemployees@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  189,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "Call Centre Agents All",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Call Centre Agents All20220516115127",
+                                   "GroupEmail":  "callcentreall@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  17,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "Credit Vetting Agents",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Credit Vetting Agents20220509140044",
+                                   "GroupEmail":  "creditvettingagents@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  2,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "Executives",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Executives20220516111815",
+                                   "GroupEmail":  "Executives@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  141,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "Gauteng Call Centre Agents",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Gauteng Call Centre Agents20220509140146",
+                                   "GroupEmail":  "gautengcca@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  3,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "HR Group",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "HR Group20220516112632",
+                                   "GroupEmail":  "hrgroup@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  7,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "iBridge General Enquiries",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "iBridge General Enquiries20250613123720",
+                                   "GroupEmail":  "info@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  12,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "JustInTime",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "JustInTime20240425113843",
+                                   "GroupEmail":  "JiT@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  27,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "KZN Call Centre Agents",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "KZN Call Centre Agents20220509140249",
+                                   "GroupEmail":  "kzncca@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  2,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "Learning and Development",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Learning and Development20220516113456",
+                                   "GroupEmail":  "learninganddev@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  7,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "MTN Escalations",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "MTN Escalations20240412065235",
+                                   "GroupEmail":  "cc@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  null,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "Ops Management",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Ops Management20220516103012",
+                                   "GroupEmail":  "opsmanagement@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               },
+                               {
+                                   "ModerationEnabled":  false,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  2,
+                                   "FormerIsManager":  true,
+                                   "MemberCount":  2,
+                                   "IsCompliant":  false,
+                                   "ModeratorCount":  0,
+                                   "CurrentManagers":  [
+                                                           "Itumeleng.Kutumela@ibridge.co.za",
+                                                           "Mgqibelo.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "Senior Managers",
+                                   "ComplianceIssues":  [
+                                                            "Primary admin not manager",
+                                                            "Former admin still manager",
+                                                            "Multiple managers (2)",
+                                                            "Other managers: Itumeleng.Kutumela@ibridge.co.za"
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Senior Managers20220516104448",
+                                   "GroupEmail":  "seniorm@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  false,
+                                   "OtherManagers":  "Itumeleng.Kutumela@ibridge.co.za"
+                               },
+                               {
+                                   "ModerationEnabled":  true,
+                                   "GroupType":  "DistributionGroup",
+                                   "ManagerCount":  1,
+                                   "FormerIsManager":  false,
+                                   "MemberCount":  4,
+                                   "IsCompliant":  true,
+                                   "ModeratorCount":  6,
+                                   "CurrentManagers":  [
+                                                           "Lwandile.Gasela@ibridge.co.za"
+                                                       ],
+                                   "GroupName":  "Team Leaders",
+                                   "ComplianceIssues":  [
+
+                                                        ],
+                                   "FormerIsMember":  false,
+                                   "GroupId":  "Team Leaders20220509135940",
+                                   "GroupEmail":  "teamleaders@ibridge.co.za",
+                                   "FormerIsModerator":  false,
+                                   "PrimaryIsManager":  true,
+                                   "OtherManagers":  {
+
+                                                     }
+                               }
+                           ],
+    "SecurityGroups":  [
+
+                       ],
+    "Office365Groups":  [
+
+                        ],
+    "Timestamp":  {
+                      "value":  "\/Date(1751657115227)\/",
+                      "DisplayHint":  2,
+                      "DateTime":  "Friday, 04 July 2025 21:25:15"
+                  },
+    "ScriptName":  "Verify-Single-Admin-Rights",
+    "PrimaryAdmin":  "lwandile.gasela@ibridge.co.za",
+    "FormerAdmin":  "Mgqibelo.Gasela@ibridge.co.za"
+}

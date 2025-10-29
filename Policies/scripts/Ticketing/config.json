@@ -1,0 +1,31 @@
+{
+    "SupportEmail": "support@ibridge.co.za",
+    "AutoResponder": {
+        "Enabled": true,
+        "Subject": "Your support ticket has been created - [TicketID]",
+        "FromName": "iBridge Support"
+    },
+    "Categories": [
+        "Hardware",
+        "Software",
+        "Network",
+        "Email",
+        "Access",
+        "Other"
+    ],
+    "Priorities": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+    ],
+    "AutoAssignment": {
+        "Enabled": false,
+        "RoundRobin": true
+    },
+    "NotificationSettings": {
+        "NotifyAssignee": true,
+        "NotifyRequester": true,
+        "UpdateFrequency": "Immediate"
+    }
+}
