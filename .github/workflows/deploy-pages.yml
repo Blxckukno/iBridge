@@ -1,0 +1,80 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Create Pages Structure
+        run: |
+          # Create a clean directory for GitHub Pages
+          mkdir -p ./pages
+          
+          # Copy main HTML files
+          cp *.html ./pages/ 2>/dev/null || true
+          
+          # Copy CSS and JS directories
+          cp -r css ./pages/ 2>/dev/null || true
+          cp -r js ./pages/ 2>/dev/null || true
+          cp -r images ./pages/ 2>/dev/null || true
+          
+          # Copy other assets
+          cp manifest.json ./pages/ 2>/dev/null || true
+          cp robots.txt ./pages/ 2>/dev/null || true
+          cp sitemap.xml ./pages/ 2>/dev/null || true
+          
+          # Copy TicketingSystem frontend if it exists
+          if [ -d "TicketingSystem/frontend" ]; then
+            mkdir -p ./pages/TicketingSystem
+            cp -r TicketingSystem/frontend ./pages/TicketingSystem/
+          fi
+          
+          # Copy iBridge React app if it exists
+          if [ -d "iBridge/iBridge-react" ]; then
+            mkdir -p ./pages/iBridge
+            cp -r iBridge/iBridge-react ./pages/iBridge/
+          fi
+          
+          echo "Files prepared for GitHub Pages deployment:"
+          ls -la ./pages/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './pages'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
