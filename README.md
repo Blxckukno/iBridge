@@ -1,11 +1,11 @@
 # iBridge LMS Platform 🚀
 
-[![Deploy to GitHub Pages](https://github.com/Blxckukno/iBridgeLMS/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/Blxckukno/iBridgeLMS/actions/workflows/deploy-pages.yml)
+[![Deploy to GitHub Pages](https://github.com/Blxckukno/iBridge/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/Blxckukno/iBridge/actions/workflows/deploy-pages.yml)
 
 **iBridge Contact Solutions** - Complete Learning Management System and Business Process Outsourcing Platform
 
 ## 🌐 Live Demo
-**Visit the live site:** [https://blxckukno.github.io/iBridgeLMS/](https://blxckukno.github.io/iBridgeLMS/)
+**Visit the live site:** [https://blxckukno.github.io/iBridge/](https://blxckukno.github.io/iBridge/)
 
 ## ✨ Features
 
@@ -64,13 +64,13 @@ iBridge/
 ## 🚀 Quick Start
 
 ### View Online
-Simply visit: **[https://blxckukno.github.io/iBridgeLMS/](https://blxckukno.github.io/iBridgeLMS/)**
+Simply visit: **[https://blxckukno.github.io/iBridge/](https://blxckukno.github.io/iBridge/)**
 
 ### Local Development
 ```bash
 # Clone the repository
-git clone https://github.com/Blxckukno/iBridgeLMS.git
-cd iBridgeLMS
+git clone https://github.com/Blxckukno/iBridge.git
+cd iBridge
 
 # For static files - just open in browser
 open index.html
@@ -125,7 +125,7 @@ The site automatically deploys to GitHub Pages when changes are pushed to the `m
 1. Code changes pushed to repository
 2. GitHub Actions builds and optimizes assets
 3. Static files deployed to GitHub Pages
-4. Live site updated at [https://blxckukno.github.io/iBridgeLMS/](https://blxckukno.github.io/iBridgeLMS/)
+4. Live site updated at [https://blxckukno.github.io/iBridge/](https://blxckukno.github.io/iBridge/)
 
 ## 🛠️ Technologies Used
 
@@ -149,8 +149,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For technical support or business inquiries:
-- **Website:** [iBridge Contact Solutions](https://blxckukno.github.io/iBridgeLMS/)
-- **Issues:** [GitHub Issues](https://github.com/Blxckukno/iBridgeLMS/issues)
+- **Website:** [iBridge Contact Solutions](https://blxckukno.github.io/iBridge/)
+- **Issues:** [GitHub Issues](https://github.com/Blxckukno/iBridge/issues)
 
 ---
 
