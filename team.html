@@ -9,7 +9,7 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | iBridge Contact Solutions</title>
+    <title>Our Team | iBridge Contact Solutions</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -181,169 +181,134 @@
             opacity: 0.95;
         }
 
-        /* Contact Section */
-        .contact-section {
+        /* Team Section */
+        .team-section {
             padding: 100px 0;
             background: var(--light-gray);
         }
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
         }
 
-        .contact-info h2 {
+        .section-title h2 {
             font-size: 2.5rem;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             color: var(--dark-bg);
             font-weight: 700;
         }
 
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+        .section-title p {
+            font-size: 1.2rem;
             color: var(--text-gray);
-            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .contact-details {
-            margin-bottom: 40px;
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding: 20px;
+        .team-member {
             background: white;
-            border-radius: 15px;
-            box-shadow: var(--shadow-light);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--primary-green);
-            margin-right: 20px;
-            width: 30px;
-        }
-
-        .contact-item-content h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--dark-bg);
-            font-weight: 600;
-        }
-
-        .contact-item-content p {
-            color: var(--text-gray);
-            margin: 0;
-        }
-
-        .contact-item-content a {
-            color: var(--primary-green);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-item-content a:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            background: white;
-            padding: 40px;
+            padding: 40px 30px;
             border-radius: 20px;
-            box-shadow: var(--shadow-medium);
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .contact-form h3 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: var(--dark-bg);
-            font-weight: 600;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark-bg);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid var(--border-light);
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(161, 196, 79, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
             background: var(--gradient-primary);
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .team-member:hover::before {
+            transform: scaleX(1);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            object-fit: cover;
+            border: 4px solid var(--light-gray);
+            transition: all 0.4s ease;
+        }
+
+        .team-member:hover img {
+            border-color: var(--primary-green);
+            transform: scale(1.05);
+        }
+
+        .team-member h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark-bg);
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
         }
 
-        .submit-btn:hover {
-            background: var(--primary-green-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(161, 196, 79, 0.4);
+        .team-member .role {
+            color: var(--primary-green);
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 1rem;
         }
 
-        /* Map Section */
-        .map-section {
+        .team-member .bio {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
             padding: 80px 0;
             background: white;
         }
 
-        .map-placeholder {
-            width: 100%;
-            height: 400px;
-            background: var(--light-gray);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-gray);
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
             font-size: 1.1rem;
-            border: 2px dashed var(--border-light);
+            color: var(--text-gray);
+            font-weight: 500;
         }
 
         /* Footer */
@@ -475,122 +440,15 @@
                 font-size: 2.5rem;
             }
 
-            .contact-container {
+            .team-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 30px;
             }
 
-            .contact-form {
-                padding: 30px 20px;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
             }
-        }
-
-        /* Professional Modal System */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 16px;
-            padding: 0;
-            max-width: 600px;
-            width: 90%;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            transform: scale(0.9) translateY(20px);
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: scale(1) translateY(0);
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #A1C44F, #B8D663);
-            color: white;
-            padding: 20px 30px;
-            display: flex;
-            justify-content: between;
-            align-items: center;
-            position: relative;
-        }
-
-        .modal-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .modal-close {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .modal-close:hover {
-            opacity: 1;
-        }
-
-        .modal-body {
-            padding: 30px;
-        }
-
-        .modal-body p {
-            margin: 0 0 15px 0;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .modal-footer {
-            padding: 20px 30px;
-            border-top: 1px solid #e9ecef;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .modal-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 500;
-            background: #A1C44F;
-            color: white;
-            transition: all 0.2s;
-        }
-
-        .modal-btn:hover {
-            background: #8FB347;
         }
     </style>
 </head>
@@ -624,109 +482,87 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Contact Us</h1>
-            <p>Let's build the future of your business together</p>
+            <h1>Our Team</h1>
+            <p>Meet the professionals who drive iBridge Contact Solutions forward</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
+    <!-- Team Section -->
+    <section class="team-section">
         <div class="container">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Get in Touch</h2>
-                    <p>Ready to transform your business operations? Contact our team today to discuss how iBridge can
-                        help you achieve your goals with our comprehensive BPO and BPaaS solutions.</p>
+            <div class="section-title">
+                <h2>Meet Our Team</h2>
+                <p>Our experienced team is dedicated to delivering exceptional results for your business.</p>
+            </div>
 
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="contact-item-content">
-                                <h3>Head Office</h3>
-                                <p>328 Kent Avenue, Ferndale, Randburg, 2194</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div class="contact-item-content">
-                                <h3>Phone</h3>
-                                <p><a href="tel:+27112387090">011 238 7090</a></p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div class="contact-item-content">
-                                <h3>Email</h3>
-                                <p><a href="mailto:info@ibridge.co.za">info@ibridge.co.za</a></p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div class="contact-item-content">
-                                <h3>Business Hours</h3>
-                                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/team-member-1.jpg" alt="Collins Kumalo">
+                    <h3>Collins Kumalo</h3>
+                    <div class="role">Co-Founder & Chief Executive Officer</div>
+                    <div class="bio">Visionary co-founder with extensive experience in business process outsourcing and
+                        strategic business development, leading iBridge's growth and innovation.</div>
                 </div>
 
-                <div class="contact-form">
-                    <h3>Send us a Message</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
+                <div class="team-member">
+                    <img src="images/team-member-2.jpg" alt="Mgqibelo Gasela">
+                    <h3>Mgqibelo Gasela</h3>
+                    <div class="role">Co-Founder & Chief Executive Officer</div>
+                    <div class="bio">Co-founder and strategic leader driving operational excellence and business
+                        expansion
+                        with deep expertise in contact center solutions and BPO services.</div>
+                </div>
 
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
+                <div class="team-member">
+                    <img src="images/team-member-3.jpg" alt="Brunah Thulo">
+                    <h3>Brunah Thulo</h3>
+                    <div class="role">Business Developer</div>
+                    <div class="bio">Dynamic business developer focused on identifying growth opportunities, building
+                        strategic
+                        partnerships, and expanding iBridge's market presence across South Africa.</div>
+                </div>
 
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
+                <div class="team-member">
+                    <img src="images/team-member-4.jpg" alt="Lwandile Gasela">
+                    <h3>Lwandile Gasela</h3>
+                    <div class="role">IT Support Specialist</div>
+                    <div class="bio">Dedicated IT support specialist ensuring seamless technology operations and
+                        providing
+                        technical expertise to support our comprehensive IT solutions.</div>
+                </div>
 
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="service">Service Interest</label>
-                            <select id="service" name="service">
-                                <option value="">Select a Service</option>
-                                <option value="contact-center">Contact Center Solutions</option>
-                                <option value="it-support">IT Support & Cloud Services</option>
-                                <option value="ai-automation">AI & Automation</option>
-                                <option value="client-interaction">Client Interaction</option>
-                                <option value="general">General Inquiry</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your requirements..."
-                                required></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+                <div class="team-member">
+                    <img src="images/team-member-5.jpg" alt="Hlamalani Chauke">
+                    <h3>Hlamalani Chauke</h3>
+                    <div class="role">IT Support Specialist</div>
+                    <div class="bio">Experienced IT support specialist delivering technical excellence and maintaining
+                        robust
+                        IT infrastructure to support our clients' business operations.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="map-section">
+    <!-- Stats Section -->
+    <section class="stats-section">
         <div class="container">
-            <div class="map-placeholder">
-                <i class="fas fa-map-marked-alt" style="margin-right: 10px;"></i>
-                Interactive Map Coming Soon - 328 Kent Avenue, Ferndale, Randburg
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Core Team Members</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support Available</span>
+                </div>
             </div>
         </div>
     </section>
@@ -808,75 +644,6 @@
         // Add loading animation
         window.addEventListener('load', function () {
             document.body.style.opacity = '1';
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            showContactModal('Message Sent Successfully', 'Thank you for reaching out to iBridge! We have received your message and our team will get back to you within 24 hours. For urgent matters, please call us directly.');
-        });
-
-        // Professional Modal System Functions
-        function showContactModal(title, content) {
-            const modal = document.createElement('div');
-            modal.className = 'modal-overlay';
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title">
-                            <i class="fas fa-check-circle"></i>
-                            ${title}
-                        </h3>
-                        <button class="modal-close" onclick="closeModal(this)">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>${content}</p>
-                        <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #A1C44F;">
-                            <strong>Contact Information:</strong><br>
-                            📞 Phone: +27 (0) 11 123 4567<br>
-                            📧 Email: info@ibridge.co.za<br>
-                            🕒 Business Hours: Mon-Fri 8:00-17:00
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="modal-btn" onclick="closeModal(this)">
-                            <i class="fas fa-check"></i> Excellent!
-                        </button>
-                    </div>
-                </div>
-            `;
-
-            document.body.appendChild(modal);
-            setTimeout(() => modal.classList.add('active'), 10);
-        }
-
-        function closeModal(element) {
-            const modal = element.closest('.modal-overlay');
-            modal.classList.remove('active');
-            setTimeout(() => {
-                if (modal.parentNode) {
-                    modal.parentNode.removeChild(modal);
-                }
-            }, 300);
-        }
-
-        // Close modal on backdrop click
-        document.addEventListener('click', function (e) {
-            if (e.target.classList.contains('modal-overlay')) {
-                closeModal(e.target.querySelector('.modal-close'));
-            }
-        });
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                const activeModal = document.querySelector('.modal-overlay.active');
-                if (activeModal) {
-                    closeModal(activeModal.querySelector('.modal-close'));
-                }
-            }
         });
     </script>
 

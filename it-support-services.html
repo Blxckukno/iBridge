@@ -9,7 +9,9 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | iBridge Contact Solutions | BPO & BPaaS Solutions</title>
+    <title>IT Support Services | iBridge Contact Solutions</title>
+    <meta name="description"
+        content="Discover our IT support services at iBridge Contact Solutions. We provide reliable, innovative IT solutions for your business.">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -53,65 +55,12 @@
             scroll-behavior: smooth;
         }
 
-        /* Animation Keyframes */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .animate-on-scroll {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
         /* Header */
         .header {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(25px);
             padding: 20px 0;
-            box-shadow: var(--shadow-medium);
+            box-shadow: var(--shadow-light);
             position: fixed;
             width: 100%;
             top: 0;
@@ -121,10 +70,9 @@
         }
 
         .header.scrolled {
-            background: rgba(255, 255, 255, 0.99);
-            box-shadow: var(--shadow-heavy);
-            padding: 15px 0;
-            border-bottom: 2px solid var(--primary-green);
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-medium);
+            padding: 12px 0;
         }
 
         .container {
@@ -142,56 +90,27 @@
             transition: transform 0.3s ease;
         }
 
-        .logo:hover img {
-            transform: scale(1.05);
-        }
-
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 25px;
-            background: rgba(161, 196, 79, 0.08);
-            padding: 8px 16px;
-            border-radius: 12px;
-            border: 1px solid rgba(161, 196, 79, 0.2);
+            gap: 30px;
         }
 
         .nav-menu a {
             text-decoration: none;
-            color: var(--dark-bg);
-            font-weight: 600;
-            padding: 12px 20px;
-            border-radius: 10px;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
             position: relative;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid transparent;
-            font-size: 15px;
         }
 
         .nav-menu a:hover,
         .nav-menu a.active {
-            color: var(--text-white);
-            background: var(--gradient-primary);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-light);
-            border: 1px solid var(--primary-green-light);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .nav-menu a:hover::after {
-            width: 80%;
+            color: var(--primary-green);
+            background: rgba(161, 196, 79, 0.1);
+            transform: translateY(-2px);
         }
 
         /* Mobile Menu Toggle */
@@ -213,18 +132,6 @@
             border-radius: 2px;
         }
 
-        .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
         /* Hero Section */
         .hero {
             background: var(--gradient-dark);
@@ -232,27 +139,6 @@
             padding: 140px 0 100px;
             text-align: center;
             margin-top: 70px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(161, 196, 79, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(161, 196, 79, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(44, 62, 80, 0.1) 0%, transparent 50%);
-            animation: pulse 6s ease-in-out infinite;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
         }
 
         .hero h1 {
@@ -263,55 +149,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: slideInLeft 1s ease-out;
         }
 
         .hero p {
             font-size: 1.3rem;
             max-width: 700px;
-            margin: 0 auto 50px;
+            margin: 0 auto;
             opacity: 0.95;
-            line-height: 1.8;
-            animation: slideInRight 1s ease-out 0.3s both;
-        }
-
-        .cta-btn {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 18px 48px;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: var(--shadow-medium);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-btn:hover::before {
-            left: 100%;
-        }
-
-        .cta-btn:hover {
-            background: var(--primary-green-dark);
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: var(--shadow-heavy);
         }
 
         /* Services Section */
@@ -322,49 +166,37 @@
 
         .section-title {
             text-align: center;
-            font-size: 3rem;
-            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--dark-bg);
-            position: relative;
+            font-weight: 700;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-primary);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
+        .section-title p {
             font-size: 1.2rem;
             color: var(--text-gray);
-            max-width: 800px;
-            margin: 0 auto 60px;
-            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
         .service-card {
             background: white;
-            padding: 45px 35px;
+            padding: 40px 30px;
             border-radius: 20px;
             text-align: center;
             box-shadow: var(--shadow-light);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--border-light);
             position: relative;
             overflow: hidden;
         }
@@ -378,44 +210,34 @@
             height: 4px;
             background: var(--gradient-primary);
             transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
         }
 
         .service-card:hover::before {
             transform: scaleX(1);
         }
 
-        .service-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: var(--shadow-heavy);
-            border-color: var(--primary-green-light);
-        }
-
-        .service-card img {
-            width: 80px;
-            height: 80px;
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-green);
             margin-bottom: 25px;
-            border-radius: 50%;
-            object-fit: cover;
         }
 
         .service-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
             color: var(--dark-bg);
             font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .service-card:hover h3 {
-            color: var(--primary-green-dark);
         }
 
         .service-card p {
             color: var(--text-gray);
-            line-height: 1.7;
-            font-size: 0.95rem;
+            line-height: 1.6;
             margin-bottom: 25px;
         }
 
@@ -425,59 +247,17 @@
             padding: 12px 30px;
             border: none;
             border-radius: 25px;
-            text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
             display: inline-block;
         }
 
         .service-btn:hover {
             background: var(--primary-green-dark);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(161, 196, 79, 0.4);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-btn-white {
-            background: white;
-            color: var(--primary-green);
-            padding: 18px 48px;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta-btn-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(161, 196, 79, 0.4);
         }
 
         /* Footer */
@@ -551,7 +331,6 @@
         .whatsapp-float:hover {
             transform: scale(1.1);
             background-color: #20ba5a;
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
         }
 
         /* Mobile Responsive */
@@ -577,31 +356,6 @@
                 transform: translateY(0);
             }
 
-            .nav-menu li {
-                margin: 20px 0;
-            }
-
-            .nav-link {
-                color: white !important;
-                font-size: 1.2rem;
-                padding: 15px 25px;
-                border-radius: 10px;
-                background: transparent !important;
-                border: 2px solid transparent !important;
-                display: block;
-                text-align: center;
-                min-width: 200px;
-                transition: all 0.3s ease;
-            }
-
-            .nav-link:hover {
-                color: white !important;
-                background: var(--gradient-primary) !important;
-                border: 2px solid var(--primary-green-light) !important;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            }
-
             .mobile-menu-toggle {
                 display: flex;
             }
@@ -610,20 +364,9 @@
                 font-size: 2.5rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
-            }
-
             .services-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .cta-section h2 {
-                font-size: 2rem;
+                gap: 30px;
             }
         }
     </style>
@@ -658,68 +401,78 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Strategic BPO & BPaaS Solutions</h1>
-                <p>Comprehensive business process solutions designed to enhance operational efficiency, improve customer
-                    experience, and drive sustainable growth for your organization</p>
-                <a href="contact.html" class="cta-btn">
-                    <i class="fas fa-rocket"></i>
-                    Get Started Today
-                </a>
-            </div>
+            <h1>IT Support Services</h1>
+            <p>Professional IT support and cloud solutions to keep your business running smoothly</p>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services-section">
         <div class="container">
-            <h2 class="section-title">Our Core Services</h2>
-            <p class="section-subtitle">Delivering excellence through innovative business process solutions tailored to
-                your specific industry needs and organizational goals</p>
+            <div class="section-title">
+                <h2>Our IT Support Services</h2>
+                <p>Comprehensive IT solutions designed to optimize your business operations and ensure maximum uptime.
+                </p>
+            </div>
 
             <div class="services-grid">
                 <div class="service-card">
-                    <img src="images/iBridge_IMG_9.png" alt="Contact Center Solutions">
-                    <h3><a href="contact-center.html">Contact Center Solutions</a></h3>
-                    <p>State-of-the-art contact centers providing omnichannel support to ensure seamless customer
-                        interactions across all touchpoints.</p>
-                    <a href="contact-center.html" class="service-btn">Learn More</a>
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Help Desk Support</h3>
+                    <p>24/7 technical support for all your IT needs, ensuring your team stays productive around the
+                        clock.</p>
+                    <a href="contact.html" class="service-btn">Learn More</a>
                 </div>
 
                 <div class="service-card">
-                    <img src="images/iBridge_IMG_4.png" alt="IT Support & Cloud Services">
-                    <h3><a href="it-support.html">IT Support & Cloud Services</a></h3>
-                    <p>Comprehensive IT support and cloud services to keep your business running smoothly with 24/7
-                        monitoring and support.</p>
-                    <a href="it-support.html" class="service-btn">Learn More</a>
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Services</h3>
+                    <p>Secure cloud migration and management services to modernize your IT infrastructure.</p>
+                    <a href="contact.html" class="service-btn">Learn More</a>
                 </div>
 
                 <div class="service-card">
-                    <img src="images/iBridge_IMG_11.png" alt="AI & Automation">
-                    <h3><a href="ai-automation.html">AI & Automation</a></h3>
-                    <p>Leverage the power of artificial intelligence and automation to streamline business processes and
-                        improve operational efficiency.</p>
-                    <a href="ai-automation.html" class="service-btn">Learn More</a>
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Network Management</h3>
+                    <p>Comprehensive network monitoring and maintenance to ensure optimal performance and security.</p>
+                    <a href="contact.html" class="service-btn">Learn More</a>
                 </div>
 
                 <div class="service-card">
-                    <img src="images/iBridge_IMG_1.png" alt="Client Interaction">
-                    <h3><a href="client-interaction.html">Client Interaction</a></h3>
-                    <p>Enhanced client communication and engagement strategies that build lasting relationships and
-                        drive business success.</p>
-                    <a href="client-interaction.html" class="service-btn">Learn More</a>
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                    <p>Advanced security solutions to protect your business from cyber threats and data breaches.</p>
+                    <a href="contact.html" class="service-btn">Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Backup & Recovery</h3>
+                    <p>Reliable backup solutions and disaster recovery planning to protect your critical business data.
+                    </p>
+                    <a href="contact.html" class="service-btn">Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>System Maintenance</h3>
+                    <p>Proactive system monitoring and maintenance to prevent issues before they impact your business.
+                    </p>
+                    <a href="contact.html" class="service-btn">Learn More</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Transform Your Business Operations?</h2>
-            <p>Let's discuss how our strategic BPO and BPaaS solutions can drive your business forward and help you
-                achieve your operational goals.</p>
-            <a href="contact.html" class="cta-btn-white">Contact Us Today</a>
         </div>
     </section>
 
@@ -787,14 +540,6 @@
             });
         });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function (event) {
-            if (!mobileMenuToggle.contains(event.target) && !navMenu.contains(event.target)) {
-                mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-
         // Enhanced header scroll effect
         window.addEventListener('scroll', function () {
             const header = document.querySelector('.header');
@@ -805,44 +550,9 @@
             }
         });
 
-        // Smooth scroll animations for elements
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-on-scroll');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.service-card, .hero-content');
-            animatedElements.forEach(el => observer.observe(el));
-        });
-
         // Add loading animation
         window.addEventListener('load', function () {
             document.body.style.opacity = '1';
-        });
-
-        // Enhanced card hover effects
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.service-card');
-
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function () {
-                    this.style.transform = 'translateY(-12px) scale(1.02)';
-                });
-
-                card.addEventListener('mouseleave', function () {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
         });
     </script>
 

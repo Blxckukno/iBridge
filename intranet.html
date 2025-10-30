@@ -1,0 +1,2306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iBridge Employee Intranet Portal - Staff Access Only</title>
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+
+    <!-- Meta Tags -->
+    <meta name="description" content="iBridge Employee Intranet - Internal portal for staff and employees only">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="iBridge IT Department">
+
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Light Theme */
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8f9fa;
+            --tertiary-bg: #e9ecef;
+            --text-primary: #333333;
+            --text-secondary: #6c757d;
+            --text-muted: #adb5bd;
+            --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --card-bg: #ffffff;
+            --nav-bg: #ffffff;
+
+            /* Brand Colors */
+            --accent-color: #A1C44F;
+            --accent-light: #B8D663;
+            --accent-dark: #8FB347;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --info-color: #17a2b8;
+
+            /* Dark Theme Variables (will be updated by dark mode) */
+            --primary-green: var(--accent-color);
+            --dark-bg: #1a1a1a;
+            --dark-bg-light: #2d2d2d;
+            --text-white: #ffffff;
+
+            /* Layout */
+            --sidebar-width: 300px;
+            --header-height: 75px;
+            --border-radius: 16px;
+            --shadow-sm: 0 2px 8px var(--shadow-color);
+            --shadow-md: 0 6px 20px var(--shadow-color);
+            --shadow-lg: 0 12px 40px var(--shadow-color);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Professional spacing system */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+        }
+
+        [data-theme="dark"] {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #2d2d2d;
+            --tertiary-bg: #404040;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --text-muted: #8d8d8d;
+            --border-color: #404040;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --card-bg: #2d2d2d;
+            --nav-bg: #1a1a1a;
+            --accent-color: #00ff88;
+            --success-color: #00ff88;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --info-color: #4a90e2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--secondary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        /* Header */
+        .intranet-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--tertiary-bg);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-toggle:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .intranet-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .intranet-logo i {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--tertiary-bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-secondary);
+        }
+
+        .header-btn:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px;
+            background: var(--tertiary-bg);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .user-profile:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Sidebar */
+        .intranet-sidebar {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--header-height));
+            background: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 30px 0;
+            overflow-y: auto;
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            padding: 0 25px 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-item {
+            margin-bottom: 2px;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 25px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            border-radius: 0;
+            position: relative;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: linear-gradient(90deg, transparent, var(--accent-color)15);
+            color: var(--accent-color);
+            border-right: 3px solid var(--accent-color);
+        }
+
+        .sidebar-link i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .notification-badge {
+            background: var(--danger-color);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+
+        /* Main Content */
+        .intranet-main {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--header-height);
+            padding: var(--space-xl) var(--space-xl) var(--space-2xl);
+            min-height: calc(100vh - var(--header-height));
+            max-width: calc(100vw - var(--sidebar-width));
+            box-sizing: border-box;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1.2fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            align-items: start;
+        }
+
+        .dashboard-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            height: fit-content;
+        }
+
+        .dashboard-section:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--accent-color);
+        }
+
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+            padding: 0 var(--space-xs);
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+            color: var(--success-color);
+        }
+
+        /* Quick Actions Grid */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+            padding: 0 var(--space-xs);
+        }
+
+        .action-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .action-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .action-card:hover::before {
+            opacity: 1;
+        }
+
+        .action-card:hover .action-icon {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(161, 196, 79, 0.3);
+        }
+
+        .action-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .action-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .action-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* System Status */
+        .system-status {
+            list-style: none;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .status-item:last-child {
+            border-bottom: none;
+        }
+
+        .status-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success-color);
+        }
+
+        .status-indicator.warning {
+            background: var(--warning-color);
+        }
+
+        .status-indicator.error {
+            background: var(--danger-color);
+        }
+
+        .status-badge {
+            background: var(--success-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-badge.warning {
+            background: var(--warning-color);
+        }
+
+        .status-badge.error {
+            background: var(--danger-color);
+        }
+
+        /* Recent Activity */
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-text {
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .activity-time {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-md);
+            }
+
+            .quick-actions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --sidebar-width: 0px;
+                --space-xl: 24px;
+                --space-2xl: 32px;
+            }
+
+            .intranet-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 1001;
+            }
+
+            .intranet-sidebar.mobile-open {
+                transform: translateX(0);
+            }
+
+            .intranet-main {
+                margin-left: 0;
+                padding: var(--space-md);
+                max-width: 100vw;
+            }
+
+            .header-left .breadcrumb {
+                display: none;
+            }
+
+            .quick-stats {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+
+            .dashboard-grid {
+                gap: var(--space-md);
+            }
+
+            .dashboard-section {
+                padding: var(--space-md);
+            }
+
+            .welcome-title {
+                font-size: 1.8rem !important;
+            }
+
+            .welcome-subtitle {
+                font-size: 1rem !important;
+            }
+
+            .welcome-actions {
+                flex-direction: column;
+                gap: var(--space-xs);
+            }
+
+            .welcome-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stat-card {
+                min-height: 120px;
+                padding: var(--space-md);
+            }
+
+            .action-card {
+                padding: var(--space-md);
+                min-height: 100px;
+            }
+
+            .card-grid.two-col,
+            .card-grid.three-col,
+            .card-grid.four-col {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: var(--space-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intranet-main {
+                padding: var(--space-sm);
+            }
+
+            .quick-stats,
+            .quick-actions {
+                gap: var(--space-sm);
+            }
+
+            .welcome-section {
+                padding: var(--space-md) !important;
+            }
+
+            .decoration-circle {
+                display: none;
+            }
+        }
+
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: var(--tertiary-bg);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .theme-toggle::before {
+            transform: translateX(30px);
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light)) !important;
+            color: white !important;
+            border: none !important;
+            margin-bottom: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-title {
+            font-size: 2.2rem !important;
+            margin-bottom: var(--space-sm) !important;
+            font-weight: 700;
+            color: white !important;
+        }
+
+        .welcome-subtitle {
+            opacity: 0.9 !important;
+            font-size: 1.1rem !important;
+            margin-bottom: var(--space-lg) !important;
+            line-height: 1.6;
+            color: white !important;
+        }
+
+        .welcome-actions {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        .welcome-btn {
+            padding: 12px 24px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .welcome-btn.primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .welcome-btn.primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .welcome-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .welcome-decoration {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            z-index: 1;
+        }
+
+        .decoration-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .decoration-circle:nth-child(1) {
+            width: 120px;
+            height: 120px;
+            top: 0;
+            right: 0;
+        }
+
+        .decoration-circle:nth-child(2) {
+            width: 80px;
+            height: 80px;
+            top: 40px;
+            right: 60px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .decoration-circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: -20px;
+            right: 100px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Professional Form Styling */
+        .form-container {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--card-bg);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(161, 196, 79, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-control:hover {
+            border-color: var(--accent-color);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .form-button {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(161, 196, 79, 0.3);
+        }
+
+        .form-button:active {
+            transform: translateY(0);
+        }
+
+        .form-button.secondary {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .form-button.secondary:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(161, 196, 79, 0.2);
+        }
+
+        /* Enhanced Card Grid Alignment */
+        .card-grid {
+            display: grid;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .card-grid.two-col {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .card-grid.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card-grid.four-col {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* Professional Modal Styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: var(--space-xl);
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            transform: scale(0.9);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: scale(1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-slide-in {
+            animation: slideInRight 0.5s ease-out;
+        }
+
+        /* Notification System */
+        .notification {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 15px 20px;
+            box-shadow: var(--shadow-lg);
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            border-left: 4px solid var(--success-color);
+        }
+
+        .notification.warning {
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .notification.error {
+            border-left: 4px solid var(--danger-color);
+        }
+
+        /* Professional Modal System */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 0;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .modal-body p {
+            margin: 0 0 15px 0;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .modal-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .modal-btn.primary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .modal-btn.primary:hover {
+            background: var(--accent-dark);
+        }
+
+        .modal-btn.secondary {
+            background: var(--tertiary-bg);
+            color: var(--text-primary);
+        }
+
+        .modal-btn.secondary:hover {
+            background: var(--border-color);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="intranet-header">
+        <div class="header-left">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="intranet-logo">
+                <i class="fas fa-building"></i>
+                <div>
+                    <div>iBridge Intranet</div>
+                    <div style="font-size: 0.7rem; font-weight: 400; opacity: 0.7;">Employee Portal</div>
+                </div>
+            </div>
+
+            <nav class="breadcrumb">
+                <a href="#"><i class="fas fa-home"></i></a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Dashboard</span>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="header-actions">
+                <button class="header-btn" title="Notifications" onclick="showNotifications()">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="header-btn" title="Security Dashboard" onclick="toggleSecurityDashboard()">
+                    <i class="fas fa-shield-alt"></i>
+                </button>
+                <button class="header-btn" title="Analytics" onclick="toggleAnalytics()">
+                    <i class="fas fa-chart-bar"></i>
+                </button>
+                <div class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode"></div>
+            </div>
+
+            <div class="user-profile" onclick="showUserMenu()">
+                <div class="user-avatar">JD</div>
+                <div>
+                    <div style="font-size: 0.9rem; font-weight: 500;">John Doe</div>
+                    <div style="font-size: 0.8rem; opacity: 0.7;">IT Manager</div>
+                </div>
+                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="intranet-sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-title">Dashboard</div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link active">
+                        <i class="fas fa-home"></i>
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showAnalytics()">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showReports()">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Learning & Development</div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="lms-platform.html" class="sidebar-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>LMS Platform</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showTrainingCalendar()">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Training Calendar</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showCertifications()">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certifications</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">IT Services</div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="TicketingSystem/frontend/enhanced-dashboard.html" class="sidebar-link">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Service Desk</span>
+                        <span class="notification-badge">3</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showAssetManagement()">
+                        <i class="fas fa-laptop"></i>
+                        <span>Asset Management</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showKnowledgeBase()">
+                        <i class="fas fa-book"></i>
+                        <span>Knowledge Base</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">HR & Admin</div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showEmployeeDirectory()">
+                        <i class="fas fa-users"></i>
+                        <span>Employee Directory</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showPolicies()">
+                        <i class="fas fa-file-contract"></i>
+                        <span>Policies & Procedures</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showTimeTracking()">
+                        <i class="fas fa-clock"></i>
+                        <span>Time Tracking</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Security</div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="toggleSecurityDashboard()">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Security Center</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showIncidentReports()">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Incident Reports</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="security-policy.html" class="sidebar-link">
+                        <i class="fas fa-gavel"></i>
+                        <span>Security Policies</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Tools</div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" onclick="showITToolkit()">
+                        <i class="fas fa-toolbox"></i>
+                        <span>IT Toolkit</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="index.html" class="sidebar-link">
+                        <i class="fas fa-globe"></i>
+                        <span>Public Website</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="intranet-main">
+        <!-- Welcome Section -->
+        <div class="dashboard-section animate-fade-in welcome-section">
+            <div class="welcome-content">
+                <h1 class="welcome-title">Good Morning, John! 👋</h1>
+                <p class="welcome-subtitle">Welcome to the iBridge Employee Intranet. You have 3 pending tickets and 2
+                    training modules to complete.</p>
+                <div class="welcome-actions">
+                    <button class="welcome-btn primary" onclick="showNotifications()">
+                        <i class="fas fa-bell"></i> View Notifications
+                    </button>
+                    <button class="welcome-btn secondary" onclick="showUserMenu()">
+                        <i class="fas fa-user"></i> My Profile
+                    </button>
+                </div>
+            </div>
+            <div class="welcome-decoration">
+                <div class="decoration-circle"></div>
+                <div class="decoration-circle"></div>
+                <div class="decoration-circle"></div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="quick-stats animate-fade-in">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                </div>
+                <div class="stat-value">12</div>
+                <div class="stat-label">Open Tickets</div>
+                <div class="stat-trend">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>-15% this week</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                </div>
+                <div class="stat-value">8</div>
+                <div class="stat-label">Training Modules</div>
+                <div class="stat-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+5 new this month</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+                <div class="stat-value">45</div>
+                <div class="stat-label">Active Employees</div>
+                <div class="stat-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+2 new hires</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+                <div class="stat-value">99.9%</div>
+                <div class="stat-label">Security Score</div>
+                <div class="stat-trend">
+                    <i class="fas fa-check"></i>
+                    <span>All systems secure</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions animate-fade-in">
+            <a href="#" class="action-card" onclick="showContactForm(); return false;">
+                <div class="action-header">
+                    <div class="action-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div>
+                        <div class="action-title">Submit Support Request</div>
+                        <div class="action-description">Get help with IT issues, access requests, or general support
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="lms-platform.html" class="action-card">
+                <div class="action-header">
+                    <div class="action-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <div class="action-title">Continue Learning</div>
+                        <div class="action-description">Resume your training modules and track progress</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="action-card" onclick="showEmployeeDirectory()">
+                <div class="action-header">
+                    <div class="action-icon">
+                        <i class="fas fa-address-book"></i>
+                    </div>
+                    <div>
+                        <div class="action-title">Employee Directory</div>
+                        <div class="action-description">Find contact information and department details</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="action-card" onclick="showTimeTracking()">
+                <div class="action-header">
+                    <div class="action-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <div class="action-title">Time Tracking</div>
+                        <div class="action-description">Log hours, request time off, and view schedules</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid animate-fade-in">
+            <!-- System Status -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-server"></i>
+                        System Status
+                    </h2>
+                    <button class="header-btn" onclick="refreshSystemStatus()">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+
+                <ul class="system-status">
+                    <li class="status-item">
+                        <div class="status-name">
+                            <div class="status-indicator"></div>
+                            <span>Intranet Portal</span>
+                        </div>
+                        <span class="status-badge">Online</span>
+                    </li>
+                    <li class="status-item">
+                        <div class="status-name">
+                            <div class="status-indicator"></div>
+                            <span>LMS Platform</span>
+                        </div>
+                        <span class="status-badge">Online</span>
+                    </li>
+                    <li class="status-item">
+                        <div class="status-name">
+                            <div class="status-indicator"></div>
+                            <span>Ticketing System</span>
+                        </div>
+                        <span class="status-badge">Online</span>
+                    </li>
+                    <li class="status-item">
+                        <div class="status-name">
+                            <div class="status-indicator"></div>
+                            <span>Security Monitoring</span>
+                        </div>
+                        <span class="status-badge">Active</span>
+                    </li>
+                    <li class="status-item">
+                        <div class="status-name">
+                            <div class="status-indicator warning"></div>
+                            <span>Email Server</span>
+                        </div>
+                        <span class="status-badge warning">Maintenance</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-history"></i>
+                        Recent Activity
+                    </h2>
+                </div>
+
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-avatar">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">New support ticket #IBR#003421 created by Sarah Johnson</div>
+                            <div class="activity-time">5 minutes ago</div>
+                        </div>
+                    </li>
+
+                    <li class="activity-item">
+                        <div class="activity-avatar" style="background: var(--info-color);">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Mike Chen completed "Cybersecurity Awareness" training</div>
+                            <div class="activity-time">1 hour ago</div>
+                        </div>
+                    </li>
+
+                    <li class="activity-item">
+                        <div class="activity-avatar" style="background: var(--warning-color);">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Security scan completed - 2 minor issues found</div>
+                            <div class="activity-time">2 hours ago</div>
+                        </div>
+                    </li>
+
+                    <li class="activity-item">
+                        <div class="activity-avatar" style="background: var(--success-color);">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">New employee Lisa Park added to directory</div>
+                            <div class="activity-time">3 hours ago</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/ibridge-security.js"></script>
+    <script src="js/security-dashboard.js"></script>
+    <script src="js/advanced-security-dashboard.js"></script>
+    <script src="js/performance-optimizer.js"></script>
+    <script src="js/dark-mode-controller.js"></script>
+    <script src="js/mobile-experience-enhancer.js"></script>
+    <script src="js/advanced-analytics.js"></script>
+    <script src="js/advanced-api-system.js"></script>
+
+    <script>
+        // Initialize dark mode
+        let darkModeController;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize dark mode controller
+            if (typeof DarkModeController !== 'undefined') {
+                darkModeController = new DarkModeController();
+            }
+
+            // Load user theme preference
+            const savedTheme = localStorage.getItem('iBridge-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            // Initialize animations
+            const animatedElements = document.querySelectorAll('.animate-fade-in');
+            animatedElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease-out';
+
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // Show welcome notification
+            setTimeout(() => {
+                showNotification('Welcome to iBridge Intranet! All systems operational.', 'success');
+            }, 1000);
+        });
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('iBridge-theme', newTheme);
+
+            showNotification(`Switched to ${newTheme} mode`, 'info');
+        }
+
+        // Security dashboard integration
+        function toggleSecurityDashboard() {
+            if (window.securityDashboard) {
+                window.securityDashboard.toggleDashboard();
+            } else {
+                showNotification('🛡️ Security Dashboard loading...', 'info');
+            }
+        }
+
+        // Analytics integration
+        function toggleAnalytics() {
+            if (window.analyticsManager) {
+                window.analyticsManager.showDashboard();
+            } else {
+                showNotification('📊 Analytics Dashboard loading...', 'info');
+            }
+        }
+
+        function showAnalytics() {
+            toggleAnalytics();
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info', duration = 4000) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div style="font-weight: 500; margin-bottom: 5px;">${message}</div>
+                <div style="font-size: 0.8rem; opacity: 0.8;">${new Date().toLocaleTimeString()}</div>
+            `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => notification.classList.add('show'), 100);
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, duration);
+        }
+
+        // Feature functions
+        function showNotifications() {
+            const notifications = `📬 Recent Notifications:
+
+• New support ticket assigned to you
+• Security training reminder (due tomorrow)
+• System maintenance scheduled for weekend
+• New company policy updates available
+• Monthly team meeting tomorrow at 2 PM`;
+
+            showNotificationModal('System Notifications', notifications);
+        }
+
+        function showUserMenu() {
+            const menu = document.createElement('div');
+            menu.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: var(--card-bg);
+                border: 1px solid var(--border-color);
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: var(--shadow-lg);
+                z-index: 10001;
+                min-width: 250px;
+                color: var(--text-primary);
+            `;
+
+            menu.innerHTML = `
+                <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);">
+                    <div style="font-weight: 600; margin-bottom: 5px;">John Doe</div>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem;">IT Manager</div>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem;">john.doe@ibridge.com</div>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="#" style="display: flex; align-items: center; gap: 10px; color: var(--text-primary); text-decoration: none; padding: 8px; border-radius: 6px; transition: all 0.3s;" onmouseover="this.style.background='var(--tertiary-bg)'" onmouseout="this.style.background='transparent'">
+                        <i class="fas fa-user"></i> My Profile
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; gap: 10px; color: var(--text-primary); text-decoration: none; padding: 8px; border-radius: 6px; transition: all 0.3s;" onmouseover="this.style.background='var(--tertiary-bg)'" onmouseout="this.style.background='transparent'">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; gap: 10px; color: var(--text-primary); text-decoration: none; padding: 8px; border-radius: 6px; transition: all 0.3s;" onmouseover="this.style.background='var(--tertiary-bg)'" onmouseout="this.style.background='transparent'">
+                        <i class="fas fa-question-circle"></i> Help & Support
+                    </a>
+                    <hr style="margin: 10px 0; border: none; border-top: 1px solid var(--border-color);">
+                    <a href="index.html" style="display: flex; align-items: center; gap: 10px; color: var(--text-primary); text-decoration: none; padding: 8px; border-radius: 6px; transition: all 0.3s;" onmouseover="this.style.background='var(--tertiary-bg)'" onmouseout="this.style.background='transparent'">
+                        <i class="fas fa-globe"></i> Public Website
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; gap: 10px; color: var(--danger-color); text-decoration: none; padding: 8px; border-radius: 6px; transition: all 0.3s;" onmouseover="this.style.background='rgba(220, 53, 69, 0.1)'" onmouseout="this.style.background='transparent'">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </a>
+                </div>
+                
+                <button onclick="this.parentElement.remove()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 18px; cursor: pointer; color: var(--text-muted);">×</button>
+            `;
+
+            document.body.appendChild(menu);
+
+            setTimeout(() => {
+                document.addEventListener('click', function closeMenu(e) {
+                    if (!menu.contains(e.target)) {
+                        menu.remove();
+                        document.removeEventListener('click', closeMenu);
+                    }
+                });
+            }, 100);
+        }
+
+        // Feature demonstrations
+        function showEmployeeDirectory() {
+            showNotification('👥 Loading Employee Directory...', 'info');
+            setTimeout(() => {
+                const directory = `👥 iBridge Employee Directory:
+
+📋 Departments:
+• IT Department (12 employees)
+• Customer Service (15 employees) 
+• Sales & Marketing (8 employees)
+• Administration (6 employees)
+• Management (4 employees)
+
+🔍 Search Features:
+• Find by name, department, or role
+• Contact information and extensions
+• Office locations and desk assignments
+• Direct messaging integration`;
+                showNotificationModal('Staff Directory', directory);
+            }, 1000);
+        }
+
+        function showTrainingCalendar() {
+            showNotification('📅 Loading Training Calendar...', 'info');
+            setTimeout(() => {
+                const calendar = `📅 Upcoming Training Sessions:
+
+This Week:
+• Cybersecurity Awareness (Wednesday 2 PM)
+• Customer Service Excellence (Friday 10 AM)
+
+Next Week:
+• Leadership Development (Monday 9 AM)
+• New Software Training (Wednesday 3 PM)
+• Emergency Procedures (Friday 11 AM)
+
+📝 Registration required for all sessions
+🎓 Certificates awarded upon completion`;
+                showNotificationModal('Company Calendar', calendar);
+            }, 1000);
+        }
+
+        function showAssetManagement() {
+            showNotification('💻 Loading Asset Management...', 'info');
+            setTimeout(() => {
+                const assets = `💻 IT Asset Management:
+
+📊 Current Inventory:
+• Laptops: 45 units (42 active, 3 maintenance)
+• Desktops: 12 units (all active)
+• Mobile Devices: 38 units (35 active, 3 replacement)
+• Network Equipment: 25 units (all operational)
+
+🔧 Recent Activities:
+• 3 laptop upgrades completed
+• New firewall installed
+• Software licenses renewed
+• Scheduled maintenance next week`;
+                showNotificationModal('Digital Assets', assets);
+            }, 1000);
+        }
+
+        function showKnowledgeBase() {
+            showNotification('📚 Loading Knowledge Base...', 'info');
+            setTimeout(() => {
+                const kb = `📚 Knowledge Base Categories:
+
+🖥️ IT Support:
+• Password reset procedures
+• Software installation guides
+• Network troubleshooting
+• Email setup instructions
+
+📋 HR Policies:
+• Employee handbook
+• Time-off policies
+• Code of conduct
+• Performance review process
+
+🛡️ Security:
+• Security best practices
+• Incident response procedures
+• Data protection guidelines
+• Remote work policies`;
+                showNotificationModal('Knowledge Base', kb);
+            }, 1000);
+        }
+
+        function showTimeTracking() {
+            showNotification('⏰ Loading Time Tracking...', 'info');
+            setTimeout(() => {
+                const timesheet = `⏰ Time Tracking Dashboard:
+
+📊 This Week:
+• Monday: 8.5 hours
+• Tuesday: 8.0 hours  
+• Wednesday: 8.5 hours
+• Thursday: 7.5 hours
+• Friday: In progress...
+
+📋 Recent Requests:
+• Vacation: Dec 20-24 (Approved)
+• Sick Leave: Oct 15 (Approved)
+• Personal Day: Nov 10 (Pending)
+
+⚡ Quick Actions:
+• Clock In/Out
+• Submit time-off request
+• View pay statements`;
+                showNotificationModal('Timesheet System', timesheet);
+            }, 1000);
+        }
+
+        function showReports() {
+            showNotification('📊 Loading Reports...', 'info');
+            setTimeout(() => {
+                const reports = `📊 Available Reports:
+
+📈 Operational Reports:
+• Service Desk Performance
+• Training Completion Rates
+• Asset Utilization
+• Security Incident Summary
+
+📋 HR Reports:
+• Employee Directory
+• Time & Attendance
+• Training Records
+• Performance Metrics
+
+🔒 Access Level:
+• Manager: All reports
+• Employee: Personal reports only
+• Admin: System reports`;
+                showNotificationModal('Analytics & Reports', reports);
+            }, 1000);
+        }
+
+        function showCertifications() {
+            showNotification('🏆 Loading Certifications...', 'info');
+            setTimeout(() => {
+                const certs = `🏆 Professional Certifications:
+
+✅ Your Certificates:
+• Cybersecurity Awareness (Valid until Dec 2025)
+• Customer Service Excellence (Valid until Mar 2025)
+• First Aid/CPR (Valid until Aug 2025)
+
+📅 Upcoming Renewals:
+• Data Protection Training (Due: Nov 15)
+• Safety Training (Due: Jan 30)
+
+🎯 Available Certifications:
+• Leadership Development
+• Project Management
+• Technical Skills Assessment`;
+                showNotificationModal('Certifications Manager', certs);
+            }, 1000);
+        }
+
+        function showIncidentReports() {
+            showNotification('⚠️ Loading Incident Reports...', 'info');
+            setTimeout(() => {
+                const incidents = `⚠️ Security Incident Dashboard:
+
+📊 This Month:
+• Total Incidents: 2
+• Resolved: 2
+• Pending: 0
+• Average Resolution: 4.5 hours
+
+📋 Recent Incidents:
+• Phishing Email (Oct 20) - Resolved
+• Suspicious Login (Oct 18) - Resolved
+
+🛡️ Prevention Measures:
+• Email filtering: Active
+• 2FA Enforcement: 100% compliance
+• Security Training: Up to date`;
+                showNotificationModal('Incident Management', incidents);
+            }, 1000);
+        }
+
+        function showPolicies() {
+            showNotification('📋 Loading Policies...', 'info');
+            setTimeout(() => {
+                const policies = `📋 Company Policies & Procedures:
+
+📖 HR Policies:
+• Employee Handbook
+• Code of Conduct
+• Anti-Harassment Policy
+• Remote Work Guidelines
+
+🛡️ Security Policies:
+• Information Security Policy
+• Acceptable Use Policy
+• Data Protection Guidelines
+• Incident Response Procedures
+
+⚖️ Compliance:
+• GDPR Compliance Guide
+• Industry Standards
+• Audit Procedures`;
+                showNotificationModal('Company Policies', policies);
+            }, 1000);
+        }
+
+        function showITToolkit() {
+            showNotification('🛠️ Loading IT Toolkit...', 'info');
+            setTimeout(() => {
+                const toolkit = `🛠️ iBridge IT Toolkit:
+
+💻 System Tools:
+• System Diagnostics
+• Performance Monitor
+• Network Analyzer
+• Security Scanner
+
+🔧 Utilities:
+• Password Generator
+• File Recovery Tools
+• Remote Desktop
+• System Backup
+
+📊 Monitoring:
+• Server Status
+• Network Health
+• Security Alerts
+• Performance Metrics
+
+🎯 Quick Access to 22+ verified tools`;
+                showNotificationModal('IT Toolkit', toolkit);
+            }, 1000);
+        }
+
+        // Demo: Professional Contact Form Modal
+        function showContactForm() {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg);">
+                        <h2 style="color: var(--text-primary); margin: 0;">Contact Support</h2>
+                        <button onclick="this.closest('.modal-overlay').remove()" style="background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-muted);">×</button>
+                    </div>
+                    
+                    <form class="professional-form" onsubmit="submitContactForm(event)">
+                        <div class="form-group">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" placeholder="your.email@ibridge.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Department</label>
+                            <select class="form-control form-select">
+                                <option value="">Select your department</option>
+                                <option value="it">IT Department</option>
+                                <option value="hr">Human Resources</option>
+                                <option value="sales">Sales & Marketing</option>
+                                <option value="admin">Administration</option>
+                                <option value="management">Management</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Priority Level</label>
+                            <select class="form-control form-select">
+                                <option value="low">Low - General inquiry</option>
+                                <option value="medium">Medium - Standard request</option>
+                                <option value="high">High - Urgent issue</option>
+                                <option value="critical">Critical - System down</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Message *</label>
+                            <textarea class="form-control form-textarea" placeholder="Describe your issue or request in detail..." required></textarea>
+                        </div>
+                        
+                        <div style="display: flex; gap: var(--space-sm); justify-content: flex-end; margin-top: var(--space-lg);">
+                            <button type="button" class="form-button secondary" onclick="this.closest('.modal-overlay').remove()">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                            <button type="submit" class="form-button">
+                                <i class="fas fa-paper-plane"></i> Submit Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+            showNotification('📧 Support request submitted successfully!', 'success');
+            event.target.closest('.modal-overlay').remove();
+        }
+
+        function refreshSystemStatus() {
+            showNotification('🔄 Refreshing system status...', 'info');
+            // Simulate refresh
+            setTimeout(() => {
+                showNotification('✅ System status updated - All systems operational', 'success');
+            }, 1500);
+        }
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.intranet-sidebar');
+            sidebar.classList.toggle('mobile-open');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (event) {
+            const sidebar = document.querySelector('.intranet-sidebar');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+
+            if (window.innerWidth <= 768 &&
+                !sidebar.contains(event.target) &&
+                !menuToggle.contains(event.target) &&
+                sidebar.classList.contains('mobile-open')) {
+                sidebar.classList.remove('mobile-open');
+            }
+        });
+
+        // Professional Modal System Functions
+        function showNotificationModal(title, content, type = 'info') {
+            const iconMap = {
+                'info': 'fas fa-info-circle',
+                'success': 'fas fa-check-circle',
+                'warning': 'fas fa-exclamation-triangle',
+                'error': 'fas fa-times-circle'
+            };
+
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">
+                            <i class="${iconMap[type] || iconMap.info}"></i>
+                            ${title}
+                        </h3>
+                        <button class="modal-close" onclick="closeModal(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="white-space: pre-line;">${content}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="modal-btn primary" onclick="closeModal(this)">
+                            <i class="fas fa-check"></i> OK
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Trigger animation
+            setTimeout(() => modal.classList.add('active'), 10);
+
+            // Auto-close after 10 seconds for notifications
+            if (type === 'info') {
+                setTimeout(() => closeModal(modal.querySelector('.modal-close')), 10000);
+            }
+        }
+
+        function showConfirmModal(title, content, onConfirm, onCancel) {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">
+                            <i class="fas fa-question-circle"></i>
+                            ${title}
+                        </h3>
+                        <button class="modal-close" onclick="closeModal(this)">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>${content}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="modal-btn secondary" onclick="handleModalCancel(this)">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                        <button class="modal-btn primary" onclick="handleModalConfirm(this)">
+                            <i class="fas fa-check"></i> Confirm
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('active'), 10);
+
+            // Store callbacks
+            modal._onConfirm = onConfirm;
+            modal._onCancel = onCancel;
+        }
+
+        function closeModal(element) {
+            const modal = element.closest('.modal-overlay');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                if (modal.parentNode) {
+                    modal.parentNode.removeChild(modal);
+                }
+            }, 300);
+        }
+
+        function handleModalConfirm(element) {
+            const modal = element.closest('.modal-overlay');
+            if (modal._onConfirm) modal._onConfirm();
+            closeModal(element);
+        }
+
+        function handleModalCancel(element) {
+            const modal = element.closest('.modal-overlay');
+            if (modal._onCancel) modal._onCancel();
+            closeModal(element);
+        }
+
+        // Close modal on backdrop click
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                closeModal(e.target.querySelector('.modal-close'));
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                const activeModal = document.querySelector('.modal-overlay.active');
+                if (activeModal) {
+                    closeModal(activeModal.querySelector('.modal-close'));
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

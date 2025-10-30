@@ -9,7 +9,7 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | iBridge Contact Solutions | BPO & BPaaS Solutions</title>
+    <title>IT Support & Cloud Services | iBridge Contact Solutions</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -51,59 +51,6 @@
 
         html {
             scroll-behavior: smooth;
-        }
-
-        /* Animation Keyframes */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .animate-on-scroll {
-            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         /* Header */
@@ -177,23 +124,6 @@
             border: 1px solid var(--primary-green-light);
         }
 
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .nav-menu a:hover::after {
-            width: 80%;
-        }
-
         /* Mobile Menu Toggle */
         .mobile-menu-toggle {
             display: none;
@@ -227,127 +157,49 @@
 
         /* Hero Section */
         .hero {
-            background: var(--gradient-dark);
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #34495e 100%);
             color: white;
-            padding: 140px 0 100px;
+            padding: 120px 0 80px;
             text-align: center;
             margin-top: 70px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(161, 196, 79, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(161, 196, 79, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(44, 62, 80, 0.1) 0%, transparent 50%);
-            animation: pulse 6s ease-in-out infinite;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #fff 0%, var(--primary-green-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: slideInLeft 1s ease-out;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            opacity: 0.95;
-            line-height: 1.8;
-            animation: slideInRight 1s ease-out 0.3s both;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
         }
 
         .cta-btn {
-            background: var(--gradient-primary);
+            background: var(--primary-green);
             color: white;
-            padding: 18px 48px;
+            padding: 15px 40px;
             border: none;
-            border-radius: 50px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: var(--shadow-medium);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-btn:hover::before {
-            left: 100%;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .cta-btn:hover {
-            background: var(--primary-green-dark);
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: var(--shadow-heavy);
+            background: #8fb347;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         /* Services Section */
         .services-section {
-            padding: 100px 0;
-            background: var(--light-gray);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--dark-bg);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-primary);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            max-width: 800px;
-            margin: 0 auto 60px;
-            line-height: 1.8;
+            padding: 80px 0;
+            background: #f8f9fa;
         }
 
         .services-grid {
@@ -359,88 +211,182 @@
 
         .service-card {
             background: white;
-            padding: 45px 35px;
-            border-radius: 20px;
+            padding: 40px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: var(--shadow-light);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--border-light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .service-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: var(--shadow-heavy);
-            border-color: var(--primary-green-light);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-green);
         }
 
-        .service-card img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 25px;
-            border-radius: 50%;
-            object-fit: cover;
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
         }
 
         .service-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 20px;
             color: var(--dark-bg);
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .service-card:hover h3 {
-            color: var(--primary-green-dark);
         }
 
         .service-card p {
             color: var(--text-gray);
-            line-height: 1.7;
-            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .features-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--dark-bg);
+        }
+
+        .features-text p {
+            font-size: 1.1rem;
             margin-bottom: 25px;
+            color: var(--text-gray);
+            line-height: 1.7;
         }
 
-        .service-btn {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+        .features-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .features-list li i {
+            color: var(--primary-green);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .features-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Technology Section */
+        .technology-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
             transition: all 0.3s ease;
-            display: inline-block;
+            border: 2px solid transparent;
         }
 
-        .service-btn:hover {
-            background: var(--primary-green-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(161, 196, 79, 0.4);
+        .tech-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-green);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-item i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .tech-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-bg);
+        }
+
+        .tech-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-item {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .benefit-item i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .benefit-item:hover i {
+            color: white;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item p {
+            line-height: 1.6;
         }
 
         /* CTA Section */
         .cta-section {
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, var(--primary-green) 0%, #8fb347 100%);
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -449,35 +395,30 @@
         .cta-section h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            font-weight: 700;
         }
 
         .cta-section p {
             font-size: 1.2rem;
             margin-bottom: 40px;
             opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .cta-btn-white {
             background: white;
             color: var(--primary-green);
-            padding: 18px 48px;
+            padding: 15px 40px;
             border: none;
-            border-radius: 50px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.1rem;
             transition: all 0.3s ease;
             display: inline-block;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
         .cta-btn-white:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
@@ -498,7 +439,6 @@
             color: var(--primary-green);
             margin-bottom: 20px;
             font-size: 1.2rem;
-            font-weight: 600;
         }
 
         .footer-section ul {
@@ -506,14 +446,13 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-section ul li a {
             color: #bdc3c7;
             text-decoration: none;
             transition: color 0.3s ease;
-            font-size: 0.95rem;
         }
 
         .footer-section ul li a:hover {
@@ -539,7 +478,7 @@
             border-radius: 50%;
             text-align: center;
             font-size: 30px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 2px 2px 3px #999;
             z-index: 100;
             transition: all 0.3s ease;
             display: flex;
@@ -551,7 +490,6 @@
         .whatsapp-float:hover {
             transform: scale(1.1);
             background-color: #20ba5a;
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
         }
 
         /* Mobile Responsive */
@@ -607,19 +545,16 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .features-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
             }
 
             .cta-section h2 {
@@ -658,56 +593,182 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Strategic BPO & BPaaS Solutions</h1>
-                <p>Comprehensive business process solutions designed to enhance operational efficiency, improve customer
-                    experience, and drive sustainable growth for your organization</p>
-                <a href="contact.html" class="cta-btn">
-                    <i class="fas fa-rocket"></i>
-                    Get Started Today
-                </a>
-            </div>
+            <h1>IT Support & Cloud Services</h1>
+            <p>Comprehensive IT support and cloud services to keep your business running smoothly with 24/7 monitoring
+                and support</p>
+            <a href="contact.html" class="cta-btn">Get Started Today</a>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services-section">
         <div class="container">
-            <h2 class="section-title">Our Core Services</h2>
-            <p class="section-subtitle">Delivering excellence through innovative business process solutions tailored to
-                your specific industry needs and organizational goals</p>
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: var(--dark-bg);">Our IT
+                Services</h2>
 
             <div class="services-grid">
                 <div class="service-card">
-                    <img src="images/iBridge_IMG_9.png" alt="Contact Center Solutions">
-                    <h3><a href="contact-center.html">Contact Center Solutions</a></h3>
-                    <p>State-of-the-art contact centers providing omnichannel support to ensure seamless customer
-                        interactions across all touchpoints.</p>
-                    <a href="contact-center.html" class="service-btn">Learn More</a>
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Migration</h3>
+                    <p>Seamless migration of your existing infrastructure to the cloud with minimal downtime and maximum
+                        security.</p>
                 </div>
 
                 <div class="service-card">
-                    <img src="images/iBridge_IMG_4.png" alt="IT Support & Cloud Services">
-                    <h3><a href="it-support.html">IT Support & Cloud Services</a></h3>
-                    <p>Comprehensive IT support and cloud services to keep your business running smoothly with 24/7
-                        monitoring and support.</p>
-                    <a href="it-support.html" class="service-btn">Learn More</a>
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Cybersecurity</h3>
+                    <p>Comprehensive security solutions including threat detection, prevention, and incident response
+                        services.</p>
                 </div>
 
                 <div class="service-card">
-                    <img src="images/iBridge_IMG_11.png" alt="AI & Automation">
-                    <h3><a href="ai-automation.html">AI & Automation</a></h3>
-                    <p>Leverage the power of artificial intelligence and automation to streamline business processes and
-                        improve operational efficiency.</p>
-                    <a href="ai-automation.html" class="service-btn">Learn More</a>
+                    <i class="fas fa-server"></i>
+                    <h3>Infrastructure Management</h3>
+                    <p>Complete management of your IT infrastructure including servers, networks, and storage systems.
+                    </p>
                 </div>
 
                 <div class="service-card">
-                    <img src="images/iBridge_IMG_1.png" alt="Client Interaction">
-                    <h3><a href="client-interaction.html">Client Interaction</a></h3>
-                    <p>Enhanced client communication and engagement strategies that build lasting relationships and
-                        drive business success.</p>
-                    <a href="client-interaction.html" class="service-btn">Learn More</a>
+                    <i class="fas fa-headset"></i>
+                    <h3>Help Desk Support</h3>
+                    <p>24/7 technical support for your end users with multi-level escalation and ticket management.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Data Backup & Recovery</h3>
+                    <p>Automated backup solutions and disaster recovery planning to protect your critical business data.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>System Monitoring</h3>
+                    <p>Proactive monitoring of all your systems to prevent issues before they impact your business
+                        operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-container">
+                <div class="features-text">
+                    <h2>Why Choose Our IT Support?</h2>
+                    <p>Our IT support services are designed to provide you with reliable, efficient, and cost-effective
+                        solutions. We understand that technology is the backbone of your business, and we're here to
+                        ensure it runs smoothly.</p>
+                    <p>With our team of certified professionals and cutting-edge tools, we deliver proactive support
+                        that prevents problems before they occur, minimizing downtime and maximizing productivity.</p>
+
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 24/7 Monitoring & Support</li>
+                        <li><i class="fas fa-check"></i> Certified IT Professionals</li>
+                        <li><i class="fas fa-check"></i> Rapid Response Times</li>
+                        <li><i class="fas fa-check"></i> Scalable Solutions</li>
+                        <li><i class="fas fa-check"></i> Cost-Effective Pricing</li>
+                        <li><i class="fas fa-check"></i> Advanced Security Measures</li>
+                        <li><i class="fas fa-check"></i> Regular System Updates</li>
+                        <li><i class="fas fa-check"></i> Comprehensive Reporting</li>
+                    </ul>
+                </div>
+
+                <div class="features-image">
+                    <img src="images/iBridge_IMG_4.png" alt="IT Support Services">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: var(--dark-bg);">Technologies
+                We Support</h2>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-microsoft"></i>
+                    <h3>Microsoft 365</h3>
+                    <p>Complete Office 365 management and support</p>
+                </div>
+
+                <div class="tech-item">
+                    <i class="fab fa-aws"></i>
+                    <h3>Amazon AWS</h3>
+                    <p>AWS cloud infrastructure and services</p>
+                </div>
+
+                <div class="tech-item">
+                    <i class="fab fa-google"></i>
+                    <h3>Google Cloud</h3>
+                    <p>Google Cloud Platform solutions</p>
+                </div>
+
+                <div class="tech-item">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Network Solutions</h3>
+                    <p>Cisco, Juniper, and other network equipment</p>
+                </div>
+
+                <div class="tech-item">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Endpoint Management</h3>
+                    <p>Windows, Mac, and mobile device management</p>
+                </div>
+
+                <div class="tech-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Monitoring Tools</h3>
+                    <p>Advanced monitoring and analytics platforms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: var(--dark-bg);">Benefits of
+                Our IT Support</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Reduced Downtime</h3>
+                    <p>Proactive monitoring and rapid response minimize system downtime and business disruption.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Cost Savings</h3>
+                    <p>Reduce IT costs by up to 50% while improving system reliability and performance.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Expert Team</h3>
+                    <p>Access to certified IT professionals with years of experience across various technologies.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                    <h3>Scalability</h3>
+                    <p>Easily scale your IT support as your business grows, without additional overhead.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Enhanced Security</h3>
+                    <p>Multi-layered security approach to protect your business from cyber threats.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Performance Optimization</h3>
+                    <p>Continuous optimization of your IT infrastructure for maximum efficiency.</p>
                 </div>
             </div>
         </div>
@@ -716,9 +777,8 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Ready to Transform Your Business Operations?</h2>
-            <p>Let's discuss how our strategic BPO and BPaaS solutions can drive your business forward and help you
-                achieve your operational goals.</p>
+            <h2>Ready to Optimize Your IT Infrastructure?</h2>
+            <p>Let's discuss how our IT support services can transform your business operations.</p>
             <a href="contact.html" class="cta-btn-white">Contact Us Today</a>
         </div>
     </section>
@@ -795,54 +855,21 @@
             }
         });
 
-        // Enhanced header scroll effect
-        window.addEventListener('scroll', function () {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scroll animations for elements
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-on-scroll');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.service-card, .hero-content');
-            animatedElements.forEach(el => observer.observe(el));
-        });
-
         // Add loading animation
         window.addEventListener('load', function () {
             document.body.style.opacity = '1';
         });
 
-        // Enhanced card hover effects
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.service-card');
-
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function () {
-                    this.style.transform = 'translateY(-12px) scale(1.02)';
-                });
-
-                card.addEventListener('mouseleave', function () {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
+        // Header background on scroll
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = 'white';
+                header.style.backdropFilter = 'none';
+            }
         });
     </script>
 
