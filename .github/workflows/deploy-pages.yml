@@ -3,30 +3,19 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,46 +24,45 @@ jobs:
           submodules: recursive
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
 
-      - name: Create Pages Structure
+      - name: Build site
         run: |
-          # Create a clean directory for GitHub Pages
-          mkdir -p ./pages
+          # Create _site directory for GitHub Pages
+          mkdir -p _site
           
-          # Copy main HTML files
-          cp *.html ./pages/ 2>/dev/null || true
+          # Copy all HTML files to root
+          find . -name "*.html" -maxdepth 1 -exec cp {} _site/ \;
           
-          # Copy CSS and JS directories
-          cp -r css ./pages/ 2>/dev/null || true
-          cp -r js ./pages/ 2>/dev/null || true
-          cp -r images ./pages/ 2>/dev/null || true
+          # Copy directories
+          [ -d "css" ] && cp -r css _site/
+          [ -d "js" ] && cp -r js _site/
+          [ -d "images" ] && cp -r images _site/
           
-          # Copy other assets
-          cp manifest.json ./pages/ 2>/dev/null || true
-          cp robots.txt ./pages/ 2>/dev/null || true
-          cp sitemap.xml ./pages/ 2>/dev/null || true
+          # Copy manifest and other root files
+          [ -f "manifest.json" ] && cp manifest.json _site/
+          [ -f "robots.txt" ] && cp robots.txt _site/
+          [ -f "sitemap.xml" ] && cp sitemap.xml _site/
           
-          # Copy TicketingSystem frontend if it exists
-          if [ -d "TicketingSystem/frontend" ]; then
-            mkdir -p ./pages/TicketingSystem
-            cp -r TicketingSystem/frontend ./pages/TicketingSystem/
-          fi
+          # Copy TicketingSystem if it exists
+          [ -d "TicketingSystem/frontend" ] && mkdir -p _site/TicketingSystem && cp -r TicketingSystem/frontend _site/TicketingSystem/
           
-          # Copy iBridge React app if it exists
-          if [ -d "iBridge/iBridge-react" ]; then
-            mkdir -p ./pages/iBridge
-            cp -r iBridge/iBridge-react ./pages/iBridge/
-          fi
+          # Copy iBridge React if it exists  
+          [ -d "iBridge/iBridge-react" ] && mkdir -p _site/iBridge && cp -r iBridge/iBridge-react _site/iBridge/
           
-          echo "Files prepared for GitHub Pages deployment:"
-          ls -la ./pages/
+          echo "Built site structure:"
+          find _site -type f | head -20
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: './pages'
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
 
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
