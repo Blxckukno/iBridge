@@ -1,2 +1,27 @@
+# iBridge Contact Solutions - Robots.txt
 User-agent: *
+Allow: /
+Disallow: /logs/
+Disallow: /backups/
+Disallow: /*.log$
+Disallow: /security-dashboard.html
+Disallow: /performance-dashboard.html
+
+# Sitemap
+Sitemap: https://blxckukno.github.io/iBridge/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
 Allow: /

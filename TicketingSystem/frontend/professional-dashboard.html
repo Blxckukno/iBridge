@@ -2,19 +2,22 @@
 <html lang="en">
 
 <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-RANDOM_NONCE' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://api.github.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; report-uri /api/csp-violation-report;">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iBridge Staff Portal - Professional Dashboard</title>
 
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 
     <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" integrity="sha384-Zauxacv734UKnQr8H2YLoPkFtfNP1gp9UL4rQDcG2eaHzd35sABM5eU8p+18MTn2" crossorigin="anonymous">
 
     <style>
         :root {
@@ -488,7 +491,7 @@
         </main>
     </div>
 
-    <script>
+    <script nonce="UFhj8O+dYD4fw3O3UwPjB27bFQJgfTHH" nonce="RANDOM_NONCE">
         // Simple dashboard functionality
         document.addEventListener('DOMContentLoaded', function () {
             // Update time every minute
@@ -524,6 +527,9 @@
             console.log('Dashboard updated at:', new Date().toLocaleTimeString());
         }
     </script>
+
+    <!-- EMERGENCY SECURITY MANAGER -->
+    <script src="js/csp-security-manager.js" nonce="RANDOM_NONCE"></script>
 </body>
 
 </html>
