@@ -52,13 +52,16 @@
     <link rel="stylesheet" href="css/seo-enhancements.css">
 
     <style>
-        /* Force all content to be visible - CRITICAL FIX */
-        * {
-            opacity: 1 !important;
-            visibility: visible !important;
+        /* Content Visibility & Alignment Fix */
+        section {
+            display: block;
+            width: 100%;
+            position: relative;
+            clear: both;
+            opacity: 1;
+            visibility: visible;
         }
 
-        section,
         .about,
         .services,
         .why-choose,
@@ -67,7 +70,15 @@
             display: block !important;
             opacity: 1 !important;
             visibility: visible !important;
-            position: relative !important;
+            position: relative;
+            width: 100%;
+        }
+
+        .fade-in,
+        .animate-on-scroll {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
         }
 
         :root {
@@ -228,7 +239,9 @@
             display: flex;
             gap: 20px;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         .btn {
@@ -365,6 +378,9 @@
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section-header h2 {
@@ -385,6 +401,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
+            justify-items: center;
+            align-items: start;
         }
 
         .service-card {
@@ -397,6 +415,12 @@
             border: 1px solid var(--border-light);
             position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .service-card::before {
@@ -486,6 +510,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            justify-items: center;
+            align-items: start;
         }
 
         .feature-item {
@@ -496,6 +522,12 @@
             box-shadow: var(--shadow-light);
             transition: all 0.3s ease;
             border: 1px solid var(--border-light);
+            width: 100%;
+            max-width: 350px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .feature-item:hover {
@@ -573,6 +605,8 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-bottom: 3rem;
+            justify-items: center;
+            align-items: start;
         }
 
         .contact-item {
@@ -621,7 +655,9 @@
             display: flex;
             gap: 20px;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         /* Technology Section */
@@ -640,6 +676,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
+            justify-items: center;
+            align-items: start;
         }
 
         .tech-item {
@@ -652,6 +690,12 @@
             border: 1px solid var(--border-light);
             position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: 350px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .tech-item::before {
@@ -750,6 +794,8 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
+            align-items: start;
+            justify-items: start;
         }
 
         .footer-logo {
