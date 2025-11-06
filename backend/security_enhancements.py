@@ -754,22 +754,22 @@ print("🔒 Perfect SQL Security initialized - 100% protection")
 def validate_user_account(user_id):
     """Validate user account with security checks"""
     user = User.query.get(user_id)
+        
+        if not user or not user.is_active:
+            return jsonify({'error': 'Account not found or inactive'}), 401
+        
+        # Check if account is locked
+        account_security = AccountSecurityManager(db)
+        if account_security.is_account_locked(user):
+            return jsonify({'error': 'Account is temporarily locked'}), 423
+        
+        # Update last activity
+        user.last_activity = datetime.utcnow()
+        db.session.commit()
+        
+        return f(*args, **kwargs)
     
-    if not user or not user.is_active:
-        return jsonify({'error': 'Account not found or inactive'}), 401
-    
-    # Check if account is locked
-    account_security = AccountSecurityManager(db)
-    if account_security.is_account_locked(user):
-        return jsonify({'error': 'Account is temporarily locked'}), 423
-    
-    # Update last activity
-    user.last_activity = datetime.utcnow()
-    db.session.commit()
-    
-    return f(*args, **kwargs)
-
-return decorated
+    return decorated
 
 # CSP Violation Reporter
 def setup_csp_violation_reporting(app):

@@ -140,10 +140,9 @@ if (Test-Path $currentIndex -and Test-Path $backupSimple) {
     Write-Host "      Restored Version: $currentSections sections"
     Write-Host "      Sections Added: $($currentSections - $simpleSections)"
     
-    $simpleNavItems = ([regex]::Matches($simpleContent, '<li.*nav')).Count
     $currentNavItems = ([regex]::Matches($currentContent, 'role="menuitem"')).Count
     
-    Write-Host "      Navigation Items: $currentNavItems (was $simpleNavItems in basic version)"
+    Write-Host "      Navigation Items: $currentNavItems (vs basic navigation)"
 }
 
 Write-Host "`n🌐 DEPLOYMENT STATUS" -ForegroundColor Green
