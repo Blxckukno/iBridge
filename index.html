@@ -966,18 +966,47 @@
         @media (max-width: 768px) {
             .header .container {
                 padding: 10px 20px;
+                display: flex !important;
                 justify-content: space-between;
                 align-items: center;
+                flex-wrap: nowrap;
+            }
+
+            .logo {
+                order: 1;
+                flex-shrink: 0;
+            }
+
+            nav {
+                order: 2;
+                display: flex !important;
             }
 
             .logo img {
                 height: 40px;
             }
 
+            /* Force main content visibility on mobile */
+            main {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            .hero,
+            .about,
+            section {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
             .mobile-menu-toggle {
-                display: flex;
+                display: flex !important;
                 z-index: 1001;
                 position: relative;
+                order: 2;
             }
 
             .nav-menu {
