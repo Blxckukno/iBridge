@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Ticket - iBridge Staff Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: #2d5a27;
+            color: white;
+            padding: 2rem;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .sidebar nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 1rem;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background: white;
+            margin: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2d5a27;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn {
+            background: #2d5a27;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        .btn:hover {
+            background: #1e3b1a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #555;
+        }
+
+        .back-btn {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>iBridge Staff Portal</h2>
+        <nav>
+            <a href="professional-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="#" class="active"><i class="fas fa-ticket-alt"></i> Tickets</a>
+            <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
+            <a href="#"><i class="fas fa-users"></i> User Management</a>
+            <a href="../../lms-platform.html"><i class="fas fa-graduation-cap"></i> LMS Platform</a>
+            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            <a href="../../index.html"><i class="fas fa-home"></i> Back to Main Site</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="back-btn">
+            <a href="professional-dashboard.html" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+
+        <div class="header">
+            <h1>Create New Ticket</h1>
+            <p>Submit a new support ticket for processing</p>
+        </div>
+
+        <div class="form-container">
+            <form id="ticketForm" action="../../backend/app.py" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ticketTitle">Ticket Title *</label>
+                        <input type="text" id="ticketTitle" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority Level *</label>
+                        <select id="priority" name="priority" required>
+                            <option value="">Select Priority</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Critical">Critical</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Technical Support">Technical Support</option>
+                            <option value="Account Management">Account Management</option>
+                            <option value="Billing Inquiry">Billing Inquiry</option>
+                            <option value="Feature Request">Feature Request</option>
+                            <option value="Bug Report">Bug Report</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignedTo">Assign To</label>
+                        <select id="assignedTo" name="assigned_to">
+                            <option value="">Auto-assign</option>
+                            <option value="john.smith">John Smith - Technical</option>
+                            <option value="sarah.johnson">Sarah Johnson - Account Mgmt</option>
+                            <option value="mike.wilson">Mike Wilson - Billing</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerName">Customer Name</label>
+                    <input type="text" id="customerName" name="customer_name">
+                </div>
+
+                <div class="form-group">
+                    <label for="customerEmail">Customer Email</label>
+                    <input type="email" id="customerEmail" name="customer_email">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <textarea id="description" name="description" rows="6" required
+                        placeholder="Please describe the issue in detail..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="attachments">Attachments</label>
+                    <input type="file" id="attachments" name="attachments" multiple>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-plus"></i> Create Ticket
+                    </button>
+                    <a href="professional-dashboard.html" class="btn btn-secondary">
+                        <i class="fas fa-times"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('ticketForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(this);
+            const ticketData = Object.fromEntries(formData);
+
+            // Generate ticket ID
+            const ticketId = 'TK-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+
+            // Show success message
+            alert(`Ticket ${ticketId} created successfully!\n\nTitle: ${ticketData.title}\nPriority: ${ticketData.priority}\nCategory: ${ticketData.category}`);
+
+            // Redirect back to dashboard
+            window.location.href = 'professional-dashboard.html';
+        });
+    </script>
+</body>
+
+</html>
