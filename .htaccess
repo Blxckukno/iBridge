@@ -1,53 +1,83 @@
 # iBridge Enhanced Security .htaccess Configuration
 # Comprehensive protection against cyber attacks and malicious access
-# Last Updated: October 21, 2025
+# OWASP Compliance & Best Practices Implementation
+# Last Updated: December 2025
 
 # ====================================
-# SECURITY HEADERS
+# SECURITY HEADERS (Enhanced)
 # ====================================
 
-# Prevent MIME sniffing
-Header always set X-Content-Type-Options nosniff
+# Prevent MIME sniffing - Stops browsers from MIME-sniffing a response away from the declared content-type
+Header always set X-Content-Type-Options "nosniff"
 
-# Enable XSS protection
+# Enable XSS protection - Legacy header, modern CSP is more effective
 Header always set X-XSS-Protection "1; mode=block"
 
-# Prevent clickjacking
-Header always set X-Frame-Options DENY
+# Prevent clickjacking - Prevents site from being framed
+Header always set X-Frame-Options "DENY"
 
-# Enforce HTTPS
+# Enforce HTTPS - Force browsers to use HTTPS for 1 year
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
-# Content Security Policy
-Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+# Enhanced Content Security Policy - Remove 'unsafe-inline' for better security
+# Note: This requires nonce-based script loading for inline scripts
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests; block-all-mixed-content"
 
-# Referrer Policy
+# Referrer Policy - Control information sent in Referer header
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
-# Permissions Policy
-Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+# Enhanced Permissions Policy - Control browser features
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=()"
 
-# Remove server signatures
+# Remove server signatures - Hide server information
 Header unset Server
 Header always unset X-Powered-By
+ServerSignature Off
+
+# Cross-Origin Policies
+Header always set Cross-Origin-Embedder-Policy "require-corp"
+Header always set Cross-Origin-Opener-Policy "same-origin"
+Header always set Cross-Origin-Resource-Policy "same-origin"
+
+# Feature Policy (Additional Layer)
+Header always set Feature-Policy "camera 'none'; microphone 'none'; geolocation 'none'"
 
 # ====================================
-# BLOCK MALICIOUS REQUESTS
+# BLOCK MALICIOUS REQUESTS (Enhanced)
 # ====================================
+
+# Enable Rewrite Engine
+RewriteEngine On
 
 # Prevent WordPress redirects and handle 404s properly
-ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
 
 # Security: Ensure proper domain handling
-RewriteEngine On
 RewriteCond %{HTTP_HOST} !^ibridgebpo\.com$ [NC]
 RewriteCond %{HTTP_HOST} !^www\.ibridgebpo\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^localhost$ [NC]
+RewriteCond %{HTTP_HOST} !^127\.0\.0\.1$ [NC]
 RewriteRule ^(.*)$ https://ibridgebpo.com/$1 [R=301,L]
 
-# Block suspicious user agents
+# Block null user agents
 RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
-RewriteCond %{HTTP_USER_AGENT} ^(.*?)(libwww-perl|GetRight|GetWeb!|Go!Zilla|Download Daemon|Internet Ninja|Indy Library|AlertSite|Alexibot|Crystal|MS FrontPage|HTTrack|Teleport|webcollage|GrabNet) [NC,OR]
-RewriteCond %{HTTP_USER_AGENT} ^(.*?)(Utilities|BotBot|WinHTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner) [NC]
+# Block common scraping tools and malicious bots
+RewriteCond %{HTTP_USER_AGENT} (libwww-perl|wget|python|nikto|curl|scan|java|winhttp|clshttp|loader|fetch) [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} (bot|crawler|spider|scraper|extractor) [NC,OR]
+# Block SQL injection patterns
+RewriteCond %{HTTP_USER_AGENT} (sqlmap|havij|acunetix|netsparker|nikto) [NC]
+RewriteRule ^.* - [F,L]
+
+# Block additional malicious patterns
+# IP-based blocking for suspicious activity (add specific IPs as needed)
+# RewriteCond %{REMOTE_ADDR} ^123\.456\.789\.000$
+# RewriteRule ^.* - [F,L]
+
+# Block requests with suspicious query strings
+RewriteCond %{QUERY_STRING} (\||\.\.\/|~|`|<|>|\||\\) [NC,OR]
+RewriteCond %{QUERY_STRING} (bash|cmd|wget|curl|exec|passthru|system|eval) [NC]
 RewriteRule ^.* - [F,L]
 
 # Block malicious requests
