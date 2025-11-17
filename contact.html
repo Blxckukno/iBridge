@@ -17,6 +17,7 @@
 
     <style>
         :root {
+            /* Brand Colors */
             --primary-green: #A1C44F;
             --primary-green-light: #B8D663;
             --primary-green-dark: #8FB347;
@@ -24,13 +25,34 @@
             --dark-bg-light: #34495e;
             --text-white: #FFFFFF;
             --text-gray: #6C757D;
+            --text-dark: #2d3748;
             --light-gray: #F8F9FA;
             --border-light: #E9ECEF;
-            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
-            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.15);
+            
+            /* Professional Spacing System */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Enhanced Shadows */
+            --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.2);
+            --shadow-colored: 0 10px 40px rgba(161, 196, 79, 0.25);
+            
             --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
             --gradient-dark: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-light) 100%);
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -40,13 +62,18 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.7;
-            color: #333;
+            color: var(--text-dark);
             overflow-x: hidden;
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
             background: var(--text-white);
+            font-size: 16px;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
         html {
@@ -879,6 +906,9 @@
             }
         });
     </script>
+
+    <!-- Professional Enhancements -->
+    <script src="js/professional-enhancements.js"></script>
 
     <!-- iBridge Security System -->
     <script src="js/ibridge-security.js"></script>

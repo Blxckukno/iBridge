@@ -1,0 +1,114 @@
+/**
+ * Form Rate Limiting Styles
+ * iBridge Solutions
+ */
+
+/* Rate Limit Error Message */
+.rate-limit-error {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.rate-limit-error.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rate-limit-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.rate-limit-content i {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.rate-limit-content span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Animation for shake effect on submit attempt */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+.rate-limit-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Submit button disabled state (optional styling) */
+button[type="submit"][disabled],
+input[type="submit"][disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .rate-limit-error {
+        padding: 0.875rem 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .rate-limit-content {
+        gap: 0.625rem;
+    }
+    
+    .rate-limit-content i {
+        font-size: 1.1rem;
+    }
+    
+    .rate-limit-content span {
+        font-size: 0.9rem;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .rate-limit-error {
+        border: 3px solid #fff;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .rate-limit-error {
+        transition: opacity 0.1s linear;
+        transform: none;
+    }
+    
+    .rate-limit-error.show {
+        transform: none;
+    }
+    
+    .rate-limit-shake {
+        animation: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .rate-limit-error {
+        display: none !important;
+    }
+}

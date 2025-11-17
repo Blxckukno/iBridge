@@ -1,0 +1,296 @@
+/**
+ * Cookie Consent Banner Styles
+ * iBridge Solutions - POPIA/GDPR Compliant
+ */
+
+:root {
+    --cookie-bg: #2C3E50;
+    --cookie-text: #ffffff;
+    --cookie-primary: #A1C44F;
+    --cookie-hover: #8db03e;
+    --cookie-decline: #e74c3c;
+    --cookie-decline-hover: #c0392b;
+    --cookie-manage: #7f8c8d;
+    --cookie-manage-hover: #5d6d7e;
+    --cookie-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Cookie Consent Banner */
+.cookie-consent-banner {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: var(--cookie-bg);
+    color: var(--cookie-text);
+    padding: 1.5rem;
+    box-shadow: 0 -4px 20px var(--cookie-shadow);
+    z-index: 10000;
+    transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-top: 3px solid var(--cookie-primary);
+}
+
+.cookie-consent-banner.show {
+    bottom: 0;
+}
+
+.cookie-consent-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.cookie-consent-icon {
+    flex-shrink: 0;
+    color: var(--cookie-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cookie-consent-text {
+    flex: 1 1 300px;
+    min-width: 250px;
+}
+
+.cookie-consent-text h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--cookie-primary);
+}
+
+.cookie-consent-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.cookie-consent-text a {
+    color: var(--cookie-primary);
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+.cookie-consent-text a:hover {
+    opacity: 0.8;
+}
+
+.cookie-consent-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.cookie-consent-actions button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.cookie-consent-actions button svg {
+    flex-shrink: 0;
+}
+
+/* Accept Button */
+.btn-accept {
+    background: var(--cookie-primary);
+    color: var(--cookie-bg);
+}
+
+.btn-accept:hover {
+    background: var(--cookie-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(161, 196, 79, 0.3);
+}
+
+/* Decline Button */
+.btn-decline {
+    background: var(--cookie-decline);
+    color: var(--cookie-text);
+}
+
+.btn-decline:hover {
+    background: var(--cookie-decline-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+/* Manage Button */
+.btn-manage {
+    background: transparent;
+    color: var(--cookie-text);
+    border: 2px solid var(--cookie-manage);
+}
+
+.btn-manage:hover {
+    background: var(--cookie-manage);
+    border-color: var(--cookie-manage-hover);
+    transform: translateY(-2px);
+}
+
+/* Toast Notification */
+.cookie-toast {
+    position: fixed;
+    bottom: -100px;
+    right: 2rem;
+    background: #fff;
+    color: #333;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10001;
+    transition: bottom 0.3s ease;
+    max-width: 400px;
+    font-size: 0.95rem;
+    border-left: 4px solid;
+}
+
+.cookie-toast.show {
+    bottom: 2rem;
+}
+
+.cookie-toast-success {
+    border-left-color: var(--cookie-primary);
+}
+
+.cookie-toast-info {
+    border-left-color: #3498db;
+}
+
+.cookie-toast-warning {
+    border-left-color: #f39c12;
+}
+
+.cookie-toast-error {
+    border-left-color: var(--cookie-decline);
+}
+
+/* Accessibility: Focus States */
+.cookie-consent-actions button:focus {
+    outline: 3px solid var(--cookie-primary);
+    outline-offset: 2px;
+}
+
+.cookie-consent-text a:focus {
+    outline: 2px solid var(--cookie-primary);
+    outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cookie-consent-banner {
+        padding: 1.25rem;
+    }
+    
+    .cookie-consent-content {
+        gap: 1rem;
+    }
+    
+    .cookie-consent-icon {
+        display: none; /* Hide icon on mobile for space */
+    }
+    
+    .cookie-consent-text h3 {
+        font-size: 1.1rem;
+    }
+    
+    .cookie-consent-text p {
+        font-size: 0.9rem;
+    }
+    
+    .cookie-consent-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .cookie-consent-actions button {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+    }
+    
+    .cookie-toast {
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+    }
+    
+    .cookie-toast.show {
+        bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cookie-consent-banner {
+        padding: 1rem;
+    }
+    
+    .cookie-consent-text h3 {
+        font-size: 1rem;
+    }
+    
+    .cookie-consent-text p {
+        font-size: 0.85rem;
+    }
+    
+    .cookie-consent-actions button {
+        font-size: 0.85rem;
+        padding: 0.65rem 0.9rem;
+    }
+}
+
+/* Print: Hide cookie banner */
+@media print {
+    .cookie-consent-banner,
+    .cookie-toast {
+        display: none !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .cookie-consent-banner {
+        border-top-width: 5px;
+    }
+    
+    .cookie-consent-actions button {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .cookie-consent-banner,
+    .cookie-toast,
+    .cookie-consent-actions button {
+        transition: none;
+    }
+    
+    .cookie-consent-actions button:hover {
+        transform: none;
+    }
+}
+
+/* Dark Mode Support (if site implements dark mode) */
+@media (prefers-color-scheme: dark) {
+    .cookie-toast {
+        background: #34495e;
+        color: #ecf0f1;
+    }
+}

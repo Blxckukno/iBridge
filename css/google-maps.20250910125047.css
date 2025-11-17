@@ -1,0 +1,422 @@
+/* Enhanced Google Maps Styles */
+
+/* Map Section */
+.map-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 4rem 0;
+}
+
+.map-info-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* Location Details Card */
+.location-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.location-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.location-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.location-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary);
+}
+
+.location-header i {
+    font-size: 1.8rem;
+    color: var(--primary);
+    background: rgba(var(--primary-rgb), 0.1);
+    padding: 0.8rem;
+    border-radius: 50%;
+}
+
+.location-header h3 {
+    color: var(--text-dark);
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.location-info {
+    margin-bottom: 2rem;
+}
+
+.address-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.address-item:hover {
+    background: rgba(var(--primary-rgb), 0.05);
+    transform: translateX(5px);
+}
+
+.address-item i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.address-item strong {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.address-item a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.address-item a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+/* Map Actions */
+.map-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.map-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.map-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Map Container */
+.enhanced-map {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+}
+
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+}
+
+.map-header h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.map-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.map-control-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.map-control-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Map Wrapper */
+.map-wrapper {
+    position: relative;
+    background: #f8f9fa;
+}
+
+#googleMap {
+    width: 100%;
+    height: 450px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Map Loading */
+.map-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 249, 250, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.map-loading.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e9ecef;
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Map Features */
+.map-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.feature-item i {
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+/* Nearby Landmarks */
+.nearby-landmarks {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nearby-landmarks h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.nearby-landmarks h3 i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.landmarks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.landmark-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary);
+}
+
+.landmark-item:hover {
+    background: rgba(var(--primary-rgb), 0.05);
+    transform: translateX(5px);
+}
+
+.landmark-item i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.landmark-item strong {
+    display: block;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.landmark-item span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .map-info-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .landmarks-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .map-section {
+        padding: 2rem 0;
+    }
+    
+    .location-card,
+    .nearby-landmarks {
+        padding: 1.5rem;
+    }
+    
+    .map-actions {
+        flex-direction: column;
+    }
+    
+    .map-btn {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .map-features {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        padding: 1rem;
+    }
+    
+    .landmarks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .address-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .landmark-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .map-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Fullscreen Map */
+.map-fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
+    border-radius: 0 !important;
+}
+
+.map-fullscreen #googleMap {
+    height: calc(100vh - 60px) !important;
+}
+
+/* Animation for map interactions */
+.map-wrapper.loading #googleMap {
+    filter: blur(2px);
+    opacity: 0.7;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .location-card,
+    .enhanced-map,
+    .nearby-landmarks {
+        background: var(--bg-dark, #1a1a1a);
+        color: var(--text-light, #ffffff);
+        border-color: var(--border-dark, #333);
+    }
+    
+    .address-item,
+    .map-features,
+    .landmark-item {
+        background: var(--bg-darker, #0d1117);
+    }
+    
+    .map-header {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    }
+}

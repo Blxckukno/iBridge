@@ -1,0 +1,236 @@
+/**
+ * iBridge Security Protection Script
+ * Version: 1.0.0
+ * Last Updated: September 9, 2025
+ * 
+ * This script provides comprehensive client-side protection against:
+ * - Malicious redirects
+ * - XSS attacks
+ * - Iframe injections
+ * - Form tampering
+ */
+
+(function() {
+    'use strict';
+
+    // Configuration
+    const config = {
+        allowedDomains: [
+            'ibridgebpo.com',
+            'www.ibridgebpo.com',
+            'fonts.googleapis.com',
+            'fonts.gstatic.com',
+            'www.google-analytics.com'
+        ],
+        blockedDomains: [
+            'joviroasters.com',
+            'support-premium.joviroasters.com',
+            'pagopa',
+            'msdpweb'
+        ],
+        maxRedirects: 3,
+        redirectCount: 0
+    };
+
+    // Security Utilities
+    const SecurityUtils = {
+        isValidDomain: function(url) {
+            if (!url) return false;
+            try {
+                const urlObj = new URL(url);
+                return config.allowedDomains.some(domain => 
+                    urlObj.hostname === domain || 
+                    urlObj.hostname.endsWith('.' + domain)
+                );
+            } catch {
+                return false;
+            }
+        },
+
+        isBlockedDomain: function(url) {
+            if (!url) return false;
+            const urlLower = url.toLowerCase();
+            return config.blockedDomains.some(domain => 
+                urlLower.includes(domain.toLowerCase())
+            );
+        },
+
+        sanitizeHTML: function(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        },
+
+        logSecurityEvent: function(type, details) {
+            const event = {
+                type: type,
+                details: details,
+                timestamp: new Date().toISOString(),
+                url: window.location.href,
+                userAgent: navigator.userAgent
+            };
+            console.warn('Security Event:', event);
+            
+            // Send to server logging endpoint (if exists)
+            try {
+                fetch('/api/security-log', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(event)
+                }).catch(() => {});
+            } catch {}
+        }
+    };
+
+    // Redirect Protection
+    function setupRedirectProtection() {
+        // Store original methods
+        const originalAssign = window.location.assign;
+        const originalReplace = window.location.replace;
+        const originalHref = Object.getOwnPropertyDescriptor(window.location, 'href');
+        
+        // Protect location.assign
+        window.location.assign = function(url) {
+            if (SecurityUtils.isBlockedDomain(url)) {
+                SecurityUtils.logSecurityEvent('blocked_redirect', { url });
+                alert('Security Alert: Blocked malicious redirect attempt!');
+                return;
+            }
+            if (!SecurityUtils.isValidDomain(url)) {
+                SecurityUtils.logSecurityEvent('suspicious_redirect', { url });
+                if (!confirm('Warning: Attempting to leave iBridge website. Continue?')) {
+                    return;
+                }
+            }
+            return originalAssign.apply(this, arguments);
+        };
+        
+        // Protect location.replace
+        window.location.replace = function(url) {
+            if (SecurityUtils.isBlockedDomain(url)) {
+                SecurityUtils.logSecurityEvent('blocked_redirect', { url });
+                alert('Security Alert: Blocked malicious redirect attempt!');
+                return;
+            }
+            if (!SecurityUtils.isValidDomain(url)) {
+                SecurityUtils.logSecurityEvent('suspicious_redirect', { url });
+                if (!confirm('Warning: Attempting to leave iBridge website. Continue?')) {
+                    return;
+                }
+            }
+            return originalReplace.apply(this, arguments);
+        };
+        
+        // Protect location.href
+        Object.defineProperty(window.location, 'href', {
+            get: function() {
+                return originalHref.get.call(this);
+            },
+            set: function(url) {
+                if (SecurityUtils.isBlockedDomain(url)) {
+                    SecurityUtils.logSecurityEvent('blocked_redirect', { url });
+                    alert('Security Alert: Blocked malicious redirect attempt!');
+                    return;
+                }
+                if (!SecurityUtils.isValidDomain(url)) {
+                    SecurityUtils.logSecurityEvent('suspicious_redirect', { url });
+                    if (!confirm('Warning: Attempting to leave iBridge website. Continue?')) {
+                        return;
+                    }
+                }
+                return originalHref.set.call(this, url);
+            }
+        });
+    }
+
+    // Form Protection
+    function setupFormProtection() {
+        document.addEventListener('submit', function(e) {
+            const form = e.target;
+            if (SecurityUtils.isBlockedDomain(form.action)) {
+                e.preventDefault();
+                SecurityUtils.logSecurityEvent('blocked_form_submission', { 
+                    action: form.action 
+                });
+                alert('Security Alert: Form submission blocked due to suspicious destination!');
+                return;
+            }
+        }, true);
+    }
+
+    // Link Protection
+    function setupLinkProtection() {
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (link && link.href) {
+                if (SecurityUtils.isBlockedDomain(link.href)) {
+                    e.preventDefault();
+                    SecurityUtils.logSecurityEvent('blocked_link_click', { 
+                        href: link.href 
+                    });
+                    alert('Security Alert: Blocked click to malicious link!');
+                    return;
+                }
+            }
+        }, true);
+    }
+
+    // Iframe Protection
+    function setupIframeProtection() {
+        // Remove existing malicious iframes
+        const iframes = document.getElementsByTagName('iframe');
+        for (let i = iframes.length - 1; i >= 0; i--) {
+            const iframe = iframes[i];
+            if (SecurityUtils.isBlockedDomain(iframe.src)) {
+                SecurityUtils.logSecurityEvent('removed_iframe', { src: iframe.src });
+                iframe.remove();
+            }
+        }
+
+        // Prevent new iframe injections
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.tagName === 'IFRAME') {
+                        if (SecurityUtils.isBlockedDomain(node.src)) {
+                            SecurityUtils.logSecurityEvent('blocked_iframe', { 
+                                src: node.src 
+                            });
+                            node.remove();
+                        }
+                    }
+                });
+            });
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+    // Initialize all protections
+    function initSecurity() {
+        setupRedirectProtection();
+        setupFormProtection();
+        setupLinkProtection();
+        setupIframeProtection();
+        
+        // Log initialization
+        SecurityUtils.logSecurityEvent('security_initialized', {
+            protections: [
+                'redirect_protection',
+                'form_protection',
+                'link_protection',
+                'iframe_protection'
+            ]
+        });
+    }
+
+    // Run on page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSecurity);
+    } else {
+        initSecurity();
+    }
+})();

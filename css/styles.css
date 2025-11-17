@@ -1,5 +1,6 @@
 /* Define root variables and base styles */
 :root {
+    /* Brand Colors */
     --primary-green: #A1C44F;
     --primary-green-light: #B8D663;
     --primary-green-dark: #8FB347;
@@ -7,15 +8,36 @@
     --dark-bg-light: #34495e;
     --text-white: #FFFFFF;
     --text-gray: #6C757D;
+    --text-dark: #2d3748;
     --light-gray: #F8F9FA;
     --border-light: #E9ECEF;
-    --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
-    --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.15);
+    
+    /* Professional Spacing System */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+    
+    /* Enhanced Shadows */
+    --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.2);
+    --shadow-colored: 0 10px 40px rgba(161, 196, 79, 0.25);
+    
     --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
     --gradient-dark: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-light) 100%);
 
-    /* Backward compatibility aliases */
+    /* Transitions */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Legacy compatibility */
     --primary-color: var(--dark-bg);
     --text-primary: var(--dark-bg);
     --text-secondary: var(--text-gray);
@@ -24,10 +46,8 @@
     --shadow: var(--shadow-light);
     --shadow-large: var(--shadow-medium);
     --transition: all 0.3s ease;
-    --primary-green: #A1C44F;
     --dim-gray: #6A6A6B;
     --gray: #757576;
-    --text-gray: #8E8E8E;
     --jet: #363634;
 }
 
@@ -38,16 +58,20 @@
     font-family: 'Inter', 'Poppins', sans-serif;
 }
 
-/* Enhanced Global Styles */
+/* Enhanced Global Styles - Professional Typography */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 16px;
-    line-height: 1.6;
-    color: var(--dark-bg);
+    line-height: 1.7;
+    color: var(--text-dark);
     background-color: var(--background);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -64,39 +88,61 @@ h4,
 h5,
 h6 {
     font-family: 'Inter', sans-serif;
-    color: #222;
-    margin-bottom: 15px;
+    color: var(--dark-bg);
+    margin-bottom: var(--space-md);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
 h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
 }
 
 h2 {
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
 }
 
 h3 {
-    font-size: 1.75rem;
-    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
 }
 
 p {
-    color: #666;
-    font-size: 16px;
+    color: var(--text-gray);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-sm);
 }
 
 a {
     text-decoration: none;
-    transition: var(--transition);
+    transition: var(--transition-base);
+    color: var(--primary-green);
+}
+
+a:hover {
+    color: var(--primary-green-dark);
 }
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Lazy loading images */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
 }
 
 button,

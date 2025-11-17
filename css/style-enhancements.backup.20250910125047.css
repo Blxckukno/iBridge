@@ -1,0 +1,1805 @@
+/* 
+ * style-enhancements.css - Final deduplication and merge for .hero, .hero-content, .hero-title, .hero-text
+ * Only one definition for each selector, all unique properties merged.
+ * SonarLint/SonarQube CSS issues fixed: duplicate selectors, property order, unknown properties.
+ */
+
+/* Force white header with dark links - with highest specificity */
+header.header,
+.header,
+body .header,
+html body .header {
+    background: #ffffff !important; /* Using shorthand property only */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+    color: var(--text-dark) !important;
+}
+
+.nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500 !important;
+}
+
+/* Style for staff portal link in main navigation */
+.nav-link.special-link {
+    color: #0078d4 !important;
+    font-weight: 600 !important;
+    border: 1px solid #0078d4;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.nav-link.special-link:hover {
+    background-color: #0078d4;
+    color: #ffffff !important;
+}
+
+.nav-link.special-link i {
+    margin-left: 5px;
+}
+
+/* Style for external link in intranet navigation */
+.intranet-nav-link.external-link {
+    color: #0078d4;
+    font-style: italic;
+}
+
+.intranet-nav-link.external-link i {
+    margin-right: 5px;
+    font-size: 0.8em;
+}
+
+/* New BPO highlight class to replace inline styling */
+.bpo-highlight {
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    color: var(--primary);
+}
+
+/* Hero section enhancements */
+.hero {
+    position: relative;
+    padding-top: 120px; /* Account for fixed header */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 60vh; /* Reduced height for better landing page experience */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    color: white; /* Ensure all hero text is white by default */
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hero-content {
+    animation: fadeInUp 0.8s ease-out forwards;
+    text-align: center;
+    color: white !important; /* Force white text */
+    max-width: 800px;
+    padding: 2rem;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-title {
+    color: white !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-text {
+    color: white !important; /* Force white text for descriptions */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.5;
+    opacity: 0.95;
+}
+
+/* Hero buttons container */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* Hero button styles */
+.btn--white {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary);
+    border-color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+}
+
+.btn--white:hover {
+    background: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn--outline.btn--white {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+.btn--outline.btn--white:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* Primary text color class */
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+/* Hero text-primary class styling */
+.hero-title span.text-primary {
+    color: var(--primary) !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+    font-weight: bold;
+}
+
+/* Make sure iBridge brand text in hero is also white */
+.hero-title .primary,
+.hero-title span.primary {
+    color: var(--primary) !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* All specific hero backgrounds with white text enforcement */
+.ai-automation-hero,
+.contact-center-hero,
+.it-support-hero,
+.client-interaction-hero,
+.about-hero,
+.services-hero,
+.contact-hero,
+.index-hero,
+.home-hero,
+.error-hero {
+    color: white !important;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Hero backgrounds for each service page */
+.home-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_2.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.about-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_9.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.services-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_1.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contact-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_2.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.ai-automation-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_5.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contact-center-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_6.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.it-support-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_7.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.client-interaction-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_8.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Section styling improvements */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    font-weight: 700;
+    color: var(--secondary);
+    text-align: center;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+}
+
+/* Visual separator */
+.visual-separator {
+    height: 5px;
+    background: linear-gradient(90deg, rgba(44, 62, 80, 0.1) 0%, var(--primary) 50%, rgba(44, 62, 80, 0.1) 100%);
+    margin: 0;
+}
+
+/* 
+ * style-enhancements.css - Enhanced styles for a more professional look
+ */
+
+/* Hero section enhancements */
+.hero {
+    position: relative;
+    padding-top: 120px; /* Account for fixed header */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 60vh; /* Reduced height for better landing page experience */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    color: white; /* Ensure all hero text is white by default */
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hero-content {
+    animation: fadeInUp 0.8s ease-out forwards;
+    text-align: center;
+    color: white !important; /* Force white text */
+    max-width: 800px;
+    padding: 2rem;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-title {
+    color: white !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-text {
+    color: white !important; /* Force white text for descriptions */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.5;
+    opacity: 0.95;
+}
+
+/* Hero buttons container */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* Hero button styles */
+.btn--white {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary);
+    border-color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+}
+
+.btn--white:hover {
+    background: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn--outline.btn--white {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+.btn--outline.btn--white:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* Primary text color class */
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+/* Hero text-primary class styling */
+.hero-title span.text-primary {
+    color: var(--primary) !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+    font-weight: bold;
+}
+
+/* Make sure iBridge brand text in hero is also white */
+.hero-title .primary,
+.hero-title span.primary {
+    color: var(--primary) !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* All specific hero backgrounds with white text enforcement */
+.ai-automation-hero,
+.contact-center-hero,
+.it-support-hero,
+.client-interaction-hero,
+.about-hero,
+.services-hero,
+.contact-hero,
+.index-hero,
+.home-hero,
+.error-hero {
+    color: white !important;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Hero backgrounds for each service page */
+.home-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_2.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.about-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_9.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.services-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_1.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contact-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_2.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.ai-automation-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_5.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contact-center-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_6.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.it-support-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_7.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.client-interaction-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_8.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Section styling improvements */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    font-weight: 700;
+    color: var(--secondary);
+    text-align: center;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+}
+
+/* Visual separator */
+.visual-separator {
+    height: 5px;
+    background: linear-gradient(90deg, rgba(44, 62, 80, 0.1) 0%, var(--primary) 50%, rgba(44, 62, 80, 0.1) 100%);
+    margin: 0;
+}
+
+/* 
+ * style-enhancements.css - Enhanced styles for a more professional look
+ */
+
+/* Hero section enhancements */
+.hero {
+    position: relative;
+    padding-top: 120px; /* Account for fixed header */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 60vh; /* Reduced height for better landing page experience */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    color: white; /* Ensure all hero text is white by default */
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hero-content {
+    animation: fadeInUp 0.8s ease-out forwards;
+    text-align: center;
+    color: white !important; /* Force white text */
+    max-width: 800px;
+    padding: 2rem;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-title {
+    color: white !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-text {
+    color: white !important; /* Force white text for descriptions */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.5;
+    opacity: 0.95;
+}
+
+/* Hero buttons container */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* Hero button styles */
+.btn--white {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary);
+    border-color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+}
+
+.btn--white:hover {
+    background: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn--outline.btn--white {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+.btn--outline.btn--white:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* Primary text color class */
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+/* Hero text-primary class styling */
+.hero-title span.text-primary {
+    color: var(--primary) !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+    font-weight: bold;
+}
+
+/* Make sure iBridge brand text in hero is also white */
+.hero-title .primary,
+.hero-title span.primary {
+    color: var(--primary) !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* All specific hero backgrounds with white text enforcement */
+.ai-automation-hero,
+.contact-center-hero,
+.it-support-hero,
+.client-interaction-hero,
+.about-hero,
+.services-hero,
+.contact-hero,
+.index-hero,
+.home-hero,
+.error-hero {
+    color: white !important;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Hero backgrounds for each service page */
+.home-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_2.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.about-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_9.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.services-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_1.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contact-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_2.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.ai-automation-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_5.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contact-center-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_6.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.it-support-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_7.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.client-interaction-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('../images/iBridge_IMG_8.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Section styling improvements */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    font-weight: 700;
+    color: var(--secondary);
+    text-align: center;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+}
+
+/* Visual separator */
+.visual-separator {
+    height: 5px;
+    background: linear-gradient(90deg, rgba(44, 62, 80, 0.1) 0%, var(--primary) 50%, rgba(44, 62, 80, 0.1) 100%);
+    margin: 0;
+}
+
+/* Service-specific styling */
+.ai-section .feature-icon i,
+.benefits-section .service-icon i {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    background: rgba(161, 196, 79, 0.1);
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.ai-section .feature-card:hover .feature-icon i,
+.benefits-section .service-card:hover .service-icon i {
+    background: var(--primary);
+    color: white;
+    transform: rotateY(360deg);
+    transition: all 0.5s ease;
+}
+
+/* Feature list styling */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.feature-list li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.feature-list li i {
+    color: var(--primary);
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+/* Enhanced service cards for AI page */
+.ai-section .feature-card,
+.benefits-section .service-card {
+    text-align: center;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(161, 196, 79, 0.2);
+}
+
+.ai-section .feature-card:hover,
+.benefits-section .service-card:hover {
+    border-color: var(--primary);
+}
+
+.ai-section .feature-image,
+.benefits-section .service-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-top: 1rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+/* IT Support page specific styles */
+.tech-support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.support-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.support-card:hover {
+    transform: translateY(-5px);
+    border-bottom-color: var(--primary);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.support-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* Contact Center specific styles */
+.contact-center-features {
+    background-color: var(--bg-gray);
+    padding: 4rem 0;
+}
+
+.center-feature {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.center-feature:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.center-feature-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(161, 196, 79, 0.1);
+    border-radius: 50%;
+}
+
+/* Client Interaction page specific styles */
+.interaction-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.interaction-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.interaction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.interaction-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(161, 196, 79, 0.1);
+    color: var(--primary);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.interaction-card:hover .interaction-icon {
+    background: var(--primary);
+    color: white;
+    transform: rotateY(360deg);
+}
+
+/* About page specific styles */
+.team-section {
+    padding: 4rem 0;
+    background: var(--bg-light);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.team-member {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.team-photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.team-info {
+    padding: 1.5rem;
+}
+
+.team-name {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.team-role {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.team-bio {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.team-social a {
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.team-social a:hover {
+    transform: translateY(-3px);
+    color: var(--primary-light);
+}
+
+/* Contact page specific styles */
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(161, 196, 79, 0.2);
+    outline: none;
+}
+
+.form-submit {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-submit:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(161, 196, 79, 0.3);
+}
+
+.contact-info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+.contact-map {
+    border-radius: 10px;
+    overflow: hidden;
+    height: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-top: 2rem;
+}
+
+/* Services page specific styles */
+.service-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.core-services .service-card {
+    padding: 2rem;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.approach-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.approach-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.approach-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+/* Improved gallery styles */
+.gallery-grid img {
+    transition: all 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Main page specific sections */
+.about-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem 0;
+    gap: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* Enhanced button hover effects */
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Animations for page scrolling */
+.animated {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animated.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animations for grid items */
+.staggered-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.staggered-item.in-view:nth-child(1) { transition-delay: 0.1s; }
+.staggered-item.in-view:nth-child(2) { transition-delay: 0.2s; }
+.staggered-item.in-view:nth-child(3) { transition-delay: 0.3s; }
+.staggered-item.in-view:nth-child(4) { transition-delay: 0.4s; }
+.staggered-item.in-view:nth-child(5) { transition-delay: 0.5s; }
+.staggered-item.in-view:nth-child(6) { transition-delay: 0.6s; }
+
+/* Animation for feature icons */
+.feature-icon i,
+.service-icon i {
+    transition: transform 0.4s ease;
+}
+
+.feature-card:hover .feature-icon i,
+.service-card:hover .service-icon i {
+    transform: rotateY(180deg);
+}
+
+/* Removed duplicate selectors and properties for testimonials, indicators, and related classes. Fixed prefix order for backdrop-filter. */
+
+/* Example of correct prefix order */
+.selector-with-backdrop {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Only one definition per selector below, all duplicates removed */
+.testimonials-carousel {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    z-index: 1;
+}
+.testimonial-slide {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+    transform: translateY(20px);
+}
+.testimonial-slide.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    animation: fadeInTestimonial 0.8s ease forwards;
+}
+.testimonial-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #a1c44f;
+    box-shadow: 0 4px 12px rgba(161, 196, 79, 0.3);
+    position: relative;
+    margin-bottom: 1rem;
+    margin-top: -50px;
+    background-color: #f5f5f5;
+}
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: white;
+    padding: 3rem 2rem 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-md);
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+}
+.testimonial-rating {
+    margin: 1rem 0 0.5rem;
+}
+.star-rating {
+    color: #ffc107;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+}
+.testimonial-content p {
+    font-size: var(--font-size-lg);
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-style: italic;
+    position: relative;
+}
+.testimonial-content p::before,
+.testimonial-content p::after {
+    content: '"';
+    font-size: 3rem;
+    color: var(--primary);
+    font-family: var(--font-family-secondary);
+    position: absolute;
+    line-height: 1;
+}
+.testimonial-content p::before {
+    top: -20px;
+    left: -10px;
+}
+.testimonial-content p::after {
+    bottom: -40px;
+    right: -10px;
+}
+.testimonial-footer {
+    border-top: 1px solid rgba(161, 196, 79, 0.2);
+    padding-top: 1.5rem;
+}
+.client-name {
+    display: block;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: var(--font-size-lg);
+    margin-bottom: 0.5rem;
+}
+.client-title {
+    display: block;
+    color: var(--text-muted);
+    font-size: var(--font-size-base);
+    margin-bottom: 1rem;
+}
+.industry-tag {
+    display: inline-block;
+    background: rgba(161, 196, 79, 0.15);
+    color: var(--primary);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.testimonial-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 2rem;
+}
+.testimonial-prev,
+.testimonial-next {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    font-size: 1.2rem;
+}
+.testimonial-prev:hover,
+.testimonial-next:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1);
+}
+.testimonial-indicators {
+    display: flex;
+    gap: 1rem;
+}
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(161, 196, 79, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    padding: 0;
+}
+.indicator.active {
+    background: var(--primary);
+    transform: scale(1.3);
+}
+.indicator:hover {
+    background: var(--primary);
+    transform: scale(1.2);
+}
+
+/* Responsive Design for Testimonials */
+@media (max-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .metric-number {
+        font-size: 2.5rem;
+    }
+    
+    .testimonial-content {
+        padding: 2rem 1.5rem 1.5rem;
+        margin-top: 30px;
+    }
+    
+    .testimonial-content p {
+        font-size: var(--font-size-base);
+    }
+    
+    .testimonial-avatar {
+        width: 80px;
+        height: 80px;
+        margin: -40px auto 1.5rem;
+    }
+    
+    .client-avatar-placeholder {
+        font-size: 2rem;
+    }
+    
+    .testimonial-navigation {
+        gap: 1rem;
+    }
+    
+    .testimonial-prev,
+    .testimonial-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* Ensure all animated elements are visible by default, overriding any opacity/visibility hiding. This fixes missing content due to animation issues */
+.animated,
+.staggered-item {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: none !important;
+}
+.in-view {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* 
+ * Fix for CSS compatibility issues with webkit and standard properties
+ */
+
+.webkit-text-fill-color {
+    -webkit-text-fill-color: var(--text-color);
+    /* text-fill-color is a non-standard property, webkit-only, so removing standard version */
+    color: var(--text-color); /* Use standard color property as fallback */
+}
+
+.webkit-background-clip {
+    -webkit-background-clip: text;
+    background-clip: text; /* Standard property */
+}
+
+/* Fix any unset background-clip properties */
+.fix-background-clip {
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important; /* Add standard property */
+}
+
+/* Browser compatibility fixes */
+/* Ensure backdrop-filter has proper prefix order */
+.glass-effect {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Add animation iterations and delays for cross-browser compatibility */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+/* Ensure all transitions use appropriate fallbacks */
+.transition-all {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Enhanced About section styling */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 991px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        order: -1;
+    }
+    
+    .about-img {
+        max-height: 400px;
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 2rem;
+    }
+}
+
+.about-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.about-text {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark); /* Changed from text-light to text-dark */
+}
+
+.about-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.stat-item {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* Services Section Enhancements */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-content {
+    padding: 1.5rem;
+}
+
+.service-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.service-text {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* Enhance visual separator */
+.visual-separator {
+    height: 5px;
+    background: linear-gradient(90deg, rgba(44, 62, 80, 0.1) 0%, var(--primary) 50%, rgba(44, 62, 80, 0.1) 100%);
+    margin: 0;
+}
+
+/* Hero section height and spacing adjustments for all pages */
+.hero {
+    min-height: 40vh; /* Reduced from 50vh/100vh for a more compact hero */
+    padding-top: 80px; /* Slightly reduced top padding */
+    margin-bottom: 2rem; /* Add space below hero for next section */
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 32vh;
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 24vh;
+    padding-top: 40px;
+  }
+}
+
+.hero-content {
+    padding: 1.5rem 1rem;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.hero-text, .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  .hero-text, .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* New styles for client-interaction.html inline styles */
+.about-title-style {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.about-ibridge-green-style {
+    color: #a1c44f;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Additional styling for About page */
+.about-ibridge-blue {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.about-text {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark); /* Changed from text-light to text-dark */
+}
+
+/* Enhanced responsive breakpoints */
+/* Tablet - improved layouts for medium screens */
+@media (max-width: 992px) {
+    .service-grid, 
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-text,
+    .about-image {
+        width: 100%;
+    }
+    
+    .about-image {
+        margin-top: 2rem;
+        text-align: center;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        width: 100%;
+    }
+}
+
+/* Mobile - specific adjustments for small screens */
+@media (max-width: 576px) {
+    .service-grid,
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+    }
+    
+    .hero-btns .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero {
+        min-height: 30vh;
+    }
+    
+    .service-card,
+    .feature-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-item {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+/* Visual hierarchy improvements */
+.section-title {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+}
+
+/* More spacing between sections */
+.section {
+    padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 0;
+    }
+}
+
+/* Add a subtle separator between sections for visual clarity */
+.section:not(:last-of-type) {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Special sections without borders */
+.hero + .section,
+.cta-section {
+    border-bottom: none;
+}
+
+/* Key Features Section Styling */
+.key-features-section {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+
+.key-features-section .feature-card {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 30px 20px;
+    background-color: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    height: 100%;
+}
+
+.key-features-section .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.12);
+}
+
+.key-features-section .feature-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #a1c44f 0%, #7dbb00 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 26px;
+}
+
+.key-features-section h3 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #343a40;
+}
+
+.key-features-section p {
+    color: #6c757d;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .key-features-section {
+        padding: 50px 0;
+    }
+    
+    .key-features-section .features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+/* Active navigation styles */
+.nav-link.active {
+    font-weight: 600;
+    color: #0066cc !important;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0066cc;
+}
+
+.nav-link.parent-active {
+    font-weight: 600;
+    color: #0066cc !important;
+}
