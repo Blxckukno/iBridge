@@ -70,3 +70,13 @@ env/
 *.db
 *.sqlite
 *.sqlite3
+
+# Environment files
+.env
+.env.*
+*.env
+security_config.env
+
+# Runtime logs and reports
+logs/
+backend/logs/

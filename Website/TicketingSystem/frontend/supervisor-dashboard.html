@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supervisor Dashboard - iBridge Staff Portal</title>
+  <link rel="icon" type="image/png" href="../../images/favicon.png" />
+  <style>
+    body { margin: 0; font-family: Inter, Segoe UI, Arial, sans-serif; background: #f4f8fb; color: #102a43; }
+    .layout { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+    .side { background: #274c77; color: #fff; padding: 20px; }
+    .side a { display: block; color: #fff; text-decoration: none; padding: 10px 12px; border-radius: 10px; margin-bottom: 8px; }
+    .side a:hover, .side a.active { background: rgba(255,255,255,.15); }
+    .main { padding: 24px; }
+    .block { background: #fff; border-radius: 14px; padding: 16px; box-shadow: 0 8px 22px rgba(0,0,0,.08); margin-bottom: 14px; }
+    @media (max-width: 980px){ .layout{grid-template-columns:1fr} }
+  </style>
+  <script src="../../js/staff-auth-guard.js"></script>
+  <script src="../../js/staff-rbac.js"></script>
+  <script>
+    if (window.iBridgeStaffAuth) window.iBridgeStaffAuth.ensureAccess();
+    (function () {
+      var s = window.iBridgeRBAC && window.iBridgeRBAC.readSession ? window.iBridgeRBAC.readSession() : null;
+      var r = window.iBridgeRBAC ? window.iBridgeRBAC.normalizeRole(s && s.role) : "agent";
+      if (r !== "supervisor") window.location.replace(window.iBridgeRBAC.defaultDashboardForRole(r));
+    })();
+  </script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="side">
+      <h2>Supervisor</h2>
+      <a class="active" href="supervisor-dashboard.html">Dashboard</a>
+      <a href="ticket-management.html">Tickets</a>
+      <a href="generate-reports.html">Reports</a>
+      <a href="export-data.html">Export Data</a>
+      <a href="../../lms-platform.html">LMS Platform</a>
+      <a href="../../index.html">Back to Main Site</a>
+    </aside>
+    <main class="main">
+      <section class="block">
+        <h2>Supervisor Dashboard</h2>
+        <p>Operational oversight for team performance, tickets, and reporting.</p>
+      </section>
+      <section class="block">
+        <h3>Privileges</h3>
+        <p>Can manage tickets and reports. Cannot manage users, system settings, or security attack console.</p>
+      </section>
+    </main>
+  </div>
+  <script src="../../js/runtime-fix.js"></script>
+</body>
+</html>
+

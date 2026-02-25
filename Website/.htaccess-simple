@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# BLOCK ALL external redirects completely
+RewriteCond %{HTTP_HOST} ^wordpress-941506-3757035\.cloudwaysapps\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^.*\.cloudwaysapps\.com$ [NC]
+RewriteRule ^(.*)$ https://ibridgebpo.com/ [R=301,L]
+
+# Direct file access - no redirects for HTML files
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} \.html$ [NC]
+RewriteRule ^(.*)$ - [L]
+
+# Handle missing files with local 404
+ErrorDocument 404 /404.html
+
+# If 404.html doesn't exist, redirect to home
+ErrorDocument 404 /index.html

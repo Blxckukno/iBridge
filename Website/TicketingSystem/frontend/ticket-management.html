@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket Access Routing</title>
+  <link rel="icon" type="image/png" href="../../images/favicon.png" />
+  <script src="../../js/staff-auth-guard.js"></script>
+  <script src="../../js/staff-rbac.js"></script>
+  <script>
+    if (window.iBridgeStaffAuth) window.iBridgeStaffAuth.ensureAccess();
+    (function () {
+      var s = window.iBridgeRBAC && window.iBridgeRBAC.readSession ? window.iBridgeRBAC.readSession() : null;
+      var role = window.iBridgeRBAC ? window.iBridgeRBAC.normalizeRole(s && s.role) : "agent";
+      if (role === "student") {
+        window.location.replace("student-dashboard.html");
+        return;
+      }
+      window.location.replace("create-ticket.html");
+    })();
+  </script>
+</head>
+<body>
+  <p>Routing to ticket workspace...</p>
+</body>
+</html>
+

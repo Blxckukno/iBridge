@@ -1,0 +1,7 @@
+Contact: mailto:security@ibridge.co.za
+Contact: mailto:it.support@ibridge.co.za
+Expires: 2027-02-19T23:59:59.000Z
+Preferred-Languages: en
+Policy: /security-policy.html
+Acknowledgments: /security-policy.html
+Canonical: /.well-known/security.txt

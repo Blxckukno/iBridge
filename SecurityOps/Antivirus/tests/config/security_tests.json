@@ -1,0 +1,32 @@
+{
+  "run_unit_tests": false,
+  "run_integration_tests": false,
+  "run_security_tests": true,
+  "run_performance_tests": false,
+  "verbose_output": true,
+  "create_test_report": true,
+  "open_report_browser": false,
+  "test_timeout": 500,
+  "parallel_tests": false,
+  "cleanup_after_tests": true,
+  "retry_failed_tests": 0,
+  "fail_fast": true,
+  "report_format": "html",
+  "coverage_enabled": true,
+  "coverage_threshold": 95,
+  "log_level": "DEBUG",
+  "environment": {
+    "use_mock_services": false,
+    "external_resources": true,
+    "temp_directory": "",
+    "database_path": "",
+    "network_access": true,
+    "elevated_permissions": true
+  },
+  "security_test_params": {
+    "fuzz_test_iterations": 1000,
+    "encryption_test_rounds": 100,
+    "network_test_ports": [80, 443, 8080, 8443, 22, 21],
+    "authentication_test_retries": 20
+  }
+}

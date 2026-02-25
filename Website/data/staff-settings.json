@@ -1,0 +1,17 @@
+{
+  "8": {
+    "notifications": {
+      "daily": true
+    },
+    "security": {},
+    "updated_at": "2026-02-20T09:41:37.599446"
+  },
+  "13": {
+    "notifications": {
+      "email_new_ticket": true,
+      "daily_reports": false
+    },
+    "security": {},
+    "updated_at": "2026-02-20T10:00:58.609538"
+  }
+}

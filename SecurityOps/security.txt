@@ -1,0 +1,22 @@
+# Security Policy for iBridge Contact Solutions
+Contact: security@ibridge-solutions.com
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://keybase.io/ibridge
+Acknowledgments: https://ibridge-solutions.com/security-acknowledgments
+Preferred-Languages: en
+Canonical: https://ibridge-solutions.com/.well-known/security.txt
+Policy: https://ibridge-solutions.com/security-policy
+
+# Scope
+# This security policy applies to all iBridge systems and services
+
+# Reporting Guidelines
+# Please report security vulnerabilities responsibly
+# Include detailed steps to reproduce the issue
+# Allow reasonable time for investigation and remediation
+
+# Out of Scope
+# - Social engineering attacks
+- Physical security issues
+- Issues in third-party services beyond our control
+- Denial of service attacks

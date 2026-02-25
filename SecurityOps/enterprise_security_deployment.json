@@ -1,0 +1,8 @@
+{
+  "security_headers": {},
+  "csp_policies": {},
+  "sri_hashes": {},
+  "ssl_config": {},
+  "owasp_controls": {},
+  "monitoring_config": {}
+}

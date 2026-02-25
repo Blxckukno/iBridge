@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard - iBridge LMS</title>
+  <link rel="icon" type="image/png" href="../../images/favicon.png" />
+  <style>
+    body { margin: 0; font-family: Inter, Segoe UI, Arial, sans-serif; background: #f6f8fc; color: #102a43; }
+    .wrap { max-width: 980px; margin: 40px auto; padding: 0 16px; }
+    .card { background: #fff; border-radius: 14px; padding: 20px; box-shadow: 0 8px 22px rgba(0,0,0,.08); margin-bottom: 14px; }
+    .btn { display: inline-block; background: #00a86b; color: #fff; text-decoration: none; border-radius: 10px; padding: 10px 14px; font-weight: 600; }
+  </style>
+  <script src="../../js/staff-auth-guard.js"></script>
+  <script src="../../js/staff-rbac.js"></script>
+  <script>
+    if (window.iBridgeStaffAuth) window.iBridgeStaffAuth.ensureAccess();
+    (function () {
+      var s = window.iBridgeRBAC && window.iBridgeRBAC.readSession ? window.iBridgeRBAC.readSession() : null;
+      var r = window.iBridgeRBAC ? window.iBridgeRBAC.normalizeRole(s && s.role) : "agent";
+      if (r !== "student") window.location.replace(window.iBridgeRBAC.defaultDashboardForRole(r));
+    })();
+  </script>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>Student Dashboard</h1>
+      <p>Learning-only environment. Student access is limited to courses and progress tracking.</p>
+    </section>
+    <section class="card">
+      <h2>Courses</h2>
+      <p>Open your LMS workspace to continue training modules.</p>
+      <a class="btn" href="../../lms-platform.html">Open LMS Platform</a>
+    </section>
+  </main>
+  <script src="../../js/runtime-fix.js"></script>
+</body>
+</html>
+

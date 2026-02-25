@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-02-20T06:46:21.396288+00:00",
+  "html_files": 51,
+  "backend_routes": 20,
+  "frontend_api_calls": 14,
+  "missing_links_count": 0,
+  "missing_onclick_count": 0,
+  "missing_api_count": 0,
+  "missing_links": [],
+  "missing_onclick": [],
+  "missing_api_calls": [],
+  "status": "pass"
+}

@@ -1,0 +1,31 @@
+{
+  "run_unit_tests": false,
+  "run_integration_tests": false,
+  "run_security_tests": false,
+  "run_performance_tests": true,
+  "verbose_output": true,
+  "create_test_report": true,
+  "open_report_browser": true,
+  "test_timeout": 600,
+  "parallel_tests": true,
+  "cleanup_after_tests": true,
+  "retry_failed_tests": 0,
+  "fail_fast": false,
+  "report_format": "json",
+  "coverage_enabled": false,
+  "log_level": "INFO",
+  "performance_targets": {
+    "small_file_scan_time": 0.05,
+    "large_file_scan_time": 2.0,
+    "files_per_second": 200,
+    "memory_usage_mb": 80,
+    "cpu_usage_percent": 70
+  },
+  "environment": {
+    "use_mock_services": false,
+    "external_resources": true,
+    "temp_directory": "",
+    "database_path": "",
+    "network_access": true
+  }
+}

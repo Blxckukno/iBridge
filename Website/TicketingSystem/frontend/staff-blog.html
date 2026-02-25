@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <link rel="apple-touch-icon" href="../../images/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Blog - iBridge Staff Portal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1B365D;
+            --secondary: #274C77;
+            --accent: #A1C44F;
+            --bg: #f5f7fb;
+            --card: #ffffff;
+            --text: #12263a;
+            --muted: #5f7185;
+            --shadow: 0 8px 24px rgba(18, 38, 58, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        .layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+        .sidebar {
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 20px;
+        }
+        .sidebar h2 { margin: 0 0 6px; }
+        .sidebar p { margin: 0 0 18px; opacity: 0.9; }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+        }
+        .sidebar a:hover, .sidebar a.active { background: rgba(255,255,255,0.16); }
+        .content {
+            padding: 28px;
+        }
+        .header-card {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+            margin-bottom: 18px;
+            border-left: 4px solid var(--accent);
+        }
+        .header-card h1 { margin: 0 0 8px; }
+        .header-card p { margin: 0; color: var(--muted); }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .post {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: var(--shadow);
+        }
+        .post h3 { margin: 0 0 10px; }
+        .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .post p {
+            margin: 0;
+            color: #34485d;
+            line-height: 1.5;
+        }
+        @media (max-width: 1024px) {
+            .layout { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .content { padding: 20px 16px; }
+        }
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 375px) {
+            .content { padding: 14px 12px; }
+            .header-card h1 { font-size: 1.4rem; }
+        }
+        @media (max-width: 320px) {
+            .sidebar a { font-size: 0.92rem; }
+        }
+    </style>
+    <script src="../../js/staff-auth-guard.js"></script>
+    <script src="../../js/staff-rbac.js"></script>
+    <script>
+      if (window.iBridgeStaffAuth) { window.iBridgeStaffAuth.ensureAccess(); }
+      if (window.iBridgeRBAC) { window.iBridgeRBAC.enforcePageAccess("agent"); }
+    </script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <h2>iBridge Staff Portal</h2>
+            <p>Internal Workspace</p>
+            <nav>
+                <a href="professional-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="create-ticket.html"><i class="fas fa-ticket-alt"></i> Tickets</a>
+                <a href="generate-reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+                <a href="user-management.html"><i class="fas fa-users"></i> User Management</a>
+                <a href="../../lms-platform.html"><i class="fas fa-graduation-cap"></i> LMS Platform</a>
+                <a href="professional-dashboard.html"><i class="fas fa-building"></i> Intranet</a>
+                <a href="staff-blog.html" class="active"><i class="fas fa-newspaper"></i> Staff Blog</a>
+                <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                <a href="../../index.html"><i class="fas fa-home"></i> Back to Main Site</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section class="header-card">
+                <h1>Staff Blog</h1>
+                <p>Internal announcements, delivery updates, and team insights for staff only.</p>
+            </section>
+
+            <section class="grid">
+                <article class="post">
+                    <h3>Operations Update: Ticket SLA Improvement</h3>
+                    <div class="meta">Posted by IT Ops &bull; Internal &bull; Today</div>
+                    <p>Average first response time improved by 18% this month. Continue using priority templates in ticket creation for consistent triage.</p>
+                </article>
+                <article class="post">
+                    <h3>Security Briefing: Password Rotation Window</h3>
+                    <div class="meta">Posted by Security &bull; Internal &bull; Yesterday</div>
+                    <p>Mandatory password rotation opens next week. Review the updated policy in Settings and complete MFA verification before Friday.</p>
+                </article>
+                <article class="post">
+                    <h3>LMS Rollout: New Cyber Awareness Module</h3>
+                    <div class="meta">Posted by L&D &bull; Internal &bull; This Week</div>
+                    <p>A new micro-course is available in LMS. Completion target is 100% for all support and infrastructure teams by month-end.</p>
+                </article>
+                <article class="post">
+                    <h3>Service Desk Process: Escalation Matrix Refresh</h3>
+                    <div class="meta">Posted by Service Desk &bull; Internal &bull; This Week</div>
+                    <p>The escalation matrix has been simplified to reduce handoff delays. Use the updated category mapping before assigning tickets.</p>
+                </article>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/runtime-fix.js"></script>
+</body>
+</html>
+

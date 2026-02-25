@@ -1,0 +1,79 @@
+{
+  "monitoring": {
+    "enabled": true,
+    "update_interval": 300,
+    "dashboard_refresh": 10
+  },
+  "alerts": {
+    "failed_login_threshold": 50,
+    "csp_violation_threshold": 20,
+    "rate_limit_threshold": 100,
+    "account_lockout_threshold": 10,
+    "response_time_threshold": 5000,
+    "error_rate_threshold": 0.05
+  },
+  "notification": {
+    "email": "security@ibridge-solutions.com",
+    "webhook": "https://your-monitoring-service.com/webhook",
+    "slack_webhook": "",
+    "teams_webhook": ""
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/security.log",
+    "rotation": "daily",
+    "retention_days": 30,
+    "max_file_size": "100MB"
+  },
+  "security_checks": {
+    "ssl_certificate_expiry": true,
+    "security_headers": true,
+    "csp_violations": true,
+    "failed_authentications": true,
+    "suspicious_ips": true,
+    "file_integrity": true
+  },
+  "dashboard": {
+    "port": 8080,
+    "authentication_required": true,
+    "allowed_ips": [
+      "127.0.0.1",
+      "::1"
+    ],
+    "session_timeout": 1800
+  },
+  "automated_responses": {
+    "ip_blocking": {
+      "enabled": true,
+      "failed_login_threshold": 10,
+      "block_duration": 3600
+    },
+    "rate_limiting": {
+      "enabled": true,
+      "adaptive_limits": true
+    },
+    "incident_tickets": {
+      "enabled": true,
+      "auto_create": true,
+      "severity_mapping": {
+        "critical": [
+          "sql_injection",
+          "xss_attempt",
+          "brute_force"
+        ],
+        "high": [
+          "csp_violation",
+          "rate_limit_exceeded"
+        ],
+        "medium": [
+          "failed_login",
+          "suspicious_activity"
+        ],
+        "low": [
+          "info_gathering",
+          "scan_attempt"
+        ]
+      }
+    }
+  }
+}

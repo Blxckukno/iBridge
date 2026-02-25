@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-02-20T00:00:00Z",
+  "version": 1,
+  "resources": [
+    {
+      "id": "web-mdn-foundations",
+      "track": "web-development",
+      "module": "Web Development Fundamentals",
+      "title": "MDN: Learn Web Development",
+      "provider": "MDN Web Docs",
+      "resource_type": "interactive_docs",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+      "estimated_minutes": 120,
+      "difficulty": "beginner",
+      "progress_delta": 10,
+      "tags": ["html", "css", "javascript"]
+    },
+    {
+      "id": "web-freecodecamp-rwd",
+      "track": "web-development",
+      "module": "Web Development Fundamentals",
+      "title": "freeCodeCamp: Responsive Web Design",
+      "provider": "freeCodeCamp",
+      "resource_type": "hands_on_course",
+      "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+      "estimated_minutes": 180,
+      "difficulty": "beginner",
+      "progress_delta": 12,
+      "tags": ["responsive design", "accessibility", "projects"]
+    },
+    {
+      "id": "web-javascript-guide",
+      "track": "web-development",
+      "module": "Web Development Fundamentals",
+      "title": "MDN: JavaScript Guide",
+      "provider": "MDN Web Docs",
+      "resource_type": "reference_and_practice",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "estimated_minutes": 90,
+      "difficulty": "intermediate",
+      "progress_delta": 9,
+      "tags": ["javascript", "functions", "dom"]
+    },
+    {
+      "id": "data-kaggle-microcourses",
+      "track": "data-science",
+      "module": "Data Science & Analytics",
+      "title": "Kaggle Learn: Micro-courses",
+      "provider": "Kaggle",
+      "resource_type": "interactive_labs",
+      "url": "https://www.kaggle.com/learn",
+      "estimated_minutes": 150,
+      "difficulty": "beginner",
+      "progress_delta": 12,
+      "tags": ["python", "pandas", "machine learning"]
+    },
+    {
+      "id": "data-google-ml-crash",
+      "track": "data-science",
+      "module": "Data Science & Analytics",
+      "title": "Google: Machine Learning Crash Course",
+      "provider": "Google Developers",
+      "resource_type": "interactive_course",
+      "url": "https://developers.google.com/machine-learning/crash-course",
+      "estimated_minutes": 140,
+      "difficulty": "intermediate",
+      "progress_delta": 11,
+      "tags": ["ml", "models", "practice"]
+    },
+    {
+      "id": "data-pandas-getting-started",
+      "track": "data-science",
+      "module": "Data Science & Analytics",
+      "title": "Pandas: Getting Started",
+      "provider": "Pandas Documentation",
+      "resource_type": "documentation",
+      "url": "https://pandas.pydata.org/docs/getting_started/index.html",
+      "estimated_minutes": 75,
+      "difficulty": "beginner",
+      "progress_delta": 8,
+      "tags": ["pandas", "dataframes", "analysis"]
+    },
+    {
+      "id": "cyber-owasp-top10",
+      "track": "cybersecurity",
+      "module": "Cybersecurity Essentials",
+      "title": "OWASP Top 10 Web Application Security Risks",
+      "provider": "OWASP",
+      "resource_type": "security_framework",
+      "url": "https://owasp.org/www-project-top-ten/",
+      "estimated_minutes": 80,
+      "difficulty": "intermediate",
+      "progress_delta": 10,
+      "tags": ["owasp", "appsec", "risk"]
+    },
+    {
+      "id": "cyber-nist-csf",
+      "track": "cybersecurity",
+      "module": "Cybersecurity Essentials",
+      "title": "NIST Cybersecurity Framework",
+      "provider": "NIST",
+      "resource_type": "framework",
+      "url": "https://www.nist.gov/cyberframework",
+      "estimated_minutes": 95,
+      "difficulty": "intermediate",
+      "progress_delta": 10,
+      "tags": ["governance", "controls", "risk management"]
+    },
+    {
+      "id": "cyber-cisa-ransomware",
+      "track": "cybersecurity",
+      "module": "Cybersecurity Essentials",
+      "title": "CISA: Ransomware Guide",
+      "provider": "CISA",
+      "resource_type": "best_practices",
+      "url": "https://www.cisa.gov/stopransomware/ransomware-guide",
+      "estimated_minutes": 60,
+      "difficulty": "beginner",
+      "progress_delta": 8,
+      "tags": ["incident response", "ransomware", "hardening"]
+    }
+  ]
+}

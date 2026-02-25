@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Attack Monitor - Dev/IT Only</title>
+    <script src="../../js/staff-auth-guard.js"></script>
+    <script src="../../js/staff-rbac.js"></script>
+    <script>
+      if (window.iBridgeStaffAuth) { window.iBridgeStaffAuth.ensureAccess(); }
+      if (window.iBridgeRBAC) { window.iBridgeRBAC.enforcePageAccess("dev"); }
+    </script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #0d1117; color: #e6edf3; }
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+        h1 { margin: 0 0 8px; }
+        .muted { color: #9ba7b4; margin-bottom: 16px; }
+        .panel { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; }
+        input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #30363d; background: #0d1117; color: #e6edf3; }
+        .row { display: flex; gap: 10px; align-items: end; }
+        button { padding: 10px 14px; border: none; border-radius: 8px; background: #1f6feb; color: #fff; cursor: pointer; }
+        button:hover { background: #388bfd; }
+        .stats { display: grid; grid-template-columns: repeat(3, minmax(140px, 1fr)); gap: 10px; }
+        .stat { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 12px; }
+        .k { color: #9ba7b4; font-size: 12px; }
+        .v { font-size: 22px; font-weight: 700; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px; border-bottom: 1px solid #30363d; text-align: left; font-size: 13px; }
+        .ok { color: #3fb950; }
+        .bad { color: #f85149; }
+        .error { color: #f85149; margin-top: 8px; }
+        @media (max-width: 768px) { .row { flex-direction: column; align-items: stretch; } .stats { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Security Attack Monitor</h1>
+        <div class="muted">Restricted to Dev/IT using internal key or approved JWT role/department.</div>
+
+        <div class="panel">
+            <div class="row">
+                <div style="flex:1;">
+                    <label for="securityKey">Internal Security Key</label>
+                    <input id="securityKey" type="password" placeholder="Enter INTERNAL_SECURITY_KEY">
+                </div>
+                <button id="loadBtn" type="button">Load Attack Feed</button>
+            </div>
+            <div id="error" class="error"></div>
+        </div>
+
+        <div class="panel stats">
+            <div class="stat"><div class="k">Source</div><div class="v" id="source">-</div></div>
+            <div class="stat"><div class="k">Events</div><div class="v" id="events">0</div></div>
+            <div class="stat"><div class="k">Suspicious</div><div class="v" id="suspicious">0</div></div>
+        </div>
+
+        <div class="panel">
+            <table>
+                <thead>
+                    <tr><th>Status</th><th>Security Event Log Line</th></tr>
+                </thead>
+                <tbody id="eventsBody">
+                    <tr><td colspan="2">No data loaded yet.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function setError(msg) {
+            document.getElementById('error').textContent = msg || '';
+        }
+
+        function escapeHtml(value) {
+            return String(value || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        async function loadAttackFeed() {
+            setError('');
+            const key = document.getElementById('securityKey').value.trim();
+            const headers = {};
+            if (key) headers['X-Internal-Security-Key'] = key;
+
+            const token = sessionStorage.getItem('access_token') || localStorage.getItem('access_token') || '';
+            if (token) headers['Authorization'] = `Bearer ${token}`;
+
+            try {
+                const response = await fetch('/api/security/attacks?v=' + Date.now(), {
+                    method: 'GET',
+                    headers,
+                    cache: 'no-store'
+                });
+                if (!response.ok) {
+                    const payload = await response.json().catch(() => ({}));
+                    throw new Error(payload.error || ('HTTP ' + response.status));
+                }
+
+                const payload = await response.json();
+                document.getElementById('source').textContent = payload.source ? 'log' : '-';
+                document.getElementById('events').textContent = String(payload.total || 0);
+                document.getElementById('suspicious').textContent = String(payload.suspicious || 0);
+
+                const body = document.getElementById('eventsBody');
+                const events = Array.isArray(payload.events) ? payload.events : [];
+                if (!events.length) {
+                    body.innerHTML = '<tr><td colspan="2">No security events recorded yet.</td></tr>';
+                    return;
+                }
+                body.innerHTML = events.slice().reverse().map(ev => {
+                    const statusClass = ev.is_suspicious ? 'bad' : 'ok';
+                    const statusText = ev.is_suspicious ? 'Flagged' : 'Normal';
+                    return '<tr><td class="' + statusClass + '">' + statusText + '</td><td>' + escapeHtml(ev.line) + '</td></tr>';
+                }).join('');
+            } catch (err) {
+                setError(err.message || 'Failed to load security feed');
+            }
+        }
+
+        document.getElementById('loadBtn').addEventListener('click', loadAttackFeed);
+    </script>
+    <script src="../../js/runtime-fix.js"></script>
+</body>
+</html>

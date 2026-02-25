@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <style id="render-fallback-style">
+        body { opacity: 1 !important; visibility: visible !important; }
+        main, section, header, footer, article, nav, div { visibility: visible; }
+    </style>
+    <meta name="security-nonce" content="k_V1VVwfizuJbZJPnzK9wg">
+    <!-- ADVANCED SECURITY HEADERS -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+<!-- END SECURITY HEADERS -->
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <!-- EMERGENCY SECURITY HEADERS -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Dashboard - iBridge</title>
+    <style>
+        :root {
+            --primary-color: #A1C44F;
+            --secondary-color: #2C3E50;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --info-color: #17a2b8;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #dee2e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light-bg);
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--secondary-color);
+            opacity: 0.8;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-trend {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .trend-up {
+            color: var(--success-color);
+        }
+
+        .trend-down {
+            color: var(--danger-color);
+        }
+
+        .good {
+            background: rgba(40, 167, 69, 0.1);
+            color: var(--success-color);
+        }
+
+        .warning {
+            background: rgba(255, 193, 7, 0.1);
+            color: var(--warning-color);
+        }
+
+        .poor {
+            background: rgba(220, 53, 69, 0.1);
+            color: var(--danger-color);
+        }
+
+        .info {
+            background: rgba(23, 162, 184, 0.1);
+            color: var(--info-color);
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .recommendations {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .recommendations h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-item {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .recommendation-high {
+            border-color: var(--danger-color);
+            background: rgba(220, 53, 69, 0.05);
+        }
+
+        .recommendation-medium {
+            border-color: var(--warning-color);
+            background: rgba(255, 193, 7, 0.05);
+        }
+
+        .recommendation-low {
+            border-color: var(--info-color);
+            background: rgba(23, 162, 184, 0.05);
+        }
+
+        .refresh-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(161, 196, 79, 0.3);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                padding: 1rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+
+            .refresh-btn {
+                top: auto;
+                bottom: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/analytics-styles.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>⚡ Performance Dashboard</h1>
+            <p>Real-time performance monitoring for iBridge Contact Solutions</p>
+        </div>
+
+        <div class="metrics-grid" id="metricsGrid">
+            <!-- Metrics will be populated by JavaScript -->
+        </div>
+
+        <div class="charts-section">
+            <div class="chart-card">
+                <h3 class="chart-title">Core Web Vitals Trends</h3>
+                <canvas id="webVitalsChart" width="400" height="200"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3 class="chart-title">Resource Loading Timeline</h3>
+                <canvas id="loadingChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <div class="recommendations" id="recommendations">
+            <h2>🎯 Performance Recommendations</h2>
+            <div id="recommendationsList">
+                <!-- Recommendations will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <button class="refresh-btn">
+        🔄 Refresh
+    </button>
+
+    <script nonce="KP7liO1BEQmJM7mswNzQxTjYy8MiQv97">
+        class PerformanceDashboard {
+            constructor() {
+                this.metrics = {};
+                this.init();
+            }
+
+            init() {
+                this.loadMetrics();
+                this.renderDashboard();
+                this.startAutoRefresh();
+            }
+
+            loadMetrics() {
+                // Get metrics from the main performance optimizer
+                if (window.opener && window.opener.performanceOptimizer) {
+                    this.metrics = window.opener.performanceOptimizer.getPerformanceReport();
+                } else {
+                    // Fallback to local measurement
+                    this.measureMetrics();
+                }
+            }
+
+            measureMetrics() {
+                const navigation = performance.getEntriesByType('navigation')[0];
+                const paint = performance.getEntriesByType('paint');
+
+                this.metrics = {
+                    timestamp: new Date().toISOString(),
+                    metrics: {
+                        fcp: paint.find(p => p.name === 'first-contentful-paint')?.startTime || 0,
+                        lcp: 0, // Would be measured by observer
+                        fid: 0, // Would be measured by observer
+                        cls: 0, // Would be measured by observer
+                        tti: navigation?.domInteractive || 0,
+                        loadTime: navigation?.loadEventEnd - navigation?.navigationStart || 0,
+                        domSize: document.querySelectorAll('*').length,
+                        resources: performance.getEntriesByType('resource').length
+                    },
+                    score: this.calculateScore(),
+                    budgetViolations: [],
+                    recommendations: this.generateRecommendations()
+                };
+            }
+
+            calculateScore() {
+                // Simple scoring algorithm
+                let score = 100;
+                if (this.metrics.metrics?.fcp > 2000) score -= 20;
+                if (this.metrics.metrics?.loadTime > 3000) score -= 30;
+                return Math.max(0, score);
+            }
+
+            generateRecommendations() {
+                const recommendations = [];
+
+                if (this.metrics.metrics?.fcp > 1800) {
+                    recommendations.push({
+                        priority: 'high',
+                        title: 'Optimize First Contentful Paint',
+                        description: 'FCP is slower than recommended. Consider optimizing critical rendering path.'
+                    });
+                }
+
+                if (this.metrics.metrics?.domSize > 1500) {
+                    recommendations.push({
+                        priority: 'medium',
+                        title: 'Reduce DOM Size',
+                        description: 'Large DOM size can impact performance. Consider code splitting or lazy loading.'
+                    });
+                }
+
+                return recommendations;
+            }
+
+            renderDashboard() {
+                this.renderMetrics();
+                this.renderRecommendations();
+            }
+
+            renderMetrics() {
+                const metricsGrid = document.getElementById('metricsGrid');
+                const metrics = this.metrics.metrics || {};
+
+                const metricCards = [
+                    {
+                        label: 'Performance Score',
+                        value: this.metrics.score || 0,
+                        unit: '/100',
+                        icon: '🏆',
+                        status: this.getScoreStatus(this.metrics.score),
+                        trend: '+5%'
+                    },
+                    {
+                        label: 'First Contentful Paint',
+                        value: Math.round(metrics.fcp || 0),
+                        unit: 'ms',
+                        icon: '🎨',
+                        status: this.getFCPStatus(metrics.fcp),
+                        trend: '-10%'
+                    },
+                    {
+                        label: 'Largest Contentful Paint',
+                        value: Math.round(metrics.lcp || 0),
+                        unit: 'ms',
+                        icon: '🖼️',
+                        status: this.getLCPStatus(metrics.lcp),
+                        trend: '-5%'
+                    },
+                    {
+                        label: 'Time to Interactive',
+                        value: Math.round(metrics.tti || 0),
+                        unit: 'ms',
+                        icon: '⚡',
+                        status: this.getTTIStatus(metrics.tti),
+                        trend: '+2%'
+                    },
+                    {
+                        label: 'Total Load Time',
+                        value: Math.round(metrics.loadTime || 0),
+                        unit: 'ms',
+                        icon: '⏱️',
+                        status: this.getLoadTimeStatus(metrics.loadTime),
+                        trend: '-8%'
+                    },
+                    {
+                        label: 'DOM Elements',
+                        value: metrics.domSize || 0,
+                        unit: '',
+                        icon: '🏗️',
+                        status: 'info',
+                        trend: '+3%'
+                    }
+                ];
+
+                metricsGrid.innerHTML = metricCards.map(metric => `
+                    <div class="metric-card">
+                        <div class="metric-icon ${metric.status}">
+                            ${metric.icon}
+                        </div>
+                        <div class="metric-value">${metric.value}${metric.unit}</div>
+                        <div class="metric-label">${metric.label}</div>
+                        <div class="metric-trend ${metric.trend.startsWith('+') ? 'trend-up' : 'trend-down'}">
+                            ${metric.trend} vs last week
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill ${metric.status}" 
+                                 style="width: ${this.getProgressWidth(metric.label, metric.value)}%"></div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderRecommendations() {
+                const recommendationsList = document.getElementById('recommendationsList');
+                const recommendations = this.metrics.recommendations || [];
+
+                if (recommendations.length === 0) {
+                    recommendationsList.innerHTML = `
+                        <div class="recommendation-item recommendation-low">
+                            <strong>✅ Great job!</strong><br>
+                            No critical performance issues detected. Keep monitoring for continued optimization.
+                        </div>
+                    `;
+                    return;
+                }
+
+                recommendationsList.innerHTML = recommendations.map(rec => `
+                    <div class="recommendation-item recommendation-${rec.priority}">
+                        <strong>${rec.title}</strong><br>
+                        ${rec.description}
+                    </div>
+                `).join('');
+            }
+
+            getScoreStatus(score) {
+                if (score >= 90) return 'good';
+                if (score >= 70) return 'warning';
+                return 'poor';
+            }
+
+            getFCPStatus(fcp) {
+                if (fcp <= 1800) return 'good';
+                if (fcp <= 3000) return 'warning';
+                return 'poor';
+            }
+
+            getLCPStatus(lcp) {
+                if (lcp <= 2500) return 'good';
+                if (lcp <= 4000) return 'warning';
+                return 'poor';
+            }
+
+            getTTIStatus(tti) {
+                if (tti <= 3800) return 'good';
+                if (tti <= 7300) return 'warning';
+                return 'poor';
+            }
+
+            getLoadTimeStatus(loadTime) {
+                if (loadTime <= 3000) return 'good';
+                if (loadTime <= 5000) return 'warning';
+                return 'poor';
+            }
+
+            getProgressWidth(label, value) {
+                const maxValues = {
+                    'Performance Score': 100,
+                    'First Contentful Paint': 3000,
+                    'Largest Contentful Paint': 4000,
+                    'Time to Interactive': 5000,
+                    'Total Load Time': 5000,
+                    'DOM Elements': 2000
+                };
+
+                const max = maxValues[label] || 100;
+                return Math.min((value / max) * 100, 100);
+            }
+
+            startAutoRefresh() {
+                // Refresh every 30 seconds
+                setInterval(() => {
+                    this.loadMetrics();
+                    this.renderDashboard();
+                }, 30000);
+            }
+        }
+
+        // Initialize dashboard
+        let dashboard;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            dashboard = new PerformanceDashboard();
+        });
+
+        function refreshMetrics() {
+            if (dashboard) {
+                dashboard.loadMetrics();
+                dashboard.renderDashboard();
+            }
+        }
+
+        // Add real-time monitoring
+        if ('PerformanceObserver' in window) {
+            const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    console.log('Performance entry:', entry);
+                }
+            });
+
+            observer.observe({ entryTypes: ['navigation', 'paint', 'largest-contentful-paint'] });
+        }
+    </script>
+    <script nonce="k_V1VVwfizuJbZJPnzK9wg" src="js/analytics-manager.js"></script>
+
+    <!-- EMERGENCY SECURITY MANAGER -->
+    <script src="js/csp-security-manager.js" nonce="RANDOM_NONCE"></script>
+
+    <script nonce="KP7liO1BEQmJM7mswNzQxTjYy8MiQv97">
+    // Advanced XSS Protection System
+    (function() {
+        'use strict';
+        
+        // Secure globals object
+        window.SECURITY = {
+            nonce: 'k_V1VVwfizuJbZJPnzK9wg',
+            initialized: true
+        };
+        
+        // Override dangerous functions
+        const originalEval = window.eval;
+        window.eval = function() {
+            console.warn('🚨 eval() blocked by security policy');
+            throw new Error('eval() not permitted');
+        };
+        
+        const originalFunction = window.Function;
+        window.Function = function() {
+            console.warn('🚨 Function constructor blocked by security policy');
+            throw new Error('Function constructor not permitted');
+        };
+        
+        // Secure DOM manipulation
+        const originalSetAttribute = Element.prototype.setAttribute;
+        Element.prototype.setAttribute = function(name, value) {
+            if (name && name.toLowerCase().startsWith('on')) {
+                console.warn('🚨 Event handler blocked:', name);
+                return;
+            };
+            return originalSetAttribute.call(this, name, value);
+        };
+        
+        // Secure innerHTML override
+        const originalInnerHTML = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+        Object.defineProperty(Element.prototype, 'innerHTML', {
+            set: function(value) {
+                // Sanitize HTML content
+                const temp = document.createElement('div');
+                temp.textContent = value;
+                originalInnerHTML.set.call(this, temp.innerHTML);
+            },
+            get: originalInnerHTML.get
+        });
+        
+        // Input sanitization function
+        window.sanitizeInput = function(input) {
+            if (typeof input !== 'string') return '';
+            
+            const div = document.createElement('div');
+            div.textContent = input;
+            return div.innerHTML;
+        };
+        
+        // Secure URL validation
+        window.isSecureURL = function(url) {
+            try {
+                const parsed = new URL(url);
+                return ['http:', 'https:'].includes(parsed.protocol);
+            } catch (e) {
+                return false;
+            }
+        };
+        
+        // CSP violation reporting
+        document.addEventListener('securitypolicyviolation', function(e) {
+            console.error('🚨 CSP Violation:', {
+                directive: e.violatedDirective,
+                blocked: e.blockedURI,
+                source: e.sourceFile,
+                line: e.lineNumber
+            });
+            
+            // Report to security endpoint (if available)
+            if (typeof reportSecurityViolation === 'function') {
+                reportSecurityViolation(e);
+            }
+        });
+        
+        // Initialize security monitoring
+        console.log('🔒 Advanced XSS Protection System initialized');
+    })();
+    </script>
+    <script src="js/runtime-fix.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+

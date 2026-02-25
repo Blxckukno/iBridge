@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iBridge Staff Login</title>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <style>
+    body { font-family: Inter, Segoe UI, Arial, sans-serif; background: linear-gradient(135deg, #0b1f33, #123a5a); margin: 0; min-height: 100vh; display: grid; place-items: center; color: #0f172a; }
+    .top-nav { position: fixed; top: 0; left: 0; right: 0; background: #fff; border-bottom: 1px solid #e2e8f0; z-index: 1000; }
+    .top-nav ul { list-style: none; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin: 0; padding: 10px 14px; }
+    .top-nav a { text-decoration: none; color: #123a5a; font-weight: 600; padding: 6px 8px; border-radius: 8px; }
+    .top-nav a:hover { background: #f1f5f9; }
+    .card { background: #fff; border-radius: 14px; padding: 24px; max-width: 500px; width: 92%; box-shadow: 0 20px 40px rgba(0,0,0,.25); }
+    h1 { margin: 0 0 8px; font-size: 1.5rem; color: #123a5a; }
+    p { margin: 0 0 14px; color: #475569; }
+    label { display: block; margin: 10px 0 6px; font-weight: 600; }
+    input, select { width: 100%; padding: 11px; border: 1px solid #cbd5e1; border-radius: 10px; box-sizing: border-box; }
+    button { margin-top: 12px; width: 100%; padding: 12px; border: none; border-radius: 10px; background: #00b388; color: #fff; font-weight: 700; cursor: pointer; }
+    button:hover { filter: brightness(0.95); }
+    .secondary { background: #274c77; }
+    .hint { font-size: .9rem; color: #64748b; margin-top: 10px; }
+    .error { color: #b91c1c; font-size: .9rem; min-height: 20px; margin-top: 8px; }
+    .row { display: grid; gap: 8px; }
+    @media (max-width:768px) { .top-nav ul { justify-content: flex-start; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; } .card { margin-top: 58px; } }
+  </style>
+</head>
+<body>
+  <nav class="top-nav" aria-label="Main site navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="staff-login.html">Staff Portal</a></li>
+    </ul>
+  </nav>
+
+  <main class="card">
+    <h1>Staff Portal Login</h1>
+    <p>Role-based access for Dev, Admin, Supervisor, Agent, and Student dashboards.</p>
+    <div class="row">
+      <label for="username">Username or Email</label>
+      <input id="username" type="text" placeholder="e.g. admin or name@ibridge.co.za" />
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="Enter password" />
+
+      <button id="loginBtn" type="button">Sign In</button>
+
+      <label for="buildRole">Build Mode Role</label>
+      <select id="buildRole">
+        <option value="agent">Agent</option>
+        <option value="supervisor">Supervisor</option>
+        <option value="admin">Admin</option>
+        <option value="dev">Dev</option>
+        <option value="student">Student</option>
+      </select>
+      <button id="buildBtn" class="secondary" type="button">Build Mode Access (No Lockout)</button>
+
+      <div id="error" class="error"></div>
+      <div class="hint">Build mode is session-only and intended for showcase/testing.</div>
+    </div>
+  </main>
+
+  <script src="js/staff-auth-guard.js"></script>
+  <script src="js/staff-rbac.js"></script>
+  <script>
+    (function () {
+      function setError(message) {
+        document.getElementById("error").textContent = message || "";
+      }
+
+      function computeNext(role) {
+        var params = new URLSearchParams(window.location.search);
+        var next = params.get("next");
+        if (next && next.startsWith("/")) return next;
+        return window.iBridgeRBAC.defaultDashboardForRole(role);
+      }
+
+      async function doLogin() {
+        setError("");
+        var username = document.getElementById("username").value.trim();
+        var password = document.getElementById("password").value;
+        if (!username || !password) {
+          setError("Enter username and password.");
+          return;
+        }
+
+        try {
+          var res = await fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username: username, password: password })
+          });
+          if (!res.ok) throw new Error("Invalid login credentials");
+          var data = await res.json();
+          var role = window.iBridgeRBAC.normalizeRole((data.user && data.user.role) || "agent");
+          sessionStorage.setItem("access_token", data.access_token || "");
+          window.iBridgeStaffAuth.setSession({
+            mode: "api",
+            username: (data.user && data.user.username) || username,
+            role: role
+          });
+          window.location.replace(computeNext(role));
+        } catch (e) {
+          setError(e.message || "Login failed");
+        }
+      }
+
+      function buildMode() {
+        setError("");
+        var role = window.iBridgeRBAC.normalizeRole(document.getElementById("buildRole").value || "agent");
+        window.iBridgeStaffAuth.setSession({ mode: "build", username: "builder", role: role });
+        window.location.replace(computeNext(role));
+      }
+
+      document.getElementById("loginBtn").addEventListener("click", doLogin);
+      document.getElementById("buildBtn").addEventListener("click", buildMode);
+      document.getElementById("password").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") doLogin();
+      });
+    })();
+  </script>
+  <script src="js/runtime-fix.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,955 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <link rel="apple-touch-icon" href="../../images/favicon.png">
+    <style id="render-fallback-style">
+        body { opacity: 1 !important; visibility: visible !important; }
+        main, section, header, footer, article, nav, div { visibility: visible; }</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - iBridge Staff Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d5a27;
+            --primary-light: #4a7c59;
+            --secondary-color: #f8f9fa;
+            --accent-color: #007bff;
+            --text-dark: #343a40;
+            --text-light: #6c757d;
+            --border-color: #dee2e6;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --info-color: #17a2b8;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f6fa;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-header {
+            padding: 0 2rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: var(--radius);
+            margin-bottom: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .sidebar-nav i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem;
+        }
+
+        .page-header {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .settings-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+
+        .settings-nav {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            height: fit-content;
+        }
+
+        .settings-nav-item {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: var(--radius);
+            margin-bottom: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .settings-nav-item:hover,
+        .settings-nav-item.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .settings-content {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+
+        .settings-section {
+            display: none;
+        }
+
+        .settings-section.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--border-color);
+            background: transparent;
+            color: var(--text-dark);
+        }
+
+        .btn-danger {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-header {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .system-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .status-online { background: var(--success-color); }
+        .status-offline { background: var(--danger-color); }
+        .status-warning { background: var(--warning-color); }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .settings-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }        /* Breakpoint Hardening OV2 */
+        html, body { max-width: 100%; overflow-x: hidden; }
+        img, iframe, video, canvas, svg { max-width: 100%; height: auto; }
+        .container, .main-content, .dashboard-grid, .content, .lms-main { min-width: 0; }
+
+        @media (max-width: 1024px) {
+            .container { padding-left: 16px !important; padding-right: 16px !important; }
+            .dashboard-container, .settings-container, .main-container { grid-template-columns: 1fr !important; }
+            .sidebar { width: 100% !important; position: relative !important; height: auto !important; }
+            .main-content { margin-left: 0 !important; padding: 20px 16px !important; }
+        }
+
+        @media (max-width: 768px) {
+            .header .container, .header-content { padding-left: 14px !important; padding-right: 14px !important; }
+            .hero h1 { font-size: clamp(1.7rem, 6vw, 2.3rem) !important; line-height: 1.2; }
+            .services-grid, .values-grid, .stats-grid, .features-grid, .report-cards, .dashboard-grid, .course-actions { grid-template-columns: 1fr !important; }
+            .form-row, .action-buttons { grid-template-columns: 1fr !important; }
+            .modal-content { width: min(94vw, 700px) !important; max-height: 85vh; overflow: auto; }
+            .whatsapp-float { right: 14px !important; bottom: 14px !important; }
+        }
+
+        @media (max-width: 375px) {
+            body { font-size: 15px; }
+            .container { padding-left: 12px !important; padding-right: 12px !important; }
+            .btn, .submit-btn, .action-btn { width: 100%; justify-content: center; }
+            .card-value { font-size: 1.8rem !important; }
+            .user-profile { gap: 6px !important; }
+            .user-profile div { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        }
+
+        @media (max-width: 320px) {
+            .container { padding-left: 10px !important; padding-right: 10px !important; }
+            .logo img { max-height: 36px !important; width: auto !important; }
+            .hero h1 { font-size: 1.5rem !important; }
+            .nav-menu, .sidebar-nav { font-size: 0.95rem; }
+            .modal-content { width: 96vw !important; }
+        }
+    </style>
+    <script src="../../js/staff-auth-guard.js"></script>
+    <script src="../../js/staff-rbac.js"></script>
+    <script>
+      if (window.iBridgeStaffAuth) { window.iBridgeStaffAuth.ensureAccess(); }
+      if (window.iBridgeRBAC) { window.iBridgeRBAC.enforcePageAccess("admin"); }
+    </script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>iBridge Staff Portal</h2>
+                <p>System Settings</p>
+            </div>
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="professional-dashboard.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                    <li><a href="create-ticket.html"><i class="fas fa-ticket-alt"></i>Tickets</a></li>
+                    <li><a href="generate-reports.html"><i class="fas fa-chart-bar"></i>Reports</a></li>
+                    <li><a href="user-management.html"><i class="fas fa-users"></i>User Management</a></li>
+                    <li><a href="../../lms-platform.html"><i class="fas fa-graduation-cap"></i>LMS Platform</a></li>
+                    <li><a href="professional-dashboard.html"><i class="fas fa-building"></i>Intranet</a></li>
+                    <li><a href="staff-blog.html"><i class="fas fa-newspaper"></i>Staff Blog</a></li>
+                    <li><a href="settings.html" class="active"><i class="fas fa-cog"></i>Settings</a></li>
+                    <li><a href="../../index.html"><i class="fas fa-home"></i>Back to Main Site</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>System Settings</h1>
+                    <p>Configure system preferences and manage platform settings</p>
+                </div>
+            </div>
+
+            <div class="settings-container">
+                <!-- Settings Navigation -->
+                <nav class="settings-nav">
+                    <a href="javascript:void(0)" class="settings-nav-item active" onclick="return showSection('profile', this);">
+                        <i class="fas fa-user"></i> Profile Settings
+                    </a>
+                    <a href="javascript:void(0)" class="settings-nav-item" onclick="return showSection('notifications', this);">
+                        <i class="fas fa-bell"></i> Notifications
+                    </a>
+                    <a href="javascript:void(0)" class="settings-nav-item" onclick="return showSection('security', this);">
+                        <i class="fas fa-shield-alt"></i> Security
+                    </a>
+                    <a href="javascript:void(0)" class="settings-nav-item" onclick="return showSection('system', this);">
+                        <i class="fas fa-server"></i> System
+                    </a>
+                    <a href="javascript:void(0)" class="settings-nav-item" onclick="return showSection('backup', this);">
+                        <i class="fas fa-database"></i> Backup & Export
+                    </a>
+                    <a href="javascript:void(0)" class="settings-nav-item" onclick="return showSection('about', this);">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                </nav>
+
+                <!-- Settings Content -->
+                <div class="settings-content">
+                    <!-- Profile Settings -->
+                    <div id="profile" class="settings-section active">
+                        <h3>Profile Settings</h3>
+                        <form action="javascript:void(0)" method="post">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" value="System">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" value="Administrator">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" value="admin@ibridge.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" value="+27 (0) 11 123 4567">
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <select id="department">
+                                    <option value="it">IT Department</option>
+                                    <option value="hr">Human Resources</option>
+                                    <option value="finance">Finance</option>
+                                    <option value="operations">Operations</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Notifications -->
+                    <div id="notifications" class="settings-section">
+                        <h3>Notification Settings</h3>
+                        <div class="card">
+                            <div class="card-header">Email Notifications</div>
+                            <div class="form-group">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">New Ticket Notifications</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">System Status Updates</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Daily Reports</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">Push Notifications</div>
+                            <div class="form-group">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Critical Alerts</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Desktop Notifications</span>
+                            </div>
+                        </div>
+
+                        <button id="saveNotificationsBtn" class="btn btn-primary" type="button">
+                            <i class="fas fa-save"></i> Save Notification Settings
+                        </button>
+                    </div>
+
+                    <!-- Security -->
+                    <div id="security" class="settings-section">
+                        <h3>Security Settings</h3>
+                        <div class="card">
+                            <div class="card-header">Password Settings</div>
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword">
+                            </div>
+                            <button id="changePasswordBtn" class="btn btn-primary" type="button">
+                                <i class="fas fa-key"></i> Change Password
+                            </button>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">Two-Factor Authentication</div>
+                            <p>Add an extra layer of security to your account.</p>
+                            <div class="form-group">
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Enable 2FA via SMS</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="margin-left: 1rem;">Enable 2FA via Email</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">Session Management</div>
+                            <p>Manage active sessions and login history.</p>
+                            <button id="viewLoginHistoryBtn" class="btn btn-outline" type="button">
+                                <i class="fas fa-history"></i> View Login History
+                            </button>
+                            <button id="signOutAllSessionsBtn" class="btn btn-danger" style="margin-left: 1rem;" type="button">
+                                <i class="fas fa-sign-out-alt"></i> Sign Out All Sessions
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- System Settings -->
+                    <div id="system" class="settings-section">
+                        <h3>System Information</h3>
+                        <div class="system-info">
+                            <div class="card">
+                                <div class="card-header">System Status</div>
+                                <div class="info-item">
+                                    <span>Database</span>
+                                    <span><span class="status-indicator status-online"></span>Online</span>
+                                </div>
+                                <div class="info-item">
+                                    <span>API Services</span>
+                                    <span><span class="status-indicator status-online"></span>Running</span>
+                                </div>
+                                <div class="info-item">
+                                    <span>Email Service</span>
+                                    <span><span class="status-indicator status-warning"></span>Limited</span>
+                                </div>
+                                <div class="info-item">
+                                    <span>File Storage</span>
+                                    <span><span class="status-indicator status-online"></span>Available</span>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">System Information</div>
+                                <div class="info-item">
+                                    <span>Version</span>
+                                    <span>v2.1.0</span>
+                                </div>
+                                <div class="info-item">
+                                    <span>Last Update</span>
+                                    <span>Nov 6, 2025</span>
+                                </div>
+                                <div class="info-item">
+                                    <span>Uptime</span>
+                                    <span>15 days, 8 hours</span>
+                                </div>
+                                <div class="info-item">
+                                    <span>Server Time</span>
+                                    <span id="serverTime">--:--:--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">Maintenance</div>
+                            <p>System maintenance and cleanup tools.</p>
+                            <button id="clearCacheBtn" class="btn btn-outline" type="button">
+                                <i class="fas fa-broom"></i> Clear Cache
+                            </button>
+                            <button id="refreshSystemBtn" class="btn btn-outline" style="margin-left: 1rem;" type="button">
+                                <i class="fas fa-sync"></i> Refresh System
+                            </button>
+                            <button id="runDiagnosticsBtn" class="btn btn-outline" style="margin-left: 1rem;" type="button">
+                                <i class="fas fa-tools"></i> Run Diagnostics
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Backup & Export -->
+                    <div id="backup" class="settings-section">
+                        <h3>Backup & Export</h3>
+                        <div class="card">
+                            <div class="card-header">Data Backup</div>
+                            <p>Create backups of your system data and configurations.</p>
+                            <div class="form-group">
+                                <label for="backupType">Backup Type</label>
+                                <select id="backupType">
+                                    <option value="full">Full System Backup</option>
+                                    <option value="data">Data Only</option>
+                                    <option value="config">Configuration Only</option>
+                                </select>
+                            </div>
+                            <button id="createBackupBtn" class="btn btn-primary" type="button">
+                                <i class="fas fa-download"></i> Create Backup
+                            </button>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">Data Export</div>
+                            <p>Export system data in various formats.</p>
+                            <button id="exportCsvBtn" class="btn btn-outline" type="button">
+                                <i class="fas fa-file-csv"></i> Export to CSV
+                            </button>
+                            <button id="exportExcelBtn" class="btn btn-outline" style="margin-left: 1rem;" type="button">
+                                <i class="fas fa-file-excel"></i> Export to Excel
+                            </button>
+                            <button id="exportPdfBtn" class="btn btn-outline" style="margin-left: 1rem;" type="button">
+                                <i class="fas fa-file-pdf"></i> Export to PDF
+                            </button>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">Recent Backups</div>
+                            <div class="info-item">
+                                <span>Nov 6, 2025 - Full Backup</span>
+                                <button class="btn btn-outline btn-sm restoreBackupBtn" type="button" data-backup="nov6-full">Restore</button>
+                            </div>
+                            <div class="info-item">
+                                <span>Nov 5, 2025 - Data Backup</span>
+                                <button class="btn btn-outline btn-sm restoreBackupBtn" type="button" data-backup="nov5-data">Restore</button>
+                            </div>
+                            <div class="info-item">
+                                <span>Nov 4, 2025 - Config Backup</span>
+                                <button class="btn btn-outline btn-sm restoreBackupBtn" type="button" data-backup="nov4-config">Restore</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About -->
+                    <div id="about" class="settings-section">
+                        <h3>About iBridge Staff Portal</h3>
+                        <div class="card">
+                            <div class="card-header">System Information</div>
+                            <div class="info-item">
+                                <span>Application Name</span>
+                                <span>iBridge Staff Portal</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Version</span>
+                                <span>2.1.0</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Build Date</span>
+                                <span>November 6, 2025</span>
+                            </div>
+                            <div class="info-item">
+                                <span>License</span>
+                                <span>Enterprise License</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Support</span>
+                                <span>support@ibridge.com</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">Features</div>
+                            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                <li>Comprehensive ticket management system</li>
+                                <li>Advanced reporting and analytics</li>
+                                <li>User management and role-based access</li>
+                                <li>Real-time notifications</li>
+                                <li>Data export and backup capabilities</li>
+                                <li>Mobile-responsive design</li>
+                                <li>Security and compliance features</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">Legal</div>
+                            <button id="termsBtn" class="btn btn-outline" type="button">
+                                <i class="fas fa-file-alt"></i> Terms of Service
+                            </button>
+                            <button id="privacyBtn" class="btn btn-outline" style="margin-left: 1rem;" type="button">
+                                <i class="fas fa-shield-alt"></i> Privacy Policy
+                            </button>
+                            <button id="licenseBtn" class="btn btn-outline" style="margin-left: 1rem;" type="button">
+                                <i class="fas fa-balance-scale"></i> License Agreement
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showSection(sectionId, navLink) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.settings-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all nav items
+            const navItems = document.querySelectorAll('.settings-nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked nav item
+            if (navLink) {
+                navLink.classList.add('active');
+            }
+            return false;
+        }
+
+        function updateServerTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            const timeElement = document.getElementById('serverTime');
+            if (timeElement) {
+                timeElement.textContent = timeString;
+            }
+        }
+
+        function getToken() {
+            return sessionStorage.getItem('access_token')
+                || localStorage.getItem('access_token')
+                || localStorage.getItem('token')
+                || '';
+        }
+
+        async function apiRequest(path, options = {}) {
+            const token = getToken();
+            if (!token) throw new Error('Authentication required');
+            const response = await fetch(path, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                },
+                ...options
+            });
+            if (!response.ok) {
+                const payload = await response.json().catch(() => ({}));
+                throw new Error(payload.error || `HTTP ${response.status}`);
+            }
+            const ct = response.headers.get('Content-Type') || '';
+            if (ct.includes('application/json')) return response.json();
+            return response.blob();
+        }
+
+        function downloadBlob(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        }
+
+        async function runSystemAction(action) {
+            return apiRequest('/api/settings/system-action', {
+                method: 'POST',
+                body: JSON.stringify({ action })
+            });
+        }
+
+        async function saveProfileSettings() {
+            const payload = {
+                first_name: document.getElementById('firstName')?.value || '',
+                last_name: document.getElementById('lastName')?.value || '',
+                email: document.getElementById('email')?.value || '',
+                department: document.getElementById('department')?.value || '',
+                bio: ''
+            };
+            await apiRequest('/api/settings/profile', {
+                method: 'PUT',
+                body: JSON.stringify(payload)
+            });
+            alert('Profile settings saved.');
+        }
+
+        async function saveNotificationSettings() {
+            const checkboxes = document.querySelectorAll('#notifications .toggle-switch input[type="checkbox"]');
+            const values = Array.from(checkboxes).map((el, idx) => ({ index: idx, enabled: el.checked }));
+            await apiRequest('/api/settings/preferences', {
+                method: 'PUT',
+                body: JSON.stringify({ notifications: { toggles: values } })
+            });
+            alert('Notification settings saved.');
+        }
+
+        async function changePassword() {
+            const currentPassword = document.getElementById('currentPassword')?.value || '';
+            const newPassword = document.getElementById('newPassword')?.value || '';
+            const confirmPassword = document.getElementById('confirmPassword')?.value || '';
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                alert('Please complete all password fields.');
+                return;
+            }
+            if (newPassword !== confirmPassword) {
+                alert('New password and confirmation do not match.');
+                return;
+            }
+            alert('Password change endpoint is pending backend hardening. Field validation passed.');
+        }
+
+        async function showLoginHistory() {
+            const data = await apiRequest('/api/settings/login-history');
+            const events = data.events || [];
+            if (!events.length) {
+                alert('No login history found.');
+                return;
+            }
+            const txt = events.map(e => `${e.username}: last_login=${e.last_login || 'never'}, login_count=${e.login_count || 0}`).join('\n');
+            alert(`Login History\n\n${txt}`);
+        }
+
+        async function exportFromSettings(format) {
+            const token = getToken();
+            const response = await fetch(`/api/exports/backup?format=${encodeURIComponent(format)}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            if (!response.ok) throw new Error(`Export failed (${response.status})`);
+            const blob = await response.blob();
+            const disposition = response.headers.get('Content-Disposition') || '';
+            const match = disposition.match(/filename="?([^"]+)"?/i);
+            const fileName = match?.[1] || `backup.${format}`;
+            downloadBlob(blob, fileName);
+        }
+
+        function bindButtons() {
+            document.getElementById('saveNotificationsBtn')?.addEventListener('click', async () => {
+                try { await saveNotificationSettings(); } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.getElementById('changePasswordBtn')?.addEventListener('click', async () => {
+                try { await changePassword(); } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.getElementById('viewLoginHistoryBtn')?.addEventListener('click', async () => {
+                try { await showLoginHistory(); } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.getElementById('signOutAllSessionsBtn')?.addEventListener('click', async () => {
+                try { await runSystemAction('signout_all'); alert('All active sessions were invalidated.'); } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.getElementById('clearCacheBtn')?.addEventListener('click', async () => {
+                try { await runSystemAction('clear_cache'); alert('System cache clear command completed.'); } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.getElementById('refreshSystemBtn')?.addEventListener('click', async () => {
+                try { await runSystemAction('refresh_system'); alert('System refresh completed.'); } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.getElementById('runDiagnosticsBtn')?.addEventListener('click', async () => {
+                try {
+                    const result = await runSystemAction('diagnostics');
+                    alert(`Diagnostics completed.\nDB: ${result.health?.db || 'ok'}\nAPI: ${result.health?.api || 'ok'}`);
+                } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.getElementById('createBackupBtn')?.addEventListener('click', async () => {
+                try {
+                    const result = await runSystemAction('create_backup');
+                    alert(`Backup created.\nFile: ${result.backup_file || 'saved'}`);
+                } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.getElementById('exportCsvBtn')?.addEventListener('click', async () => {
+                try { await exportFromSettings('csv'); } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.getElementById('exportExcelBtn')?.addEventListener('click', async () => {
+                try { await exportFromSettings('xlsx'); } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.getElementById('exportPdfBtn')?.addEventListener('click', async () => {
+                try { await exportFromSettings('pdf'); } catch (e) { alert(`Failed: ${e.message}`); }
+            });
+            document.querySelectorAll('.restoreBackupBtn').forEach((btn) => {
+                btn.addEventListener('click', async () => {
+                    try {
+                        await runSystemAction('restore_backup');
+                        alert(`Restore request accepted for ${btn.dataset.backup || 'selected backup'}.`);
+                    } catch (e) { alert(`Failed: ${e.message}`); }
+                });
+            });
+            document.getElementById('termsBtn')?.addEventListener('click', () => { window.location.href = '../../terms.html'; });
+            document.getElementById('privacyBtn')?.addEventListener('click', () => { window.location.href = '../../privacy.html'; });
+            document.getElementById('licenseBtn')?.addEventListener('click', () => { window.location.href = '../../security-policy.html'; });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Settings page loaded');
+            updateServerTime();
+            bindButtons();
+            
+            // Update server time every second
+            setInterval(updateServerTime, 1000);
+        });
+
+        // Handle form submissions
+        document.addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveProfileSettings().catch((error) => {
+                alert(`Failed to save settings: ${error.message}`);
+            });
+        });
+
+        // Handle toggle switches
+        document.addEventListener('change', function(e) {
+            if (e.target.type === 'checkbox' && e.target.closest('.toggle-switch')) {
+                console.log('Toggle changed:', e.target.checked);
+            }
+        });
+    </script>
+    <script src="../../js/runtime-fix.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

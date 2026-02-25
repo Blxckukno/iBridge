@@ -1,0 +1,31 @@
+# iBridge Website - Fix WordPress Redirects
+# Priority: Stop ALL external redirects immediately
+
+RewriteEngine On
+
+# STOP any redirects to WordPress/Cloudways
+RewriteCond %{HTTP_HOST} ^wordpress-941506-3757035\.cloudwaysapps\.com$ [NC]
+RewriteRule ^(.*)$ https://ibridgebpo.com/ [R=301,L]
+
+# Ensure ai-automation.html is directly accessible
+RewriteCond %{REQUEST_URI} ^/ai-automation\.html$ [NC]
+RewriteRule ^(.*)$ /ai-automation.html [L]
+
+# Handle 404s to homepage instead of external redirects
+ErrorDocument 404 https://ibridgebpo.com/
+
+# Ensure proper domain handling
+RewriteCond %{HTTP_HOST} !^ibridgebpo\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^www\.ibridgebpo\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^wordpress-941506-3757035\.cloudwaysapps\.com$ [NC]
+RewriteRule ^(.*)$ https://ibridgebpo.com/$1 [R=301,L]
+
+# Make HTML files accessible
+<Files "*.html">
+    Require all granted
+</Files>
+
+# Security
+<Files ".htaccess">
+    Require all denied
+</Files>

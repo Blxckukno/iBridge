@@ -1,0 +1,421 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <link rel="apple-touch-icon" href="../../images/favicon.png">
+    <style id="render-fallback-style">
+        body { opacity: 1 !important; visibility: visible !important; }
+        main, section, header, footer, article, nav, div { visibility: visible; }</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Reports - iBridge Staff Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: #2d5a27;
+            color: white;
+            padding: 2rem;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .sidebar nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 1rem;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background: white;
+            margin: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .report-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .report-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #dee2e6;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: #2d5a27;
+        }
+
+        .report-card .icon {
+            font-size: 3rem;
+            color: #2d5a27;
+            margin-bottom: 1rem;
+        }
+
+        .report-card h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .report-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .report-card .btn {
+            background: #2d5a27;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .report-card .btn:hover {
+            background: #1e3b1a;
+        }
+
+        .back-btn {
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: #2d5a27;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary {
+            background: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #555;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .main-content {
+                margin: 1rem;
+            }
+        }        /* Breakpoint Hardening OV2 */
+        html, body { max-width: 100%; overflow-x: hidden; }
+        img, iframe, video, canvas, svg { max-width: 100%; height: auto; }
+        .container, .main-content, .dashboard-grid, .content, .lms-main { min-width: 0; }
+
+        @media (max-width: 1024px) {
+            .container { padding-left: 16px !important; padding-right: 16px !important; }
+            .dashboard-container, .settings-container, .main-container { grid-template-columns: 1fr !important; }
+            .sidebar { width: 100% !important; position: relative !important; height: auto !important; }
+            .main-content { margin-left: 0 !important; padding: 20px 16px !important; }
+        }
+
+        @media (max-width: 768px) {
+            .header .container, .header-content { padding-left: 14px !important; padding-right: 14px !important; }
+            .hero h1 { font-size: clamp(1.7rem, 6vw, 2.3rem) !important; line-height: 1.2; }
+            .services-grid, .values-grid, .stats-grid, .features-grid, .report-cards, .dashboard-grid, .course-actions { grid-template-columns: 1fr !important; }
+            .form-row, .action-buttons { grid-template-columns: 1fr !important; }
+            .modal-content { width: min(94vw, 700px) !important; max-height: 85vh; overflow: auto; }
+            .whatsapp-float { right: 14px !important; bottom: 14px !important; }
+        }
+
+        @media (max-width: 375px) {
+            body { font-size: 15px; }
+            .container { padding-left: 12px !important; padding-right: 12px !important; }
+            .btn, .submit-btn, .action-btn { width: 100%; justify-content: center; }
+            .card-value { font-size: 1.8rem !important; }
+            .user-profile { gap: 6px !important; }
+            .user-profile div { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        }
+
+        @media (max-width: 320px) {
+            .container { padding-left: 10px !important; padding-right: 10px !important; }
+            .logo img { max-height: 36px !important; width: auto !important; }
+            .hero h1 { font-size: 1.5rem !important; }
+            .nav-menu, .sidebar-nav { font-size: 0.95rem; }
+            .modal-content { width: 96vw !important; }
+        }
+    </style>
+    <script src="../../js/staff-auth-guard.js"></script>
+    <script src="../../js/staff-rbac.js"></script>
+    <script>
+      if (window.iBridgeStaffAuth) { window.iBridgeStaffAuth.ensureAccess(); }
+      if (window.iBridgeRBAC) { window.iBridgeRBAC.enforcePageAccess("supervisor"); }
+    </script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>iBridge Staff Portal</h2>
+        <nav>
+            <a href="professional-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="create-ticket.html"><i class="fas fa-ticket-alt"></i> Tickets</a>
+            <a href="generate-reports.html" class="active"><i class="fas fa-chart-bar"></i> Reports</a>
+            <a href="user-management.html"><i class="fas fa-users"></i> User Management</a>
+            <a href="../../lms-platform.html"><i class="fas fa-graduation-cap"></i> LMS Platform</a>
+            <a href="professional-dashboard.html"><i class="fas fa-building"></i> Intranet</a>
+            <a href="staff-blog.html"><i class="fas fa-newspaper"></i> Staff Blog</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="../../index.html"><i class="fas fa-home"></i> Back to Main Site</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="back-btn">
+            <a href="professional-dashboard.html" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+
+        <div class="header">
+            <h1>Generate Reports</h1>
+            <p>Create comprehensive reports for analysis and insights</p>
+        </div>
+
+        <div class="report-cards">
+            <div class="report-card" onclick="generateReport('ticket')">
+                <div class="icon">
+                    <i class="fas fa-ticket-alt"></i>
+                </div>
+                <h3>Ticket Analytics</h3>
+                <p>Comprehensive ticket statistics, resolution times, and performance metrics</p>
+                <a href="javascript:void(0)" onclick="generateReport('ticket'); return false;" class="btn">Generate Report</a>
+            </div>
+
+            <div class="report-card" onclick="generateReport('user')">
+                <div class="icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>User Activity Report</h3>
+                <p>User engagement statistics, login frequencies, and activity patterns</p>
+                <a href="javascript:void(0)" onclick="generateReport('user'); return false;" class="btn">Generate Report</a>
+            </div>
+
+            <div class="report-card" onclick="generateReport('performance')">
+                <div class="icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Performance Metrics</h3>
+                <p>System performance data, response times, and efficiency indicators</p>
+                <a href="javascript:void(0)" onclick="generateReport('performance'); return false;" class="btn">Generate Report</a>
+            </div>
+
+            <div class="report-card" onclick="generateReport('security')">
+                <div class="icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Security Audit</h3>
+                <p>Security events, threat analysis, and compliance status reports</p>
+                <a href="javascript:void(0)" onclick="generateReport('security'); return false;" class="btn">Generate Report</a>
+            </div>
+
+            <div class="report-card" onclick="generateReport('financial')">
+                <div class="icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h3>Financial Summary</h3>
+                <p>Revenue analysis, cost breakdowns, and financial performance indicators</p>
+                <a href="javascript:void(0)" onclick="generateReport('financial'); return false;" class="btn">Generate Report</a>
+            </div>
+
+            <div class="report-card" onclick="generateReport('custom')">
+                <div class="icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Custom Report Builder</h3>
+                <p>Build custom reports with specific parameters and data sources</p>
+                <a href="javascript:void(0)" onclick="generateReport('custom'); return false;" class="btn">Build Report</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getToken() {
+            return sessionStorage.getItem('access_token')
+                || localStorage.getItem('access_token')
+                || localStorage.getItem('token')
+                || '';
+        }
+
+        function showLoading(message) {
+            const loadingMsg = document.createElement('div');
+            loadingMsg.id = 'reportLoading';
+            loadingMsg.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 2rem;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                z-index: 1000;
+                text-align: center;
+            `;
+            loadingMsg.innerHTML = `
+                <div style="margin-bottom: 1rem;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: #2d5a27;"></i>
+                </div>
+                <h3>${message}</h3>
+                <p>Please wait while we compile your data</p>
+            `;
+            document.body.appendChild(loadingMsg);
+        }
+
+        function hideLoading() {
+            const loading = document.getElementById('reportLoading');
+            if (loading) loading.remove();
+        }
+
+        function downloadTextReport(fileName, text) {
+            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(link.href);
+        }
+
+        async function generateReport(type) {
+            const reportTypes = {
+                ticket: 'Ticket Analytics Report',
+                user: 'User Activity Report',
+                performance: 'Performance Metrics Report',
+                security: 'Security Audit Report',
+                financial: 'Financial Summary Report',
+                custom: 'Custom Report Builder'
+            };
+            const reportName = reportTypes[type] || 'System Report';
+            const token = getToken();
+
+            if (!token) {
+                alert('Please sign in to Staff Portal before generating reports.');
+                return;
+            }
+
+            let dataType = '';
+            if (type === 'custom') {
+                dataType = prompt('Custom report source (tickets/users/analytics/security/lms/backup):', 'tickets') || 'tickets';
+            }
+
+            showLoading(`Generating ${reportName}...`);
+            try {
+                const response = await fetch('/api/reports/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        type,
+                        data_type: dataType || undefined
+                    })
+                });
+                if (!response.ok) {
+                    const err = await response.json().catch(() => ({}));
+                    throw new Error(err.error || `HTTP ${response.status}`);
+                }
+
+                const payload = await response.json();
+                const summary = payload.summary || {};
+                const reportText = [
+                    reportName,
+                    `Generated: ${summary.generated_at || new Date().toISOString()}`,
+                    `Data Source: ${summary.data_type || type}`,
+                    `Rows: ${summary.rows || 0}`,
+                    '',
+                    'Preview Rows:',
+                    JSON.stringify(payload.rows || [], null, 2)
+                ].join('\n');
+
+                const fileName = `${(summary.data_type || type)}-report-${new Date().toISOString().slice(0, 10)}.txt`;
+                downloadTextReport(fileName, reportText);
+                alert(`${reportName} generated successfully.\nRows: ${summary.rows || 0}\nFile: ${fileName}`);
+            } catch (error) {
+                alert(`Failed to generate report: ${error.message}`);
+            } finally {
+                hideLoading();
+            }
+        }
+    </script>
+    <script src="../../js/runtime-fix.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
