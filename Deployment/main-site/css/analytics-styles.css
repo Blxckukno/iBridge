@@ -1,0 +1,397 @@
+/* Analytics Manager Styles */
+
+/* Consent Banner Styling */
+.analytics-consent-banner {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(10px);
+}
+
+.consent-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.consent-text h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.consent-text p {
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.consent-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.consent-btn {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.consent-btn.accept {
+    background: #28a745;
+    color: white;
+}
+
+.consent-btn.accept:hover {
+    background: #218838;
+    transform: translateY(-1px);
+}
+
+.consent-btn.decline {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.consent-btn.decline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.consent-btn.manage {
+    background: #17a2b8;
+    color: white;
+}
+
+.consent-btn.manage:hover {
+    background: #138496;
+    transform: translateY(-1px);
+}
+
+/* Analytics Dashboard Button */
+.analytics-dashboard-btn {
+    position: fixed !important;
+    top: 20px;
+    right: 200px;
+    z-index: 10000;
+    background: linear-gradient(135deg, #17a2b8, #138496);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(23, 162, 184, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.85;
+    backdrop-filter: blur(10px);
+}
+
+.analytics-dashboard-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 1;
+    box-shadow: 0 6px 20px rgba(23, 162, 184, 0.6);
+}
+
+.analytics-dashboard-btn:active {
+    transform: scale(0.95);
+}
+
+/* A/B Test Variation Styles */
+.ab-cta_button_color-blue {
+    background-color: #007bff !important;
+}
+
+.ab-cta_button_color-green {
+    background-color: #28a745 !important;
+}
+
+.ab-cta_button_color-orange {
+    background-color: #fd7e14 !important;
+}
+
+.ab-hero_headline-benefit_focused {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.ab-hero_headline-question_based {
+    font-style: italic;
+    color: #17a2b8;
+}
+
+/* Analytics Status Indicators */
+.analytics-status {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.analytics-status:hover {
+    opacity: 1;
+}
+
+.analytics-status.active {
+    background: rgba(40, 167, 69, 0.8);
+}
+
+.analytics-status.inactive {
+    background: rgba(220, 53, 69, 0.8);
+}
+
+/* Event Tracking Visual Feedback */
+.event-tracked {
+    position: relative;
+    overflow: hidden;
+}
+
+.event-tracked::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(23, 162, 184, 0.3), transparent);
+    animation: eventFlash 0.6s ease-out;
+}
+
+@keyframes eventFlash {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Heatmap Visualization */
+.heatmap-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.7), transparent);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: heatmapPulse 1s ease-out;
+}
+
+@keyframes heatmapPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Scroll Depth Indicator */
+.scroll-depth-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100vh;
+    background: rgba(23, 162, 184, 0.2);
+    z-index: 9998;
+    pointer-events: none;
+}
+
+.scroll-depth-progress {
+    width: 100%;
+    background: linear-gradient(to bottom, #28a745, #17a2b8, #fd7e14);
+    transition: height 0.1s ease;
+    border-radius: 0 2px 2px 0;
+}
+
+/* Analytics Loading States */
+.analytics-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(23, 162, 184, 0.3);
+    border-radius: 50%;
+    border-top-color: #17a2b8;
+    animation: analyticsSpinner 1s ease-in-out infinite;
+}
+
+@keyframes analyticsSpinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Conversion Goal Notifications */
+.conversion-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    z-index: 10001;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+}
+
+.conversion-notification.show {
+    transform: translateX(0);
+}
+
+.conversion-notification .title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.conversion-notification .message {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Analytics Report Styles */
+.analytics-report {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.analytics-report h3 {
+    color: #2C3E50;
+    margin-top: 0;
+    border-bottom: 2px solid #17a2b8;
+    padding-bottom: 10px;
+}
+
+.analytics-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.metric-item {
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 8px;
+    border-left: 4px solid #17a2b8;
+}
+
+.metric-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: #17a2b8;
+    display: block;
+}
+
+.metric-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Session Visualization */
+.session-timeline {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.timeline-time {
+    font-family: monospace;
+    color: #6c757d;
+    font-size: 0.8rem;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.timeline-event {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.timeline-event strong {
+    color: #17a2b8;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .consent-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .consent-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .consent-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .analytics-dashboard-btn {
+        right: 20px;
+        top: auto;
+        bottom: 80px;
+    }
+
+    .analytics-status {
+        position: relative;
+        margin: 10px;
+        display: inline-block;
+    }
+
+    .conversion-notification {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        transform: translateY(-100%);
+    }
+
+    .conversion-notification.show {
+        transform: translateY(0);
+    }
+}
