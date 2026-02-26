@@ -2139,7 +2139,7 @@ a.animated-link:hover::after {
 }
 
 .tech-link::after {
-    content: '&rarr;';
+    content: '→';
     margin-left: 8px;
     transition: all 0.3s ease;
 }
