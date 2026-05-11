@@ -6,8 +6,8 @@
 window.iBridgeAnalyticsConfig = {
     // Google Analytics 4 Configuration
     googleAnalytics: {
-        measurementId: 'G-XXXXXXXXXX', // Replace with your GA4 Measurement ID
-        enabled: true,
+        measurementId: '',
+        enabled: false,
         enhanced_conversions: true,
         google_signals: true,
         send_page_view: true
@@ -15,31 +15,31 @@ window.iBridgeAnalyticsConfig = {
 
     // Google Tag Manager (Optional)
     googleTagManager: {
-        containerId: 'GTM-XXXXXXX', // Replace with your GTM Container ID
-        enabled: false // Set to true when GTM is configured
+        containerId: '',
+        enabled: false
     },
 
     // Microsoft Clarity (Heatmaps & Session Recordings)
     microsoftClarity: {
-        projectId: 'XXXXXXXXX', // Replace with your Clarity Project ID
-        enabled: true
+        projectId: '',
+        enabled: false
     },
 
     // Facebook Pixel (Optional)
     facebookPixel: {
-        pixelId: 'XXXXXXXXXXXXXXX', // Replace with your Facebook Pixel ID
+        pixelId: '',
         enabled: false
     },
 
     // LinkedIn Insight Tag (Optional)
     linkedinInsight: {
-        partnerId: 'XXXXXXX', // Replace with your LinkedIn Partner ID
+        partnerId: '',
         enabled: false
     },
 
     // Custom Analytics API
     customAnalytics: {
-        enabled: true,
+        enabled: false,
         apiEndpoint: '/api/analytics', // Your backend analytics endpoint
         batchSize: 50,
         flushInterval: 30000, // 30 seconds
@@ -101,7 +101,7 @@ window.iBridgeAnalyticsConfig = {
 
     // A/B Testing Configuration
     abTesting: {
-        enabled: true,
+        enabled: false,
         experiments: [
             {
                 name: 'cta_button_color',
@@ -129,7 +129,7 @@ window.iBridgeAnalyticsConfig = {
 
     // Real-time Monitoring
     monitoring: {
-        enabled: true,
+        enabled: false,
         performanceThresholds: {
             pageLloadTime: 3000, // milliseconds
             firstContentfulPaint: 1800,
@@ -158,7 +158,7 @@ window.iBridgeAnalyticsConfig = {
 
     // Dashboard Configuration
     dashboard: {
-        enabled: true,
+        enabled: false,
         position: 'bottom-right',
         minimized: false,
         autoRefresh: 60000, // 1 minute

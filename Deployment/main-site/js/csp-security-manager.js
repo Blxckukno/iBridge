@@ -13,7 +13,7 @@ class CSPManager {
         };
 
         this.violations = [];
-        this.nonce = this.generateNonce();
+        this.nonce = this.getPageNonce() || this.generateNonce();
 
         this.init();
     }
@@ -40,6 +40,25 @@ class CSPManager {
         const array = new Uint8Array(32);
         crypto.getRandomValues(array);
         return btoa(String.fromCharCode(...array)).replace(/[+/=]/g, '');
+    }
+
+    isPublicMainSitePage() {
+        const path = (window.location.pathname || '').toLowerCase();
+        return !/(ticketingsystem|professional-dashboard|staff-portal|lms-platform|security-dashboard|performance-dashboard|intranet)/i.test(path);
+    }
+
+    getPageNonce() {
+        return document.querySelector('script[nonce]')?.getAttribute('nonce') || '';
+    }
+
+    isLocalOrPrivateHost(hostname) {
+        if (!hostname) return true;
+        if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1') return true;
+        if (hostname.endsWith('.local')) return true;
+        if (/^10\./.test(hostname)) return true;
+        if (/^192\.168\./.test(hostname)) return true;
+        if (/^172\.(1[6-9]|2\d|3[0-1])\./.test(hostname)) return true;
+        return false;
     }
 
     /**
@@ -123,8 +142,9 @@ class CSPManager {
         const issues = [];
 
         // Check for unsafe directives
-        if (cspContent.includes("'unsafe-inline'")) {
-            issues.push("Contains 'unsafe-inline' directive");
+        const scriptDirective = (cspContent.match(/script-src\s+([^;]+)/) || [null, ''])[1];
+        if (scriptDirective.includes("'unsafe-inline'")) {
+            issues.push("Contains 'unsafe-inline' in script-src");
         }
 
         if (cspContent.includes("'unsafe-eval'")) {
@@ -168,10 +188,11 @@ class CSPManager {
 
         const scripts = document.querySelectorAll('script[nonce]');
         const validNonces = [];
+        const expectedNonce = this.getPageNonce() || this.nonce;
 
         scripts.forEach(script => {
             const scriptNonce = script.getAttribute('nonce');
-            if (scriptNonce && scriptNonce === this.nonce) {
+            if (scriptNonce && scriptNonce === expectedNonce) {
                 validNonces.push(scriptNonce);
             } else {
                 console.warn('⚠️ Script with invalid nonce found:', script.src || 'inline script');
@@ -227,19 +248,29 @@ class CSPManager {
      */
     generateCSPHeader() {
         const nonce = this.nonce;
+        const isLocal = this.isLocalOrPrivateHost(window.location.hostname);
+        const styleSrc = this.isPublicMainSitePage()
+            ? "style-src 'self' 'unsafe-inline'"
+            : "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com";
+        const fontSrc = this.isPublicMainSitePage()
+            ? "font-src 'self' data:"
+            : "font-src 'self' data: https://fonts.gstatic.com";
+        const connectSrc = isLocal ? "connect-src 'self' http://localhost:5000 http://127.0.0.1:5000" : "connect-src 'self'";
+        const upgradeDirective = isLocal ? '' : '; upgrade-insecure-requests';
 
         return [
             "default-src 'self'",
-            `script-src 'self' 'nonce-${nonce}' https://cdnjs.cloudflare.com`,
-            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-            "font-src 'self' https://fonts.gstatic.com",
+            `script-src 'self' 'nonce-${nonce}'`,
+            styleSrc,
+            fontSrc,
             "img-src 'self' data: https:",
-            "connect-src 'self'",
+            connectSrc,
+            "frame-src 'self' https://www.google.com https://maps.google.com",
             "frame-ancestors 'none'",
             "base-uri 'self'",
             "form-action 'self'",
             `report-uri ${this.config.reportingEndpoint}`
-        ].join('; ');
+        ].join('; ') + upgradeDirective;
     }
 
     /**

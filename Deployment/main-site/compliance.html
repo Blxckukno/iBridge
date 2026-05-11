@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" class="no-fa-icons">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="South African compliance information for the iBridge public website, aligned to the company's PAIA manual, privacy policy, and 2025 year-end compliance report.">
+    <title>Compliance | iBridge Contact Solutions</title>
+    <link rel="stylesheet" href="css/icon-fallback.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="stylesheet" href="css/legal-compliance.css">
+        <style>
+        body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        a { color: inherit; }
+    </style>
+</head>
+<body class="legal-page">
+    <div class="legal-shell">
+        <header class="legal-topbar">
+            <nav class="legal-nav" aria-label="Legal navigation">
+                <a class="legal-logo" href="index.html">
+                    <img src="images/iBridge_Logo-removebg-preview.png" alt="iBridge logo">
+                    <span>iBridge Contact Solutions</span>
+                </a>
+                <div class="legal-links">
+                    <a href="index.html">Home</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="cookie-notice.html">Cookies</a>
+                    <a href="compliance.html" class="active">Compliance</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </nav>
+        </header>
+
+        <section class="legal-hero">
+            <span class="legal-kicker">South African Compliance</span>
+            <h1>POPIA, PAIA and ECTA</h1>
+            <p>This page summarises the main South African compliance controls surfaced through the public iBridge website and explains how privacy requests, access requests, and core website disclosures are handled.</p>
+            <div class="legal-meta">
+                <span>Last updated: March 23, 2026</span>
+                <span>Aligned to the company PAIA manual, privacy policy, and public website processing</span>
+            </div>
+        </section>
+
+        <div class="legal-grid">
+            <section class="legal-card">
+                <h2>POPIA Commitments</h2>
+                <ul>
+                    <li>Direct collection notices are provided through the Privacy Notice and form-level consent wording.</li>
+                    <li>Optional analytics, marketing, and third-party map embeds stay off until consent is recorded.</li>
+                    <li>Reasonable technical and organisational security measures are applied to website processing.</li>
+                    <li>Cross-border transfers are restricted to situations POPIA permits.</li>
+                    <li>If a security compromise triggers POPIA notice obligations, affected persons and regulators will be notified as required.</li>
+                </ul>
+            </section>
+
+            <section class="legal-card">
+                <h2>PAIA Access to Records</h2>
+                <p>You may request access to records held by iBridge where PAIA applies. iBridge maintains a PAIA Manual prepared in terms of section 51 of PAIA, compiled on 01 September 2025. Requests should be sent to <a href="mailto:mgqibelo.gasela@ibridge.co.za?subject=PAIA%20request">mgqibelo.gasela@ibridge.co.za</a> or raised directly with the Information Officer on <a href="tel:+27832542481">083 254 2481</a>, with enough detail for us to identify the record and verify the requester.</p>
+                <table class="legal-table">
+                    <tr><th>Request type</th><th>What to include</th></tr>
+                    <tr><td>Access request</td><td>Your identity details, the record requested, why you need it if required by law, and contact information for the response.</td></tr>
+                    <tr><td>Correction or deletion request</td><td>The information you believe is inaccurate or should be removed, and why.</td></tr>
+                    <tr><td>Urgent complaint or incident</td><td>A clear description of the issue, affected individuals, and any dates or screenshots that help verify the problem.</td></tr>
+                </table>
+                <p class="legal-note">PAIA requests are generally handled within 30 days, with a further extension of up to 30 days where the request volume or search complexity reasonably requires it. Request fees and reproduction fees may apply in line with the PAIA regulations.</p>
+            </section>
+
+            <section class="legal-card">
+                <h2>Submit a Privacy or Access Request</h2>
+                <p>Use this form for POPIA access, correction, deletion, objection, PAIA record access, or related privacy complaints linked to the public website.</p>
+                <form id="complianceRequestForm" class="legal-form" action="javascript:void(0)" method="post">
+                    <div class="legal-field" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+                        <label for="requestWebsite">Website</label>
+                        <input type="text" id="requestWebsite" name="requestWebsite" autocomplete="off" tabindex="-1">
+                    </div>
+                    <div class="legal-form-grid">
+                        <div class="legal-field">
+                            <label for="requestFullName">Full name *</label>
+                            <input type="text" id="requestFullName" name="requestFullName" required>
+                        </div>
+                        <div class="legal-field">
+                            <label for="requestEmail">Email address *</label>
+                            <input type="email" id="requestEmail" name="requestEmail" required>
+                        </div>
+                        <div class="legal-field">
+                            <label for="requestPhone">Phone number</label>
+                            <input type="tel" id="requestPhone" name="requestPhone">
+                        </div>
+                        <div class="legal-field">
+                            <label for="requestType">Request type *</label>
+                            <select id="requestType" name="requestType" required>
+                                <option value="">Select request type</option>
+                                <option value="popia_access">POPIA access request</option>
+                                <option value="popia_correction">POPIA correction request</option>
+                                <option value="popia_deletion">POPIA deletion request</option>
+                                <option value="popia_objection">POPIA objection request</option>
+                                <option value="paia_access">PAIA access request</option>
+                                <option value="privacy_complaint">Privacy complaint</option>
+                            </select>
+                        </div>
+                        <div class="legal-field full-width">
+                            <label for="requestReference">Reference, page, or context</label>
+                            <input type="text" id="requestReference" name="requestReference" placeholder="Optional: contact enquiry reference, page URL, or record description">
+                        </div>
+                        <div class="legal-field full-width">
+                            <label for="requestDetails">Request details *</label>
+                            <textarea id="requestDetails" name="requestDetails" placeholder="Describe the information, record, or issue you want us to review." required></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" id="requestPageUrl" name="requestPageUrl">
+                    <input type="hidden" id="requestOccurredAt" name="requestOccurredAt">
+                    <label class="legal-inline-consent" for="requestConsent">
+                        <input type="checkbox" id="requestConsent" name="requestConsent" required>
+                        <span>I confirm that the information submitted here may be used to verify and respond to this request in line with the <a href="privacy.html">Privacy Notice</a>.</span>
+                    </label>
+                    <button type="submit" class="cookie-consent-btn primary">Submit request</button>
+                    <p id="complianceRequestStatus" class="legal-status" hidden></p>
+                </form>
+            </section>
+
+            <section class="legal-card">
+                <h2>Typical Record Categories</h2>
+                <ul>
+                    <li>Corporate and governance records, including incorporation documents, board records, policies, and legal disclosures.</li>
+                    <li>Operational and service-delivery records, including contact-centre logs, scripts, quality records, and website communications.</li>
+                    <li>Human resources, recruitment, training, employment equity, and skills-development records.</li>
+                    <li>Financial, tax, statutory, payroll, and supplier-management records.</li>
+                    <li>Client, supplier, partner, and cloud-service records, subject to confidentiality and lawful access limitations.</li>
+                    <li>PAIA manuals, access-request logs, POPIA records, awareness-training records, and security-incident support records.</li>
+                </ul>
+            </section>
+
+            <section class="legal-card">
+                <h2>Information Officer and Request Contacts</h2>
+                <table class="legal-table">
+                    <tr><th>Information Officer</th><td>Mgqibelo Gasela</td></tr>
+                    <tr><th>IO email</th><td><a href="mailto:mgqibelo.gasela@ibridge.co.za">mgqibelo.gasela@ibridge.co.za</a></td></tr>
+                    <tr><th>IO contact number</th><td><a href="tel:+27832542481">083 254 2481</a></td></tr>
+                    <tr><th>Deputy Information Officer</th><td>Collins Khumalo</td></tr>
+                    <tr><th>DIO email</th><td><a href="mailto:collins@ibridge.co.za">collins@ibridge.co.za</a></td></tr>
+                    <tr><th>DIO contact number</th><td><a href="tel:+27832894894">083 289 4894</a></td></tr>
+                    <tr><th>Head office</th><td>332 Kent Avenue, Ferndale, Randburg, 2194</td></tr>
+                </table>
+                <p class="legal-note">POPIA and PAIA requests should be directed to these legal contacts, not the general office or corporate lines shown elsewhere on the site. Recruitment, supplier, and general business enquiries should continue to use the public business channels instead of these legal contacts.</p>
+            </section>
+
+            <section class="legal-card">
+                <h2>ECTA Website Disclosures</h2>
+                <table class="legal-table">
+                    <tr><th>Legal name</th><td>iBridge Contact Solutions (Pty) Ltd</td></tr>
+                    <tr><th>Physical address</th><td>332 Kent Avenue, Ferndale, Randburg, 2194, South Africa</td></tr>
+                    <tr><th>Email</th><td><a href="mailto:info@ibridge.co.za">info@ibridge.co.za</a></td></tr>
+                    <tr><th>Office line</th><td><a href="tel:+27112387090">+27 11 238 7090</a></td></tr>
+                    <tr><th>Corporate line</th><td><a href="tel:+27870495582">+27 87 049 5582</a></td></tr>
+                    <tr><th>Website purpose</th><td>Public company information, service information, careers, and enquiry handling</td></tr>
+                    <tr><th>Online contracting</th><td>This public site is informational. It does not currently provide a self-service checkout or payment flow.</td></tr>
+                </table>
+            </section>
+
+            <section class="legal-card">
+                <h2>Processing Purposes and Recipients</h2>
+                <p>In line with the PAIA Manual and Privacy Policy, iBridge processes personal information to deliver outsourced contact-centre and managed services, support financial and operational controls, manage recruitment and HR, provide training and cloud-enabled services, respond to enquiries, and comply with legal obligations.</p>
+                <p>Personal information may be supplied to client companies, payroll and training authorities, auditors, banks, regulators, quality assurance teams, recruitment verification agencies, and external IT or hosting service providers where the law or the service requires it.</p>
+            </section>
+
+            <section class="legal-card">
+                <h2>Marketing and Electronic Communications</h2>
+                <p>Electronic direct marketing is not enabled by default on the public website. Where marketing is introduced, iBridge will use an express opt-in model where POPIA requires it and will provide a clear opt-out channel.</p>
+            </section>
+
+            <section class="legal-card">
+                <h2>Operational Retention Windows</h2>
+                <table class="legal-table">
+                    <tr><th>Record or log</th><th>Current handling</th></tr>
+                    <tr><td>Browser consent preferences</td><td>Stored in the browser for up to 12 months unless cleared sooner.</td></tr>
+                    <tr><td>Server-side consent audit log</td><td>Retained for up to 400 days to support consent traceability and audit review.</td></tr>
+                    <tr><td>Website privacy and access requests</td><td>Retained for up to 5 years unless a longer legal hold applies.</td></tr>
+                    <tr><td>Security event logs</td><td>Managed through rolling application logs and internal retention controls.</td></tr>
+                </table>
+            </section>
+
+            <section class="legal-card">
+                <h2>Security and Incident Reporting</h2>
+                <p>Suspected security issues, abuse, privacy incidents, or unlawful website activity can be reported to <a href="mailto:info@ibridge.co.za?subject=Website%20security%20report">info@ibridge.co.za</a>.</p>
+                <p>Include as much detail as possible, including the page URL, time observed, screenshots, and the device or browser used.</p>
+            </section>
+
+            <section class="legal-card">
+                <h2>2025 Deliverables and 2026 Governance Roadmap</h2>
+                <p>The 2025 year-end compliance report records the following completed deliverables for iBridge: PAIA reports submitted, the 2025 PAIA Manual update completed, security-breach assistance completed, POPIA/PAIA awareness training completed, and consultation meetings completed.</p>
+                <p>The 2026 roadmap is structured around phased review work, policy review, and policy training so governance maturity continues to improve over the coming year.</p>
+            </section>
+
+            <section class="legal-card">
+                <h2>Regulator and Official Sources</h2>
+                <ul>
+                    <li><a href="https://www.gov.za/documents/protection-personal-information-act" target="_blank" rel="noopener noreferrer">Protection of Personal Information Act on gov.za</a></li>
+                    <li><a href="https://www.justice.gov.za/inforeg/" target="_blank" rel="noopener noreferrer">Information Regulator portal</a></li>
+                    <li><a href="https://www.gov.za/documents/promotion-access-information-act" target="_blank" rel="noopener noreferrer">Promotion of Access to Information Act on gov.za</a></li>
+                    <li><a href="https://www.justice.gov.za/legislation/acts/2002-025.pdf" target="_blank" rel="noopener noreferrer">Electronic Communications and Transactions Act PDF</a></li>
+                </ul>
+            </section>
+
+            <section class="legal-card">
+                <h2>Manual Availability and Official Sources</h2>
+                <p>A copy of the PAIA Manual is available at iBridge’s head office for public inspection during normal business hours, on request to the Information Officer, and to the Information Regulator on request.</p>
+                <p>The Information Regulator guide and official sources remain available through the links below.</p>
+            </section>
+        </div>
+
+        <footer class="legal-footer">
+            <p>&copy; 2026 iBridge Contact Solutions. This page is a public summary aligned to the company PAIA Manual, Privacy Policy, and website-facing compliance controls.</p>
+        </footer>
+    </div>
+    <script src="js/compliance-manager.js"></script>
+    <script src="js/runtime-fix.js"></script>
+</body>
+</html>
+
+

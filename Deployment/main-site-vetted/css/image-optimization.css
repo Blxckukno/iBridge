@@ -1,0 +1,210 @@
+﻿/* =================================
+   ENTERPRISE IMAGE OPTIMIZATION CSS
+   ================================= */
+
+/* WebP Support with Fallbacks */
+.image-optimized {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+    display: block;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Lazy Loading Implementation */
+.lazy-image {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+    background: none;
+    animation: none;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+    animation: none;
+}
+
+@keyframes loading-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Responsive Image Containers */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.image-container::before {
+    content: none;
+    display: none;
+}
+
+.image-container img {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Image Loading States */
+.image-loading {
+    position: relative;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-loading::after {
+    content: "Loading...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-size: 14px;
+}
+
+/* Enhanced Image Accessibility */
+img[alt=""] {
+    opacity: 0.8;
+}
+
+img:not([alt]) {
+    outline: 2px solid #dc3545;
+}
+
+/* Optimized Logo Styles */
+.logo-optimized {
+    width: auto;
+    height: 40px;
+    max-width: 150px;
+    object-fit: contain;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    image-rendering: auto;
+}
+
+/* Hero Background Optimization */
+.hero-bg-optimized {
+    background-image:
+        linear-gradient(rgba(21, 23, 16, 0.8), rgba(21, 23, 16, 0.8)),
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iYSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIj48cGF0aCBkPSJtMCAwaDQwdjQwaC00MHoiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJtMCAwaDIwdjIwaC0yMHoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsLjAyKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNhKSIvPjwvc3ZnPg==');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Fallback for older browsers */
+@supports not (background-attachment: fixed) {
+    .hero-bg-optimized {
+        background-attachment: scroll;
+    }
+}
+
+/* Picture Element Support */
+picture {
+    display: block;
+    width: 100%;
+}
+
+picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Sharper visual rendering for all media surfaces */
+img,
+picture,
+source,
+svg,
+canvas,
+video {
+    image-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Image Error States */
+img[src=""],
+img:not([src]) {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    position: relative;
+}
+
+img[src=""]:after,
+img:not([src]):after {
+    content: "Image not found";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #6c757d;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Mobile Image Optimization */
+@media (max-width: 768px) {
+    .image-container::before { display: none; }
+
+    .logo-optimized {
+        height: 32px;
+    }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .logo-optimized {
+        image-rendering: auto;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .lazy-image {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+    background: none;
+    animation: none;
+}
+}
+
+/* Print Optimization */
+@media print {
+
+    .lazy-image,
+    .image-optimized {
+        opacity: 1 !important;
+        background: none !important;
+    }
+}
+
+
+/* Vetted quality hardening */
+img { image-rendering:auto; backface-visibility:hidden; transform:translateZ(0); }
+.hero img, .service-card img, .about-image img, .gallery-item img, .team-member img { object-fit:cover; width:100%; height:auto; }
+

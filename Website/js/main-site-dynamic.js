@@ -15,11 +15,13 @@
     var out = [cleanPath];
     try {
       var loc = window.location;
-      if (loc && String(loc.port || "") !== "5000") {
+      var host = String((loc && loc.hostname) || "").toLowerCase();
+      var isLocalHost = host === "localhost" || host === "127.0.0.1" || host === "::1";
+      var isPrivateHost = /^10\./.test(host) || /^192\.168\./.test(host) || /^172\.(1[6-9]|2\d|3[0-1])\./.test(host);
+      if (loc && (isLocalHost || isPrivateHost) && String(loc.port || "") !== "5000") {
         out.push(loc.protocol + "//" + loc.hostname + ":5000" + cleanPath);
       }
     } catch (e) {}
-    out.push("http://localhost:5000" + cleanPath);
     return out;
   }
 

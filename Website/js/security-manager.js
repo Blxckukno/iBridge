@@ -75,54 +75,68 @@ class SecurityManager {
         return false;
     }
 
+    isPublicMainSitePage() {
+        const path = (window.location.pathname || '').toLowerCase();
+        return !/(ticketingsystem|professional-dashboard|staff-portal|lms-platform|security-dashboard|performance-dashboard|intranet)/i.test(path);
+    }
+
+    getCurrentScriptNonce() {
+        return document.querySelector('script[nonce]')?.getAttribute('nonce') || '';
+    }
+
+    buildCspDirectives() {
+        const nonce = this.getCurrentScriptNonce();
+        const isLocal = this.isLocalOrPrivateHost(window.location.hostname);
+        const scriptSrc = ["'self'"];
+        const styleSrc = ["'self'", "'unsafe-inline'"];
+        const imgSrc = ["'self'", "data:", "blob:"];
+        const fontSrc = ["'self'", "data:"];
+        const connectSrc = ["'self'"];
+        const frameSrc = ["'self'", "https://www.google.com", "https://maps.google.com"];
+
+        if (nonce) {
+            scriptSrc.push(`'nonce-${nonce}'`);
+        }
+
+        if (!this.isPublicMainSitePage()) {
+            scriptSrc.push('https://www.google-analytics.com', 'https://www.googletagmanager.com', 'https://cdnjs.cloudflare.com');
+            styleSrc.push('https://fonts.googleapis.com', 'https://cdnjs.cloudflare.com');
+            fontSrc.push('https://fonts.gstatic.com');
+            connectSrc.push('https://www.google-analytics.com', 'https://api.github.com');
+        }
+
+        if (isLocal) {
+            connectSrc.push('http://localhost:5000', 'http://127.0.0.1:5000');
+        }
+
+        const directives = {
+            'default-src': ["'self'"],
+            'script-src': scriptSrc,
+            'style-src': styleSrc,
+            'img-src': imgSrc,
+            'font-src': fontSrc,
+            'connect-src': connectSrc,
+            'frame-src': frameSrc,
+            'object-src': ["'none'"],
+            'base-uri': ["'self'"],
+            'form-action': ["'self'"],
+            'frame-ancestors': ["'none'"]
+        };
+
+        if (!isLocal) {
+            directives['upgrade-insecure-requests'] = [];
+        }
+
+        return directives;
+    }
+
     /**
      * Implement Content Security Policy
      */
     implementCSP() {
         if (!this.securityConfig.csp.enabled) return;
 
-        const cspDirectives = {
-            'default-src': ["'self'"],
-            'script-src': [
-                "'self'",
-                "'unsafe-inline'", // TODO: Remove in production, use nonces
-                'https://www.google-analytics.com',
-                'https://www.googletagmanager.com',
-                'https://cdnjs.cloudflare.com'
-            ],
-            'style-src': [
-                "'self'",
-                "'unsafe-inline'", // TODO: Replace with nonces
-                'https://fonts.googleapis.com',
-                'https://cdnjs.cloudflare.com'
-            ],
-            'img-src': [
-                "'self'",
-                'data:',
-                'blob:',
-                'https://www.google-analytics.com'
-            ],
-            'font-src': [
-                "'self'",
-                'https://fonts.gstatic.com'
-            ],
-            'connect-src': [
-                "'self'",
-                'https://www.google-analytics.com',
-                'https://api.github.com'
-            ],
-            'frame-src': [
-                "'self'",
-                'https://www.google.com',
-                'https://maps.google.com',
-                'https://www.openstreetmap.org'
-            ],
-            'object-src': ["'none'"],
-            'base-uri': ["'self'"],
-            'form-action': ["'self'"],
-            'frame-ancestors': ["'none'"],
-            'upgrade-insecure-requests': []
-        };
+        const cspDirectives = this.buildCspDirectives();
 
         const cspString = Object.entries(cspDirectives)
             .map(([directive, sources]) =>
@@ -540,6 +554,10 @@ class SecurityManager {
      * Initialize security dashboard
      */
     initializeSecurityDashboard() {
+        if (this.isPublicMainSitePage()) {
+            return;
+        }
+
         // Create security status indicator
         const securityIndicator = document.createElement('div');
         securityIndicator.innerHTML = '🛡️';

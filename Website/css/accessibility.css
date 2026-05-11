@@ -27,7 +27,7 @@
 
 .skip-link:focus {
     top: 6px;
-    outline: 3px solid #A1C44F;
+    outline: 3px solid #92C63E;
     outline-offset: 2px;
 }
 
@@ -57,7 +57,7 @@
 
 /* Enhanced Focus Styles */
 *:focus {
-    outline: 3px solid #A1C44F;
+    outline: 3px solid #92C63E;
     outline-offset: 2px;
 }
 
@@ -67,14 +67,14 @@ button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    outline: 3px solid #A1C44F;
+    outline: 3px solid #92C63E;
     outline-offset: 2px;
     box-shadow: 0 0 0 2px rgba(161, 196, 79, 0.2);
 }
 
 /* Focus for links */
 a:focus {
-    outline: 3px solid #A1C44F;
+    outline: 3px solid #92C63E;
     outline-offset: 2px;
     text-decoration: underline;
     text-decoration-thickness: 2px;
@@ -88,7 +88,7 @@ a:focus {
 
 /* Enhanced focus for keyboard users */
 :focus-visible {
-    outline: 3px solid #A1C44F !important;
+    outline: 3px solid #92C63E !important;
     outline-offset: 2px !important;
 }
 
@@ -102,7 +102,7 @@ label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #2C3E50;
+    color: #3A445D;
 }
 
 .required-indicator {
@@ -298,7 +298,7 @@ nav[role="navigation"] a:focus {
 }
 
 nav[role="navigation"] a[aria-current="page"] {
-    background-color: #A1C44F;
+    background-color: #92C63E;
     color: white;
     font-weight: bold;
 }
@@ -345,13 +345,13 @@ caption {
 
 .progress-fill {
     height: 100%;
-    background-color: #A1C44F;
+    background-color: #92C63E;
     transition: width 0.3s ease;
 }
 
 [role="status"] {
     padding: 0.75rem 1rem;
-    border: 1px solid #A1C44F;
+    border: 1px solid #92C63E;
     background-color: rgba(161, 196, 79, 0.1);
     border-radius: 4px;
     margin: 1rem 0;

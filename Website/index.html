@@ -1,6 +1,6 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<!-- Updated: 2025-11-01 - Full Site Restoration -->
+<!DOCTYPE html>
+<html lang="en" class="no-fa-icons">
+<!-- Updated: 2026-03-10 - Public site governance refresh -->
 
 <head>
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -9,9 +9,9 @@
         body { opacity: 1 !important; visibility: visible !important; }
         main, section, header, footer, article, nav, div { visibility: visible; }</style>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description"
-        content="Transform your customer experience with iBridge's professional contact center solutions. Expert customer support, advanced technology, and proven results for businesses worldwide.">
+        content="Transform your customer experience with iBridge's founder-led BPO and BPaaS solutions, built for African market entry, scalable operations, cloud-enabled delivery, and measurable customer outcomes.">
     <meta name="keywords"
         content="contact center, customer support, call center services, customer experience, business process outsourcing, BPO, customer service">
 
@@ -20,10 +20,10 @@
     <meta property="og:description"
         content="Transform your customer experience with iBridge's professional contact center solutions. Expert customer support, advanced technology, and proven results for businesses worldwide.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://blxckukno.github.io/iBridge/">
+    <meta property="og:url" content="https://ibridge.co.za/">
     <meta property="og:site_name" content="iBridge Contact Solutions">
     <meta property="og:locale" content="en_US">
-    <meta property="og:image" content="https://blxckukno.github.io/iBridge/images/generated/og-african-customer-support.png">
+    <meta property="og:image" content="https://ibridge.co.za/images/generated/og-african-customer-support.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/jpeg">
@@ -35,22 +35,22 @@
     <meta name="twitter:title" content="iBridge - Premier Contact Center Solutions & Customer Support">
     <meta name="twitter:description"
         content="Transform your customer experience with iBridge's professional contact center solutions. Expert customer support, advanced technology, and proven results for businesses worldwide.">
-    <meta name="twitter:image" content="https://blxckukno.github.io/iBridge/images/generated/og-african-customer-support.png">
+    <meta name="twitter:image" content="https://ibridge.co.za/images/generated/og-african-customer-support.png">
 
     <!-- SEO Meta Tags -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <link rel="canonical" href="https://blxckukno.github.io/iBridge/">
+    <link rel="canonical" href="https://ibridge.co.za/">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#A1C44F">
+    <meta name="theme-color" content="#92C63E">
 
     <title>iBridge - Premier Contact Center Solutions & Customer Support</title>
+    <link rel="stylesheet" href="css/icon-fallback.css">
+    <link rel="stylesheet" href="css/main-site-polish.css">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/styles.css">
@@ -88,9 +88,9 @@
         }
 
         :root {
-            --primary-green: #A1C44F;
-            --primary-green-light: #B8D663;
-            --primary-green-dark: #8FB347;
+            --primary-green: #92C63E;
+            --primary-green-light: #A9D85C;
+            --primary-green-dark: #7EAF31;
             --dark-bg: #32495D;
             --dark-bg-light: #3B5469;
             --dark-bg-deep: #2A3E50;
@@ -98,7 +98,7 @@
             --electric-blue: #2F80ED;
             --accent-lime: #B7E34A;
             --lime-gradient-start: #DDE9B6;
-            --lime-gradient-end: #A1C44F;
+            --lime-gradient-end: #92C63E;
             --text-white: #FFFFFF;
             --text-gray: #6C757D;
             --light-gray: #F8F9FA;
@@ -508,7 +508,7 @@
         }
 
         .service-link::after {
-            content: '→';
+            content: '?';
             margin-left: 8px;
             transition: all 0.3s ease;
         }
@@ -779,7 +779,7 @@
         }
 
         .tech-link::after {
-            content: '→';
+            content: '?';
             margin-left: 8px;
             transition: all 0.3s ease;
         }
@@ -1061,29 +1061,40 @@
             }
 
             .hero {
-                min-height: calc(100vh - 70px);
-                padding: 20px 0;
+                min-height: 0 !important;
+                height: auto !important;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 26px 0 18px !important;
             }
 
             .hero-content {
-                padding: 20px;
+                max-width: 560px;
+                padding: 12px 20px 8px;
             }
 
             .hero h1 {
-                font-size: 2.2rem;
-                line-height: 1.3;
+                font-size: 2rem;
+                line-height: 1.16;
                 margin-bottom: 1rem;
+                max-width: 9.5ch;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .hero p {
                 font-size: 1rem;
-                margin-bottom: 2rem;
+                margin-bottom: 1.35rem;
+                max-width: 28ch;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
-                gap: 15px;
+                gap: 12px;
+                margin-top: 1rem;
             }
 
             .btn {
@@ -1136,8 +1147,17 @@
         }
 
         @media (max-width: 480px) {
+            .hero {
+                padding: 20px 0 12px !important;
+            }
+
+            .hero-content {
+                padding: 8px 16px 4px;
+            }
+
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.72rem;
+                max-width: 9ch;
             }
 
             .section-header h2 {
@@ -1208,8 +1228,8 @@
     {
       "@type": "Organization",
       "name": "iBridge Contact Solutions",
-      "url": "https://blxckukno.github.io/iBridge",
-      "logo": "https://blxckukno.github.io/iBridge/images/iBridge_Logo-removebg-preview.png",
+      "url": "https://ibridge.co.za",
+      "logo": "https://ibridge.co.za/images/iBridge_Logo-removebg-preview.png",
       "description": "Professional contact center and customer support solutions",
       "contactPoint": {
         "@type": "ContactPoint",
@@ -1221,23 +1241,18 @@
     {
       "@type": "WebSite",
       "name": "iBridge Contact Solutions",
-      "url": "https://blxckukno.github.io/iBridge",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://blxckukno.github.io/iBridge/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "url": "https://ibridge.co.za"
     },
     {
       "@type": "WebPage",
       "name": "iBridge - Premier Contact Center Solutions & Customer Support",
       "description": "Transform your customer experience with iBridge's professional contact center solutions. Expert customer support, advanced technology, and proven results for businesses worldwide.",
-      "url": "https://blxckukno.github.io/iBridge/",
+      "url": "https://ibridge.co.za/",
       "inLanguage": "en-US",
       "isPartOf": {
         "@type": "WebSite",
         "name": "iBridge Contact Solutions",
-        "url": "https://blxckukno.github.io/iBridge"
+        "url": "https://ibridge.co.za"
       }
     }
   ]
@@ -1245,7 +1260,7 @@
     </script>
 </head>
 
-<body>
+<body class="home-page">
     <!-- Skip Navigation -->
     <nav class="skip-nav" aria-label="Skip navigation">
         <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -1270,10 +1285,7 @@
                     <li role="none"><a href="team.html" class="nav-link" role="menuitem">Our Team</a></li>
                     <li role="none"><a href="careers.html" class="nav-link" role="menuitem">Careers</a></li>
                     <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
-                    <li><a href="staff-login.html" class="nav-link employee-login">
-                            <i class="fas fa-user-shield"></i> Staff Portal
-                        </a></li>
-                </ul>
+</ul>
                 <div class="mobile-menu-toggle" id="mobile-menu-toggle">
                     <span></span>
                     <span></span>
@@ -1290,7 +1302,7 @@
             <div class="hero-content fade-in">
                 <h1 id="hero-heading">Your Strategic Partner in <span class="highlight">BPO & BPaaS</span> Solutions
                 </h1>
-                <p>Founder-Led Excellence. Tailored Solutions. Driving Your Business Forward.</p>
+                <p>Founder-led delivery, Africa-ready operating capability, and tailored support designed to move your business forward.</p>
                 <div class="hero-buttons">
                     <a href="services.html" class="btn btn-primary" aria-describedby="services-desc">Our Services</a>
                     <a href="contact.html" class="btn btn-outline" aria-describedby="contact-desc">Contact Us</a>
@@ -1306,10 +1318,7 @@
             <div class="about-container">
                 <div class="about-text fade-in">
                     <h2>About <span class="highlight">iBridge</span></h2>
-                    <p>At iBridge, we build strategic, scalable BPO and BPaaS solutions that match your operational
-                        needs.
-                        We are founder-led and people-first, working hand-in-hand with your teams to unlock performance,
-                        customer experience, and business growth.</p>
+                    <p>At iBridge, we design founder-led BPO and BPaaS solutions around the realities of your operation. From African market entry and customer experience to cloud-enabled delivery, we help businesses build credible, scalable service models that are ready to perform.</p>
 
                     <div class="stats">
                         <div class="stat">
@@ -1329,9 +1338,16 @@
                 </div>
 
                 <div class="about-image fade-in image-container">
-                    <img src="images/generated/about-team-african.png"
-                        alt="Professional team collaboration at iBridge Contact Solutions - dedicated staff working together on business process optimization"
-                        class="lazy-image" loading="lazy" decoding="async" width="600" height="400">
+                    <picture>
+                        <source
+                            srcset="images/generated-hq/about-team-african-480w.png 480w,
+                                    images/generated-hq/about-team-african-640w.png 640w,
+                                    images/generated-hq/about-team-african-960w.png 960w"
+                            sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1280px) 48vw, 560px">
+                        <img src="images/generated/about-team-african.png"
+                            alt="Professional team collaboration at iBridge Contact Solutions - dedicated staff working together on business process optimization"
+                            class="lazy-image" loading="lazy" decoding="async" width="600" height="400">
+                    </picture>
                 </div>
             </div>
         </section>
@@ -1341,7 +1357,7 @@
             <div class="services-container">
                 <div class="section-header">
                     <h2>Core Services</h2>
-                    <p>Comprehensive solutions to streamline operations and enhance your customer experience.</p>
+                    <p>Practical solutions that strengthen customer experience, operational control, and sustainable business growth.</p>
                 </div>
 
                 <div class="services-grid">
@@ -1350,8 +1366,8 @@
                             <i class="fas fa-headset"></i>
                         </div>
                         <h3>Contact Centre</h3>
-                        <p>24/7 customer support with multilingual agents and omnichannel solutions.</p>
-                        <a href="contact-center-solutions.html" class="service-link">Learn More</a>
+                        <p>Multilingual omnichannel support built for responsive, measurable customer service.</p>
+                        <a href="contact-center.html" class="service-link">Learn More</a>
                     </div>
 
                     <div class="service-card fade-in">
@@ -1359,8 +1375,8 @@
                             <i class="fas fa-laptop-code"></i>
                         </div>
                         <h3>IT Support</h3>
-                        <p>Comprehensive technical support and infrastructure management solutions.</p>
-                        <a href="it-support-services.html" class="service-link">Learn More</a>
+                        <p>Dependable technical support, cloud enablement, and workplace infrastructure oversight.</p>
+                        <a href="it-support.html" class="service-link">Learn More</a>
                     </div>
 
                     <div class="service-card fade-in">
@@ -1368,7 +1384,7 @@
                             <i class="fas fa-cogs"></i>
                         </div>
                         <h3>Business Process Outsourcing</h3>
-                        <p>Streamline operations with our expert back-office processing and data entry services.</p>
+                        <p>Back-office and process support that improves efficiency, accuracy, and operating resilience.</p>
                         <a href="business-process-outsourcing.html" class="service-link">Learn More</a>
                     </div>
 
@@ -1377,8 +1393,8 @@
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <h3>Training & Development</h3>
-                        <p>Professional training programs and skill development initiatives for your team.</p>
-                        <a href="services.html" class="service-link">Learn More</a>
+                        <p>Structured learning and capability-building that helps teams perform with confidence.</p>
+                        <a href="about.html#people-advantage" class="service-link">Learn More</a>
                     </div>
 
                     <div class="service-card fade-in">
@@ -1386,8 +1402,8 @@
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h3>Performance Analytics</h3>
-                        <p>Advanced analytics and reporting to optimize your business processes and outcomes.</p>
-                        <a href="services.html" class="service-link">Learn More</a>
+                        <p>Clear reporting and operational insight that sharpen service quality and decision-making.</p>
+                        <a href="services.html#operational-capability" class="service-link">Learn More</a>
                     </div>
 
                     <div class="service-card fade-in">
@@ -1395,8 +1411,8 @@
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h3>Quality Assurance</h3>
-                        <p>Comprehensive quality management systems to ensure consistent service excellence.</p>
-                        <a href="services.html" class="service-link">Learn More</a>
+                        <p>Consistent evaluation, governance, and service controls that protect customer experience.</p>
+                        <a href="services.html#cloud-enabled-bpo" class="service-link">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1407,56 +1423,62 @@
             <div class="why-choose-container">
                 <div class="section-header">
                     <h2>Why Choose <span class="highlight">iBridge</span></h2>
-                    <p>Our commitment to excellence and customer success sets us apart.</p>
+                    <p>We combine regulatory insight, people-first delivery, and disciplined execution to help clients scale with confidence.</p>
                 </div>
 
                 <div class="features-grid">
                     <div class="feature-item fade-in">
                         <div class="feature-icon">
-                            <i class="fas fa-users"></i>
+                            <i class="fas fa-balance-scale"></i>
                         </div>
-                        <h3>Expert Team</h3>
-                        <p>Experienced professionals dedicated to your success.</p>
+                        <h3>Regulatory Expertise</h3>
+                        <p>We help businesses navigate approvals, compliance requirements, and engagement with local
+                            authorities across African markets.</p>
+                    </div>
+
+                    <div class="feature-item fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud-Enabled Delivery</h3>
+                        <p>Clients gain quicker deployment, better scalability, and stronger operating flexibility
+                            through established cloud-enabled infrastructure.</p>
+                    </div>
+
+                    <div class="feature-item fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3>People Advantage</h3>
+                        <p>We recruit, train, coach, and support talent through a structured model that improves
+                            consistency, accountability, and customer outcomes.</p>
                     </div>
 
                     <div class="feature-item fade-in">
                         <div class="feature-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <h3>24/7 Support</h3>
-                        <p>Round-the-clock availability for your business needs.</p>
+                        <h3>24/7 Service Capability</h3>
+                        <p>Our delivery model supports on-site and remote teams, local and cross-border operations, and
+                            around-the-clock customer support.</p>
                     </div>
 
                     <div class="feature-item fade-in">
                         <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-language"></i>
                         </div>
-                        <h3>Security First</h3>
-                        <p>Enterprise-grade security for your data and operations.</p>
+                        <h3>Multilingual CX</h3>
+                        <p>We improve convenience and trust by engaging customers in the right language across the
+                            right channels.</p>
                     </div>
 
                     <div class="feature-item fade-in">
                         <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-briefcase"></i>
                         </div>
-                        <h3>Scalable Solutions</h3>
-                        <p>Solutions that grow with your business requirements.</p>
-                    </div>
-
-                    <div class="feature-item fade-in">
-                        <div class="feature-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h3>Global Reach</h3>
-                        <p>International presence with local expertise and support.</p>
-                    </div>
-
-                    <div class="feature-item fade-in">
-                        <div class="feature-icon">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                        <h3>Quality Certified</h3>
-                        <p>ISO-certified processes and industry-leading quality standards.</p>
+                        <h3>Founder-Led Experience</h3>
+                        <p>Leadership shaped by decades of experience across telecommunications, financial services,
+                            media, mobility, and pan-African market expansion.</p>
                     </div>
                 </div>
             </div>
@@ -1467,7 +1489,7 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Advanced <span class="highlight">Technology</span> Solutions</h2>
-                    <p>Cutting-edge tools and platforms that drive efficiency and excellence.</p>
+                    <p>Practical platforms and automation that support secure, efficient, measurable service delivery.</p>
                 </div>
 
                 <div class="tech-grid">
@@ -1516,23 +1538,24 @@
                 <div class="contact-content">
                     <div class="contact-info">
                         <h2>Ready to Get <span class="highlight">Started?</span></h2>
-                        <p>Let's discuss how our solutions can help your business grow and succeed.</p>
+                        <p>Talk to our team about service design, operational support, or African market expansion.</p>
 
                         <div class="contact-details">
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div>
                                     <h4>Address</h4>
-                                    <p>328 Kent Avenue, Ferndale, Randburg, 2194, South Africa</p>
-                                    <p style="margin-top: 8px;"><a href="https://www.google.com/maps/dir/?api=1&destination=328+Kent+Avenue%2C+Ferndale%2C+Randburg%2C+2194%2C+South+Africa" target="_blank" rel="noopener noreferrer" style="font-weight:600; color:#A1C44F;"><i class="fas fa-route"></i> Get Directions</a></p>
+                                    <p>332 Kent Avenue, Ferndale, Randburg, 2194, South Africa</p>
+                                    <p style="margin-top: 8px;"><a href="https://www.google.com/maps/dir/?api=1&destination=332+Kent+Avenue%2C+Ferndale%2C+Randburg%2C+2194%2C+South+Africa" target="_blank" rel="noopener noreferrer" style="font-weight:600; color:#92C63E;"><i class="fas fa-route"></i> Get Directions</a></p>
                                 </div>
                             </div>
 
                             <div class="contact-item">
                                 <i class="fas fa-phone"></i>
                                 <div>
-                                    <h4>Phone</h4>
+                                    <h4>Office Line</h4>
                                     <p><a href="tel:+27112387090">+27 11 238 7090</a></p>
+                                    <p style="margin-top: 6px; font-size: 0.95rem; opacity: 0.86;">Calls route through the office and HR team.</p>
                                 </div>
                             </div>
 
@@ -1554,6 +1577,41 @@
             </div>
         </section>
 
+        <section class="why-choose governance-highlights">
+            <div class="why-choose-container">
+                <div class="section-header">
+                    <h2>Governance & <span class="highlight">Compliance</span></h2>
+                    <p>Published policies, named oversight, and an active review roadmap reinforce the way we manage trust, privacy, and operational governance.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>2025 Deliverables Completed</h3>
+                        <p>Our year-end compliance report records completed PAIA reporting, the 2025 PAIA manual update, security-breach assistance, awareness training, and structured consultation sessions.</p>
+                    </div>
+
+                    <div class="feature-item fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Named Information Officers</h3>
+                        <p>Privacy and access-to-information oversight is led by Mgqibelo Gasela as Information Officer and Collins Khumalo as Deputy Information Officer, supported by clearly published request channels.</p>
+                    </div>
+
+                    <div class="feature-item fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3>2026 Roadmap</h3>
+                        <p>The next governance cycle focuses on phased review work, ongoing policy refinement, and training that keeps operational controls aligned with evolving regulatory expectations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -1567,8 +1625,7 @@
                             class="logo-optimized" loading="lazy" decoding="async" width="120" height="32">
                         <h3>iBridge Contact Solutions</h3>
                     </div>
-                    <p>Your strategic partner in BPO & BPaaS solutions. Founder-led excellence delivering tailored
-                        business solutions.</p>
+                    <p>Your strategic partner for founder-led BPO and BPaaS delivery, built for African growth, resilient service models, and measurable customer outcomes.</p>
 
                     <div class="social-links">
                         <a href="https://linkedin.com/company/ibridge-contact-solutions" aria-label="LinkedIn"
@@ -1585,8 +1642,8 @@
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="contact-center-solutions.html">Contact Centre Solutions</a></li>
-                        <li><a href="it-support-services.html">IT Support Services</a></li>
+                        <li><a href="contact-center.html">Contact Centre Solutions</a></li>
+                        <li><a href="it-support.html">IT Support Services</a></li>
                         <li><a href="business-process-outsourcing.html">Business Process Outsourcing</a></li>
                         <li><a href="ai-automation.html">AI & Automation</a></li>
                         <li><a href="services.html">Training & Development</a></li>
@@ -1605,7 +1662,7 @@
                 <div class="footer-section">
                     <h4>Contact Information</h4>
                     <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt"></i> 328 Kent Avenue, Ferndale, Randburg, 2194, South Africa
+                        <p><i class="fas fa-map-marker-alt"></i> 332 Kent Avenue, Ferndale, Randburg, 2194, South Africa
                         </p>
                         <p><i class="fas fa-phone"></i> <a href="tel:+27112387090">+27 11 238 7090</a></p>
                         <p><i class="fas fa-envelope"></i> <a href="mailto:info@ibridge.co.za">info@ibridge.co.za</a>
@@ -1615,7 +1672,15 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 iBridge Contact Solutions. All rights reserved.</p>
+                <p>&copy; 2026 iBridge Contact Solutions. All rights reserved.</p>
+                <div class="footer-legal-links static-footer-links">
+                    <a href="privacy.html">Privacy Notice</a>
+                    <a href="cookie-notice.html">Cookie Notice</a>
+                    <a href="compliance.html">POPIA, PAIA & ECTA</a>
+                    <a href="terms.html">Terms of Use</a>
+                    <a href="accessibility.html">Accessibility</a>
+                    <button type="button" class="open-cookie-preferences">Cookie Preferences</button>
+                </div>
             </div>
         </div>
     </footer>
@@ -1704,7 +1769,7 @@
         // Performance optimization - Preload critical images
         const criticalImages = [
             'images/iBridge_Logo-removebg-preview.png',
-            'images/generated/about-team-african.png'
+            'images/generated-hq/about-team-african.png'
         ];
 
         criticalImages.forEach(src => {
@@ -1720,6 +1785,7 @@
 </body>
 
 </html>
+
 
 
 

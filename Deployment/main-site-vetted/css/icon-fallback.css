@@ -1,0 +1,158 @@
+html.no-fa-icons i.fas::before,
+html.no-fa-icons i.fa::before,
+html.no-fa-icons i.far::before,
+html.no-fa-icons i.fab::before {
+  font-family: "Segoe UI Symbol", "Arial Unicode MS", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1;
+  display: inline-block;
+  color: currentColor;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 1em;
+  text-align: center;
+}
+
+html.no-fa-icons i[class*="fa-"]::before {
+  content: "\25A1";
+}
+
+html.no-fa-icons .fa-bars::before { content: "\2630"; }
+html.no-fa-icons .fa-times::before { content: "\00D7"; }
+html.no-fa-icons .fa-check::before { content: "\2713"; }
+html.no-fa-icons .fa-check-circle::before { content: "\25C9"; }
+html.no-fa-icons .fa-times-circle::before { content: "\2297"; }
+html.no-fa-icons .fa-arrow-right::before { content: "\2192"; }
+html.no-fa-icons .fa-arrow-up::before { content: "\2191"; }
+html.no-fa-icons .fa-chevron-up::before { content: "\2303"; }
+html.no-fa-icons .fa-home::before { content: "\2302"; }
+html.no-fa-icons .fa-ticket-alt::before { content: "\25AD"; }
+html.no-fa-icons .fa-chart-line::before { content: "\2215"; }
+html.no-fa-icons .fa-chart-bar::before { content: "\2263"; }
+html.no-fa-icons .fa-users::before { content: "\25C9\25C9"; }
+html.no-fa-icons .fa-user-tie::before { content: "\25CE"; }
+html.no-fa-icons .fa-graduation-cap::before { content: "\25B3"; }
+html.no-fa-icons .fa-shield-alt::before { content: "\25E9"; }
+html.no-fa-icons .fa-shield-check::before { content: "\25E9"; }
+html.no-fa-icons .fa-lock::before { content: "\2299"; }
+html.no-fa-icons .fa-cogs::before { content: "\2699"; }
+html.no-fa-icons .fa-tools::before { content: "\2692"; }
+html.no-fa-icons .fa-toolbox::before { content: "\25A3"; }
+html.no-fa-icons .fa-plug::before { content: "\22A5"; }
+html.no-fa-icons .fa-code::before { content: "\003C\003E"; }
+html.no-fa-icons .fa-play::before { content: "\25B6"; }
+html.no-fa-icons .fa-play-circle::before { content: "\25B7"; }
+html.no-fa-icons .fa-rocket::before { content: "\25B2"; }
+html.no-fa-icons .fa-brain::before { content: "\25C8"; }
+html.no-fa-icons .fa-calendar-alt::before { content: "\25A6"; }
+html.no-fa-icons .fa-headset::before { content: "\25CC"; }
+html.no-fa-icons .fa-cloud::before { content: "\2601"; }
+html.no-fa-icons .fa-server::before { content: "\25A4"; }
+html.no-fa-icons .fa-database::before { content: "\25A5"; }
+html.no-fa-icons .fa-network-wired::before { content: "\2295"; }
+html.no-fa-icons .fa-mobile-alt::before { content: "\25AF"; }
+html.no-fa-icons .fa-keyboard::before { content: "\2328"; }
+html.no-fa-icons .fa-universal-access::before { content: "\267F"; }
+html.no-fa-icons .fa-palette::before { content: "\25C7"; }
+html.no-fa-icons .fa-info-circle::before { content: "\2139"; }
+html.no-fa-icons .fa-exclamation-triangle::before { content: "\26A0"; }
+html.no-fa-icons .fa-sync-alt::before { content: "\27F3"; }
+html.no-fa-icons .fa-wifi-slash::before { content: "\223F"; }
+html.no-fa-icons .fa-spinner::before { content: "\25D4"; }
+html.no-fa-icons .fa-dollar-sign::before { content: "\0024"; }
+html.no-fa-icons .fa-bullseye::before { content: "\2295"; }
+html.no-fa-icons .fa-clock::before { content: "\25F7"; }
+html.no-fa-icons .fa-eye::before { content: "\25C9"; }
+html.no-fa-icons .fa-robot::before { content: "\25A7"; }
+html.no-fa-icons .fa-comments::before { content: "\226A"; }
+html.no-fa-icons .fa-handshake::before { content: "\223B"; }
+html.no-fa-icons .fa-lightbulb::before { content: "\25C7"; }
+html.no-fa-icons .fa-award::before { content: "\2736"; }
+html.no-fa-icons .fa-laptop::before { content: "\25AD"; }
+html.no-fa-icons .fa-expand-arrows-alt::before { content: "\2194"; }
+html.no-fa-icons .fa-list::before { content: "\2261"; }
+html.no-fa-icons .fa-search::before { content: "\2315"; }
+html.no-fa-icons .fa-envelope::before { content: "\2709"; }
+html.no-fa-icons .fa-phone::before { content: "\260E"; }
+html.no-fa-icons .fa-spin { animation: icon-fallback-spin 1s linear infinite; }
+html.no-fa-icons .fa-arrow-left::before { content: "\2190"; }
+html.no-fa-icons .fa-chevron-down::before { content: "\2304"; }
+html.no-fa-icons .fa-plus::before { content: "\002B"; }
+html.no-fa-icons .fa-star::before { content: "\2605"; }
+html.no-fa-icons .fa-heart::before { content: "\2665"; }
+html.no-fa-icons .fa-bell::before { content: "\25CE"; }
+html.no-fa-icons .fa-globe::before { content: "\25EF"; }
+html.no-fa-icons .fa-route::before { content: "\27A4"; }
+html.no-fa-icons .fa-map-marker-alt::before { content: "\25CF"; }
+html.no-fa-icons .fa-user::before { content: "\25CB"; }
+html.no-fa-icons .fa-user-plus::before { content: "\2295"; }
+html.no-fa-icons .fa-user-lock::before { content: "\2299"; }
+html.no-fa-icons .fa-user-shield::before { content: "\25E9"; }
+html.no-fa-icons .fa-file-alt::before { content: "\25A4"; }
+html.no-fa-icons .fa-file-csv::before { content: "\25A4"; }
+html.no-fa-icons .fa-file-excel::before { content: "\25A4"; }
+html.no-fa-icons .fa-file-pdf::before { content: "\25A4"; }
+html.no-fa-icons .fa-download::before { content: "\21E9"; }
+html.no-fa-icons .fa-upload::before { content: "\21E7"; }
+html.no-fa-icons .fa-history::before { content: "\27F2"; }
+html.no-fa-icons .fa-sync::before { content: "\27F3"; }
+html.no-fa-icons .fa-save::before { content: "\25A3"; }
+html.no-fa-icons .fa-key::before { content: "\26BF"; }
+html.no-fa-icons .fa-building::before { content: "\25A6"; }
+html.no-fa-icons .fa-newspaper::before { content: "\25A4"; }
+html.no-fa-icons .fa-briefcase::before { content: "\25AD"; }
+html.no-fa-icons .fa-book::before { content: "\25A4"; }
+html.no-fa-icons .fa-book-open::before { content: "\25A4"; }
+html.no-fa-icons .fa-book-reader::before { content: "\25A4"; }
+html.no-fa-icons .fa-certificate::before { content: "\2736"; }
+html.no-fa-icons .fa-medal::before { content: "\2736"; }
+html.no-fa-icons .fa-trophy::before { content: "\2606"; }
+html.no-fa-icons .fa-target::before { content: "\2295"; }
+html.no-fa-icons .fa-tasks::before { content: "\2630"; }
+html.no-fa-icons .fa-comment::before { content: "\25AD"; }
+html.no-fa-icons .fa-phone-alt::before { content: "\260E"; }
+html.no-fa-icons .fa-video::before { content: "\25B7"; }
+html.no-fa-icons .fa-language::before { content: "\25EF"; }
+html.no-fa-icons .fa-bullhorn::before { content: "\25B7"; }
+html.no-fa-icons .fa-chart-pie::before { content: "\25D4"; }
+html.no-fa-icons .fa-tachometer-alt::before { content: "\25D4"; }
+html.no-fa-icons .fa-laptop-code::before { content: "\003C\003E"; }
+html.no-fa-icons .fa-paint-brush::before { content: "\2571"; }
+html.no-fa-icons .fa-clipboard-check::before { content: "\2713"; }
+html.no-fa-icons .fa-sticky-note::before { content: "\25A4"; }
+html.no-fa-icons .fa-question-circle::before { content: "\003F"; }
+html.no-fa-icons .fa-share-alt::before { content: "\2197"; }
+html.no-fa-icons .fa-sign-in-alt::before { content: "\21B3"; }
+html.no-fa-icons .fa-sign-out-alt::before { content: "\21B1"; }
+html.no-fa-icons .fa-up-right-from-square::before { content: "\2197"; }
+html.no-fa-icons .fa-balance-scale::before { content: "\2261"; }
+html.no-fa-icons .fa-broom::before { content: "\2572"; }
+html.no-fa-icons .fa-bolt::before { content: "\26A1"; }
+html.no-fa-icons .fa-cog::before { content: "\2699"; }
+html.no-fa-icons .fa-calendar::before { content: "\25A6"; }
+html.no-fa-icons .fa-image::before { content: "\25A3"; }
+html.no-fa-icons .fa-desktop::before { content: "\25AD"; }
+html.no-fa-icons .fa-shopping-cart::before { content: "\25A1"; }
+html.no-fa-icons .fa-hospital::before { content: "\25A6"; }
+html.no-fa-icons .fa-industry::before { content: "\25A6"; }
+html.no-fa-icons .fa-university::before { content: "\25A6"; }
+
+html.no-fa-icons .fab.fa-whatsapp::before { content: "wa"; }
+html.no-fa-icons .fab.fa-linkedin::before,
+html.no-fa-icons .fab.fa-linkedin-in::before { content: "in"; }
+html.no-fa-icons .fab.fa-facebook-f::before { content: "f"; }
+html.no-fa-icons .fab.fa-twitter::before { content: "x"; }
+html.no-fa-icons .fab.fa-instagram::before { content: "ig"; }
+html.no-fa-icons .fab.fa-aws::before { content: "aws"; }
+html.no-fa-icons .fab.fa-python::before { content: "py"; }
+html.no-fa-icons .fab.fa-google::before { content: "g"; }
+html.no-fa-icons .fab.fa-microsoft::before { content: "ms"; }
+html.no-fa-icons .fab.fa-html5::before { content: "h5"; }
+html.no-fa-icons .fab.fa-js-square::before { content: "js"; }
+
+@keyframes icon-fallback-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

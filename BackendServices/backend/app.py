@@ -12,7 +12,8 @@ import io
 import zipfile
 import time
 import uuid
-from datetime import datetime, timedelta
+import hashlib
+from datetime import datetime, timedelta, timezone
 
 from flask import Flask, jsonify, request, send_from_directory, make_response, g
 from flask_cors import CORS
@@ -81,6 +82,46 @@ _ops_metrics = {
     "requests_total": 0,
     "errors_total": 0,
     "by_path": {},
+}
+
+GENERAL_CONTACT_EMAIL = "info@ibridge.co.za"
+RECRUITMENT_CONTACT_EMAIL = "recruitment@ibridge.co.za"
+INFORMATION_OFFICER_EMAIL = "mgqibelo.gasela@ibridge.co.za"
+DEPUTY_INFORMATION_OFFICER_EMAIL = "collins@ibridge.co.za"
+
+COMPLIANCE_CONTACT_KEYWORDS = {
+    "popia",
+    "paia",
+    "privacy complaint",
+    "privacy request",
+    "privacy notice",
+    "data subject",
+    "personal information",
+    "access request",
+    "deletion request",
+    "correction request",
+    "objection request",
+    "information officer",
+    "information regulator",
+    "data breach",
+}
+
+RECRUITMENT_CONTACT_KEYWORDS = {
+    "career",
+    "careers",
+    "cv",
+    "resume",
+    "vacancy",
+    "vacancies",
+    "job",
+    "jobs",
+    "recruitment",
+    "recruiter",
+    "employment",
+    "apply",
+    "application",
+    "hr",
+    "human resources",
 }
 
 
@@ -204,6 +245,73 @@ def _sanitize_optional_email(value):
     return ""
 
 
+def _normalize_contact_enquiry_type(value):
+    raw = _sanitize_text(value or "general", 80).lower().replace("_", "-").strip()
+    alias_map = {
+        "contact-center": "contact-center",
+        "contact-centre": "contact-center",
+        "it-support": "it-support",
+        "ai-automation": "ai-automation",
+        "client-interaction": "client-interaction",
+        "partnership": "partnership",
+        "partnerships": "partnership",
+        "supplier": "supplier-finance",
+        "supplier-finance": "supplier-finance",
+        "finance": "supplier-finance",
+        "recruitment": "recruitment-hr",
+        "recruitment-hr": "recruitment-hr",
+        "hr": "recruitment-hr",
+        "careers": "recruitment-hr",
+        "general": "general",
+        "general-office": "general",
+        "office": "general",
+    }
+    return alias_map.get(raw, "general")
+
+
+def _message_contains_any(value, keywords):
+    haystack = f" {str(value or '').lower()} "
+    return any(keyword in haystack for keyword in keywords)
+
+
+def _resolve_contact_route(enquiry_type, subject="", message=""):
+    normalized = _normalize_contact_enquiry_type(enquiry_type)
+    combined_text = " ".join(filter(None, [subject, message]))
+
+    if normalized == "recruitment-hr" or _message_contains_any(combined_text, RECRUITMENT_CONTACT_KEYWORDS):
+        return {
+            "route": "recruitment-hr",
+            "team": "Recruitment and HR",
+            "target_email": RECRUITMENT_CONTACT_EMAIL,
+            "reason": "Recruitment or employment enquiry",
+        }
+
+    if _message_contains_any(combined_text, COMPLIANCE_CONTACT_KEYWORDS):
+        return {
+            "route": "compliance",
+            "team": "Information Officer",
+            "target_email": INFORMATION_OFFICER_EMAIL,
+            "reason": "Privacy, POPIA, PAIA, or website-compliance request",
+        }
+
+    general_route_map = {
+        "contact-center": ("Contact Center Solutions", GENERAL_CONTACT_EMAIL),
+        "it-support": ("IT Support and Cloud Services", GENERAL_CONTACT_EMAIL),
+        "ai-automation": ("AI and Automation", GENERAL_CONTACT_EMAIL),
+        "client-interaction": ("Client Interaction", GENERAL_CONTACT_EMAIL),
+        "partnership": ("Partnerships and Business Development", GENERAL_CONTACT_EMAIL),
+        "supplier-finance": ("Suppliers and Finance", GENERAL_CONTACT_EMAIL),
+        "general": ("General Enquiries", GENERAL_CONTACT_EMAIL),
+    }
+    team, target_email = general_route_map.get(normalized, general_route_map["general"])
+    return {
+        "route": normalized,
+        "team": team,
+        "target_email": target_email,
+        "reason": "General website enquiry",
+    }
+
+
 def _get_user_from_optional_jwt():
     try:
         verify_jwt_in_request(optional=True)
@@ -253,6 +361,106 @@ def _training_resources_path():
     data_dir = os.path.join(BASE_DIR, "data")
     os.makedirs(data_dir, exist_ok=True)
     return os.path.join(data_dir, "lms-training-resources.json")
+
+
+def _compliance_data_dir():
+    data_dir = os.path.join(BASE_DIR, "data", "compliance")
+    os.makedirs(data_dir, exist_ok=True)
+    return data_dir
+
+
+def _compliance_log_path(name):
+    return os.path.join(_compliance_data_dir(), f"{name}.jsonl")
+
+
+def _parse_record_timestamp(value):
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        if parsed.tzinfo is not None:
+            parsed = parsed.astimezone(timezone.utc).replace(tzinfo=None)
+        return parsed
+    except Exception:
+        return None
+
+
+def _request_fingerprint():
+    seed = "|".join(
+        [
+            app.config.get("SECRET_KEY", ""),
+            request.remote_addr or "",
+            (request.headers.get("User-Agent", "") or "")[:240],
+        ]
+    )
+    return hashlib.sha256(seed.encode("utf-8")).hexdigest()[:24]
+
+
+def _purge_jsonl_records(path, retention_days):
+    if retention_days is None or not os.path.exists(path):
+        return 0
+
+    cutoff = datetime.utcnow() - timedelta(days=int(retention_days))
+    kept = []
+    removed = 0
+
+    try:
+        with open(path, "r", encoding="utf-8") as fp:
+            for line in fp:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    record = json.loads(line)
+                except Exception:
+                    continue
+
+                timestamp = _parse_record_timestamp(
+                    record.get("occurred_at")
+                    or record.get("submitted_at")
+                    or record.get("timestamp")
+                    or record.get("created_at")
+                )
+                if timestamp and timestamp < cutoff:
+                    removed += 1
+                    continue
+                kept.append(record)
+    except Exception:
+        return 0
+
+    if removed:
+        with open(path, "w", encoding="utf-8") as fp:
+            for record in kept:
+                fp.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+    return removed
+
+
+def _append_jsonl_record(name, record, retention_days=None):
+    path = _compliance_log_path(name)
+    _purge_jsonl_records(path, retention_days)
+    with open(path, "a", encoding="utf-8") as fp:
+        fp.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
+def _read_jsonl_records(name, limit=200):
+    path = _compliance_log_path(name)
+    if not os.path.exists(path):
+        return []
+
+    rows = []
+    with open(path, "r", encoding="utf-8") as fp:
+        for line in fp:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                rows.append(json.loads(line))
+            except Exception:
+                continue
+
+    rows = list(reversed(rows))
+    return rows[: max(1, min(int(limit), 500))]
 
 
 def _load_training_resources():
@@ -1203,7 +1411,178 @@ def lms_training_resource_complete(resource_id):
 @security_middleware.limiter.limit(SecurityConfig.RATE_LIMITS["contact_form"])
 @validate_json(ContactFormSchema)
 def contact_form():
-    return jsonify({"message": "Thank you for your message. We will get back to you soon.", "status": "submitted"})
+    payload = getattr(request, "validated_json", request.get_json(silent=True) or {})
+    name = _sanitize_text(payload.get("name", ""), 100)
+    email = _sanitize_optional_email(payload.get("email", ""))
+    subject = _sanitize_text(payload.get("subject", ""), 200)
+    message = _sanitize_text(payload.get("message", ""), 2000)
+    enquiry_type = _normalize_contact_enquiry_type(payload.get("enquiry_type", "general"))
+
+    route = _resolve_contact_route(enquiry_type, subject=subject, message=message)
+    if route["route"] == "compliance":
+        return jsonify(
+            {
+                "error": "POPIA, PAIA, privacy, and website-compliance matters must be submitted through the dedicated compliance channel.",
+                "route": "compliance",
+                "redirect_url": "/compliance.html",
+                "legal_contacts": {
+                    "information_officer_email": INFORMATION_OFFICER_EMAIL,
+                    "deputy_information_officer_email": DEPUTY_INFORMATION_OFFICER_EMAIL,
+                },
+            }
+        ), 422
+
+    reference_id = f"WEB-{datetime.utcnow().strftime('%Y%m%d')}-{secrets.token_hex(3).upper()}"
+    record = {
+        "reference_id": reference_id,
+        "name": name,
+        "email": email,
+        "phone": _sanitize_text(payload.get("phone", ""), 50),
+        "company": _sanitize_text(payload.get("company", ""), 120),
+        "subject": subject,
+        "message": message,
+        "enquiry_type": enquiry_type,
+        "page_url": _sanitize_text(payload.get("page_url", request.referrer or ""), 255),
+        "client_event_id": _sanitize_text(payload.get("client_event_id", ""), 80),
+        "route": route["route"],
+        "target_team": route["team"],
+        "target_email": route["target_email"],
+        "routing_reason": route["reason"],
+        "submitted_at": datetime.utcnow().isoformat(),
+        "request_id": getattr(g, "request_id", str(uuid.uuid4())),
+        "request_fingerprint": _request_fingerprint(),
+        "user_agent": (request.headers.get("User-Agent", "") or "")[:500],
+    }
+
+    evt = IntegrationEvent(
+        integration="website-intake",
+        direction="inbound",
+        event_type="contact_enquiry",
+        status="queued",
+        reference_id=reference_id,
+        attempts=0,
+        created_at=datetime.utcnow(),
+    )
+    evt.set_payload(record)
+    db.session.add(evt)
+    db.session.commit()
+
+    return jsonify(
+        {
+            "message": "Thank you for your message. The correct team has been queued to review it.",
+            "status": "submitted",
+            "reference_id": reference_id,
+            "route": route["route"],
+            "target_team": route["team"],
+        }
+    )
+
+
+@app.route("/api/compliance/consent", methods=["POST"])
+@security_middleware.limiter.limit(SecurityConfig.RATE_LIMITS["api_general"])
+def compliance_consent_log():
+    payload = request.get_json(silent=True) or {}
+    record = {
+        "analytics": bool(payload.get("analytics", False)),
+        "external_media": bool(payload.get("external_media", False)),
+        "marketing": bool(payload.get("marketing", False)),
+        "source": _sanitize_text(payload.get("source", "preferences"), 80),
+        "policy_version": _sanitize_text(payload.get("policy_version", "2026-03-10"), 40),
+        "page_url": _sanitize_text(payload.get("page_url", request.referrer or ""), 500),
+        "occurred_at": (_parse_record_timestamp(payload.get("occurred_at")) or datetime.utcnow()).isoformat(),
+        "request_id": getattr(g, "request_id", str(uuid.uuid4())),
+        "request_fingerprint": _request_fingerprint(),
+        "user_agent": (request.headers.get("User-Agent", "") or "")[:500],
+    }
+    _append_jsonl_record("consent", record, retention_days=400)
+    return jsonify({"message": "Consent preferences logged", "status": "recorded"})
+
+
+@app.route("/api/compliance/consent", methods=["GET"])
+@security_middleware.limiter.limit(SecurityConfig.RATE_LIMITS["api_general"])
+def compliance_consent_log_list():
+    user = _get_user_from_optional_jwt()
+    if not (_user_is_dev_or_it(user) or _has_internal_security_key()):
+        return jsonify({"error": "Dev/IT access required"}), 403
+
+    limit = max(1, min(500, int(request.args.get("limit", 100) or 100)))
+    items = _read_jsonl_records("consent", limit=limit)
+    return jsonify({"count": len(items), "items": items})
+
+
+@app.route("/api/compliance/requests", methods=["POST"])
+@security_middleware.limiter.limit(SecurityConfig.RATE_LIMITS["contact_form"])
+def compliance_request_create():
+    payload = request.get_json(silent=True) or {}
+
+    full_name = _sanitize_text(payload.get("full_name", ""), 120)
+    email = _sanitize_optional_email(payload.get("email", ""))
+    request_type = _sanitize_text(payload.get("request_type", ""), 60).lower()
+    details = _sanitize_text(payload.get("details", ""), 5000)
+    consent_acknowledged = bool(payload.get("consent_acknowledged", False))
+
+    allowed_request_types = {
+        "popia_access",
+        "popia_correction",
+        "popia_deletion",
+        "popia_objection",
+        "paia_access",
+        "privacy_complaint",
+    }
+
+    if not full_name or not email or not details or request_type not in allowed_request_types:
+        return jsonify({"error": "full_name, valid email, request_type, and details are required"}), 400
+
+    if not consent_acknowledged:
+        return jsonify({"error": "Privacy acknowledgement is required"}), 400
+
+    reference_id = f"REQ-{datetime.utcnow().strftime('%Y%m%d')}-{secrets.token_hex(3).upper()}"
+    occurred_at = (_parse_record_timestamp(payload.get("occurred_at")) or datetime.utcnow()).isoformat()
+    record = {
+        "reference_id": reference_id,
+        "full_name": full_name,
+        "email": email,
+        "phone": _sanitize_text(payload.get("phone", ""), 50),
+        "request_type": request_type,
+        "reference_context": _sanitize_text(payload.get("reference_context", ""), 240),
+        "details": details,
+        "page_url": _sanitize_text(payload.get("page_url", request.referrer or ""), 500),
+        "occurred_at": occurred_at,
+        "submitted_at": datetime.utcnow().isoformat(),
+        "status": "queued",
+        "request_id": getattr(g, "request_id", str(uuid.uuid4())),
+        "request_fingerprint": _request_fingerprint(),
+        "user_agent": (request.headers.get("User-Agent", "") or "")[:500],
+    }
+
+    _append_jsonl_record("rights-requests", record, retention_days=1825)
+
+    evt = IntegrationEvent(
+        integration="compliance",
+        direction="inbound",
+        event_type="rights_request",
+        status="queued",
+        reference_id=reference_id,
+        attempts=0,
+        created_at=datetime.utcnow(),
+    )
+    evt.set_payload(record)
+    db.session.add(evt)
+    db.session.commit()
+
+    return jsonify({"message": "Compliance request submitted", "reference_id": reference_id, "status": "queued"}), 201
+
+
+@app.route("/api/compliance/requests", methods=["GET"])
+@security_middleware.limiter.limit(SecurityConfig.RATE_LIMITS["api_general"])
+def compliance_request_list():
+    user = _get_user_from_optional_jwt()
+    if not (_user_is_dev_or_it(user) or _has_internal_security_key()):
+        return jsonify({"error": "Dev/IT access required"}), 403
+
+    limit = max(1, min(500, int(request.args.get("limit", 100) or 100)))
+    items = _read_jsonl_records("rights-requests", limit=limit)
+    return jsonify({"count": len(items), "items": items})
 
 
 @app.route("/api/cms/content", methods=["GET"])
@@ -1348,6 +1727,21 @@ def create_lead():
     if not full_name or not email:
         return jsonify({"error": "full_name and valid email are required"}), 400
 
+    inquiry_type = _normalize_contact_enquiry_type(payload.get("inquiry_type", "general"))
+    route = _resolve_contact_route(
+        inquiry_type,
+        subject=_sanitize_text(payload.get("subject", ""), 200),
+        message=_sanitize_text(payload.get("message", ""), 3000),
+    )
+    if route["route"] == "compliance":
+        return jsonify(
+            {
+                "error": "Compliance-related matters should not be submitted through the general contact form. Please use the dedicated compliance page instead.",
+                "route": "compliance",
+                "redirect_url": "/compliance.html",
+            }
+        ), 422
+
     existing = Lead.query.filter_by(email=email).order_by(Lead.created_at.desc()).first()
     if existing and existing.created_at and (datetime.utcnow() - existing.created_at).total_seconds() < 120:
         return jsonify({"error": "Duplicate lead submission detected"}), 429
@@ -1358,7 +1752,7 @@ def create_lead():
         phone=_sanitize_text(payload.get("phone", ""), 50),
         company=_sanitize_text(payload.get("company", ""), 120),
         source=_sanitize_text(payload.get("source", "website"), 80),
-        inquiry_type=_sanitize_text(payload.get("inquiry_type", "general"), 80),
+        inquiry_type=inquiry_type,
         message=_sanitize_text(payload.get("message", ""), 3000),
         priority=_sanitize_text(payload.get("priority", "medium"), 20).lower() or "medium",
         utm_source=_sanitize_text(payload.get("utm_source", ""), 120),
@@ -1381,11 +1775,29 @@ def create_lead():
         attempts=0,
         created_at=datetime.utcnow(),
     )
-    evt.set_payload({"lead": lead.to_dict()})
+    evt.set_payload(
+        {
+            "lead": lead.to_dict(),
+            "routing": {
+                "route": route["route"],
+                "target_team": route["team"],
+                "target_email": route["target_email"],
+                "routing_reason": route["reason"],
+            },
+        }
+    )
     db.session.add(evt)
     db.session.commit()
 
-    return jsonify({"message": "Lead captured", "lead_id": lead.id, "status": lead.status}), 201
+    return jsonify(
+        {
+            "message": "Lead captured",
+            "lead_id": lead.id,
+            "status": lead.status,
+            "route": route["route"],
+            "target_team": route["team"],
+        }
+    ), 201
 
 
 @app.route("/api/leads", methods=["GET"])

@@ -3,25 +3,25 @@ User-agent: *
 Allow: /
 Disallow: /logs/
 Disallow: /backups/
-Disallow: /*.log$
+Disallow: /tmp_ppt_extract/
 Disallow: /security-dashboard.html
 Disallow: /performance-dashboard.html
+Disallow: /index-backup.html
+Disallow: /index-backup-complex.html
+Disallow: /index-complex-backup.html
+Disallow: /index-enhanced.html
+Disallow: /index-simple.html
+Disallow: /index_simple_backup.html
+Disallow: /index_complete_restored.html
+Disallow: /Home.html
+Disallow: /about-clean.html
+Disallow: /contact-clean.html
+Disallow: /careers-enhanced.html
+Disallow: /services-enhanced.html
+Disallow: /team-enhanced.html
+Disallow: /blog.html
+Disallow: /blog-enhanced.html
+Disallow: /intranet.html
+Disallow: /lms-platform.html
 
-# Sitemap
-Sitemap: https://blxckukno.github.io/iBridge/sitemap.xml
-
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Allow all major search engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
+Sitemap: https://ibridge.co.za/sitemap.xml

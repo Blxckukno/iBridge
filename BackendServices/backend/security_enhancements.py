@@ -82,6 +82,11 @@ class ContactFormSchema(Schema):
     email = fields.Email(required=True)
     subject = fields.Str(required=True, validate=validate.Length(min=3, max=200))
     message = fields.Str(required=True, validate=validate.Length(min=5, max=SecurityConfig.TEXT_FIELD_MAX_LENGTH))
+    phone = fields.Str(required=False, allow_none=True, validate=validate.Length(max=50))
+    company = fields.Str(required=False, allow_none=True, validate=validate.Length(max=120))
+    enquiry_type = fields.Str(required=False, allow_none=True, validate=validate.Length(max=80))
+    page_url = fields.Str(required=False, allow_none=True, validate=validate.Length(max=255))
+    client_event_id = fields.Str(required=False, allow_none=True, validate=validate.Length(max=80))
 
 
 class SecurityUtils:
@@ -114,7 +119,12 @@ class SecurityUtils:
 class SecurityMiddleware:
     def __init__(self, app):
         self.app = app
-        self.limiter = Limiter(key_func=get_remote_address, app=app, default_limits=["1000 per hour"])
+        self.limiter = Limiter(
+            key_func=get_remote_address,
+            app=app,
+            default_limits=["1000 per hour"],
+            storage_uri=os.environ.get("RATELIMIT_STORAGE_URI", "memory://"),
+        )
         self.security_logger = logging.getLogger("security")
         self._setup_logging()
         self._setup_request_guards()

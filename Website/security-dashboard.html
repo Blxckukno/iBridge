@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,6 +11,8 @@
     <meta name="security-nonce" content="_LOzk8DDvG4uw538M7ThIA">
     <!-- ADVANCED SECURITY HEADERS -->
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
@@ -377,19 +379,19 @@
 <body>
     <div class="dashboard">
         <div class="header">
-            <h1>🛡️ Security Command Center</h1>
+            <h1>??? Security Command Center</h1>
             <p>Enterprise-grade security monitoring and threat detection for iBridge</p>
         </div>
 
         <div class="controls">
             <button class="btn btn-primary">
-                🔄 Refresh Status
+                ?? Refresh Status
             </button>
             <button class="btn btn-success">
-                🔍 Security Scan
+                ?? Security Scan
             </button>
             <button class="btn btn-danger">
-                ⚠️ View Threats
+                ?? View Threats
             </button>
         </div>
 
@@ -399,21 +401,21 @@
 
         <div class="security-sections">
             <div class="section-card">
-                <h2 class="section-title">🔒 Security Checks</h2>
+                <h2 class="section-title">?? Security Checks</h2>
                 <div id="securityChecks">
                     <!-- Security checks will be populated by JavaScript -->
                 </div>
             </div>
 
             <div class="section-card">
-                <h2 class="section-title">📊 Security Events Log</h2>
+                <h2 class="section-title">?? Security Events Log</h2>
                 <div class="events-log" id="eventsLog">
                     <!-- Events will be populated by JavaScript -->
                 </div>
             </div>
 
             <div class="section-card">
-                <h2 class="section-title">⚠️ Active Threats</h2>
+                <h2 class="section-title">?? Active Threats</h2>
                 <div class="threats-panel" id="threatsPanel">
                     <!-- Threats will be populated by JavaScript -->
                 </div>
@@ -421,7 +423,7 @@
         </div>
 
         <div class="recommendations" id="recommendations">
-            <h2>🎯 Security Recommendations</h2>
+            <h2>?? Security Recommendations</h2>
             <div id="recommendationsList">
                 <!-- Recommendations will be populated by JavaScript -->
             </div>
@@ -494,7 +496,7 @@
                         label: 'Security Score',
                         value: this.calculateSecurityScore(),
                         unit: '/100',
-                        icon: '🛡️',
+                        icon: '???',
                         status: this.getSecurityStatus(),
                         description: 'Overall security rating'
                     },
@@ -502,7 +504,7 @@
                         label: 'Active Threats',
                         value: metrics.violations || 0,
                         unit: '',
-                        icon: '⚠️',
+                        icon: '??',
                         status: metrics.violations > 0 ? 'critical' : 'secure',
                         description: 'Detected security violations'
                     },
@@ -510,7 +512,7 @@
                         label: 'Blocked Attempts',
                         value: (this.securityData.blockedAttempts || []).length,
                         unit: '',
-                        icon: '🚫',
+                        icon: '??',
                         status: 'info',
                         description: 'Malicious attempts blocked'
                     },
@@ -518,7 +520,7 @@
                         label: 'Security Events',
                         value: metrics.totalEvents || 0,
                         unit: '',
-                        icon: '📋',
+                        icon: '??',
                         status: 'info',
                         description: 'Total security events logged'
                     }
@@ -579,7 +581,7 @@
                     <div class="security-check">
                         <div class="check-info">
                             <div class="check-status check-${check.status}">
-                                ${check.status === 'passed' ? '✓' : check.status === 'failed' ? '✗' : '!'}
+                                ${check.status === 'passed' ? '?' : check.status === 'failed' ? '?' : '!'}
                             </div>
                             <div>
                                 <strong>${check.name}</strong>
@@ -620,7 +622,7 @@
                 if (threats.length === 0) {
                     threatsPanel.innerHTML = `
                         <div class="threat-item threat-low">
-                            <strong>✅ No Active Threats</strong><br>
+                            <strong>? No Active Threats</strong><br>
                             All security systems are functioning normally.
                         </div>
                     `;
@@ -780,7 +782,7 @@
     <script nonce="_LOzk8DDvG4uw538M7ThIA" src="js/analytics-manager.js"></script>
 
     <!-- EMERGENCY SECURITY MANAGER -->
-    <script src="js/csp-security-manager.js" nonce="RANDOM_NONCE"></script>
+    <script src="js/csp-security-manager.js"></script>
 
     <script nonce="m2/1fq5poK1XBS7iEFirfnTypL07gSFk">
     // Advanced XSS Protection System
@@ -796,13 +798,13 @@
         // Override dangerous functions
         const originalEval = window.eval;
         window.eval = function() {
-            console.warn('🚨 eval() blocked by security policy');
+            console.warn('?? eval() blocked by security policy');
             throw new Error('eval() not permitted');
         };
         
         const originalFunction = window.Function;
         window.Function = function() {
-            console.warn('🚨 Function constructor blocked by security policy');
+            console.warn('?? Function constructor blocked by security policy');
             throw new Error('Function constructor not permitted');
         };
         
@@ -810,7 +812,7 @@
         const originalSetAttribute = Element.prototype.setAttribute;
         Element.prototype.setAttribute = function(name, value) {
             if (name && name.toLowerCase().startsWith('on')) {
-                console.warn('🚨 Event handler blocked:', name);
+                console.warn('?? Event handler blocked:', name);
                 return;
             };
             return originalSetAttribute.call(this, name, value);
@@ -849,7 +851,7 @@
         
         // CSP violation reporting
         document.addEventListener('securitypolicyviolation', function(e) {
-            console.error('🚨 CSP Violation:', {
+            console.error('?? CSP Violation:', {
                 directive: e.violatedDirective,
                 blocked: e.blockedURI,
                 source: e.sourceFile,
@@ -863,13 +865,14 @@
         });
         
         // Initialize security monitoring
-        console.log('🔒 Advanced XSS Protection System initialized');
+        console.log('?? Advanced XSS Protection System initialized');
     })();
     </script>
     <script src="js/runtime-fix.js"></script>
 </body>
 
 </html>
+
 
 
 

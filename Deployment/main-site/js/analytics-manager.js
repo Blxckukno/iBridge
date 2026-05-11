@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Enterprise Analytics Manager
  * Implements comprehensive analytics including Google Analytics 4, custom events,
  * conversion tracking, user behavior analysis, A/B testing, and business insights
@@ -7,21 +7,20 @@
 class AnalyticsManager {
     constructor() {
         this.config = {
-            // Replace with actual tracking IDs
             googleAnalytics: {
-                measurementId: 'G-XXXXXXXXXX',
-                enabled: true
+                measurementId: '',
+                enabled: false
             },
             googleTagManager: {
-                containerId: 'GTM-XXXXXXX',
-                enabled: false // Enable when GTM is set up
+                containerId: '',
+                enabled: false
             },
             microsoftClarity: {
-                projectId: 'XXXXXXXXX',
-                enabled: true
+                projectId: '',
+                enabled: false
             },
             customAnalytics: {
-                enabled: true,
+                enabled: false,
                 apiEndpoint: '/api/analytics'
             },
             consentManagement: {
@@ -61,7 +60,22 @@ class AnalyticsManager {
             searches: []
         };
 
+        this.preferenceStorageKey = 'ibridge_consent_preferences';
+        this.analyticsUserStorageKey = 'analytics_user_id';
+        this.googleAnalyticsInitialized = false;
+        this.clarityInitialized = false;
+        this.customAnalyticsInitialized = false;
+        this.eventListenersInitialized = false;
+        this.behaviorTrackingInitialized = false;
+        this.abTestingInitialized = false;
+        this.dashboardInitialized = false;
+
         this.init();
+    }
+
+    isPublicMainSitePage() {
+        const path = (window.location.pathname || '').toLowerCase();
+        return !/(ticketingsystem|professional-dashboard|staff-portal|lms-platform|security-dashboard|performance-dashboard|intranet)/i.test(path);
     }
 
     /**
@@ -70,19 +84,71 @@ class AnalyticsManager {
     init() {
         try {
             this.setupConsentManagement();
-            this.initializeGoogleAnalytics();
-            this.initializeMicrosoftClarity();
-            this.setupCustomAnalytics();
-            this.trackPageView();
-            this.setupEventListeners();
-            this.startUserBehaviorTracking();
-            this.setupABTesting();
-            this.createAnalyticsDashboard();
+            if (this.shouldRunOptionalTracking()) {
+                this.initializeTrackingStack();
+            } else if (!this.isPublicMainSitePage()) {
+                this.initializeTrackingStack();
+            }
 
-            console.log('📊 Analytics Manager initialized successfully');
+            console.log('ðŸ“Š Analytics Manager initialized successfully');
         } catch (error) {
-            console.error('❌ Analytics Manager initialization failed:', error);
+            console.error('âŒ Analytics Manager initialization failed:', error);
         }
+    }
+
+    getCompliancePreferences() {
+        if (window.iBridgeConsentPreferences) {
+            return window.iBridgeConsentPreferences;
+        }
+
+        try {
+            const raw = localStorage.getItem(this.preferenceStorageKey);
+            return raw ? JSON.parse(raw) : null;
+        } catch (error) {
+            console.warn('Compliance preferences could not be parsed:', error);
+            return null;
+        }
+    }
+
+    syncConsentFromPreferences(preferences) {
+        const previous = !!this.hasConsent;
+        this.hasConsent = !!(preferences && preferences.analytics);
+
+        if (!previous && this.hasConsent) {
+            this.userSession.userId = this.getUserId();
+            this.initializeTrackingStack();
+        }
+
+        if (previous && !this.hasConsent && this.isPublicMainSitePage()) {
+            try {
+                localStorage.removeItem(this.analyticsUserStorageKey);
+            } catch (error) {
+                console.warn('Analytics user identifier could not be cleared:', error);
+            }
+            this.userSession.userId = 'anonymous';
+        }
+    }
+
+    shouldRunOptionalTracking() {
+        return !this.isPublicMainSitePage() || !!this.hasConsent;
+    }
+
+    initializeTrackingStack() {
+        if (!this.shouldRunOptionalTracking()) {
+            return;
+        }
+
+        this.setupCustomAnalytics();
+        this.initializeTrackingServices();
+        this.setupEventListeners();
+        this.startUserBehaviorTracking();
+        this.setupABTesting();
+
+        if (!this.isPublicMainSitePage()) {
+            this.createAnalyticsDashboard();
+        }
+
+        this.trackPageView();
     }
 
     /**
@@ -90,6 +156,21 @@ class AnalyticsManager {
      */
     setupConsentManagement() {
         if (!this.config.consentManagement.enabled) return;
+
+        document.addEventListener('ibridge:consent-updated', (event) => {
+            this.syncConsentFromPreferences(event.detail || {});
+        });
+
+        const preferences = this.getCompliancePreferences();
+        if (window.iBridgeComplianceBootstrap || preferences) {
+            this.syncConsentFromPreferences(preferences || {});
+            return;
+        }
+
+        if (this.isPublicMainSitePage()) {
+            this.hasConsent = false;
+            return;
+        }
 
         // Check for existing consent
         this.hasConsent = localStorage.getItem('analytics_consent') === 'granted';
@@ -103,12 +184,21 @@ class AnalyticsManager {
      * Show consent banner
      */
     showConsentBanner() {
+        if (this.isPublicMainSitePage()) {
+            return;
+        }
+
+        if (window.iBridgeComplianceManager) {
+            window.iBridgeComplianceManager.openPreferencesModal();
+            return;
+        }
+
         const banner = document.createElement('div');
         banner.className = 'analytics-consent-banner';
         banner.innerHTML = `
             <div class="consent-content">
                 <div class="consent-text">
-                    <h4>🍪 We value your privacy</h4>
+                    <h4>ðŸª We value your privacy</h4>
                     <p>We use analytics cookies to improve your experience and understand how our website is used. This helps us provide better services.</p>
                 </div>
                 <div class="consent-actions">
@@ -151,6 +241,15 @@ class AnalyticsManager {
      * Grant analytics consent
      */
     grantConsent() {
+        if (window.iBridgeComplianceManager) {
+            window.iBridgeComplianceManager.persistPreferences({
+                analytics: true,
+                externalMedia: true,
+                marketing: window.iBridgeConsentPreferences?.marketing || false
+            }, 'analytics_manager_accept');
+            return;
+        }
+
         localStorage.setItem('analytics_consent', 'granted');
         this.hasConsent = true;
         this.hideConsentBanner();
@@ -162,6 +261,15 @@ class AnalyticsManager {
      * Deny analytics consent
      */
     denyConsent() {
+        if (window.iBridgeComplianceManager) {
+            window.iBridgeComplianceManager.persistPreferences({
+                analytics: false,
+                externalMedia: window.iBridgeConsentPreferences?.externalMedia || false,
+                marketing: window.iBridgeConsentPreferences?.marketing || false
+            }, 'analytics_manager_decline');
+            return;
+        }
+
         localStorage.setItem('analytics_consent', 'denied');
         this.hasConsent = false;
         this.hideConsentBanner();
@@ -183,7 +291,8 @@ class AnalyticsManager {
      * Initialize Google Analytics 4
      */
     initializeGoogleAnalytics() {
-        if (!this.config.googleAnalytics.enabled || !this.hasConsent) return;
+        if (!this.config.googleAnalytics.enabled || !this.hasConsent || this.googleAnalyticsInitialized) return;
+        if (!this.config.googleAnalytics.measurementId || /X{3,}/.test(this.config.googleAnalytics.measurementId)) return;
 
         // Load gtag script
         const script = document.createElement('script');
@@ -202,7 +311,7 @@ class AnalyticsManager {
             send_page_view: true,
             allow_enhanced_conversions: true,
             allow_google_signals: true,
-            cookie_expires: 63072000, // 2 years
+            cookie_expires: 31536000, // 1 year
 
             // Custom parameters
             custom_map: {
@@ -211,14 +320,16 @@ class AnalyticsManager {
             }
         });
 
-        console.log('✅ Google Analytics 4 initialized');
+        this.googleAnalyticsInitialized = true;
+        console.log('Analytics: Google Analytics 4 initialized');
     }
 
     /**
      * Initialize Microsoft Clarity
      */
     initializeMicrosoftClarity() {
-        if (!this.config.microsoftClarity.enabled || !this.hasConsent) return;
+        if (!this.config.microsoftClarity.enabled || !this.hasConsent || this.clarityInitialized) return;
+        if (!this.config.microsoftClarity.projectId || /X{3,}/.test(this.config.microsoftClarity.projectId)) return;
 
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -226,14 +337,15 @@ class AnalyticsManager {
             y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", this.config.microsoftClarity.projectId);
 
-        console.log('✅ Microsoft Clarity initialized');
+        this.clarityInitialized = true;
+        console.log('Analytics: Microsoft Clarity initialized');
     }
 
     /**
      * Setup custom analytics
      */
     setupCustomAnalytics() {
-        if (!this.config.customAnalytics.enabled) return;
+        if (!this.config.customAnalytics.enabled || this.customAnalyticsInitialized) return;
 
         // Set up custom event queue
         this.eventQueue = [];
@@ -244,13 +356,17 @@ class AnalyticsManager {
             this.flushEventQueue();
         }, this.flushInterval);
 
-        console.log('✅ Custom analytics initialized');
+        this.customAnalyticsInitialized = true;
+        console.log('âœ… Custom analytics initialized');
     }
 
     /**
      * Track page view
      */
     trackPageView() {
+        if (!this.shouldRunOptionalTracking()) {
+            return;
+        }
         const pageData = {
             page_title: document.title,
             page_location: window.location.href,
@@ -270,13 +386,16 @@ class AnalyticsManager {
         this.trackCustomEvent('page_view', pageData);
 
         this.userSession.pageViews++;
-        console.log('📄 Page view tracked:', pageData.page_path);
+        console.log('ðŸ“„ Page view tracked:', pageData.page_path);
     }
 
     /**
      * Track custom event
      */
     trackEvent(eventName, parameters = {}) {
+        if (!this.shouldRunOptionalTracking()) {
+            return;
+        }
         const eventData = {
             event_name: eventName,
             timestamp: new Date().toISOString(),
@@ -307,14 +426,14 @@ class AnalyticsManager {
             this.trackConversion(eventName, this.conversionGoals[eventName]);
         }
 
-        console.log('🎯 Event tracked:', eventName, parameters);
+        console.log('ðŸŽ¯ Event tracked:', eventName, parameters);
     }
 
     /**
      * Track custom event for internal analytics
      */
     trackCustomEvent(eventName, data) {
-        if (!this.config.customAnalytics.enabled) return;
+        if (!this.config.customAnalytics.enabled || !this.shouldRunOptionalTracking()) return;
 
         this.eventQueue.push({
             event: eventName,
@@ -353,13 +472,16 @@ class AnalyticsManager {
         this.trackCustomEvent('conversion', conversionData);
         this.userSession.conversions++;
 
-        console.log('💰 Conversion tracked:', goalName, goalData);
+        console.log('ðŸ’° Conversion tracked:', goalName, goalData);
     }
 
     /**
      * Setup event listeners for automatic tracking
      */
     setupEventListeners() {
+        if (this.eventListenersInitialized) {
+            return;
+        }
         // Form submissions
         document.addEventListener('submit', (e) => {
             const form = e.target;
@@ -459,6 +581,8 @@ class AnalyticsManager {
                 }
             });
         });
+
+        this.eventListenersInitialized = true;
     }
 
     /**
@@ -488,7 +612,7 @@ class AnalyticsManager {
      * Setup A/B testing
      */
     setupABTesting() {
-        if (!this.config.abTesting.enabled) return;
+        if (!this.config.abTesting.enabled || this.abTestingInitialized) return;
 
         // Example A/B test configuration
         const experiments = [
@@ -516,6 +640,8 @@ class AnalyticsManager {
                 });
             }
         });
+
+        this.abTestingInitialized = true;
     }
 
     /**
@@ -543,6 +669,9 @@ class AnalyticsManager {
      * Start user behavior tracking
      */
     startUserBehaviorTracking() {
+        if (this.behaviorTrackingInitialized) {
+            return;
+        }
         // Track form interactions
         const forms = document.querySelectorAll('form');
         forms.forEach(form => {
@@ -574,14 +703,19 @@ class AnalyticsManager {
                 hidden: document.hidden
             });
         });
+
+        this.behaviorTrackingInitialized = true;
     }
 
     /**
      * Create analytics dashboard button
      */
     createAnalyticsDashboard() {
+        if (this.dashboardInitialized || this.isPublicMainSitePage()) {
+            return;
+        }
         const dashboardBtn = document.createElement('button');
-        dashboardBtn.innerHTML = '📊';
+        dashboardBtn.innerHTML = 'ðŸ“Š';
         dashboardBtn.title = 'Open Analytics Dashboard';
         dashboardBtn.style.cssText = `
             position: fixed;
@@ -616,6 +750,7 @@ class AnalyticsManager {
         });
 
         document.body.appendChild(dashboardBtn);
+        this.dashboardInitialized = true;
     }
 
     /**
@@ -654,7 +789,7 @@ class AnalyticsManager {
         </head>
         <body>
             <div class="header">
-                <h1>📊 Analytics Dashboard</h1>
+                <h1>ðŸ“Š Analytics Dashboard</h1>
                 <p>Real-time analytics for iBridge Contact Solutions</p>
                 <button class="refresh-btn" onclick="window.location.reload()">Refresh Data</button>
             </div>
@@ -718,7 +853,7 @@ class AnalyticsManager {
         if (this.eventQueue.length === 0) return;
 
         // In a real implementation, send to your analytics API
-        console.log('📤 Flushing analytics events:', this.eventQueue.length);
+        console.log('ðŸ“¤ Flushing analytics events:', this.eventQueue.length);
 
         // Clear queue after successful send
         this.eventQueue = [];
@@ -732,10 +867,14 @@ class AnalyticsManager {
     }
 
     getUserId() {
-        let userId = localStorage.getItem('analytics_user_id');
+        if (this.isPublicMainSitePage() && !this.hasConsent) {
+            return 'anonymous';
+        }
+
+        let userId = localStorage.getItem(this.analyticsUserStorageKey);
         if (!userId) {
             userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-            localStorage.setItem('analytics_user_id', userId);
+            localStorage.setItem(this.analyticsUserStorageKey, userId);
         }
         return userId;
     }
@@ -785,8 +924,12 @@ class AnalyticsManager {
      * Show consent settings modal
      */
     showConsentSettings() {
-        // Implementation for detailed consent management
-        alert('Consent settings would open here with granular controls for different tracking services.');
+        if (window.iBridgeComplianceManager) {
+            window.iBridgeComplianceManager.openPreferencesModal();
+            return;
+        }
+
+        alert('Privacy preferences are unavailable on this page right now.');
     }
 }
 
@@ -806,3 +949,4 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = AnalyticsManager;
 }
+

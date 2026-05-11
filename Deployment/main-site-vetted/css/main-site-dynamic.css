@@ -1,0 +1,98 @@
+.dynamic-professional-sections {
+  background: #f8f9fb;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.dynamic-block {
+  max-width: 1200px;
+  margin: 0 auto 48px auto;
+  padding: 0 24px;
+}
+
+.dynamic-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.dynamic-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dynamic-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dynamic-card {
+  background: #ffffff;
+  border: 1px solid #dfe6ee;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(12, 26, 39, 0.06);
+  padding: 20px;
+}
+
+.dynamic-card h3 {
+  margin: 0 0 10px 0;
+  color: #123a5a;
+  font-size: 1.1rem;
+}
+
+.dynamic-card p {
+  margin: 0 0 8px 0;
+  color: #2f3a45;
+  line-height: 1.55;
+}
+
+.dynamic-card .meta {
+  color: #5f6c7a;
+  font-size: 0.95rem;
+}
+
+.dynamic-card .quote {
+  font-size: 1rem;
+  color: #1f2a35;
+}
+
+.dynamic-card .stars {
+  color: #c9a227;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.dynamic-card .metric-chip {
+  display: inline-block;
+  margin-top: 8px;
+  background: #e9f8e4;
+  color: #0e5e3e;
+  border: 1px solid #bde7c1;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .dynamic-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .dynamic-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .dynamic-professional-sections {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+  .dynamic-block {
+    margin-bottom: 28px;
+    padding: 0 16px;
+  }
+  .dynamic-grid-4,
+  .dynamic-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+

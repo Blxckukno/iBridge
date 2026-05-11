@@ -1,0 +1,89 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                    iBridge Local Setup - QUICK REFERENCE                       ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ STEP 1: FIX POWERSHELL ISSUE (First Time Only)                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Option A: Easy - Double-click this file                                   │
+│  ➜ fix-powershell-issue.vbs                                                │
+│                                                                             │
+│  Option B: Alternative - Double-click this file                            │
+│  ➜ fix-powershell-issue.bat                                                │
+│                                                                             │
+│  Option C: Manual - Rename this file:                                      │
+│  ➜ powershell.config.json → powershell.config.json.disabled                │
+│  ➜ Location: OneDrive - iBridge.../Documents/PowerShell/                   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ STEP 2: START THE SERVER (Every Time)                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Method 1: Easiest - Double-click this file                                │
+│  ➜ start-fixed.bat                                                         │
+│                                                                             │
+│  Method 2: Alternative - Double-click this file                            │
+│  ➜ start.bat                                                               │
+│                                                                             │
+│  Method 3: Manual - Open Command Prompt and run:                           │
+│  ➜ cd C:\Users\Lwandile Gasela\iBridge                                     │
+│  ➜ python serve.py                                                         │
+│                                                                             │
+│  Wait for message: "iBridge Server Running!"                               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ STEP 3: OPEN IN BROWSER                                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Main Website:        http://localhost:8080                                │
+│  Employee Intranet:   http://localhost:8080/intranet.html                  │
+│  LMS Platform:        http://localhost:8080/lms-platform.html              │
+│  Ticketing System:    http://localhost:8080/TicketingSystem/frontend/...   │
+│  Security Dashboard:  http://localhost:8080/security-dashboard.html        │
+│                                                                             │
+│  Or press: Ctrl+Shift+S on any page for Security Dashboard                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TROUBLESHOOTING                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ❌ "localhost refused to connect"                                         │
+│     ➜ Make sure server is running (see Step 2)                             │
+│     ➜ Try http://localhost:8081 if 8080 is in use                          │
+│                                                                             │
+│  ❌ "Access Denied" error                                                  │
+│     ➜ Right-click script → "Run as Administrator"                          │
+│                                                                             │
+│  ❌ Still getting PowerShell error after fix                               │
+│     ➜ Close OneDrive: Right-click tray → Quit                              │
+│     ➜ Run fix script again                                                 │
+│     ➜ Restart your computer                                                │
+│                                                                             │
+│  ❌ Port 8080 already in use                                               │
+│     ➜ The server will automatically try port 8081                          │
+│     ➜ Or close the app using port 8080                                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ IMPORTANT NOTES                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  • Fix Step 1 only needs to be done ONCE                                   │
+│  • After fix, you never see the PowerShell error again                      │
+│  • Start server (Step 2) every time you want to develop                     │
+│  • Press Ctrl+C in the terminal to stop the server                          │
+│  • For more details, see: SETUP_GUIDE.md                                   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+                           Ready to develop! ✓
+═══════════════════════════════════════════════════════════════════════════════

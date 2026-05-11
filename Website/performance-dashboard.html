@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,6 +11,8 @@
     <meta name="security-nonce" content="k_V1VVwfizuJbZJPnzK9wg">
     <!-- ADVANCED SECURITY HEADERS -->
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
@@ -271,7 +273,7 @@
 <body>
     <div class="dashboard">
         <div class="header">
-            <h1>⚡ Performance Dashboard</h1>
+            <h1>? Performance Dashboard</h1>
             <p>Real-time performance monitoring for iBridge Contact Solutions</p>
         </div>
 
@@ -292,7 +294,7 @@
         </div>
 
         <div class="recommendations" id="recommendations">
-            <h2>🎯 Performance Recommendations</h2>
+            <h2>?? Performance Recommendations</h2>
             <div id="recommendationsList">
                 <!-- Recommendations will be populated by JavaScript -->
             </div>
@@ -300,7 +302,7 @@
     </div>
 
     <button class="refresh-btn">
-        🔄 Refresh
+        ?? Refresh
     </button>
 
     <script nonce="KP7liO1BEQmJM7mswNzQxTjYy8MiQv97">
@@ -392,7 +394,7 @@
                         label: 'Performance Score',
                         value: this.metrics.score || 0,
                         unit: '/100',
-                        icon: '🏆',
+                        icon: '??',
                         status: this.getScoreStatus(this.metrics.score),
                         trend: '+5%'
                     },
@@ -400,7 +402,7 @@
                         label: 'First Contentful Paint',
                         value: Math.round(metrics.fcp || 0),
                         unit: 'ms',
-                        icon: '🎨',
+                        icon: '??',
                         status: this.getFCPStatus(metrics.fcp),
                         trend: '-10%'
                     },
@@ -408,7 +410,7 @@
                         label: 'Largest Contentful Paint',
                         value: Math.round(metrics.lcp || 0),
                         unit: 'ms',
-                        icon: '🖼️',
+                        icon: '???',
                         status: this.getLCPStatus(metrics.lcp),
                         trend: '-5%'
                     },
@@ -416,7 +418,7 @@
                         label: 'Time to Interactive',
                         value: Math.round(metrics.tti || 0),
                         unit: 'ms',
-                        icon: '⚡',
+                        icon: '?',
                         status: this.getTTIStatus(metrics.tti),
                         trend: '+2%'
                     },
@@ -424,7 +426,7 @@
                         label: 'Total Load Time',
                         value: Math.round(metrics.loadTime || 0),
                         unit: 'ms',
-                        icon: '⏱️',
+                        icon: '??',
                         status: this.getLoadTimeStatus(metrics.loadTime),
                         trend: '-8%'
                     },
@@ -432,7 +434,7 @@
                         label: 'DOM Elements',
                         value: metrics.domSize || 0,
                         unit: '',
-                        icon: '🏗️',
+                        icon: '???',
                         status: 'info',
                         trend: '+3%'
                     }
@@ -463,7 +465,7 @@
                 if (recommendations.length === 0) {
                     recommendationsList.innerHTML = `
                         <div class="recommendation-item recommendation-low">
-                            <strong>✅ Great job!</strong><br>
+                            <strong>? Great job!</strong><br>
                             No critical performance issues detected. Keep monitoring for continued optimization.
                         </div>
                     `;
@@ -559,7 +561,7 @@
     <script nonce="k_V1VVwfizuJbZJPnzK9wg" src="js/analytics-manager.js"></script>
 
     <!-- EMERGENCY SECURITY MANAGER -->
-    <script src="js/csp-security-manager.js" nonce="RANDOM_NONCE"></script>
+    <script src="js/csp-security-manager.js"></script>
 
     <script nonce="KP7liO1BEQmJM7mswNzQxTjYy8MiQv97">
     // Advanced XSS Protection System
@@ -575,13 +577,13 @@
         // Override dangerous functions
         const originalEval = window.eval;
         window.eval = function() {
-            console.warn('🚨 eval() blocked by security policy');
+            console.warn('?? eval() blocked by security policy');
             throw new Error('eval() not permitted');
         };
         
         const originalFunction = window.Function;
         window.Function = function() {
-            console.warn('🚨 Function constructor blocked by security policy');
+            console.warn('?? Function constructor blocked by security policy');
             throw new Error('Function constructor not permitted');
         };
         
@@ -589,7 +591,7 @@
         const originalSetAttribute = Element.prototype.setAttribute;
         Element.prototype.setAttribute = function(name, value) {
             if (name && name.toLowerCase().startsWith('on')) {
-                console.warn('🚨 Event handler blocked:', name);
+                console.warn('?? Event handler blocked:', name);
                 return;
             };
             return originalSetAttribute.call(this, name, value);
@@ -628,7 +630,7 @@
         
         // CSP violation reporting
         document.addEventListener('securitypolicyviolation', function(e) {
-            console.error('🚨 CSP Violation:', {
+            console.error('?? CSP Violation:', {
                 directive: e.violatedDirective,
                 blocked: e.blockedURI,
                 source: e.sourceFile,
@@ -642,13 +644,14 @@
         });
         
         // Initialize security monitoring
-        console.log('🔒 Advanced XSS Protection System initialized');
+        console.log('?? Advanced XSS Protection System initialized');
     })();
     </script>
     <script src="js/runtime-fix.js"></script>
 </body>
 
 </html>
+
 
 
 

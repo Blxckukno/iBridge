@@ -1,10 +1,10 @@
 ﻿/* Define root variables and base styles */
 :root {
-    --primary-green: #A1C44F;
-    --primary-green-light: #B8D663;
-    --primary-green-dark: #8FB347;
-    --dark-bg: #2C3E50;
-    --dark-bg-light: #34495e;
+    --primary-green: #92C63E;
+    --primary-green-light: #A9D85C;
+    --primary-green-dark: #7EAF31;
+    --dark-bg: #3A445D;
+    --dark-bg-light: #4A5670;
     --text-white: #FFFFFF;
     --text-gray: #6C757D;
     --light-gray: #F8F9FA;
@@ -24,7 +24,7 @@
     --shadow: var(--shadow-light);
     --shadow-large: var(--shadow-medium);
     --transition: all 0.3s ease;
-    --primary-green: #A1C44F;
+    --primary-green: #92C63E;
     --dim-gray: #6A6A6B;
     --gray: #757576;
     --text-gray: #8E8E8E;
@@ -2258,5 +2258,41 @@ a.animated-link:hover::after {
     .tech-item {
         padding: 30px 20px;
     }
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+}
+
+.footer-legal-links.static-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 16px;
+    font-size: 0.95rem;
+}
+
+.footer-legal-links.static-footer-links a,
+.footer-legal-links.static-footer-links button {
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.footer-legal-links.static-footer-links button {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+.footer-legal-links.static-footer-links a:hover,
+.footer-legal-links.static-footer-links button:hover {
+    color: #a9d85c;
+    text-decoration: underline;
 }
 

@@ -8,7 +8,49 @@
 
   function isMainSitePage() {
     var path = (window.location.pathname || "").toLowerCase();
-    return path.indexOf("/ticketingsystem/") === -1 && path.indexOf("/intranet/") === -1;
+    return (
+      path.indexOf("/ticketingsystem/") === -1 &&
+      path.indexOf("/intranet/") === -1
+    );
+  }
+
+  function isLegalNoticePage() {
+    var path = (window.location.pathname || "").toLowerCase();
+    return (
+      (document.body && document.body.classList.contains("legal-page")) ||
+      /(?:^|\/)(privacy|terms|cookie-notice|compliance)\.html$/.test(path)
+    );
+  }
+
+  function ensureComplianceAssets() {
+    if (!isMainSitePage()) return;
+
+    window.iBridgeComplianceBootstrap = true;
+
+    if (!document.querySelector('link[href*="css/legal-compliance.css"]')) {
+      var complianceCss = document.createElement("link");
+      complianceCss.rel = "stylesheet";
+      complianceCss.href = "css/legal-compliance.css";
+      document.head.appendChild(complianceCss);
+    }
+
+    if (!document.querySelector('script[src*="js/compliance-manager.js"]')) {
+      var complianceScript = document.createElement("script");
+      complianceScript.src = "js/compliance-manager.js";
+      complianceScript.defer = true;
+      document.head.appendChild(complianceScript);
+    }
+  }
+
+  function ensureMainSitePolishCss() {
+    if (!isMainSitePage()) return;
+    if (document.querySelector('link[href*="css/main-site-polish.css"]'))
+      return;
+
+    var polishCss = document.createElement("link");
+    polishCss.rel = "stylesheet";
+    polishCss.href = "css/main-site-polish.css";
+    document.head.appendChild(polishCss);
   }
 
   function getRequiredMainTabs() {
@@ -19,12 +61,13 @@
       { href: "team.html", label: "Our Team" },
       { href: "careers.html", label: "Careers" },
       { href: "contact.html", label: "Contact" },
-      { href: "staff-login.html", label: "Staff Portal" }
     ];
   }
 
   function currentPageFile() {
-    var path = (window.location.pathname || "").replace(/\\/g, "/").toLowerCase();
+    var path = (window.location.pathname || "")
+      .replace(/\\/g, "/")
+      .toLowerCase();
     var parts = path.split("/");
     var file = parts[parts.length - 1] || "index.html";
     if (!file || file === "") return "index.html";
@@ -32,7 +75,9 @@
   }
 
   function isHomeFile(fileName) {
-    return fileName === "index.html" || fileName === "home.html" || fileName === "";
+    return (
+      fileName === "index.html" || fileName === "home.html" || fileName === ""
+    );
   }
 
   function enforceMainSiteTabs() {
@@ -40,18 +85,32 @@
     var requiredTabs = getRequiredMainTabs();
 
     var current = currentPageFile();
-    var candidates = document.querySelectorAll("header ul, .header ul, nav ul, .nav-menu, .main-menu");
+    var candidates = document.querySelectorAll(
+      "header ul, .header ul, nav ul, .nav-menu, .main-menu",
+    );
 
     candidates.forEach(function (list) {
       if (!list || list.classList.contains("sidebar-nav")) return;
       if (list.closest(".sidebar, aside, .dashboard-container")) return;
-      if (!(list.closest("header") || list.closest(".header") || list.closest("nav"))) return;
+      if (
+        !(
+          list.closest("header") ||
+          list.closest(".header") ||
+          list.closest("nav")
+        )
+      )
+        return;
 
-      var existingLinks = Array.prototype.map.call(list.querySelectorAll("a[href]"), function (a) {
-        return (a.getAttribute("href") || "").toLowerCase();
-      });
+      var existingLinks = Array.prototype.map.call(
+        list.querySelectorAll("a[href]"),
+        function (a) {
+          return (a.getAttribute("href") || "").toLowerCase();
+        },
+      );
       var looksLikeMainNav = existingLinks.some(function (href) {
-        return /(index|home|about|services|team|careers|contact|staff|portal|login)/.test(href);
+        return /(index|home|about|services|team|careers|contact|staff|portal|login)/.test(
+          href,
+        );
       });
       if (!looksLikeMainNav) return;
 
@@ -71,15 +130,20 @@
 
   function ensureMainSiteFallbackNav() {
     if (!isMainSitePage()) return;
+    if (isLegalNoticePage()) return;
     if (document.getElementById("runtime-main-tabs")) return;
 
     var tabs = getRequiredMainTabs();
-    var linkHrefs = Array.prototype.map.call(document.querySelectorAll("a[href]"), function (a) {
-      return (a.getAttribute("href") || "").toLowerCase();
-    });
-    var hasMainTabs = tabs.filter(function (tab) {
-      return linkHrefs.indexOf(tab.href.toLowerCase()) !== -1;
-    }).length >= 4;
+    var linkHrefs = Array.prototype.map.call(
+      document.querySelectorAll("a[href]"),
+      function (a) {
+        return (a.getAttribute("href") || "").toLowerCase();
+      },
+    );
+    var hasMainTabs =
+      tabs.filter(function (tab) {
+        return linkHrefs.indexOf(tab.href.toLowerCase()) !== -1;
+      }).length >= 4;
     if (hasMainTabs) return;
 
     var current = currentPageFile();
@@ -88,10 +152,12 @@
     nav.setAttribute("aria-label", "Main site navigation");
     nav.innerHTML = [
       "<ul>",
-      tabs.map(function (tab) {
-        return '<li><a href="' + tab.href + '">' + tab.label + "</a></li>";
-      }).join(""),
-      "</ul>"
+      tabs
+        .map(function (tab) {
+          return '<li><a href="' + tab.href + '">' + tab.label + "</a></li>";
+        })
+        .join(""),
+      "</ul>",
     ].join("");
 
     var style = document.createElement("style");
@@ -128,7 +194,7 @@
       "@media (max-width: 480px) {",
       "  #runtime-main-tabs ul { justify-content: flex-start; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; }",
       "  #runtime-main-tabs li { flex: 0 0 auto; }",
-      "}"
+      "}",
     ].join("\n");
     document.head.appendChild(style);
 
@@ -156,7 +222,8 @@
 
     if (!menu.id) menu.id = "runtime-mobile-menu";
     menuToggle.setAttribute("aria-controls", menu.id);
-    if (!menuToggle.hasAttribute("aria-expanded")) menuToggle.setAttribute("aria-expanded", "false");
+    if (!menuToggle.hasAttribute("aria-expanded"))
+      menuToggle.setAttribute("aria-expanded", "false");
 
     // Ensure mobile panel is visible when active on small screens.
     var style = document.createElement("style");
@@ -195,7 +262,8 @@
     });
 
     document.addEventListener("click", function (e) {
-      if (!menu.contains(e.target) && !menuToggle.contains(e.target)) closeMenu();
+      if (!menu.contains(e.target) && !menuToggle.contains(e.target))
+        closeMenu();
     });
 
     document.addEventListener("keydown", function (e) {
@@ -208,6 +276,7 @@
   }
 
   function normalizeNavbarUI() {
+    if (isLegalNoticePage()) return;
     var style = document.createElement("style");
     style.textContent = [
       ":root { --nav-height: 76px; }",
@@ -284,11 +353,15 @@
   }
 
   function enforceLogoFallback() {
-    var logoPath = window.location.pathname.includes("/TicketingSystem/frontend/")
+    var logoPath = window.location.pathname.includes(
+      "/TicketingSystem/frontend/",
+    )
       ? "../../images/iBridge_Logo-removebg-preview.png"
       : "images/iBridge_Logo-removebg-preview.png";
 
-    var logos = document.querySelectorAll("img[src*='logo'], .logo img, .brand-logo img");
+    var logos = document.querySelectorAll(
+      "img[src*='logo'], .logo img, .brand-logo img",
+    );
     logos.forEach(function (img) {
       img.addEventListener("error", function () {
         img.src = logoPath;
@@ -308,9 +381,21 @@
         : "images/";
 
     var iconSpecs = [
-      { rel: "icon", href: base + "favicon.png" + cacheBust, type: "image/png" },
-      { rel: "shortcut icon", href: base + "favicon.ico" + cacheBust, type: "image/x-icon" },
-      { rel: "apple-touch-icon", href: base + "apple-touch-icon.png" + cacheBust, type: "image/png" }
+      {
+        rel: "icon",
+        href: base + "favicon.png" + cacheBust,
+        type: "image/png",
+      },
+      {
+        rel: "shortcut icon",
+        href: base + "favicon.ico" + cacheBust,
+        type: "image/x-icon",
+      },
+      {
+        rel: "apple-touch-icon",
+        href: base + "apple-touch-icon.png" + cacheBust,
+        type: "image/png",
+      },
     ];
 
     iconSpecs.forEach(function (spec) {
@@ -327,10 +412,15 @@
   }
 
   function ensureImageOptimizationCss() {
-    var hrefs = Array.prototype.map.call(document.querySelectorAll("link[rel='stylesheet']"), function (l) {
-      return l.getAttribute("href") || "";
+    var hrefs = Array.prototype.map.call(
+      document.querySelectorAll("link[rel='stylesheet']"),
+      function (l) {
+        return l.getAttribute("href") || "";
+      },
+    );
+    var already = hrefs.some(function (h) {
+      return h.indexOf("image-optimization.css") !== -1;
     });
-    var already = hrefs.some(function (h) { return h.indexOf("image-optimization.css") !== -1; });
     if (already) return;
     var path = window.location.pathname.includes("/TicketingSystem/frontend/")
       ? "../../css/image-optimization.css"
@@ -344,14 +434,17 @@
   }
 
   function ensureFontAwesomeAndFallback() {
-    var cssBase = window.location.pathname.includes("/TicketingSystem/frontend/")
+    var cssBase = window.location.pathname.includes(
+      "/TicketingSystem/frontend/",
+    )
       ? "../../css/"
       : window.location.pathname.includes("/intranet/")
         ? "../css/"
         : "css/";
 
     var fallbackHref = cssBase + "icon-fallback.css";
-    var faHref = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css";
+    var faHref =
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css";
 
     function addFallbackCss() {
       if (!document.querySelector("link[data-icon-fallback='1']")) {
@@ -364,11 +457,16 @@
       document.documentElement.classList.add("no-fa-icons");
     }
 
+    if (isMainSitePage()) {
+      addFallbackCss();
+      return;
+    }
+
     var faLink = Array.prototype.find.call(
       document.querySelectorAll("link[rel='stylesheet']"),
       function (l) {
         return (l.href || "").indexOf("font-awesome") !== -1;
-      }
+      },
     );
 
     if (!faLink) {
@@ -407,7 +505,8 @@
   }
 
   function getImagesBasePath() {
-    if (window.location.pathname.includes("/TicketingSystem/frontend/")) return "../../images/";
+    if (window.location.pathname.includes("/TicketingSystem/frontend/"))
+      return "../../images/";
     if (window.location.pathname.includes("/intranet/")) return "../images/";
     return "images/";
   }
@@ -417,9 +516,12 @@
     var normalized = src.replace(/\\/g, "/");
     var noLeading = normalized.replace(/^\.?\//, "");
     var noWebsitePrefix = noLeading.replace(/^website\//i, "");
-    var onlyAfterImages = noWebsitePrefix.indexOf("images/") >= 0
-      ? noWebsitePrefix.substring(noWebsitePrefix.indexOf("images/") + "images/".length)
-      : noWebsitePrefix;
+    var onlyAfterImages =
+      noWebsitePrefix.indexOf("images/") >= 0
+        ? noWebsitePrefix.substring(
+            noWebsitePrefix.indexOf("images/") + "images/".length,
+          )
+        : noWebsitePrefix;
 
     var list = [
       normalized,
@@ -428,7 +530,7 @@
       "/Website/" + noWebsitePrefix,
       "images/" + onlyAfterImages,
       "/images/" + onlyAfterImages,
-      "/Website/images/" + onlyAfterImages
+      "/Website/images/" + onlyAfterImages,
     ];
 
     return list.filter(function (value, index, arr) {
@@ -458,7 +560,7 @@
       "gallery/culture-2.jpg": "generated-hq/client-interaction-african.png",
       "gallery/workspace-1.jpg": "generated-hq/intranet-collab-african.png",
       "gallery/workspace-2.jpg": "generated-hq/ai-automation-african.png",
-      "ibridge-og-image.jpg": "generated-hq/og-african-customer-support.png"
+      "ibridge-og-image.jpg": "generated-hq/og-african-customer-support.png",
     };
 
     var images = document.querySelectorAll("img[src]");
@@ -490,7 +592,10 @@
         return;
       }
       if (src.indexOf("v=") !== -1) return;
-      img.setAttribute("src", src + (src.indexOf("?") === -1 ? "?" : "&") + stamp);
+      img.setAttribute(
+        "src",
+        src + (src.indexOf("?") === -1 ? "?" : "&") + stamp,
+      );
     });
   }
 
@@ -559,7 +664,10 @@
       ].join(", ");
       img.setAttribute("srcset", srcset);
       if (!img.getAttribute("sizes")) {
-        img.setAttribute("sizes", "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1024px");
+        img.setAttribute(
+          "sizes",
+          "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1024px",
+        );
       }
     });
   }
@@ -586,7 +694,7 @@
       "  transform: translateZ(0);",
       "  -webkit-backface-visibility: hidden;",
       "  backface-visibility: hidden;",
-    "}",
+      "}",
       ".image-container,",
       ".about-image,",
       ".service-card {",
@@ -623,7 +731,9 @@
     var base = getImagesBasePath();
     var fallback = base + "generated-hq/og-african-customer-support.png";
     hero.style.backgroundImage =
-      "linear-gradient(rgba(11, 31, 51, 0.72), rgba(11, 31, 51, 0.72)), url('" + fallback + "')";
+      "linear-gradient(rgba(11, 31, 51, 0.72), rgba(11, 31, 51, 0.72)), url('" +
+      fallback +
+      "')";
     hero.style.backgroundSize = "cover";
     hero.style.backgroundPosition = "center";
   }
@@ -645,11 +755,19 @@
     try {
       if ("serviceWorker" in navigator) {
         var regs = await navigator.serviceWorker.getRegistrations();
-        await Promise.all(regs.map(function (r) { return r.unregister(); }));
+        await Promise.all(
+          regs.map(function (r) {
+            return r.unregister();
+          }),
+        );
       }
       if ("caches" in window) {
         var keys = await caches.keys();
-        await Promise.all(keys.map(function (k) { return caches.delete(k); }));
+        await Promise.all(
+          keys.map(function (k) {
+            return caches.delete(k);
+          }),
+        );
       }
       // Single reload after cleanup.
       if (!window.location.search.includes("cachefix=1")) {
@@ -661,7 +779,12 @@
     }
   }
 
+  ensureComplianceAssets();
+  ensureMainSitePolishCss();
+
   document.addEventListener("DOMContentLoaded", function () {
+    ensureComplianceAssets();
+    ensureMainSitePolishCss();
     normalizeNavbarUI();
     enforceMainSiteTabs();
     ensureMainSiteFallbackNav();
@@ -681,11 +804,3 @@
     clearLocalhostCachesOnce();
   });
 })();
-
-
-
-
-
-
-
-

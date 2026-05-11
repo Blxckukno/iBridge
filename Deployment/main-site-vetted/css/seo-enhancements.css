@@ -1,0 +1,113 @@
+/**
+ * iBridge Enterprise SEO Enhancements CSS
+ * Optimizations for search engine performance
+ */
+
+/* Core Web Vitals Optimization */
+.seo-lazy-loaded {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.lazy {
+    opacity: 0;
+}
+
+/* Structured Data Styling */
+.breadcrumb {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* SEO-Friendly Content Structure */
+.seo-content h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.seo-content h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 2rem 0 1rem 0;
+    line-height: 1.3;
+}
+
+.seo-content h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 1.5rem 0 0.75rem 0;
+    line-height: 1.4;
+}
+
+/* Image Optimization for SEO */
+.seo-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Loading States */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Accessibility and SEO */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Print Styles for SEO */
+@media print {
+    .breadcrumb,
+    .seo-content h1,
+    .seo-content h2,
+    .seo-content h3 {
+        page-break-after: avoid;
+    }
+    
+    .seo-image {
+        page-break-inside: avoid;
+    }
+}
+
+/* Core Web Vitals Layout Optimization */
+.hero-section {
+    contain: layout;
+}
+
+.content-wrapper {
+    contain: layout style;
+}
+
+/* Performance Hints */
+.critical-resource {
+    font-display: swap; /* For font optimization */
+}

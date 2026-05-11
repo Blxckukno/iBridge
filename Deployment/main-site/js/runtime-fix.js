@@ -11,6 +11,43 @@
     return path.indexOf("/ticketingsystem/") === -1 && path.indexOf("/intranet/") === -1;
   }
 
+  function isLegalNoticePage() {
+    var path = (window.location.pathname || "").toLowerCase();
+    return (
+      document.body && document.body.classList.contains("legal-page")
+    ) || /(?:^|\/)(privacy|terms|cookie-notice|compliance)\.html$/.test(path);
+  }
+
+  function ensureComplianceAssets() {
+    if (!isMainSitePage()) return;
+
+    window.iBridgeComplianceBootstrap = true;
+
+    if (!document.querySelector('link[href*="css/legal-compliance.css"]')) {
+      var complianceCss = document.createElement("link");
+      complianceCss.rel = "stylesheet";
+      complianceCss.href = "css/legal-compliance.css";
+      document.head.appendChild(complianceCss);
+    }
+
+    if (!document.querySelector('script[src*="js/compliance-manager.js"]')) {
+      var complianceScript = document.createElement("script");
+      complianceScript.src = "js/compliance-manager.js";
+      complianceScript.defer = true;
+      document.head.appendChild(complianceScript);
+    }
+  }
+
+  function ensureMainSitePolishCss() {
+    if (!isMainSitePage()) return;
+    if (document.querySelector('link[href*="css/main-site-polish.css"]')) return;
+
+    var polishCss = document.createElement("link");
+    polishCss.rel = "stylesheet";
+    polishCss.href = "css/main-site-polish.css";
+    document.head.appendChild(polishCss);
+  }
+
   function getRequiredMainTabs() {
     return [
       { href: "index.html", label: "Home" },
@@ -18,8 +55,7 @@
       { href: "services.html", label: "Services" },
       { href: "team.html", label: "Our Team" },
       { href: "careers.html", label: "Careers" },
-      { href: "contact.html", label: "Contact" },
-      { href: "staff-login.html", label: "Staff Portal" }
+      { href: "contact.html", label: "Contact" }
     ];
   }
 
@@ -71,6 +107,7 @@
 
   function ensureMainSiteFallbackNav() {
     if (!isMainSitePage()) return;
+    if (isLegalNoticePage()) return;
     if (document.getElementById("runtime-main-tabs")) return;
 
     var tabs = getRequiredMainTabs();
@@ -208,6 +245,7 @@
   }
 
   function normalizeNavbarUI() {
+    if (isLegalNoticePage()) return;
     var style = document.createElement("style");
     style.textContent = [
       ":root { --nav-height: 76px; }",
@@ -362,6 +400,11 @@
         document.head.appendChild(fallback);
       }
       document.documentElement.classList.add("no-fa-icons");
+    }
+
+    if (isMainSitePage()) {
+      addFallbackCss();
+      return;
     }
 
     var faLink = Array.prototype.find.call(
@@ -661,7 +704,12 @@
     }
   }
 
+  ensureComplianceAssets();
+  ensureMainSitePolishCss();
+
   document.addEventListener("DOMContentLoaded", function () {
+    ensureComplianceAssets();
+    ensureMainSitePolishCss();
     normalizeNavbarUI();
     enforceMainSiteTabs();
     ensureMainSiteFallbackNav();

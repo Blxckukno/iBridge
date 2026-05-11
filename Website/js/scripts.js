@@ -437,11 +437,30 @@ class Analytics {
         if (this.consent) this.initializeAnalytics();
     }
 
+    isPublicMainSitePage() {
+        const path = (window.location.pathname || '').toLowerCase();
+        return !/(ticketingsystem|professional-dashboard|staff-portal|lms-platform|security-dashboard|performance-dashboard|intranet)/i.test(path);
+    }
+
     getConsentStatus() {
+        if (window.iBridgeConsentPreferences) {
+            return !!window.iBridgeConsentPreferences.analytics;
+        }
+
+        try {
+            const preferences = JSON.parse(localStorage.getItem('ibridge_consent_preferences') || 'null');
+            if (preferences && typeof preferences.analytics === 'boolean') {
+                return preferences.analytics;
+            }
+        } catch (error) {
+            console.warn('Could not parse consent preferences:', error);
+        }
+
         return localStorage.getItem('analyticsConsent') === 'true';
     }
 
     setupConsentBanner() {
+        if (this.isPublicMainSitePage()) return;
         if (this.consent) return;
 
         const banner = document.createElement('div');
@@ -468,6 +487,14 @@ class Analytics {
 
     setConsent(value) {
         this.consent = value;
+        if (window.iBridgeComplianceManager) {
+            window.iBridgeComplianceManager.persistPreferences({
+                analytics: value,
+                externalMedia: window.iBridgeConsentPreferences?.externalMedia || false,
+                marketing: window.iBridgeConsentPreferences?.marketing || false
+            }, value ? 'legacy_accept' : 'legacy_reject');
+            return;
+        }
         localStorage.setItem('analyticsConsent', value);
         if (value) this.initializeAnalytics();
     }
